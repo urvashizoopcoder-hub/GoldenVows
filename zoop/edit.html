@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Customize your Royal Palace invitation — Just For You</title>
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="stylesheet" href="assets/editor.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand"><span class="brand__mono">❦</span><div><b>Royal Palace</b><small>Wedding website invitation</small></div></div>
+  <nav class="tabs" role="tablist"><button type="button" class="tab on" data-view="form">✎ Edit</button><button type="button" class="tab" data-view="preview">👁 Preview</button></nav>
+</header>
+
+<div class="wrap">
+<form class="panel" id="ed" autocomplete="off" novalidate>
+  <p class="intro">Fill in your details — the preview updates as you type. Leave an optional field empty and it disappears from the invitation.</p>
+
+  <details class="grp" open><summary>💑 The Couple</summary>
+    <div class="row2">
+      <label>Groom's first name *<input name="groom_name" maxlength="30" required></label>
+      <label>Bride's first name *<input name="bride_name" maxlength="30" required></label>
+    </div>
+    <label>Groom's full name *<input name="groom_full_name" maxlength="60" required></label>
+    <label>Groom's parents <i>(optional)</i><input name="groom_parents" maxlength="120" placeholder="Son of Mr. … & Mrs. …"></label>
+    <label>Bride's full name *<input name="bride_full_name" maxlength="60" required></label>
+    <label>Bride's parents <i>(optional)</i><input name="bride_parents" maxlength="120" placeholder="Daughter of Mr. … & Mrs. …"></label>
+    <div class="row2 photos">
+      <label class="photo">Groom photo <i>(optional)</i><input type="file" accept="image/*" data-photo="groom_photo"><span class="photo__btn">Upload</span><button type="button" class="photo__x" data-clear="groom_photo" hidden>Remove</button></label>
+      <label class="photo">Bride photo <i>(optional)</i><input type="file" accept="image/*" data-photo="bride_photo"><span class="photo__btn">Upload</span><button type="button" class="photo__x" data-clear="bride_photo" hidden>Remove</button></label>
+    </div>
+    <label class="photo">Couple photo for the opening screen <i>(optional)</i><input type="file" accept="image/*" data-photo="cover_image"><span class="photo__btn">Upload</span><button type="button" class="photo__x" data-clear="cover_image" hidden>Remove</button></label>
+    <p class="note">Photos are shrunk and saved inside your link, which makes the link longer. Leave them empty to keep our illustrated artwork.</p>
+  </details>
+
+  <details class="grp" open><summary>📅 Wedding Date &amp; Venue</summary>
+    <div class="row2">
+      <label>Wedding date *<input type="date" name="event_date" required></label>
+      <label>Time <i>(optional)</i><input type="time" name="event_time"></label>
+    </div>
+    <label>Venue *<input name="venue" maxlength="90" required></label>
+    <label>Venue address <i>(optional)</i><input name="venue_address" maxlength="140"></label>
+    <label>Google Maps link <i>(optional — we create one from the venue if empty)</i><input type="url" name="venue_map_url" placeholder="https://maps.app.goo.gl/…"></label>
+  </details>
+
+  <details class="grp" open><summary>🪔 Events / Functions</summary>
+    <div id="evList"></div>
+    <div class="evadd">
+      <button type="button" class="btn btn--soft" id="evAdd">＋ Add event</button>
+      <select id="evPreset" aria-label="Quick add"><option value="">Quick add…</option><option>Haldi</option><option>Mehendi</option><option>Sangeet</option><option>Wedding</option><option>Reception</option><option>Engagement</option><option>Cocktail</option></select>
+    </div>
+  </details>
+
+  <details class="grp"><summary>💌 Messages</summary>
+    <label>Invitation message <i>(optional)</i><textarea name="invite_message" rows="3" maxlength="400"></textarea></label>
+    <label>Couple quote <i>(optional)</i><textarea name="couple_quote" rows="2" maxlength="200"></textarea></label>
+    <label>Closing quote <i>(optional)</i><input name="closing_quote" maxlength="140"></label>
+    <label>Family sign-off <i>(optional)</i><input name="family_signoff" maxlength="100"></label>
+    <label>Hashtag <i>(optional)</i><input name="hashtag" maxlength="40" placeholder="#AaravWedsAnanya"></label>
+  </details>
+
+  <details class="grp"><summary>✅ RSVP, Music &amp; Gallery</summary>
+    <label>WhatsApp number for RSVPs <i>(with country code)</i><input type="tel" name="rsvp_whatsapp" inputmode="numeric" placeholder="919876543210" maxlength="16"></label>
+    <label>Reply-by date <i>(optional)</i><input type="date" name="rsvp_deadline"></label>
+    <label class="tog"><input type="checkbox" name="music_enabled" checked><span></span>Background music (romantic piano)</label>
+    <label class="tog"><input type="checkbox" name="show_gallery" checked><span></span>Show the "Photo Memories" gallery (sample artwork)</label>
+  </details>
+
+  <div class="actions">
+    <button type="button" class="btn btn--ghost" id="resetBtn">Reset to sample</button>
+    <button type="button" class="btn btn--ghost" id="clearBtn">Clear all</button>
+  </div>
+  <p class="err" id="err" hidden></p>
+  <button type="button" class="btn btn--main" id="createBtn">✨ Create my invitation</button>
+</form>
+
+<section class="preview" id="preview">
+  <div class="phone"><div class="phone__notch"></div><iframe id="pv" title="Invitation preview"></iframe></div>
+  <p class="pvnote">Live preview · opening screen skipped here, guests will see it</p>
+</section>
+</div>
+
+<div class="sheet" id="sheet" hidden>
+  <div class="sheet__card">
+    <button type="button" class="sheet__x" id="sheetX" aria-label="Close">×</button>
+    <div class="sheet__tick">✓</div>
+    <h2>Your invitation is ready!</h2>
+    <p>Share this link with your guests. Everything you typed is saved inside the link.</p>
+    <div class="link"><input id="shareUrl" readonly aria-label="Your invitation link"><button type="button" class="btn btn--main" id="copyBtn">Copy</button></div>
+    <p class="note" id="lenNote"></p>
+    <div class="sheet__btns">
+      <a class="btn btn--wa" id="waShare" target="_blank" rel="noopener">Share on WhatsApp</a>
+      <a class="btn btn--ghost" id="openLink" target="_blank" rel="noopener">Open invitation ↗</a>
+      <button type="button" class="btn btn--ghost" id="nativeShare" hidden>Share…</button>
+    </div>
+  </div>
+</div>
+
+<template id="evTpl">
+  <div class="ev">
+    <div class="ev__head"><b class="ev__no"></b><button type="button" class="ev__del" aria-label="Remove event">Remove</button></div>
+    <label>Event name *<input data-k="name" maxlength="30"></label>
+    <div class="row2"><label>Date *<input type="date" data-k="date"></label><label>Time<input type="time" data-k="time"></label></div>
+    <label>Venue <i>(empty = main venue)</i><input data-k="venue" maxlength="90"></label>
+    <div class="row2"><label>Map link <i>(optional)</i><input type="url" data-k="map_url"></label><label>Dress code <i>(optional)</i><input data-k="dress" maxlength="40"></label></div>
+  </div>
+</template>
+
+<script src="assets/sample-data.js"></script>
+<script src="assets/jfy-codec.js"></script>
+<script src="assets/editor.js"></script>
+</body>
+</html>
