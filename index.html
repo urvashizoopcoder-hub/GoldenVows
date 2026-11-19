@@ -1,321 +1,1180 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>{{groom_name}} &amp; {{bride_name}} — Wedding Invitation</title>
-<meta name="description" content="You are invited to the wedding of {{groom_full_name}} &amp; {{bride_full_name}}">
-<meta property="og:title" content="{{groom_name}} &amp; {{bride_name}} are getting married!">
-<meta property="og:description" content="Tap to open your royal wedding invitation">
-<meta property="og:image" content="assets/img/hero_palace.webp">
-<meta name="theme-color" content="#e9b9bf">
-<link rel="preload" href="assets/img/couple_call.webp" as="image">
-<link rel="stylesheet" href="assets/fonts/fonts.css">
-<link rel="stylesheet" href="styles.css">
-<!-- Just For You template: JFY-WED-ROYAL-PALACE · placeholders {{key}} are filled from window.JFY_DATA -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Botanique & Terre — Luxury Page-Turning Wedding Invitation</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Playfair Display', 'Georgia', 'serif'],
+            script: ['"Pinyon Script"', '"Great Vibes"', 'cursive'],
+            sans: ['"Montserrat"', '"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            avocado: {
+              50: '#F4F7EC',
+              100: '#E7EDD5',
+              200: '#D1DEAC',
+              300: '#B5CB7E',
+              400: '#9AB757',
+              500: '#7B9B38',
+              600: '#606C38',
+              700: '#485426',
+              800: '#353F1B',
+              900: '#283618',
+            },
+            brown: {
+              50: '#F8F5F2',
+              100: '#EFE7E0',
+              200: '#DFCFC2',
+              300: '#C8B19E',
+              400: '#A98D77',
+              500: '#8C6C54',
+              600: '#6F5039',
+              700: '#543B29',
+              800: '#3E2A1D',
+              900: '#2C1D13',
+            },
+            cream: {
+              50: '#FFFEFA',
+              100: '#FAF7F0',
+              200: '#F5EFE0',
+              300: '#EDE4CE',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&family=Pinyon+Script&family=Great+Vibes&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+  <style>
+    /* Organic Linen Texture & Styling */
+    body {
+      background-color: #F7F4EC;
+      background-image: 
+        radial-gradient(at 15% 15%, rgba(96, 108, 56, 0.08) 0px, transparent 55%),
+        radial-gradient(at 85% 85%, rgba(74, 53, 37, 0.09) 0px, transparent 55%),
+        radial-gradient(at 50% 50%, rgba(254, 250, 224, 0.6) 0px, transparent 70%);
+      color: #3E2A1D;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    /* 3D BOOKLET & PAGE FLIP ENGINE */
+    .booklet-viewport {
+      perspective: 2400px;
+      perspective-origin: center center;
+    }
+
+    .booklet-container {
+      position: relative;
+      width: 100%;
+      max-width: 460px;
+      height: 740px;
+      transform-style: preserve-3d;
+      transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+      box-shadow: 
+        0 25px 60px -15px rgba(44, 29, 19, 0.35),
+        0 10px 25px -10px rgba(96, 108, 56, 0.2);
+      border-radius: 20px;
+    }
+
+    /* Single Page Structure */
+    .book-page {
+      position: absolute;
+      inset: 0;
+      background: #FFFEFA;
+      border-radius: 20px;
+      border: 1px solid rgba(140, 108, 84, 0.22);
+      overflow-y: auto;
+      overflow-x: hidden;
+      transform-origin: left center;
+      transition: transform 0.9s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.6s, box-shadow 0.6s;
+      backface-visibility: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: inset 18px 0 35px -15px rgba(62, 42, 29, 0.12);
+    }
+
+    .book-page.flipped {
+      transform: rotateY(-180deg);
+      pointer-events: none;
+      opacity: 0;
+    }
+
+    .book-page.active-page {
+      transform: rotateY(0deg);
+      z-index: 10;
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .book-page.next-page {
+      transform: rotateY(0deg);
+      z-index: 5;
+      opacity: 0.96;
+    }
+
+    /* Paper Spine Crease */
+    .page-spine {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 24px;
+      background: linear-gradient(to right, rgba(62, 42, 29, 0.15) 0%, rgba(62, 42, 29, 0.03) 60%, transparent 100%);
+      pointer-events: none;
+      z-index: 20;
+    }
+
+    /* Deckled / Handmade Paper Border Detail */
+    .deckled-border {
+      border: 1px solid rgba(96, 108, 56, 0.35);
+      position: relative;
+    }
+    .deckled-border::after {
+      content: '';
+      position: absolute;
+      inset: 4px;
+      border: 1px dashed rgba(111, 80, 57, 0.25);
+      pointer-events: none;
+      border-radius: inherit;
+    }
+
+    /* Botanical Oval Frame */
+    .botanical-oval {
+      border-radius: 50% / 40%;
+      border: 2px solid #8C6C54;
+      box-shadow: 0 8px 25px rgba(62, 42, 29, 0.15);
+      overflow: hidden;
+    }
+
+    /* Avocado & Brown Wax Seals */
+    .seal-avocado {
+      background: radial-gradient(circle at 35% 35%, #8BA846 0%, #606C38 50%, #353F1B 100%);
+      box-shadow: 0 8px 22px rgba(40, 54, 24, 0.4), inset 0 2px 4px rgba(255, 255, 255, 0.4), inset 0 -3px 8px rgba(0, 0, 0, 0.4);
+    }
+    .seal-brown {
+      background: radial-gradient(circle at 35% 35%, #8C6C54 0%, #543B29 50%, #2C1D13 100%);
+      box-shadow: 0 8px 22px rgba(44, 29, 19, 0.45), inset 0 2px 4px rgba(255, 255, 255, 0.4), inset 0 -3px 8px rgba(0, 0, 0, 0.5);
+    }
+    .seal-terracotta {
+      background: radial-gradient(circle at 35% 35%, #D48B6A 0%, #A65B3E 50%, #5E2E1A 100%);
+      box-shadow: 0 8px 22px rgba(94, 46, 26, 0.45), inset 0 2px 4px rgba(255, 255, 255, 0.4);
+    }
+
+    /* Page Turn Wave Ripple */
+    @keyframes curl-shadow {
+      0% { box-shadow: 0 0 0 rgba(0,0,0,0); }
+      50% { box-shadow: -25px 0 40px rgba(44, 29, 19, 0.25); }
+      100% { box-shadow: 0 0 0 rgba(0,0,0,0); }
+    }
+    .page-turn-anim {
+      animation: curl-shadow 0.9s ease-in-out;
+    }
+  </style>
 </head>
-<body class="is-locked">
+<body class="min-h-screen overflow-x-hidden antialiased flex flex-col justify-between">
 
-<!-- ============ LOADER ============ -->
-<div class="loader" id="loader" aria-hidden="true">
-  <svg class="loader__lotus" viewBox="0 0 64 64"><g fill="none" stroke="#b5835a" stroke-width="1.6"><path d="M32 50C22 42 20 30 32 14c12 16 10 28 0 36z"/><path d="M32 50c-9-2-18-10-20-24 10 1 17 7 20 14"/><path d="M32 50c9-2 18-10 20-24-10 1-17 7-20 14"/><path d="M14 52h36"/></g></svg>
-  <div class="loader__pct"><span id="loaderPct">0</span>%</div>
-  <div class="loader__txt">Preparing your invitation…</div>
-</div>
-
-<!-- ============ COVER: INCOMING WEDDING CALL ============ -->
-<section class="call" id="call" role="dialog" aria-modal="true" aria-label="Incoming wedding call from {{groom_name}} &amp; {{bride_name}}">
-  <div class="call__bg" style="background-image:url('assets/img/corridor.webp')"></div>
-  <div class="call__couple" data-bg="{{cover_image}}"></div>
-  <div class="call__shade"></div>
-  <div class="call__status" aria-hidden="true">
-    <span id="callClock">9:41</span>
-    <span class="call__icons"><i></i><i></i><i></i><b></b></span>
-  </div>
-  <div class="call__top">
-    <p class="call__label">Incoming wedding call<span class="dots"><i>.</i><i>.</i><i>.</i></span></p>
-    <h1 class="call__names"><span>{{groom_name}}</span><span class="call__heart">❤</span><span>{{bride_name}}</span></h1>
-    <p class="call__sub">{{event_date|long}}</p>
-  </div>
-  <div class="call__fog"></div>
-  <div class="call__bottom">
-    <button class="call__magic" type="button" data-magic>✨ Tap to feel the magic</button>
-    <div class="call__actions">
-      <a class="call__act" id="remindBtn" target="_blank" rel="noopener"><span class="call__ico"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 4.5a8 8 0 1 1 0 16 8 8 0 0 1 0-16Zm0 1.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4Zm-.9 2.4h1.8v4.1l3 1.8-.9 1.5-3.9-2.3V8.7ZM6.2 2.6l1.2 1.4-3.6 3L2.6 5.6l3.6-3Zm11.6 0 3.6 3-1.2 1.4-3.6-3 1.2-1.4Z"/></svg></span>Remind Me</a>
-      <a class="call__act" id="msgBtn" target="_blank" rel="noopener"><span class="call__ico"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 3c5 0 9 3.4 9 7.7s-4 7.7-9 7.7c-.9 0-1.8-.1-2.6-.3L5 20l.9-3.6C4.1 15 3 13 3 10.7 3 6.4 7 3 12 3Z"/></svg></span>Message</a>
-    </div>
-    <div class="slider" id="slider">
-      <div class="slider__fill"></div>
-      <div class="slider__text"><b>slide</b>&nbsp;to answer</div>
-      <button class="slider__knob" id="knob" type="button" aria-label="Slide or tap to open the invitation">
-        <svg viewBox="0 0 24 24"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z"/></svg>
-      </button>
-    </div>
-    <span class="call__home"></span>
-  </div>
-</section>
-
-<div class="ambient" aria-hidden="true">
-  <div class="ambient__bg"></div>
-  <div class="lanterns" id="lanterns"></div>
-</div>
-<canvas class="petals" id="petals" aria-hidden="true"></canvas>
-
-<main class="site" id="site">
-
-  <!-- ============ HERO PALACE ============ -->
-  <section class="hero" id="hero">
-    <div class="hero__art" data-par="0.18"><img data-src="{{hero_image}}" alt="" fetchpriority="high"></div>
-    <div class="hero__glow"></div>
-    <div class="hero__text">
-      <p class="hero__eyebrow">you are cordially invited<br>to the wedding of</p>
-      <h2 class="hero__name" data-fit="20">{{groom_full_name}}</h2>
-      <div class="hero__amp">&amp;</div>
-      <h2 class="hero__name" data-fit="20">{{bride_full_name}}</h2>
-      <p class="hero__date">{{event_date|long}}</p>
-    </div>
-    <button class="hero__magic" type="button" data-magic>✨ Tap to feel the magic</button>
-    <div class="scroll-cue"><span>Scroll</span><i></i></div>
-  </section>
-
-  <!-- ============ INVITE MESSAGE ============ -->
-  <section class="sec invite" data-optional="invite_message">
-    <svg class="orn orn--top reveal" viewBox="0 0 240 40" aria-hidden="true"><use href="#orn-divider"/></svg>
-    <p class="invite__ganesh reveal">॥ Shree Ganeshaya Namah ॥</p>
-    <p class="invite__msg reveal">{{invite_message}}</p>
-    <p class="invite__heart reveal">❤</p>
-  </section>
-
-  <!-- ============ MEET THE COUPLE ============ -->
-  <section class="sec couple">
-    <header class="head reveal">
-      <p class="head__eyebrow">Getting to know us</p>
-      <h3 class="head__title">Meet The Couple</h3>
-      <p class="head__sub">Two hearts, one beautiful journey together.</p>
-    </header>
-    <article class="person reveal">
-      <div class="arch">
-        <img class="arch__img" data-src="{{groom_photo}}" alt="{{groom_full_name}}" loading="lazy">
-        <svg class="arch__frame" viewBox="0 0 300 400" aria-hidden="true"><use href="#arch-frame"/></svg>
+  <!-- ============================================== -->
+  <!-- TOP STUDIO NAVIGATION BAR                      -->
+  <!-- ============================================== -->
+  <header class="bg-[#FAF7F0]/95 backdrop-blur-md border-b border-brown-200 sticky top-0 z-50 px-4 py-3 shadow-xs">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+      
+      <!-- Brand & Title -->
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-avocado-600 flex items-center justify-center text-cream-50 font-serif font-bold text-lg shadow-md shadow-avocado-800/20 border border-avocado-400">
+          🌿
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-serif tracking-widest text-base font-bold text-brown-900 uppercase">Botanique &amp; Terre</span>
+            <span class="px-2 py-0.5 text-[10px] tracking-wider uppercase font-semibold rounded-full bg-avocado-100 text-avocado-800 border border-avocado-300">Page-Turn Edition</span>
+          </div>
+          <p class="text-[11px] text-brown-600">Avocado &amp; Earthy Brown Artisanal Wedding Booklet</p>
+        </div>
       </div>
-      <p class="person__role">The Groom</p>
-      <h4 class="person__name" data-fit="22">{{groom_full_name}}</h4>
-      <p class="person__parents" data-optional="groom_parents">{{groom_parents}}</p>
-    </article>
-    <div class="couple__knot reveal" aria-hidden="true"><svg viewBox="0 0 120 40"><use href="#orn-knot"/></svg></div>
-    <article class="person reveal">
-      <div class="arch">
-        <img class="arch__img" data-src="{{bride_photo}}" alt="{{bride_full_name}}" loading="lazy">
-        <svg class="arch__frame" viewBox="0 0 300 400" aria-hidden="true"><use href="#arch-frame"/></svg>
-      </div>
-      <p class="person__role">The Bride</p>
-      <h4 class="person__name" data-fit="22">{{bride_full_name}}</h4>
-      <p class="person__parents" data-optional="bride_parents">{{bride_parents}}</p>
-    </article>
-    <blockquote class="quote reveal" data-optional="couple_quote">“{{couple_quote}}”</blockquote>
-  </section>
 
-  <!-- ============ SAVE THE DATE (ENVELOPE) ============ -->
-  <section class="sec std" id="std">
-    <div class="garland" aria-hidden="true"></div>
-    <header class="head reveal">
-      <p class="head__eyebrow">A little surprise</p>
-      <h3 class="head__title">Save The Date</h3>
-      <p class="head__sub" id="envHint">Tap the envelope to open it.</p>
-    </header>
-    <div class="env-stage reveal" id="envStage">
-      <div class="env" id="env" role="button" tabindex="0" aria-label="Open the save the date envelope">
-        <div class="env__back"></div>
-        <div class="env__card" id="envCard">
-          <div class="cal">
-            <p class="cal__big"><span id="calDay">14</span></p>
-            <p class="cal__month" id="calMonth">FEBRUARY 2027</p>
-            <div class="cal__grid" id="calGrid"></div>
+      <!-- Action Tools -->
+      <div class="flex items-center gap-2">
+
+        <!-- Audio Player Toggle -->
+        <button id="musicToggleBtn" onclick="toggleMusic()" class="px-3 py-1.5 text-xs rounded-full border border-brown-300 bg-white text-brown-800 hover:bg-brown-50 transition-all flex items-center gap-2 shadow-xs">
+          <i id="musicIcon" class="fa-solid fa-volume-high text-avocado-700"></i>
+          <span id="musicLabel" class="text-[11px] font-medium">Melody</span>
+        </button>
+
+        <!-- Re-seal Envelope -->
+        <button onclick="resealEnvelope()" class="px-3.5 py-1.5 text-xs rounded-full border border-avocado-600/40 text-avocado-800 hover:bg-avocado-100/50 transition-all flex items-center gap-1.5 font-medium">
+          <i class="fa-solid fa-envelope"></i>
+          <span>Re-Seal</span>
+        </button>
+
+        <!-- Finalize & Send to Desired Person -->
+        <button onclick="openSendModal()" class="px-4 py-1.5 text-xs rounded-full bg-gradient-to-r from-avocado-700 to-avocado-600 hover:brightness-105 text-white font-semibold transition-all flex items-center gap-1.5 shadow-md shadow-avocado-900/20">
+          <i class="fa-solid fa-paper-plane"></i>
+          <span>Send to Desired Person</span>
+        </button>
+
+        <!-- Toggle Edit Drawer -->
+        <button onclick="toggleCustomizer()" class="px-3.5 py-1.5 text-xs rounded-full bg-brown-800 hover:bg-brown-900 text-white font-semibold transition-all flex items-center gap-1.5 shadow-sm">
+          <i class="fa-solid fa-pen-nib"></i>
+          <span id="customizerToggleText">Customize</span>
+        </button>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================== -->
+  <!-- MAIN WORKSPACE                                 -->
+  <!-- ============================================== -->
+  <div class="relative max-w-7xl mx-auto w-full flex-1 flex flex-col lg:flex-row items-center lg:items-start justify-center p-3 sm:p-6 lg:p-8 gap-8">
+
+    <!-- ============================================== -->
+    <!-- LEFT: 3D PAGE-TURNING INVITATION BOOKLET       -->
+    <!-- ============================================== -->
+    <div class="flex flex-col items-center justify-center w-full max-w-md booklet-viewport">
+      
+      <!-- Current Page Tracker & Turns Indicator -->
+      <div class="flex items-center justify-between w-full max-w-[440px] px-2 mb-3 text-xs text-brown-700">
+        <span class="font-serif italic flex items-center gap-1.5">
+          <i class="fa-regular fa-bookmark text-avocado-700"></i>
+          <span id="pageIndicatorText">Cover Envelope</span>
+        </span>
+
+        <!-- Page Turns Buttons -->
+        <div class="flex items-center gap-1 bg-white/90 border border-brown-200 rounded-full px-2 py-0.5 shadow-xs">
+          <button onclick="prevPage()" id="btnPrevPage" class="w-6 h-6 flex items-center justify-center rounded-full hover:bg-brown-100 text-brown-800 disabled:opacity-30 disabled:pointer-events-none transition-colors" title="Previous Page">
+            <i class="fa-solid fa-chevron-left text-[10px]"></i>
+          </button>
+          <span id="pageNumberPill" class="text-[11px] font-semibold text-brown-900 px-1.5">1 / 5</span>
+          <button onclick="nextPage()" id="btnNextPage" class="w-6 h-6 flex items-center justify-center rounded-full hover:bg-brown-100 text-brown-800 disabled:opacity-30 disabled:pointer-events-none transition-colors" title="Next Page">
+            <i class="fa-solid fa-chevron-right text-[10px]"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- 3D BOOKLET CONTAINER -->
+      <div id="booklet" class="booklet-container">
+        
+        <!-- Left Spine Shadow Texture -->
+        <div class="page-spine"></div>
+
+        <!-- ========================================== -->
+        <!-- PAGE 0: BOTANICAL WAX SEAL ENVELOPE COVER -->
+        <!-- ========================================== -->
+        <div class="book-page active-page p-6 sm:p-8 justify-between text-center bg-[#F4F1EA]" id="page-0" style="background-image: radial-gradient(circle at 50% 30%, rgba(96, 108, 56, 0.08) 0%, transparent 60%);">
+          
+          <!-- Top Monogram & Recipient Heading -->
+          <div class="pt-4">
+            <span class="text-[10px] uppercase tracking-[0.35em] text-avocado-700 font-semibold block">Exclusive Wedding Invitation</span>
+            <div class="w-16 h-px bg-gradient-to-r from-transparent via-brown-400 to-transparent mx-auto my-2.5"></div>
+            
+            <!-- Personalized Recipient Badge -->
+            <div class="inline-flex items-center gap-1.5 px-4 py-1 rounded-full bg-white/80 border border-brown-200 text-xs text-brown-800 font-serif italic shadow-xs">
+              <span>Presented Exclusively To:</span>
+              <span id="envRecipientName" class="font-bold text-avocado-800 font-sans not-italic">Honored Guest</span>
+            </div>
+          </div>
+
+          <!-- Central Wax Seal & Envelope Fold -->
+          <div class="my-auto flex flex-col items-center">
+            
+            <div class="relative w-72 h-48 bg-[#EDE8DC] rounded-2xl border-2 border-brown-300/80 p-5 shadow-xl flex flex-col items-center justify-center deckled-border">
+              
+              <!-- Envelope Flap Triangle -->
+              <div class="absolute -top-3 w-0 h-0 border-l-[140px] border-l-transparent border-r-[140px] border-r-transparent border-t-[80px] border-t-brown-200/90"></div>
+              
+              <!-- Botanical Illustration -->
+              <span class="text-3xl mb-1 text-avocado-700 opacity-90">🌿</span>
+              <p id="envCoupleMonogram" class="font-serif text-2xl font-bold tracking-widest text-brown-900">A &amp; L</p>
+              <p class="text-[10px] uppercase tracking-widest text-brown-600 mt-1 font-sans">Celebrate Our Union</p>
+
+              <!-- Wax Seal Button -->
+              <button onclick="unsealAndOpen()" id="waxSealBtn" class="seal-avocado absolute -bottom-9 w-20 h-20 rounded-full border-2 border-cream-100 flex flex-col items-center justify-center text-white cursor-pointer group transition-transform duration-300 hover:scale-105 active:scale-95 shadow-2xl">
+                <i class="fa-solid fa-stamp text-xs text-cream-100 mb-0.5"></i>
+                <span id="waxSealText" class="text-[10px] font-serif font-bold tracking-widest text-cream-100">UNSEAL</span>
+              </button>
+            </div>
+
+            <p class="mt-14 text-xs text-brown-700 tracking-wider font-serif italic animate-pulse flex items-center gap-2">
+              <i class="fa-solid fa-hand-pointer text-[11px] text-avocado-700"></i> Tap seal to unseal &amp; turn page
+            </p>
+          </div>
+
+          <!-- Cover Footer -->
+          <div class="pb-3 text-center">
+            <h2 id="envCoupleNames" class="font-serif text-xl font-bold text-brown-900 italic">Alexander &amp; Lauren</h2>
+            <p id="envEventDate" class="text-[11px] text-avocado-800 tracking-wider uppercase font-sans mt-0.5 font-medium">September 20, 2026 • Florence</p>
           </div>
         </div>
-        <div class="env__pocket"></div>
-        <div class="env__flap"></div>
-        <div class="env__bow" aria-hidden="true"><svg viewBox="0 0 200 120"><use href="#bow"/></svg></div>
-        <div class="env__seal" aria-hidden="true"><span>{{groom_name|initial}}<i>&amp;</i>{{bride_name|initial}}</span></div>
-        <p class="env__script">The Big Day</p>
-      </div>
-    </div>
-    <p class="std__line reveal">The start of a beautiful journey…</p>
-    <div class="hearts reveal" id="countdown">
-      <div class="hrt"><svg viewBox="0 0 100 92"><use href="#heart"/></svg><b id="cdD">00</b><span>Days</span></div>
-      <div class="hrt"><svg viewBox="0 0 100 92"><use href="#heart"/></svg><b id="cdH">00</b><span>Hours</span></div>
-      <div class="hrt"><svg viewBox="0 0 100 92"><use href="#heart"/></svg><b id="cdM">00</b><span>Minutes</span></div>
-      <div class="hrt"><svg viewBox="0 0 100 92"><use href="#heart"/></svg><b id="cdS">00</b><span>Seconds</span></div>
-    </div>
-    <p class="std__done" id="cdDone" hidden>Today is the day! ❤</p>
-    <div class="std__info reveal">
-      <p class="std__date">{{event_date|long}}</p>
-      <p class="std__venue">{{venue}}</p>
-      <a class="btn btn--ghost" id="stdCal" target="_blank" rel="noopener">＋ Add to Calendar</a>
-    </div>
-  </section>
 
-  <!-- ============ GALLERY COVERFLOW ============ -->
-  <section class="sec gallery" id="gallery" data-optional="gallery">
-    <div class="garland" aria-hidden="true"></div>
-    <header class="head reveal">
-      <p class="head__eyebrow">Captured moments</p>
-      <h3 class="head__title">Photo Memories</h3>
-      <p class="head__sub">Every smile, every laugh, every stolen glance — captured forever.</p>
-    </header>
-    <div class="ring-wrap reveal" id="ringWrap">
-      <div class="ring" id="ring"></div>
-    </div>
-    <div class="ring-ctrl">
-      <button type="button" class="ring-btn" id="ringPrev" aria-label="Previous photo">‹</button>
-      <span>Drag to spin · tap a photo</span>
-      <button type="button" class="ring-btn" id="ringNext" aria-label="Next photo">›</button>
-    </div>
-  </section>
+        <!-- ========================================== -->
+        <!-- PAGE 1: TITLE & HERO PAGE (TURN 1)         -->
+        <!-- ========================================== -->
+        <div class="book-page next-page p-6 sm:p-8 justify-between text-center bg-[#FFFEFB]" id="page-1">
+          
+          <!-- Top Leaf Ribbon -->
+          <div class="pt-4 flex flex-col items-center">
+            <div class="w-12 h-12 rounded-full border border-avocado-500/40 bg-avocado-50 flex items-center justify-center text-avocado-800 text-lg shadow-xs mb-3">
+              🍃
+            </div>
+            <span class="text-[10px] uppercase tracking-[0.3em] text-avocado-800 font-semibold font-sans">The Wedding Celebration</span>
+          </div>
 
-  <!-- ============ WEDDING FUNCTIONS (PINNED) ============ -->
-  <section class="events" id="events">
-    <div class="events__pin">
-      <h3 class="events__title">Wedding Functions</h3>
-      <div class="palace">
-        <svg class="palace__top" viewBox="0 0 400 130" aria-hidden="true"><use href="#palace-top"/></svg>
-        <div class="palace__arch">
-          <div class="palace__imgs" id="evImgs"></div>
-          <svg class="palace__frame" viewBox="0 0 300 400" preserveAspectRatio="none" aria-hidden="true"><use href="#arch-frame"/></svg>
+          <!-- Hero Central Body -->
+          <div class="my-auto py-4">
+            <p id="p1Tagline" class="text-xs uppercase tracking-[0.25em] text-brown-600 mb-3 font-medium">
+              We Request The Pleasure Of Your Company
+            </p>
+
+            <h1 id="p1Groom" class="font-serif text-4xl text-brown-900 font-bold leading-tight">
+              Alexander
+            </h1>
+            <span class="font-script text-4xl text-avocado-700 block my-1">&amp;</span>
+            <h1 id="p1Bride" class="font-serif text-4xl text-brown-900 font-bold leading-tight mb-4">
+              Lauren
+            </h1>
+
+            <div class="w-20 h-px bg-gradient-to-r from-transparent via-avocado-600 to-transparent mx-auto my-4"></div>
+
+            <p id="p1InviteLine" class="text-xs sm:text-sm text-brown-700 font-serif italic max-w-xs mx-auto leading-relaxed">
+              Together with their families, invite you to celebrate their sacred union and forever beginning.
+            </p>
+
+            <!-- Date & Venue Seal Pill -->
+            <div class="mt-6 inline-flex flex-col items-center py-2.5 px-6 rounded-2xl bg-avocado-50 border border-avocado-300 text-brown-900 shadow-xs">
+              <span id="p1DateBadge" class="text-xs font-serif font-bold uppercase tracking-widest text-avocado-900">Saturday • September 20, 2026</span>
+              <span id="p1VenueBadge" class="text-[11px] text-brown-600 mt-0.5">Villa Bellissima • Florence, Italy</span>
+            </div>
+          </div>
+
+          <!-- Page Bottom Navigation Prompt -->
+          <div class="pb-3 flex items-center justify-between border-t border-brown-200/60 pt-3">
+            <span class="text-[11px] text-brown-500 font-serif italic">Page 1 of 4</span>
+            <button onclick="turnToPage(2)" class="text-xs font-semibold text-avocado-800 hover:text-avocado-900 flex items-center gap-1 group">
+              <span>Next: Our Journey</span>
+              <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
+            </button>
+          </div>
         </div>
-        <div class="evcards" id="evCards"></div>
-      </div>
-      <div class="events__dots" id="evDots"></div>
-    </div>
-  </section>
-  <template id="evTpl">
-    <article class="evcard">
-      <h4 class="evcard__name">{{name}}</h4>
-      <p class="evcard__orn">❦</p>
-      <p class="evcard__row"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M7 2h2v2h6V2h2v2h3v18H4V4h3V2Zm11 8H6v10h12V10Z"/></svg>{{date|short}}</p>
-      <p class="evcard__row" data-optional="time"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20Zm1 5h-2v6l5 3 1-1.7-4-2.3V7Z"/></svg>{{date|time}}</p>
-      <p class="evcard__row evcard__venue"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7Zm0 4.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Z"/></svg><span>{{venue}}</span></p>
-      <p class="evcard__note" data-optional="dress">Dress code · {{dress}}</p>
-      <div class="evcard__btns">
-        <a class="btn btn--rose" href="{{map_url}}" target="_blank" rel="noopener">➤ Get Directions</a>
-        <a class="btn btn--ghost" href="{{cal_url}}" target="_blank" rel="noopener">＋ Add to Calendar</a>
-      </div>
-    </article>
-  </template>
 
-  <!-- ============ RSVP ============ -->
-  <section class="sec rsvp" id="rsvp">
-    <div class="garland" aria-hidden="true"></div>
-    <header class="head reveal">
-      <p class="head__eyebrow">Kindly respond</p>
-      <h3 class="head__title">Will You Be Joining Us?</h3>
-      <p class="head__sub">We would love to know if you'll be celebrating with us<span data-optional="rsvp_deadline"> — please reply by {{rsvp_deadline|dm}}</span>.</p>
-    </header>
-    <form class="card form reveal" id="rsvpForm" novalidate>
-      <div class="choice">
-        <label class="choice__opt"><input type="radio" name="attending" value="yes" checked><span>✓ With joy, we will be there</span></label>
-        <label class="choice__opt"><input type="radio" name="attending" value="no"><span>✕ With regret, we cannot</span></label>
-      </div>
-      <fieldset class="f f--events" id="fEvents">
-        <legend>Which celebration(s) will you join?</legend>
-        <div class="checks" id="evChecks"></div>
-      </fieldset>
-      <label class="f"><span>Your Name <em>*</em></span><input type="text" name="name" id="rName" autocomplete="name" placeholder="Full name" maxlength="60" required></label>
-      <div class="f f--guests" id="fGuests"><span>Number of Guests <em>*</em></span>
-        <div class="stepper"><button type="button" id="gMinus" aria-label="Fewer guests">−</button><output id="gCount">1</output><button type="button" id="gPlus" aria-label="More guests">+</button></div>
-      </div>
-      <label class="f"><span>Mobile Number (optional)</span>
-        <div class="phone"><select name="cc" aria-label="Country code"><option>+91</option><option>+1</option><option>+44</option><option>+971</option><option>+61</option><option>+65</option></select><input type="tel" name="phone" inputmode="numeric" placeholder="Mobile number" maxlength="12"></div></label>
-      <label class="f"><span>A note for the couple (optional)</span><textarea name="note" rows="2" maxlength="240" placeholder="Your wishes…"></textarea></label>
-      <p class="form__err" id="rErr" hidden>Please enter your name.</p>
-      <button type="submit" class="btn btn--wine btn--block">Send RSVP</button>
-    </form>
-    <div class="card thanks" id="thanks" hidden>
-      <div class="thanks__tick">✓</div>
-      <h4>Thank You!</h4>
-      <p id="thanksMsg"></p>
-      <a class="btn btn--wa btn--block" id="waBtn" target="_blank" rel="noopener">Send RSVP on WhatsApp</a>
-      <button type="button" class="linkbtn" id="editRsvp">Edit your response</button>
-    </div>
-    <div class="card mapcard reveal">
-      <iframe id="mapFrame" title="Venue map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      <div class="mapcard__foot"><div><b>{{venue}}</b><small data-optional="venue_address">{{venue_address}}</small></div><a class="btn btn--rose" href="{{venue_map_url}}" target="_blank" rel="noopener">Open Map</a></div>
-    </div>
-  </section>
+        <!-- ========================================== -->
+        <!-- PAGE 2: BLESSINGS & OUR STORY (TURN 2)     -->
+        <!-- ========================================== -->
+        <div class="book-page p-6 sm:p-8 justify-between text-center bg-[#FFFEFB]" id="page-2">
+          
+          <div>
+            <span class="text-[10px] uppercase tracking-[0.3em] text-avocado-800 font-semibold block mb-1">Auspicious Blessings</span>
+            <h2 id="p2BlessingTitle" class="font-serif text-xl font-bold text-brown-900 italic">॥ Shree Ganeshaya Namah ॥</h2>
+            <div class="w-12 h-px bg-avocado-400 mx-auto my-2"></div>
+            <p id="p2ParentsNote" class="text-xs text-brown-600 font-serif italic">With the love and blessings of our beloved parents</p>
+          </div>
 
-  <!-- ============ FOOTER ============ -->
-  <footer class="foot" id="foot">
-    <div class="foot__art"><img src="assets/img/footer_lake.webp" alt="" loading="lazy"></div>
-    <div class="foot__inner">
-      <blockquote class="foot__quote reveal" data-optional="closing_quote">“{{closing_quote}}”</blockquote>
-      <div class="mono reveal"><span>{{groom_name|initial}}</span><i>&amp;</i><span>{{bride_name|initial}}</span></div>
-      <h3 class="foot__names reveal" data-fit="30">{{groom_name}} &amp; {{bride_name}}</h3>
-      <p class="foot__orn reveal">❦ ✿ ❦</p>
-      <p class="foot__thanks reveal">“Thank you for being part of our celebration”</p>
-      <p class="foot__date reveal">{{event_date|long}}</p>
-      <p class="foot__venue reveal">{{venue}}</p>
-      <p class="foot__tag reveal" data-optional="hashtag">{{hashtag}}</p>
-      <p class="foot__sign reveal" data-optional="family_signoff">{{family_signoff}}</p>
+          <!-- Couple Portraits (Botanical Ovals) -->
+          <div class="my-auto py-3">
+            <div class="grid grid-cols-2 gap-4 max-w-xs mx-auto mb-4">
+              
+              <!-- Groom Oval -->
+              <div class="flex flex-col items-center">
+                <div class="botanical-oval w-28 h-36 bg-brown-100 mb-2 p-1 bg-white">
+                  <img id="p2GroomPhoto" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400&q=80" alt="Groom" class="w-full h-full object-cover rounded-full">
+                </div>
+                <h4 id="p2GroomFullName" class="font-serif font-bold text-sm text-brown-900">Alexander Vance</h4>
+                <p id="p2GroomParents" class="text-[10px] text-brown-600 italic">Son of Mr. &amp; Mrs. Vance</p>
+              </div>
+
+              <!-- Bride Oval -->
+              <div class="flex flex-col items-center">
+                <div class="botanical-oval w-28 h-36 bg-brown-100 mb-2 p-1 bg-white">
+                  <img id="p2BridePhoto" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80" alt="Bride" class="w-full h-full object-cover rounded-full">
+                </div>
+                <h4 id="p2BrideFullName" class="font-serif font-bold text-sm text-brown-900">Lauren Sterling</h4>
+                <p id="p2BrideParents" class="text-[10px] text-brown-600 italic">Daughter of Mr. &amp; Mrs. Sterling</p>
+              </div>
+
+            </div>
+
+            <!-- Sacred Vow Quote -->
+            <blockquote id="p2CoupleQuote" class="text-xs text-avocado-900 font-serif italic bg-avocado-50 border-l-2 border-avocado-600 p-3 rounded-r-xl text-left max-w-xs mx-auto shadow-xs">
+              “Two souls, one promise — bound by sacred vows, shared laughter, and a love that grows through every season.”
+            </blockquote>
+          </div>
+
+          <!-- Page Bottom Navigation Prompt -->
+          <div class="pb-3 flex items-center justify-between border-t border-brown-200/60 pt-3">
+            <button onclick="turnToPage(1)" class="text-xs font-semibold text-brown-600 hover:text-brown-800 flex items-center gap-1">
+              <i class="fa-solid fa-arrow-left text-[10px]"></i>
+              <span>Back</span>
+            </button>
+            <span class="text-[11px] text-brown-500 font-serif italic">Page 2 of 4</span>
+            <button onclick="turnToPage(3)" class="text-xs font-semibold text-avocado-800 hover:text-avocado-900 flex items-center gap-1 group">
+              <span>Next: Celebrations</span>
+              <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- PAGE 3: CELEBRATIONS ITINERARY (TURN 3)    -->
+        <!-- ========================================== -->
+        <div class="book-page p-6 sm:p-8 justify-between bg-[#FFFEFB]" id="page-3">
+          
+          <div class="text-center">
+            <span class="text-[10px] uppercase tracking-[0.3em] text-avocado-800 font-semibold block mb-1">Celebrations</span>
+            <h2 class="font-serif text-2xl font-bold text-brown-900 italic">Order of Events</h2>
+            <p class="text-xs text-brown-600 font-serif italic mt-0.5">Please grace each joyous moment with your presence</p>
+          </div>
+
+          <!-- Events Itinerary List -->
+          <div id="p3EventsList" class="my-auto space-y-3.5 max-h-[460px] overflow-y-auto pr-1">
+            <!-- Dynamically populated events -->
+          </div>
+
+          <!-- Page Bottom Navigation Prompt -->
+          <div class="pb-3 flex items-center justify-between border-t border-brown-200/60 pt-3">
+            <button onclick="turnToPage(2)" class="text-xs font-semibold text-brown-600 hover:text-brown-800 flex items-center gap-1">
+              <i class="fa-solid fa-arrow-left text-[10px]"></i>
+              <span>Back</span>
+            </button>
+            <span class="text-[11px] text-brown-500 font-serif italic">Page 3 of 4</span>
+            <button onclick="turnToPage(4)" class="text-xs font-semibold text-avocado-800 hover:text-avocado-900 flex items-center gap-1 group">
+              <span>Next: RSVP &amp; Venue</span>
+              <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- PAGE 4: DRESS CODE, VENUE & RSVP (TURN 4)  -->
+        <!-- ========================================== -->
+        <div class="book-page p-6 sm:p-8 justify-between bg-[#FFFEFB]" id="page-4">
+          
+          <div class="text-center">
+            <span class="text-[10px] uppercase tracking-[0.3em] text-avocado-800 font-semibold block mb-1">Venue &amp; RSVP</span>
+            <h2 class="font-serif text-2xl font-bold text-brown-900 italic">Will You Join Us?</h2>
+          </div>
+
+          <!-- Content: Dress Code, Venue & RSVP Button -->
+          <div class="my-auto space-y-4">
+            
+            <!-- Dress Code & Palette Swatches -->
+            <div class="p-3.5 bg-avocado-50 rounded-2xl border border-avocado-200 text-center">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-avocado-900 font-sans">Dress Code Guidelines</span>
+              <h4 id="p4DressTitle" class="font-serif font-bold text-sm text-brown-900 mt-0.5">Avocado Olive &amp; Warm Terracotta</h4>
+              <p id="p4DressDesc" class="text-[11px] text-brown-700 mt-1">We invite our honored guests to wear earthy tones of olive, avocado, brown, or warm neutral shades.</p>
+              
+              <!-- Color Swatches -->
+              <div class="flex justify-center items-center gap-2 mt-2.5">
+                <span class="w-6 h-6 rounded-full bg-[#606C38] border border-white shadow-xs" title="Avocado Olive"></span>
+                <span class="w-6 h-6 rounded-full bg-[#283618] border border-white shadow-xs" title="Deep Forest"></span>
+                <span class="w-6 h-6 rounded-full bg-[#5E503F] border border-white shadow-xs" title="Earthy Espresso"></span>
+                <span class="w-6 h-6 rounded-full bg-[#A65B3E] border border-white shadow-xs" title="Warm Terracotta"></span>
+                <span class="w-6 h-6 rounded-full bg-[#DDA15E] border border-white shadow-xs" title="Linen Gold"></span>
+              </div>
+            </div>
+
+            <!-- Venue Card -->
+            <div class="p-3.5 bg-[#FAF7F0] rounded-2xl border border-brown-200 text-center">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-brown-700 font-sans">Location Sanctuary</span>
+              <h4 id="p4VenueName" class="font-serif font-bold text-sm text-brown-900 mt-0.5">Villa Bellissima</h4>
+              <p id="p4VenueAddress" class="text-[11px] text-brown-600 mt-0.5 mb-2.5">Via San Domenico, 14, Florence, Italy</p>
+              
+              <a id="p4VenueMapBtn" href="https://maps.google.com" target="_blank" class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-brown-800 hover:bg-brown-900 text-white text-[11px] font-medium transition-colors shadow-xs">
+                <i class="fa-solid fa-map-pin text-avocado-300"></i>
+                <span>Open in Google Maps</span>
+              </a>
+            </div>
+
+            <!-- Instant WhatsApp & Web RSVP -->
+            <div class="space-y-2 pt-1">
+              <button onclick="rsvpViaWhatsApp()" class="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-avocado-700 to-avocado-600 hover:brightness-105 text-white font-semibold text-xs tracking-wider uppercase flex items-center justify-center gap-2 shadow-sm transition-all">
+                <i class="fa-brands fa-whatsapp text-sm"></i>
+                <span>Confirm Attendance on WhatsApp</span>
+              </button>
+              
+              <button onclick="openWebRsvpModal()" class="w-full py-2 px-4 rounded-xl border border-brown-300 hover:bg-brown-50 text-brown-800 text-xs font-medium transition-colors">
+                Fill Guest RSVP Form Online
+              </button>
+            </div>
+
+          </div>
+
+          <!-- Page Bottom Navigation Prompt -->
+          <div class="pb-3 flex items-center justify-between border-t border-brown-200/60 pt-3">
+            <button onclick="turnToPage(3)" class="text-xs font-semibold text-brown-600 hover:text-brown-800 flex items-center gap-1">
+              <i class="fa-solid fa-arrow-left text-[10px]"></i>
+              <span>Back</span>
+            </button>
+            <span class="text-[11px] text-brown-500 font-serif italic">Page 4 of 4</span>
+            <button onclick="turnToPage(0)" class="text-xs font-semibold text-avocado-800 hover:text-avocado-900 flex items-center gap-1">
+              <i class="fa-solid fa-rotate-left text-[10px]"></i>
+              <span>Cover Envelope</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Quick Page Dots Control Under Booklet -->
+      <div class="flex items-center justify-center gap-2 mt-4">
+        <button onclick="turnToPage(0)" id="dot-0" class="w-3 h-3 rounded-full bg-avocado-600 transition-all shadow-xs" title="Envelope Cover"></button>
+        <button onclick="turnToPage(1)" id="dot-1" class="w-3 h-3 rounded-full bg-brown-300 transition-all hover:bg-brown-400" title="Page 1: Title"></button>
+        <button onclick="turnToPage(2)" id="dot-2" class="w-3 h-3 rounded-full bg-brown-300 transition-all hover:bg-brown-400" title="Page 2: Blessings"></button>
+        <button onclick="turnToPage(3)" id="dot-3" class="w-3 h-3 rounded-full bg-brown-300 transition-all hover:bg-brown-400" title="Page 3: Itinerary"></button>
+        <button onclick="turnToPage(4)" id="dot-4" class="w-3 h-3 rounded-full bg-brown-300 transition-all hover:bg-brown-400" title="Page 4: RSVP"></button>
+      </div>
+
+    </div>
+
+    <!-- ============================================== -->
+    <!-- RIGHT: LIVE CUSTOMIZER STUDIO                  -->
+    <!-- ============================================== -->
+    <aside id="customizerDrawer" class="w-full lg:w-[460px] bg-white rounded-3xl border border-brown-200 shadow-xl p-5 space-y-4 transition-all">
       
-      <p class="foot__brand">✦ Made with love on Just For You ✦</p>
-      <a class="foot__make" href="edit.html">Create your own invitation →</a>
+      <div class="flex items-center justify-between pb-2 border-b border-brown-200">
+        <div>
+          <h3 class="font-serif text-lg font-bold text-brown-900 flex items-center gap-2">
+            <span>🌿</span> Artisanal Invitation Studio
+          </h3>
+          <p class="text-xs text-brown-600">Customize your avocado &amp; earthy brown invitation</p>
+        </div>
+        <button onclick="toggleCustomizer()" class="lg:hidden text-brown-600 hover:text-brown-900">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Form Tabs -->
+      <div class="flex border-b border-brown-200 text-xs overflow-x-auto gap-2">
+        <button onclick="switchStudioTab('couple')" id="tabBtn-couple" class="pb-2 font-semibold border-b-2 border-avocado-600 text-avocado-800">
+          The Couple
+        </button>
+        <button onclick="switchStudioTab('date')" id="tabBtn-date" class="pb-2 font-medium border-b-2 border-transparent text-brown-500 hover:text-brown-800">
+          Date &amp; Venue
+        </button>
+        <button onclick="switchStudioTab('events')" id="tabBtn-events" class="pb-2 font-medium border-b-2 border-transparent text-brown-500 hover:text-brown-800">
+          Ceremonies
+        </button>
+        <button onclick="switchStudioTab('styling')" id="tabBtn-styling" class="pb-2 font-medium border-b-2 border-transparent text-brown-500 hover:text-brown-800">
+          Palette &amp; Seal
+        </button>
+      </div>
+
+      <!-- TAB 1: THE COUPLE -->
+      <div id="studioTab-couple" class="space-y-3 max-h-[440px] overflow-y-auto pr-1">
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-[11px] font-semibold text-brown-800 mb-1">Groom's First Name</label>
+            <input type="text" id="cfgGroomName" value="Alexander" oninput="applyStudioChanges()" class="w-full text-xs p-2 rounded-lg border border-brown-200 focus:outline-none focus:border-avocado-600">
+          </div>
+          <div>
+            <label class="block text-[11px] font-semibold text-brown-800 mb-1">Bride's First Name</label>
+            <input type="text" id="cfgBrideName" value="Lauren" oninput="applyStudioChanges()" class="w-full text-xs p-2 rounded-lg border border-brown-200 focus:outline-none focus:border-avocado-600">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-[11px] font-semibold text-brown-800 mb-1">Groom's Full Name</label>
+            <input type="text" id="cfgGroomFull" value="Alexander Vance" oninput="applyStudioChanges()" class="w-full text-xs p-2 rounded-lg border border-brown-200 focus:outline-none focus:border-avocado-600">
+          </div>
+          <div>
+            <label class="block text-[11px] font-semibold text-brown-800 mb-1">Bride's Full Name</label>
+            <input type="text" id="cfgBrideFull" value="Lauren Sterling" oninput="applyStudioChanges()" class="w-full text-xs p-2 rounded-lg border border-brown-200 focus:outline-none focus:border-avocado-600">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-[11px] font-semibold text-brown-800 mb-1">Parents' Blessings / Family Sign-off</label>
+          <input type="text" id="cfgParentsGroom" value="Son of Mr. & Mrs. Vance" oninput="applyStudioChanges()" class="w-full text-xs p-2 rounded-lg border border-brown-200 mb-2 focus:outline-none focus:border-avocado-600">
+          <input type="text" id="cfgParentsBride" value="Daughter of Mr. & Mrs. Sterling" oninput="applyStudioChanges()" class="w-full text-xs p-2 rounded-lg border border-brown-200 focus:outline-none focus:border-avocado-600">
+        </div>
+
+        <div>
+          <label class="block text-[11px] font-semibold text-brown-800 mb-1">Couple Vow Quote</label>
+          <textarea id="cfgVowQuote" rows="2" oninput="applyStudioChanges()" class="w-full text-xs p-2 rounded-lg border border-brown-200 focus:outline-none focus:border-avocado-600">Two souls, one promise — bound by sacred vows, shared laughter, and a love that grows through every season.</textarea>
+        </div>
+      </div>
+
+      <!-- TAB 2: DATE & VENUE -->
+      <div id="studioTab-date" class="hidden space-y-3 max-h-[440px] overflow-y-auto pr-1">
+        <div>
+          <label class="block text-[11px] font-semibold text-brown-800 mb-1">Wedding Date &amp; Time</label>
+          <input type="datetime-local" id="cfgDateTime" value="2026-09-20T16:00" onchange="applyStudioChanges()" class="w-full text-xs p-2 rounded-lg border border-brown-200 focus:outline-none focus:border-avocado-600">
+        </div>
+
+        <div>
+          <label class="block text-[11px] font-semibold text-brown-800 mb-1">Venue Sanctuary Name</label>
+          <input type="text" id="cfgVenueName" value="Villa Bellissima" oninput="applyStudioChanges()" class="w-full text-xs p-2 rounded-lg border border-brown-200 focus:outline-none focus:border-avocado-600">
+        </div>
+
+        <div>
+          <label class="block text-[11px] font-semibold text-brown-800 mb-1">Venue Address / City</label>
+          <input type="text" id="cfgVenueAddress" value="Via San Domenico, 14, Florence, Italy" oninput="applyStudioChanges()" class="w-full text-xs p-2 rounded-lg border border-brown-200 focus:outline-none focus:border-avocado-600">
+        </div>
+
+        <div>
+          <label class="block text-[11px] font-semibold text-brown-800 mb-1">Google Maps Link</label>
+          <input type="text" id="cfgVenueMapUrl" value="https://maps.google.com/?q=Florence+Italy" oninput="applyStudioChanges()" class="w-full text-xs p-2 rounded-lg border border-brown-200 focus:outline-none focus:border-avocado-600">
+        </div>
+
+        <div>
+          <label class="block text-[11px] font-semibold text-brown-800 mb-1">Couple WhatsApp Number for RSVPs</label>
+          <input type="text" id="cfgWhatsApp" value="919876543210" oninput="applyStudioChanges()" placeholder="Country code + number (no +)" class="w-full text-xs p-2 rounded-lg border border-brown-200 focus:outline-none focus:border-avocado-600">
+        </div>
+      </div>
+
+      <!-- TAB 3: EVENTS ITINERARY -->
+      <div id="studioTab-events" class="hidden space-y-3 max-h-[440px] overflow-y-auto pr-1">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-semibold text-brown-800">Celebration Ceremonies</span>
+          <button onclick="addEventRow()" class="text-xs bg-avocado-100 hover:bg-avocado-200 text-avocado-800 font-semibold px-2.5 py-1 rounded-md transition-colors">
+            + Add Event
+          </button>
+        </div>
+        <div id="studioEventList" class="space-y-3">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- TAB 4: PALETTE & WAX SEAL -->
+      <div id="studioTab-styling" class="hidden space-y-3 max-h-[440px] overflow-y-auto pr-1">
+        <div>
+          <label class="block text-[11px] font-semibold text-brown-800 mb-1.5">Wax Seal Colorway</label>
+          <div class="grid grid-cols-3 gap-2">
+            <button onclick="changeSealColor('avocado')" class="p-2 rounded-xl border border-avocado-600 bg-avocado-50 flex flex-col items-center gap-1 text-xs text-avocado-900 font-medium">
+              <span class="w-5 h-5 rounded-full seal-avocado"></span>
+              <span>Avocado</span>
+            </button>
+            <button onclick="changeSealColor('brown')" class="p-2 rounded-xl border border-brown-600 bg-brown-50 flex flex-col items-center gap-1 text-xs text-brown-900 font-medium">
+              <span class="w-5 h-5 rounded-full seal-brown"></span>
+              <span>Brown</span>
+            </button>
+            <button onclick="changeSealColor('terracotta')" class="p-2 rounded-xl border border-amber-600 bg-amber-50 flex flex-col items-center gap-1 text-xs text-amber-900 font-medium">
+              <span class="w-5 h-5 rounded-full seal-terracotta"></span>
+              <span>Terracotta</span>
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-[11px] font-semibold text-brown-800 mb-1">Dress Code Title</label>
+          <input type="text" id="cfgDressTitle" value="Avocado Olive & Warm Terracotta" oninput="applyStudioChanges()" class="w-full text-xs p-2 rounded-lg border border-brown-200 focus:outline-none focus:border-avocado-600">
+        </div>
+
+        <div>
+          <label class="block text-[11px] font-semibold text-brown-800 mb-1">Dress Code Note</label>
+          <textarea id="cfgDressDesc" rows="2" oninput="applyStudioChanges()" class="w-full text-xs p-2 rounded-lg border border-brown-200 focus:outline-none focus:border-avocado-600">We invite our honored guests to wear earthy tones of olive, avocado, brown, or warm neutral shades.</textarea>
+        </div>
+      </div>
+
+      <!-- Studio Bottom Actions -->
+      <div class="pt-3 border-t border-brown-200 flex gap-2">
+        <button onclick="openSendModal()" class="flex-1 py-2.5 px-4 rounded-xl bg-gradient-to-r from-avocado-700 to-avocado-600 hover:brightness-105 text-white font-semibold text-xs tracking-wider uppercase transition-all shadow-md shadow-avocado-900/20 flex items-center justify-center gap-2">
+          <i class="fa-solid fa-paper-plane"></i>
+          <span>Seal &amp; Send to Person</span>
+        </button>
+      </div>
+
+    </aside>
+
+  </div>
+
+  <!-- ============================================== -->
+  <!-- MODAL: SEND TO DESIRED PERSON                  -->
+  <!-- ============================================== -->
+  <div id="sendModal" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-brown-200 space-y-4">
+      
+      <div class="flex items-center justify-between pb-2 border-b border-brown-100">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-full bg-avocado-100 text-avocado-800 flex items-center justify-center text-sm">
+            💌
+          </div>
+          <div>
+            <h3 class="font-serif font-bold text-base text-brown-900">Send Personalized Invitation</h3>
+            <p class="text-[11px] text-brown-600">The envelope will be sealed &amp; addressed to them</p>
+          </div>
+        </div>
+        <button onclick="closeSendModal()" class="text-brown-500 hover:text-brown-800 text-sm">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="space-y-3">
+        <div>
+          <label class="block text-xs font-semibold text-brown-800 mb-1">Recipient Name (Person or Family) *</label>
+          <input type="text" id="targetRecipientName" placeholder="e.g. Sophia &amp; Liam, The Sharma Family" class="w-full text-xs p-2.5 rounded-xl border border-brown-300 focus:outline-none focus:border-avocado-600 bg-cream-50 font-medium">
+          <p class="text-[10px] text-brown-500 mt-0.5">This name will appear on the wax-sealed envelope cover!</p>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-brown-800 mb-1">Recipient WhatsApp / Phone Number (Optional)</label>
+          <input type="text" id="targetRecipientPhone" placeholder="Country code + number (e.g. 919876543210)" class="w-full text-xs p-2.5 rounded-xl border border-brown-300 focus:outline-none focus:border-avocado-600 bg-cream-50">
+        </div>
+
+        <!-- Share Actions -->
+        <div class="pt-2 space-y-2">
+          <!-- WhatsApp 1-Click Send -->
+          <button onclick="sendDirectWhatsApp()" class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-emerald-700 to-green-600 hover:brightness-105 text-white font-semibold text-xs tracking-wider uppercase flex items-center justify-center gap-2 shadow-sm transition-all">
+            <i class="fa-brands fa-whatsapp text-base"></i>
+            <span>Send Direct on WhatsApp</span>
+          </button>
+
+          <!-- Email 1-Click Send -->
+          <button onclick="sendDirectEmail()" class="w-full py-2.5 px-4 rounded-xl border border-brown-300 hover:bg-brown-50 text-brown-800 font-semibold text-xs transition-colors flex items-center justify-center gap-2">
+            <i class="fa-regular fa-envelope text-sm"></i>
+            <span>Send via Email</span>
+          </button>
+
+          <!-- Copy Personalized Link -->
+          <button onclick="copyPersonalizedLink()" class="w-full py-2.5 px-4 rounded-xl bg-brown-800 hover:bg-brown-900 text-white font-semibold text-xs transition-colors flex items-center justify-center gap-2 shadow-xs">
+            <i class="fa-regular fa-copy"></i>
+            <span id="copyLinkModalBtnText">Copy Personalized Invitation Link</span>
+          </button>
+        </div>
+      </div>
+
     </div>
-  </footer>
-</main>
+  </div>
 
-<!-- lightbox -->
-<div class="lightbox" id="lightbox" hidden><button type="button" class="lightbox__x" aria-label="Close">×</button><img alt=""></div>
+  <!-- Hidden Audio Element -->
+  <audio id="ambientMelody" loop preload="auto">
+    <source src="assets/music.mp3" type="audio/mpeg">
+  </audio>
 
-<!-- music -->
-<audio class="jfy-music" id="music" data-src="{{music_url}}" loop preload="auto"></audio>
-<button class="music" id="musicBtn" type="button" aria-label="Toggle music" data-optional="music_url"><i></i><i></i><i></i><i></i></button>
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed bottom-5 right-5 z-50 bg-brown-900 text-cream-50 px-4 py-2.5 rounded-2xl text-xs shadow-2xl flex items-center gap-2 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+    <i class="fa-solid fa-circle-check text-avocado-400 text-sm"></i>
+    <span id="toastText">Action completed!</span>
+  </div>
 
-<!-- ============ SVG LIBRARY (original artwork) ============ -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <linearGradient id="gGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6e0b0"/><stop offset=".45" stop-color="#c9975a"/><stop offset=".7" stop-color="#f2d59a"/><stop offset="1" stop-color="#a8743e"/></linearGradient>
-    <linearGradient id="gRose" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9a3ab"/><stop offset=".55" stop-color="#b9566a"/><stop offset="1" stop-color="#8a2f45"/></linearGradient>
-    <radialGradient id="gShine" cx=".32" cy=".28" r=".5"><stop offset="0" stop-color="#fff" stop-opacity=".75"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
-    <linearGradient id="gRibbon" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d48b93"/><stop offset=".5" stop-color="#a24d5e"/><stop offset="1" stop-color="#7d3043"/></linearGradient>
-    <symbol id="heart" viewBox="0 0 100 92"><path d="M50 90C20 68 2 50 2 28 2 13 14 2 28 2c9 0 17 5 22 12C55 7 63 2 72 2c14 0 26 11 26 26 0 22-18 40-48 62Z" fill="url(#gRose)"/><path d="M50 90C20 68 2 50 2 28 2 13 14 2 28 2c9 0 17 5 22 12C55 7 63 2 72 2c14 0 26 11 26 26 0 22-18 40-48 62Z" fill="url(#gShine)"/><path d="M50 84C24 64 8 48 8 29 8 17 17 8 28 8c8 0 15 4 22 13C57 12 64 8 72 8c11 0 20 9 20 21 0 19-16 35-42 55Z" fill="none" stroke="#f7d6b0" stroke-opacity=".7" stroke-width="1.4"/></symbol>
-    <symbol id="orn-divider" viewBox="0 0 240 40"><g fill="none" stroke="url(#gGold)" stroke-width="1.4" stroke-linecap="round"><path d="M10 20h70M160 20h70"/><path d="M80 20c10-12 22-12 28 0-6 10-18 10-28 0Zm80 0c-10-12-22-12-28 0 6 10 18 10 28 0Z"/><path d="M120 6c6 6 6 22 0 28-6-6-6-22 0-28Z"/><circle cx="120" cy="20" r="2.4" fill="#c9975a"/><circle cx="6" cy="20" r="2" fill="#c9975a"/><circle cx="234" cy="20" r="2" fill="#c9975a"/></g></symbol>
-    <symbol id="orn-knot" viewBox="0 0 120 40"><g fill="none" stroke="url(#gGold)" stroke-width="1.6"><circle cx="48" cy="20" r="12"/><circle cx="72" cy="20" r="12"/><path d="M4 20h28M88 20h28"/></g><path d="M60 13c3-5 10-3 9 2-1 4-9 9-9 9s-8-5-9-9c-1-5 6-7 9-2Z" fill="#c96a7c"/></symbol>
-    <symbol id="arch-frame" viewBox="0 0 300 400">
-      <path d="M8 396V150C8 92 52 40 110 26c14-4 24-12 30-22h20c6 10 16 18 30 22 58 14 102 66 102 124v246" fill="none" stroke="url(#gGold)" stroke-width="7"/>
-      <path d="M20 396V152c0-52 40-98 92-111 14-4 26-11 38-22 12 11 24 18 38 22 52 13 92 59 92 111v244" fill="none" stroke="#fff6e6" stroke-width="2" stroke-opacity=".9"/>
-      <g fill="#e8a6ae" stroke="#c9975a" stroke-width=".8"><circle cx="150" cy="10" r="7"/><circle cx="62" cy="62" r="5"/><circle cx="238" cy="62" r="5"/><circle cx="16" cy="160" r="5"/><circle cx="284" cy="160" r="5"/></g>
-      <g fill="#8fae86" opacity=".9"><path d="M150 18c-12 2-20 10-22 18 10-2 18-8 22-18Zm0 0c12 2 20 10 22 18-10-2-18-8-22-18Z"/></g>
-    </symbol>
-    <symbol id="palace-top" viewBox="0 0 400 130">
-      <g fill="#fbefe6" stroke="#c9975a" stroke-width="1.6">
-        <path d="M30 128V86h340v42"/>
-        <path d="M20 86h360l-8-10H28Z"/>
-        <path d="M60 76V52h50v24M290 76V52h50v24M160 76V40h80v36"/>
-        <path d="M56 52h58l-4-6H60ZM286 52h58l-4-6h-50ZM154 40h92l-5-7h-82Z"/>
-        <path d="M66 46c0-16 14-24 19-30 5 6 19 14 19 30M296 46c0-16 14-24 19-30 5 6 19 14 19 30M168 33c0-20 18-28 32-36 14 8 32 16 32 36"/>
-        <path d="M85 16v-8M315 16v-8M200-3v-6" stroke-linecap="round"/>
-      </g>
-      <g fill="none" stroke="#d9b07a" stroke-width="1.2"><path d="M70 76v-14c0-6 5-8 7-8s7 2 7 8v14M86 76v-14c0-6 5-8 7-8s7 2 7 8v14M300 76v-14c0-6 5-8 7-8s7 2 7 8v14M316 76v-14c0-6 5-8 7-8s7 2 7 8v14M170 76V58c0-8 7-11 10-11s10 3 10 11v18M210 76V58c0-8 7-11 10-11s10 3 10 11v18"/><path d="M40 96h320M40 104h320" stroke-dasharray="3 5"/></g>
-      <g fill="#e9a3ab"><circle cx="34" cy="84" r="5"/><circle cx="44" cy="82" r="4"/><circle cx="366" cy="84" r="5"/><circle cx="356" cy="82" r="4"/><circle cx="200" cy="84" r="4"/></g>
-    </symbol>
-    <symbol id="bow" viewBox="0 0 200 120">
-      <path d="M100 60C70 20 22 8 14 30c-8 22 30 42 86 30Z" fill="url(#gRibbon)"/>
-      <path d="M100 60C130 20 178 8 186 30c8 22-30 42-86 30Z" fill="url(#gRibbon)"/>
-      <path d="M100 60c-10 18-28 44-40 58l16 2c8-14 18-34 24-52Zm0 0c10 18 28 44 40 58l-16 2c-8-14-18-34-24-52Z" fill="#9a4456"/>
-      <path d="M30 28c20-6 46 8 66 30M170 28c-20-6-46 8-66 30" fill="none" stroke="#f3c3c8" stroke-opacity=".6" stroke-width="2"/>
-    </symbol>
-    <symbol id="lantern" viewBox="0 0 40 56"><path d="M8 8h24l4 34c0 6-7 10-16 10S4 48 4 42Z" fill="#ffd9b8"/><path d="M8 8h24l4 34c0 6-7 10-16 10S4 48 4 42Z" fill="url(#gShine)"/><ellipse cx="20" cy="40" rx="8" ry="6" fill="#fff3c4" opacity=".9"/><path d="M8 8h24" stroke="#d99a7a" stroke-width="2"/></symbol>
-  </defs>
-</svg>
+  <!-- ============================================== -->
+  <!-- JAVASCRIPT LOGIC                               -->
+  <!-- ============================================== -->
+  <script>
+    // State Data
+    const inviteData = {
+      groomName: "Alexander",
+      brideName: "Lauren",
+      groomFull: "Alexander Vance",
+      brideFull: "Lauren Sterling",
+      parentsGroom: "Son of Mr. & Mrs. Vance",
+      parentsBride: "Daughter of Mr. & Mrs. Sterling",
+      vowQuote: "Two souls, one promise — bound by sacred vows, shared laughter, and a love that grows through every season.",
+      dateTime: "2026-09-20T16:00",
+      venueName: "Villa Bellissima",
+      venueAddress: "Via San Domenico, 14, Florence, Italy",
+      venueMapUrl: "https://maps.google.com/?q=Florence+Italy",
+      whatsApp: "919876543210",
+      sealColor: "avocado",
+      recipient: "Honored Guest",
+      dressTitle: "Avocado Olive & Warm Terracotta",
+      dressDesc: "We invite our honored guests to wear earthy tones of olive, avocado, brown, or warm neutral shades.",
+      events: [
+        {
+          name: "Haldi & Welcome Blessings",
+          date: "Friday, Sep 19 • 10:30 AM",
+          venue: "Courtyard Pergola",
+          dress: "Botanical Olive & Marigold",
+          icon: "fa-sun"
+        },
+        {
+          name: "The Sacred Vows & Pheras",
+          date: "Saturday, Sep 20 • 4:00 PM",
+          venue: "Main Amphitheatre",
+          dress: "Formal Earthy Elegance",
+          icon: "fa-heart"
+        },
+        {
+          name: "Banquet Dinner & Dancing",
+          date: "Saturday, Sep 20 • 7:30 PM",
+          venue: "Orangery Ballroom",
+          dress: "Evening Black Tie & Linen",
+          icon: "fa-champagne-glasses"
+        }
+      ]
+    };
 
-<a href="edit.html" id="customizeFloatBtn" style="position:fixed;bottom:24px;right:24px;z-index:9999;background:linear-gradient(135deg,#74203b,#c96a7c);color:#fff;padding:11px 20px;border-radius:999px;font-family:'Josefin Sans',sans-serif;font-size:13.5px;font-weight:600;box-shadow:0 8px 24px rgba(116,32,59,0.45);border:1px solid rgba(255,255,255,0.4);text-decoration:none;display:flex;align-items:center;gap:8px;backdrop-filter:blur(8px);transition:transform .2s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-  <span>✎</span>
-  <span>Customize in Editor</span>
-</a>
+    let currentPage = 0;
+    const totalPages = 4; // 0 (Cover), 1, 2, 3, 4
+    let isMusicPlaying = false;
 
-<script src="assets/sample-data.js"></script>
-<script src="assets/jfy-codec.js"></script>
-<script src="assets/data-loader.js"></script>
-<script src="script.js"></script>
+    // Load from URL Hash if personal recipient is provided
+    window.addEventListener('DOMContentLoaded', () => {
+      parseUrlHash();
+      renderAll();
+      renderStudioEvents();
+    });
+
+    function parseUrlHash() {
+      const hash = window.location.hash;
+      if (hash.includes('to=')) {
+        const m = /to=([^&]+)/.exec(hash);
+        if (m) {
+          inviteData.recipient = decodeURIComponent(m[1].replace(/\+/g, ' '));
+        }
+      }
+    }
+
+    // ==========================================
+    // 3D PAGE FLIP ENGINE
+    // ==========================================
+    function turnToPage(targetPage) {
+      if (targetPage < 0 || targetPage > totalPages) return;
+
+      const pageTitles = [
+        "Cover Envelope",
+        "Page 1: Title & Hero",
+        "Page 2: Blessings & Story",
+        "Page 3: Celebrations",
+        "Page 4: Venue & RSVP"
+      ];
+
+      for (let i = 0; i <= totalPages; i++) {
+        const el = document.getElementById(`page-${i}`);
+        if (!el) continue;
+
+        if (i < targetPage) {
+          el.classList.add('flipped');
+          el.classList.remove('active-page', 'next-page');
+        } else if (i === targetPage) {
+          el.classList.remove('flipped', 'next-page');
+          el.classList.add('active-page');
+        } else {
+          el.classList.remove('flipped', 'active-page');
+          el.classList.add('next-page');
+        }
+
+        // Update Dots
+        const dot = document.getElementById(`dot-${i}`);
+        if (dot) {
+          if (i === targetPage) {
+            dot.classList.remove('bg-brown-300');
+            dot.classList.add('bg-avocado-600', 'scale-125');
+          } else {
+            dot.classList.remove('bg-avocado-600', 'scale-125');
+            dot.classList.add('bg-brown-300');
+          }
+        }
+      }
+
+      currentPage = targetPage;
+      document.getElementById('pageIndicatorText').textContent = pageTitles[currentPage];
+      document.getElementById('pageNumberPill').textContent = `${currentPage === 0 ? 'Cover' : currentPage + ' / ' + totalPages}`;
+
+      document.getElementById('btnPrevPage').disabled = (currentPage === 0);
+      document.getElementById('btnNextPage').disabled = (currentPage === totalPages);
+    }
+
+    function nextPage() {
+      turnToPage(currentPage + 1);
+    }
+
+    function prevPage() {
+      turnToPage(currentPage - 1);
+    }
+
+    function unsealAndOpen() {
+      // Confetti burst in avocado & gold
+      confetti({
+        particleCount: 65,
+        spread: 80,
+        origin: { y: 0.6 },
+        colors: ['#606C38', '#8C6C54', '#DDA15E', '#FEFAE0']
+      });
+
+      // Auto start music
+      if (!isMusicPlaying) toggleMusic();
+
+      showToast("Seal broken! Welcome.");
+      setTimeout(() => {
+        turnToPage(1);
+      }, 500);
+    }
+
+    function resealEnvelope() {
+      turnToPage(0);
+      showToast("Envelope re-sealed.");
+    }
+
+    // ==========================================
+    // RENDER FUNCTIONS
+    // ==========================================
+    function renderAll() {
+      // Cover (Page 0)
+      document.getElementById('envRecipientName').textContent = inviteData.recipient;
+      document.getElementById('envCoupleMonogram').textContent = `${inviteData.groomName.charAt(0)} & ${inviteData.brideName.charAt(0)}`;
+      document.getElementById('envCoupleNames').textContent = `${inviteData.groomName} & ${inviteData.brideName}`;
+      
+      const d = new Date(inviteData.dateTime);
+      const dateFormatted = d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+      document.getElementById('envEventDate').textContent = `${dateFormatted} • ${inviteData.venueName}`;
+
+      // Page 1
+      document.getElementById('p1Groom').textContent = inviteData.groomName;
+      document.getElementById('p1Bride').textContent = inviteData.brideName;
+      document.getElementById('p1DateBadge').textContent = d.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
+      document.getElementById('p1VenueBadge').textContent = `${inviteData.venueName} • ${inviteData.venueAddress.split(',')[0]}`;
+
+      // Page 2
+      document.getElementById('p2GroomFullName').textContent = inviteData.groomFull;
+      document.getElementById('p2GroomParents').textContent = inviteData.parentsGroom;
+      document.getElementById('p2BrideFullName').textContent = inviteData.brideFull;
+      document.getElementById('p2BrideParents').textContent = inviteData.parentsBride;
+      document.getElementById('p2CoupleQuote').textContent = `“${inviteData.vowQuote}”`;
+
+      // Page 3: Events
+      renderEventsOnPage3();
+
+      // Page 4: Dress & Venue
+      document.getElementById('p4DressTitle').textContent = inviteData.dressTitle;
+      document.getElementById('p4DressDesc').textContent = inviteData.dressDesc;
+      document.getElementById('p4VenueName').textContent = inviteData.venueName;
+      document.getElementById('p4VenueAddress').textContent = inviteData.venueAddress;
+      document.getElementById('p4VenueMapBtn').href = inviteData.venueMapUrl;
+
+      // Update Wax Seal Class
+      const sealBtn = document.getElementById('waxSealBtn');
+      sealBtn.className = `seal-${inviteData.sealColor} absolute -bottom-9 w-20 h-20 rounded-full border-2 border-cream-100 flex flex-col items-center justify-center text-white cursor-pointer group transition-transform duration-300 hover:scale-105 active:scale-95 shadow-2xl`;
+    }
+
+    function renderEventsOnPage3() {
+      const container = document.getElementById('p3EventsList');
+      container.innerHTML = inviteData.events.map((ev, i) => `
+        <div class="p-3.5 bg-[#FAF7F0] rounded-2xl border border-brown-200 text-left hover:border-avocado-500 transition-colors shadow-xs">
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] uppercase font-bold tracking-wider text-avocado-800 font-sans">${ev.date}</span>
+            <span class="w-6 h-6 rounded-full bg-avocado-100 text-avocado-800 flex items-center justify-center text-[10px]">
+              <i class="fa-solid ${ev.icon || 'fa-star'}"></i>
+            </span>
+          </div>
+          <h4 class="font-serif font-bold text-sm text-brown-900 mt-0.5">${ev.name}</h4>
+          <div class="mt-2 pt-2 border-t border-brown-200/60 flex items-center justify-between text-[11px] text-brown-600">
+            <span><i class="fa-solid fa-location-dot text-avocado-700 mr-1"></i>${ev.venue}</span>
+            <span class="font-medium text-avocado-900">${ev.dress}</span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // ==========================================
+    // STUDIO CUSTOMIZER SYNC
+    // ==========================================
+    function applyStudioChanges() {
+      inviteData.groomName = document.getElementById('cfgGroomName').value;
+      inviteData.brideName = document.getElementById('cfgBrideName').value;
+      inviteData.groomFull = document.getElementById('cfgGroomFull').value;
+      inviteData.brideFull = document.getElementById('cfgBrideFull').value;
+      inviteData.parentsGroom = document.getElementById('cfgParentsGroom').value;
+      inviteData.parentsBride = document.getElementById('cfgParentsBride').value;
+      inviteData.vowQuote = document.getElementById('cfgVowQuote').value;
+      inviteData.dateTime = document.getElementById('cfgDateTime').value;
+      inviteData.venueName = document.getElementById('cfgVenueName').value;
+      inviteData.venueAddress = document.getElementById('cfgVenueAddress').value;
+      inviteData.venueMapUrl = document.getElementById('cfgVenueMapUrl').value;
+      inviteData.whatsApp = document.getElementById('cfgWhatsApp').value;
+      inviteData.dressTitle = document.getElementById('cfgDressTitle').value;
+      inviteData.dressDesc = document.getElementById('cfgDressDesc').value;
+
+      renderAll();
+    }
+
+    function changeSealColor(colorKey) {
+      inviteData.sealColor = colorKey;
+      renderAll();
+      showToast(`Selected ${colorKey} wax seal!`);
+    }
+
+    function switchStudioTab(tab) {
+      ['couple', 'date', 'events', 'styling'].forEach(t => {
+        document.getElementById(`studioTab-${t}`).classList.add('hidden');
+        const btn = document.getElementById(`tabBtn-${t}`);
+        btn.classList.remove('border-avocado-600', 'text-avocado-800', 'font-semibold');
+        btn.classList.add('border-transparent', 'text-brown-500', 'font-medium');
+      });
+
+      document.getElementById(`studioTab-${tab}`).classList.remove('hidden');
+      const activeBtn = document.getElementById(`tabBtn-${tab}`);
+      activeBtn.classList.add('border-avocado-600', 'text-avocado-800', 'font-semibold');
+      activeBtn.classList.remove('border-transparent', 'text-brown-500', 'font-medium');
+    }
+
+    function toggleCustomizer() {
+      const drawer = document.getElementById('customizerDrawer');
+      drawer.classList.toggle('hidden');
+    }
+
+    function renderStudioEvents() {
+      const container = document.getElementById('studioEventList');
+      container.innerHTML = inviteData.events.map((ev, i) => `
+        <div class="p-3 bg-[#FAF7F0] rounded-xl border border-brown-200 text-xs space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-avocado-900">Event #${i + 1}</span>
+            <button onclick="removeEventRow(${i})" class="text-red-500 hover:text-red-700 text-[11px]">Remove</button>
+          </div>
+          <input type="text" value="${ev.name}" oninput="updateEventProp(${i}, 'name', this.value)" class="w-full text-xs p-1.5 rounded border border-brown-200" placeholder="Event Name">
+          <input type="text" value="${ev.date}" oninput="updateEventProp(${i}, 'date', this.value)" class="w-full text-xs p-1.5 rounded border border-brown-200" placeholder="Date & Time">
+          <input type="text" value="${ev.venue}" oninput="updateEventProp(${i}, 'venue', this.value)" class="w-full text-xs p-1.5 rounded border border-brown-200" placeholder="Venue">
+          <input type="text" value="${ev.dress}" oninput="updateEventProp(${i}, 'dress', this.value)" class="w-full text-xs p-1.5 rounded border border-brown-200" placeholder="Dress Code">
+        </div>
+      `).join('');
+    }
+
+    function updateEventProp(i, prop, val) {
+      inviteData.events[i][prop] = val;
+      renderEventsOnPage3();
+    }
+
+    function addEventRow() {
+      inviteData.events.push({
+        name: "Sunset Toast & Canapés",
+        date: "Saturday, Sep 20 • 6:00 PM",
+        venue: "Botanical Garden",
+        dress: "Avocado & Linen",
+        icon: "fa-champagne-glasses"
+      });
+      renderStudioEvents();
+      renderEventsOnPage3();
+      showToast("Added ceremony!");
+    }
+
+    function removeEventRow(i) {
+      if (inviteData.events.length <= 1) return;
+      inviteData.events.splice(i, 1);
+      renderStudioEvents();
+      renderEventsOnPage3();
+    }
+
+    // ==========================================
+    // SEND TO DESIRED PERSON FEATURES
+    // ==========================================
+    function openSendModal() {
+      // Seal envelope and jump to cover
+      turnToPage(0);
+      document.getElementById('sendModal').classList.remove('hidden');
+    }
+
+    function closeSendModal() {
+      document.getElementById('sendModal').classList.add('hidden');
+    }
+
+    function generatePersonalizedUrl() {
+      const target = document.getElementById('targetRecipientName').value.trim() || inviteData.recipient;
+      const base = window.location.origin + window.location.pathname;
+      return `${base}#to=${encodeURIComponent(target)}`;
+    }
+
+    function sendDirectWhatsApp() {
+      const recipient = document.getElementById('targetRecipientName').value.trim() || "Honored Guest";
+      const phone = document.getElementById('targetRecipientPhone').value.trim().replace(/[^0-9]/g, '');
+      const url = generatePersonalizedUrl();
+
+      inviteData.recipient = recipient;
+      renderAll();
+
+      const text = encodeURIComponent(`Dearest ${recipient},\n\nYou are warmly invited to celebrate the wedding of ${inviteData.groomName} & ${inviteData.brideName}!\n\n🌿 Open your personalized wax-sealed invitation booklet here:\n${url}\n\nWith love,\n${inviteData.groomName} & ${inviteData.brideName}`);
+      
+      const waUrl = phone ? `https://api.whatsapp.com/send?phone=${phone}&text=${text}` : `https://api.whatsapp.com/send?text=${text}`;
+      window.open(waUrl, '_blank');
+      closeSendModal();
+      showToast(`Opening WhatsApp for ${recipient}!`);
+    }
+
+    function sendDirectEmail() {
+      const recipient = document.getElementById('targetRecipientName').value.trim() || "Honored Guest";
+      const url = generatePersonalizedUrl();
+
+      inviteData.recipient = recipient;
+      renderAll();
+
+      const subject = encodeURIComponent(`Wedding Invitation: ${inviteData.groomName} & ${inviteData.brideName}`);
+      const body = encodeURIComponent(`Dearest ${recipient},\n\nWe would be honored by your presence as we celebrate our holy matrimony.\n\nOpen your personal page-turning invitation booklet here:\n${url}\n\nWith love,\n${inviteData.groomName} & ${inviteData.brideName}`);
+      
+      window.location.href = `mailto:?subject=${subject}&body=${body}`;
+      closeSendModal();
+    }
+
+    function copyPersonalizedLink() {
+      const recipient = document.getElementById('targetRecipientName').value.trim() || "Honored Guest";
+      inviteData.recipient = recipient;
+      renderAll();
+
+      const url = generatePersonalizedUrl();
+      navigator.clipboard.writeText(url);
+      
+      const btnText = document.getElementById('copyLinkModalBtnText');
+      btnText.textContent = `Copied Link for "${recipient}"!`;
+      setTimeout(() => btnText.textContent = "Copy Personalized Invitation Link", 2500);
+      showToast(`Link tailored for ${recipient} copied!`);
+    }
+
+    function rsvpViaWhatsApp() {
+      const phone = (inviteData.whatsApp || '').replace(/[^0-9]/g, '');
+      const text = encodeURIComponent(`Hello ${inviteData.groomName} & ${inviteData.brideName}! I would joyfully love to RSVP for your wedding celebrations. Looking forward to celebrating with you! 🌿`);
+      const url = phone ? `https://wa.me/${phone}?text=${text}` : `https://wa.me/?text=${text}`;
+      window.open(url, '_blank');
+    }
+
+    function openWebRsvpModal() {
+      alert("Thank you! Your RSVP response has been joyfully recorded.");
+    }
+
+    // ==========================================
+    // AUDIO & TOAST UTILITIES
+    // ==========================================
+    function toggleMusic() {
+      const audio = document.getElementById('ambientMelody');
+      const icon = document.getElementById('musicIcon');
+      const label = document.getElementById('musicLabel');
+
+      if (isMusicPlaying) {
+        audio.pause();
+        isMusicPlaying = false;
+        icon.className = "fa-solid fa-volume-xmark text-brown-500";
+        label.textContent = "Muted";
+        showToast("Melody paused");
+      } else {
+        audio.play().then(() => {
+          isMusicPlaying = true;
+          icon.className = "fa-solid fa-volume-high text-avocado-700 animate-pulse";
+          label.textContent = "Playing";
+          showToast("Playing Ambient Romance ♬");
+        }).catch(e => {
+          console.warn("Audio autoplay policy:", e);
+          showToast("Click Melody again to confirm audio");
+        });
+      }
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      document.getElementById('toastText').textContent = msg;
+      t.classList.remove('translate-y-20', 'opacity-0');
+      t.classList.add('translate-y-0', 'opacity-100');
+      setTimeout(() => {
+        t.classList.add('translate-y-20', 'opacity-0');
+        t.classList.remove('translate-y-0', 'opacity-100');
+      }, 2400);
+    }
+  </script>
 </body>
 </html>
