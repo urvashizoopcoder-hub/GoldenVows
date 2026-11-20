@@ -426,3 +426,182 @@ input:focus, textarea:focus, select:focus {
     padding: 10px 16px 40px;
   }
 }
+
+
+
+/* =========================================================
+   OCCASION PICKER, THEME PALETTES & PREVIEW VIEWPORTS
+   ========================================================= */
+
+.occasion-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+.occasion-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 12px 8px;
+  border-radius: 14px;
+  background: #FCFBF7;
+  border: 1.5px solid #E5E7EB;
+  cursor: pointer;
+  transition: all .2s;
+  user-select: none;
+}
+.occasion-card:hover {
+  border-color: #D4AF37;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(6, 78, 59, 0.08);
+}
+.occasion-card.active {
+  border-color: #064E3B;
+  background: #F0FDF4;
+  box-shadow: 0 0 0 2px #064E3B, 0 6px 16px rgba(6, 78, 59, 0.15);
+}
+.occasion-card .occ-icon {
+  font-size: 26px;
+  margin-bottom: 4px;
+}
+.occasion-card .occ-name {
+  font-weight: 700;
+  font-size: 13px;
+  color: #064E3B;
+}
+.occasion-card .occ-sub {
+  font-size: 10.5px;
+  color: #6B7280;
+  margin-top: 2px;
+}
+
+/* Color Palettes Grid */
+.palette-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 8px;
+  margin-top: 10px;
+}
+.palette-card {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: #FCFBF7;
+  border: 1.5px solid #E5E7EB;
+  cursor: pointer;
+  transition: all .2s;
+}
+.palette-card.active {
+  border-color: #D4AF37;
+  background: #FFFDF5;
+  box-shadow: 0 0 0 2px #D4AF37;
+}
+.palette-swatches {
+  display: flex;
+  gap: 3px;
+}
+.palette-swatches span {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+.palette-card span.pal-name {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #374151;
+}
+
+/* Device View Switcher for Live Preview */
+.device-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 12px;
+  background: #E8E5D8;
+  padding: 4px;
+  border-radius: 999px;
+  width: fit-content;
+  align-self: center;
+}
+.device-btn {
+  border: none;
+  background: none;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 999px;
+  cursor: pointer;
+  color: #4B5563;
+  transition: all .2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.device-btn.active {
+  background: #064E3B;
+  color: #FDE68A;
+  box-shadow: 0 2px 6px rgba(6, 78, 59, 0.25);
+}
+
+/* Responsive Viewports for Live Preview Frame */
+.preview.is-phone .phone {
+  max-width: 390px;
+  height: 780px;
+}
+.preview.is-tablet .phone {
+  max-width: 620px;
+  height: 800px;
+  border-radius: 36px;
+}
+.preview.is-laptop .phone {
+  max-width: 96%;
+  height: 820px;
+  border-radius: 20px;
+  border-width: 8px;
+}
+
+/* Fast Multi-Guest Dispatcher */
+.dispatch-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+  max-height: 180px;
+  overflow-y: auto;
+}
+.dispatch-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 12px;
+  background: #fff;
+  border: 1px solid #E5E7EB;
+  border-radius: 10px;
+  font-size: 13px;
+}
+.dispatch-item .disp-info {
+  display: flex;
+  flex-direction: column;
+}
+.dispatch-item .disp-name {
+  font-weight: 700;
+  color: #064E3B;
+}
+.dispatch-item .disp-phone {
+  font-size: 11px;
+  color: #6B7280;
+}
+.dispatch-item button {
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}

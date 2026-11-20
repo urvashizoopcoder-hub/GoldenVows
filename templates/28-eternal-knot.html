@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Engagement of Vivaan & Ananya — GoldenVows Template #28</title>
+<meta name="description" content="Two Destinies Tied with Sacred Infinity Threads - Vivaan & Ananya">
+<link rel="stylesheet" href="../assets/fonts/fonts.css">
+<link rel="stylesheet" href="../styles.css">
+<style>
+:root {
+  --wine: #166534;
+  --wine-d: #14532D;
+  --rose: #15803D;
+  --rose-d: #166534;
+  --gold: #CA8A04;
+  --gold-l: #FEF08A;
+  --blush: #F0FDF4;
+  --blush2: #DCFCE7;
+  --ivory: #FAFFFA;
+  --ink: #052E16;
+}
+body {
+  background: #DCFCE7;
+}
+.top-template-badge {
+  position: fixed;
+  top: 10px;
+  right: 14px;
+  z-index: 1000;
+  background: var(--wine);
+  color: var(--gold-l);
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  border: 1px solid var(--gold);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+</style>
+</head>
+<body class="is-locked">
+
+<div class="top-template-badge">Template #28 · Engagement</div>
+
+<!-- ============ TOP SWITCHER BAR ============ -->
+<div class="view-toggle-bar">
+  <button type="button" class="view-toggle-btn active" id="btnModePage" onclick="switchMode('page')">📖 Flipbook Mode</button>
+  <button type="button" class="view-toggle-btn" id="btnModeScroll" onclick="switchMode('scroll')">📜 Royal Scroll</button>
+  <button type="button" class="view-toggle-btn" id="btnMusic" onclick="toggleMusic()">🎵 Music</button>
+</div>
+
+<!-- ============ OPENING COVER SCREEN ============ -->
+<section class="call" id="call">
+  <div class="call__bg" style="background-image:url('../assets/img/hero_palace.webp')"></div>
+  <div class="call__couple" style="background-image:url('../assets/img/couple_call.webp')"></div>
+  <div class="call__shade"></div>
+  <div class="call__status">
+    <span>9:41</span>
+    <span class="call__icons"><i></i><i></i><i></i><b></b></span>
+  </div>
+  <div class="call__top">
+    <p class="call__label" id="guestCallLabel">Incoming Invitation Call<span class="dots"><i>.</i><i>.</i><i>.</i></span></p>
+    <h1 class="call__names"><span>Vivaan & Ananya</span></h1>
+    <p class="call__sub">Sunday, 2nd May 2027</p>
+  </div>
+  <div class="call__bottom">
+    <button class="call__magic" type="button" onclick="answerCall()">✨ Tap or Slide to Open Invitation</button>
+    <div class="slider" id="slider">
+      <div class="slider__fill"></div>
+      <div class="slider__text"><b>slide</b>&nbsp;to answer</div>
+      <button class="slider__knob" id="knob" type="button" onclick="answerCall()">
+        <svg viewBox="0 0 24 24"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z"/></svg>
+      </button>
+    </div>
+    <span class="call__home"></span>
+  </div>
+</section>
+
+<!-- ============ AMBIENT PARTICLES ============ -->
+<div class="ambient" aria-hidden="true">
+  <div class="ambient__bg"></div>
+</div>
+<canvas class="petals" id="petals" aria-hidden="true"></canvas>
+
+<!-- ============ 1. 3D FLIPBOOK MODE ============ -->
+<div class="booklet-stage" id="bookletStage">
+  <div class="booklet-card">
+    <div class="book-corner book-corner--tl"></div>
+    <div class="book-corner book-corner--tr"></div>
+    <div class="book-corner book-corner--bl"></div>
+    <div class="book-corner book-corner--br"></div>
+
+    <!-- Page 1: Grand Announcement -->
+    <div class="book-page active" id="p1">
+      <p class="book-eyebrow">The Sacred Promise of Lifetime Companionship</p>
+      <div class="guest-welcome-banner" id="guestBanner1" style="display:none;">
+        <span>💌 Exclusively for: <b id="guestNameSpan1">Valued Guest</b></span>
+      </div>
+      <h2 class="book-title">Vivaan & Ananya</h2>
+      <div class="book-amp">✦ ❦ ✦</div>
+      <p class="book-date">Sunday, 2nd May 2027</p>
+      <p class="book-venue">ITC Grand Chola, Chennai</p>
+      <p class="book-quote">“The soul recognizes its counterpoint in a single heartbeat.”</p>
+      <p style="font-size:12px;color:var(--gold-d);margin-top:auto;">Page 1 of 5 · Tap Next Page ➔</p>
+    </div>
+
+    <!-- Page 2: The Celebrants & Story -->
+    <div class="book-page" id="p2">
+      <p class="book-eyebrow">Auspicious Story</p>
+      <h3 style="font-family:var(--serif);font-size:26px;color:var(--wine);margin:6px 0;">Meet The Celebrants</h3>
+      <div style="display:flex;gap:14px;justify-content:center;margin:12px 0;">
+        <div style="text-align:center;">
+          <img src="../assets/img/groom.webp" alt="Vivaan Reddy" style="width:90px;height:120px;object-fit:cover;border-radius:999px 999px 0 0;border:2px solid var(--gold);box-shadow:0 4px 12px rgba(0,0,0,0.15);">
+          <b style="display:block;font-size:13px;color:var(--wine);margin-top:6px;">Vivaan Reddy</b>
+          <small style="font-size:11px;color:var(--ink-l);display:block;">Son of Dr. K.S. & Mrs. Sunita Reddy</small>
+        </div>
+        <div style="text-align:center;">
+          <img src="../assets/img/bride.webp" alt="Ananya Rao" style="width:90px;height:120px;object-fit:cover;border-radius:999px 999px 0 0;border:2px solid var(--gold);box-shadow:0 4px 12px rgba(0,0,0,0.15);">
+          <b style="display:block;font-size:13px;color:var(--wine);margin-top:6px;">Ananya Rao</b>
+          <small style="font-size:11px;color:var(--ink-l);display:block;">Daughter of Justice V. & Mrs. Lalitha Rao</small>
+        </div>
+      </div>
+      <p style="font-size:14px;line-height:1.6;color:var(--ink-l);max-width:90%;margin:10px auto;">
+        With hearts overflowing with love, we cordially invite you and your family to grace this blessed occasion with your prayers and presence.
+      </p>
+      <p style="font-size:12px;color:var(--gold-d);margin-top:auto;">Page 2 of 5</p>
+    </div>
+
+    <!-- Page 3: Calendar & Countdown -->
+    <div class="book-page" id="p3">
+      <p class="book-eyebrow">Mark Your Calendar</p>
+      <h3 style="font-family:var(--serif);font-size:26px;color:var(--wine);margin:6px 0;">Save The Auspicious Date</h3>
+      <div style="background:rgba(212,175,55,0.08);border:1.5px solid var(--gold);border-radius:18px;padding:16px;width:90%;margin:12px auto;text-align:center;">
+        <span style="font-family:var(--serif);font-size:44px;font-weight:700;color:var(--wine);line-height:1;">14</span>
+        <span style="display:block;font-family:var(--cap);font-size:14px;letter-spacing:.1em;color:var(--rose-d);text-transform:uppercase;">FEBRUARY 2027</span>
+        <p style="font-size:13px;color:var(--ink-l);margin-top:6px;">ITC Grand Chola, Chennai</p>
+      </div>
+
+      <div class="hearts" id="cdStage" style="margin:12px 0;">
+        <div class="hrt"><b id="cdDays">00</b><span>Days</span></div>
+        <div class="hrt"><b id="cdHours">00</b><span>Hours</span></div>
+        <div class="hrt"><b id="cdMins">00</b><span>Mins</span></div>
+        <div class="hrt"><b id="cdSecs">00</b><span>Secs</span></div>
+      </div>
+
+      <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Vivaan & Ananya+Celebration&location=ITC Grand Chola, Chennai" target="_blank" rel="noopener" class="btn btn--soft" style="font-size:12.5px;padding:8px 18px;border-radius:999px;margin-top:8px;">
+        ＋ Add to Google Calendar
+      </a>
+      <p style="font-size:12px;color:var(--gold-d);margin-top:auto;">Page 3 of 5</p>
+    </div>
+
+    <!-- Page 4: Itinerary -->
+    <div class="book-page" id="p4">
+      <p class="book-eyebrow">Celebration Itinerary</p>
+      <h3 style="font-family:var(--serif);font-size:26px;color:var(--wine);margin:6px 0;">Ceremonies &amp; Timings</h3>
+      <div style="width:100%;max-height:380px;overflow-y:auto;padding-right:4px;">
+        
+        <div style="background:rgba(212,175,55,0.06);border:1px solid rgba(212,175,55,0.3);border-radius:12px;padding:12px;margin:8px 0;text-align:left;">
+          <b style="color:var(--wine);font-size:14px;display:block;">Nischithartham (Puja)</b>
+          <p style="font-size:12px;color:var(--rose-d);margin:3px 0;"><svg style="width:12px;height:12px;vertical-align:-1px;margin-right:4px;" viewBox="0 0 24 24"><path fill="currentColor" d="M7 2h2v2h6V2h2v2h3v18H4V4h3V2Zm11 8H6v10h12V10Z"/></svg>02 May 2027, 10:00 AM</p>
+          <p style="font-size:12px;color:var(--ink-l);margin:2px 0;"><svg style="width:12px;height:12px;vertical-align:-1px;margin-right:4px;" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7Zm0 4.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Z"/></svg>Rajendra Hall</p>
+          <small style="font-size:11px;color:#6B7280;display:block;margin-top:2px;">Dress code: Traditional Silk</small>
+        </div>
+        <div style="background:rgba(212,175,55,0.06);border:1px solid rgba(212,175,55,0.3);border-radius:12px;padding:12px;margin:8px 0;text-align:left;">
+          <b style="color:var(--wine);font-size:14px;display:block;">Ring Exchange Ceremony</b>
+          <p style="font-size:12px;color:var(--rose-d);margin:3px 0;"><svg style="width:12px;height:12px;vertical-align:-1px;margin-right:4px;" viewBox="0 0 24 24"><path fill="currentColor" d="M7 2h2v2h6V2h2v2h3v18H4V4h3V2Zm11 8H6v10h12V10Z"/></svg>02 May 2027, 11:30 AM</p>
+          <p style="font-size:12px;color:var(--ink-l);margin:2px 0;"><svg style="width:12px;height:12px;vertical-align:-1px;margin-right:4px;" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7Zm0 4.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Z"/></svg>Mandapam</p>
+          <small style="font-size:11px;color:#6B7280;display:block;margin-top:2px;">Dress code: Festive Attire</small>
+        </div>
+        <div style="background:rgba(212,175,55,0.06);border:1px solid rgba(212,175,55,0.3);border-radius:12px;padding:12px;margin:8px 0;text-align:left;">
+          <b style="color:var(--wine);font-size:14px;display:block;">Grand Royal Lunch</b>
+          <p style="font-size:12px;color:var(--rose-d);margin:3px 0;"><svg style="width:12px;height:12px;vertical-align:-1px;margin-right:4px;" viewBox="0 0 24 24"><path fill="currentColor" d="M7 2h2v2h6V2h2v2h3v18H4V4h3V2Zm11 8H6v10h12V10Z"/></svg>02 May 2027, 12:45 PM</p>
+          <p style="font-size:12px;color:var(--ink-l);margin:2px 0;"><svg style="width:12px;height:12px;vertical-align:-1px;margin-right:4px;" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7Zm0 4.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Z"/></svg>Madras Pavilion</p>
+          <small style="font-size:11px;color:#6B7280;display:block;margin-top:2px;">Dress code: Traditional Wear</small>
+        </div>
+      </div>
+      <p style="font-size:12px;color:var(--gold-d);margin-top:auto;">Page 4 of 5</p>
+    </div>
+
+    <!-- Page 5: Venue, Maps & RSVP -->
+    <div class="book-page" id="p5">
+      <p class="book-eyebrow">Warm Welcome</p>
+      <h3 style="font-family:var(--serif);font-size:26px;color:var(--wine);margin:6px 0;">Venue &amp; RSVP</h3>
+      <p style="font-size:13.5px;color:var(--ink-l);margin:4px 0;"><b>ITC Grand Chola, Chennai</b><br><small>63 Anna Salai, Guindy, Chennai 600032</small></p>
+
+      <div style="background:#fff;border:1px solid #E5E7EB;border-radius:14px;padding:14px;width:95%;margin:12px auto;text-align:left;">
+        <label style="font-size:11px;font-weight:700;color:var(--wine);text-transform:uppercase;">Quick RSVP via WhatsApp:</label>
+        <input type="text" id="rsvpNameInput" placeholder="Your Name" style="width:100%;box-sizing:border-box;padding:8px 10px;margin-top:4px;border:1px solid #D1D5DB;border-radius:8px;font-size:13px;">
+        <div style="display:flex;gap:8px;margin-top:8px;">
+          <button type="button" onclick="sendQuickRsvp('yes')" class="btn btn--wa" style="flex:1;padding:8px;font-size:12px;border-radius:8px;">✓ Joyfully Attend</button>
+          <button type="button" onclick="sendQuickRsvp('no')" class="btn btn--ghost" style="padding:8px;font-size:12px;border-radius:8px;">✕ Regret</button>
+        </div>
+      </div>
+
+      <p style="font-family:var(--script);font-size:20px;color:var(--wine);margin:6px 0;">Bound by the eternal knot of trust and affection.</p>
+      <p style="font-size:12px;color:var(--gold-d);margin-top:auto;">Page 5 of 5</p>
+    </div>
+
+    <!-- Booklet Bottom Controls -->
+    <div class="book-controls">
+      <button type="button" class="book-nav-btn" id="btnPrev" onclick="navPage(-1)" disabled>‹ Prev</button>
+      <div class="book-page-pills">
+        <span class="book-pill active" onclick="gotoPage(1)"></span>
+        <span class="book-pill" onclick="gotoPage(2)"></span>
+        <span class="book-pill" onclick="gotoPage(3)"></span>
+        <span class="book-pill" onclick="gotoPage(4)"></span>
+        <span class="book-pill" onclick="gotoPage(5)"></span>
+      </div>
+      <button type="button" class="book-nav-btn" id="btnNext" onclick="navPage(1)">Next ›</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============ 2. ROYAL SCROLL MODE ============ -->
+<main class="site" id="scrollStage" style="display:none;margin-top:60px;">
+  <section class="hero">
+    <div class="hero__art"><img src="../assets/img/hero_palace.webp" alt=""></div>
+    <div class="hero__text">
+      <p class="hero__eyebrow">The Sacred Promise of Lifetime Companionship</p>
+      <h2 class="hero__name">Vivaan & Ananya</h2>
+      <p class="hero__date">Sunday, 2nd May 2027</p>
+      <p style="font-size:15px;color:var(--gold-l);">ITC Grand Chola, Chennai</p>
+    </div>
+  </section>
+
+  <section class="sec invite">
+    <p class="invite__ganesh">✦ ❦ ✦</p>
+    <p class="invite__msg">The soul recognizes its counterpoint in a single heartbeat.</p>
+  </section>
+
+  <section class="sec events" style="padding:20px;">
+    <h3 style="font-family:var(--serif);font-size:32px;color:var(--wine);text-align:center;margin-bottom:20px;">Ceremonies</h3>
+    <div style="display:flex;flex-direction:column;gap:14px;max-width:500px;margin:0 auto;">
+      
+        <article class="evcard">
+          <h4 class="evcard__name">Nischithartham (Puja)</h4>
+          <p class="evcard__orn">❦</p>
+          <p class="evcard__row"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M7 2h2v2h6V2h2v2h3v18H4V4h3V2Zm11 8H6v10h12V10Z"/></svg>02 May 2027, 10:00 AM</p>
+          <p class="evcard__row evcard__venue"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7Zm0 4.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Z"/></svg><span>Rajendra Hall</span></p>
+          <p class="evcard__note">Dress code: Traditional Silk · Lagna Patrika reading & blessings</p>
+          <div class="evcard__btns">
+            <a class="btn btn--rose" href="https://maps.google.com/?q=ITC Grand Chola, Chennai" target="_blank" rel="noopener">➤ Get Directions</a>
+          </div>
+        </article>
+        <article class="evcard">
+          <h4 class="evcard__name">Ring Exchange Ceremony</h4>
+          <p class="evcard__orn">❦</p>
+          <p class="evcard__row"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M7 2h2v2h6V2h2v2h3v18H4V4h3V2Zm11 8H6v10h12V10Z"/></svg>02 May 2027, 11:30 AM</p>
+          <p class="evcard__row evcard__venue"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7Zm0 4.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Z"/></svg><span>Mandapam</span></p>
+          <p class="evcard__note">Dress code: Festive Attire · Exchange of engagement rings</p>
+          <div class="evcard__btns">
+            <a class="btn btn--rose" href="https://maps.google.com/?q=ITC Grand Chola, Chennai" target="_blank" rel="noopener">➤ Get Directions</a>
+          </div>
+        </article>
+        <article class="evcard">
+          <h4 class="evcard__name">Grand Royal Lunch</h4>
+          <p class="evcard__orn">❦</p>
+          <p class="evcard__row"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M7 2h2v2h6V2h2v2h3v18H4V4h3V2Zm11 8H6v10h12V10Z"/></svg>02 May 2027, 12:45 PM</p>
+          <p class="evcard__row evcard__venue"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7Zm0 4.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Z"/></svg><span>Madras Pavilion</span></p>
+          <p class="evcard__note">Dress code: Traditional Wear · Traditional South Indian feast</p>
+          <div class="evcard__btns">
+            <a class="btn btn--rose" href="https://maps.google.com/?q=ITC Grand Chola, Chennai" target="_blank" rel="noopener">➤ Get Directions</a>
+          </div>
+        </article>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="foot__inner">
+      <blockquote class="foot__quote">“Bound by the eternal knot of trust and affection.”</blockquote>
+      <h3 class="foot__names">Vivaan & Ananya</h3>
+      <p class="foot__date">Sunday, 2nd May 2027</p>
+      <p class="foot__venue">ITC Grand Chola, Chennai</p>
+    </div>
+  </footer>
+</main>
+
+<!-- ============ FLOATING ACTION BAR ============ -->
+<div id="rpActionBar" style="position:fixed;bottom:18px;left:50%;transform:translateX(-50%);z-index:9999;display:flex;gap:10px;align-items:center;background:rgba(255,255,255,0.96);backdrop-filter:blur(14px);padding:8px 18px;border-radius:999px;box-shadow:0 10px 30px rgba(0,0,0,0.2);border:1.5px solid var(--gold);font-family:var(--sans);">
+  <a id="btnCustomize" href="../index.html" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:999px;background:var(--blush2);color:var(--wine);font-weight:700;font-size:13px;text-decoration:none;">
+    <span>✎</span>
+    <span>Customize This Template</span>
+  </a>
+  <button onclick="openSendModal()" type="button" style="display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border-radius:999px;background:var(--wine);color:var(--gold-l);font-weight:700;font-size:13px;border:none;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,0.2);">
+    <span>💌</span>
+    <span>Send to Desired Person</span>
+  </button>
+</div>
+
+<!-- ============ MODAL: SEND TO DESIRED PERSON ============ -->
+<div id="sendModal" style="display:none;position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,0.65);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:16px;">
+  <div style="background:#fff;border-radius:24px;max-width:440px;width:100%;padding:24px;box-shadow:0 25px 60px rgba(0,0,0,0.4);border:2px solid var(--gold);font-family:var(--sans);position:relative;">
+    <button onclick="closeSendModal()" type="button" style="position:absolute;top:16px;right:16px;border:none;background:none;font-size:24px;color:#6B7280;cursor:pointer;">×</button>
+    
+    <div style="text-align:center;margin-bottom:16px;">
+      <div style="width:44px;height:44px;border-radius:50%;background:var(--wine);color:var(--gold-l);display:inline-flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:6px;">💌</div>
+      <h3 style="font-family:var(--serif);font-size:24px;color:var(--wine);margin:0;">Send Invitation</h3>
+      <p style="font-size:12.5px;color:#6B7280;margin:3px 0 0;">Deliver directly to the correct WhatsApp number or Email</p>
+    </div>
+
+    <div style="margin-bottom:12px;">
+      <label style="display:block;font-size:11px;font-weight:700;text-transform:uppercase;color:var(--wine);margin-bottom:4px;">Guest / Family Name *</label>
+      <input type="text" id="targetGuestName" placeholder="e.g. Priya & Rohan, The Sharma Family" style="width:100%;box-sizing:border-box;padding:9px 12px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:13.5px;outline:none;" oninput="updateGuestPersonalization()">
+    </div>
+
+    <div style="margin-bottom:14px;">
+      <label style="display:block;font-size:11px;font-weight:700;text-transform:uppercase;color:var(--wine);margin-bottom:4px;">Guest Mobile Number *</label>
+      <div style="display:flex;gap:6px;">
+        <select id="countryCodeSelect" style="width:100px;padding:9px 8px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:13px;background:#F9FAFB;">
+          <option value="91">+91 (IN)</option>
+          <option value="1">+1 (US/CA)</option>
+          <option value="44">+44 (UK)</option>
+          <option value="971">+971 (UAE)</option>
+          <option value="61">+61 (AU)</option>
+          <option value="65">+65 (SG)</option>
+          <option value="49">+49 (DE)</option>
+          <option value="33">+33 (FR)</option>
+        </select>
+        <input type="tel" id="targetGuestPhone" placeholder="10-digit number (e.g. 9876543210)" style="flex:1;padding:9px 12px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:13.5px;outline:none;">
+      </div>
+      <small style="font-size:11px;color:#6B7280;display:block;margin-top:3px;">Automatically cleaned &amp; delivered directly to their WhatsApp chat.</small>
+    </div>
+
+    <div style="margin-bottom:14px;">
+      <label style="display:block;font-size:11px;font-weight:700;text-transform:uppercase;color:var(--wine);margin-bottom:4px;">Guest Email (Optional)</label>
+      <input type="email" id="targetGuestEmail" placeholder="guest@example.com" style="width:100%;box-sizing:border-box;padding:9px 12px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:13.5px;outline:none;">
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      <button onclick="sendViaWhatsApp()" type="button" class="btn btn--wa" style="width:100%;padding:11px;border-radius:12px;font-size:13.5px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:6px;">
+        <span>Send Directly on WhatsApp</span>
+      </button>
+
+      <button onclick="sendViaEmail()" type="button" class="btn btn--soft" style="width:100%;padding:10px;border-radius:12px;font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center;gap:6px;">
+        <span>Send via Email</span>
+      </button>
+
+      <button onclick="copyPersonalizedLink()" id="btnCopyPersonal" type="button" class="btn btn--ghost" style="width:100%;padding:10px;border-radius:12px;font-size:13px;font-weight:600;">
+        <span>Copy Personalized Link</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ AUDIO ============ -->
+<audio id="bgMusic" src="../audio/romantic_piano.mp3" loop preload="auto"></audio>
+
+<script>
+var curPage = 1;
+var totalPages = 5;
+
+function answerCall() {
+  document.getElementById('call').classList.add('is-answered');
+  document.body.classList.remove('is-locked');
+  var m = document.getElementById('bgMusic');
+  if (m) { m.play().catch(function(){}); }
+}
+
+function switchMode(mode) {
+  var bStage = document.getElementById('bookletStage');
+  var sStage = document.getElementById('scrollStage');
+  var bPage = document.getElementById('btnModePage');
+  var bScroll = document.getElementById('btnModeScroll');
+
+  if (mode === 'page') {
+    bStage.style.display = 'flex';
+    sStage.style.display = 'none';
+    bPage.classList.add('active');
+    bScroll.classList.remove('active');
+  } else {
+    bStage.style.display = 'none';
+    sStage.style.display = 'block';
+    bScroll.classList.add('active');
+    bPage.classList.remove('active');
+  }
+}
+
+function gotoPage(n) {
+  if (n < 1 || n > totalPages) return;
+  curPage = n;
+  for (var i = 1; i <= totalPages; i++) {
+    var p = document.getElementById('p' + i);
+    if (p) p.classList.toggle('active', i === curPage);
+  }
+  var pills = document.querySelectorAll('.book-pill');
+  pills.forEach(function(pill, idx) {
+    pill.classList.toggle('active', (idx + 1) === curPage);
+  });
+  document.getElementById('btnPrev').disabled = (curPage === 1);
+  document.getElementById('btnNext').disabled = (curPage === totalPages);
+}
+
+function navPage(delta) {
+  gotoPage(curPage + delta);
+}
+
+function toggleMusic() {
+  var m = document.getElementById('bgMusic');
+  var b = document.getElementById('btnMusic');
+  if (m.paused) {
+    m.play();
+    b.textContent = '🎵 Playing';
+  } else {
+    m.pause();
+    b.textContent = '🔇 Muted';
+  }
+}
+
+// Countdown Timer
+function updateCountdown() {
+  var target = new Date('2027-05-02T11:00').getTime();
+  var now = new Date().getTime();
+  var diff = Math.max(0, target - now);
+
+  var d = Math.floor(diff / (1000 * 60 * 60 * 24));
+  var h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  var s = Math.floor((diff % (1000 * 60)) / 1000);
+
+  if (document.getElementById('cdDays')) document.getElementById('cdDays').textContent = d;
+  if (document.getElementById('cdHours')) document.getElementById('cdHours').textContent = h;
+  if (document.getElementById('cdMins')) document.getElementById('cdMins').textContent = m;
+  if (document.getElementById('cdSecs')) document.getElementById('cdSecs').textContent = s;
+}
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+// Send Modal & WhatsApp Deliver
+function openSendModal() {
+  document.getElementById('sendModal').style.display = 'flex';
+}
+function closeSendModal() {
+  document.getElementById('sendModal').style.display = 'none';
+}
+
+function getCleanUrl() {
+  var href = window.location.href.split('#')[0].split('?')[0];
+  var guest = document.getElementById('targetGuestName').value.trim();
+  return href + (guest ? '?to=' + encodeURIComponent(guest) : '');
+}
+
+function updateGuestPersonalization() {
+  var guest = document.getElementById('targetGuestName').value.trim();
+  var label = document.getElementById('guestCallLabel');
+  if (label) {
+    label.innerHTML = guest ? ('Incoming call for <b>' + guest + '</b><span class="dots"><i>.</i><i>.</i><i>.</i></span>') : 'Incoming Invitation Call<span class="dots"><i>.</i><i>.</i><i>.</i></span>';
+  }
+}
+
+function sendViaWhatsApp() {
+  var guest = document.getElementById('targetGuestName').value.trim() || 'Honored Guest';
+  var cc = document.getElementById('countryCodeSelect').value.replace(/\D/g, '');
+  var rawPhone = document.getElementById('targetGuestPhone').value.trim().replace(/\D/g, '').replace(/^0+/, '');
+  var fullPhone = rawPhone ? (cc + rawPhone) : '';
+  var link = getCleanUrl();
+
+  var msg = encodeURIComponent("Dearest " + guest + ",\n\nYou are warmly invited to celebrate the " + "Engagement of Vivaan & Ananya" + "! ✦\n\nVenue: " + "ITC Grand Chola, Chennai" + "\nDate: " + "Sunday, 2nd May 2027" + "\n\nPlease view your exclusive animated invitation here:\n" + link);
+
+  var url = fullPhone ? ('https://api.whatsapp.com/send?phone=' + fullPhone + '&text=' + msg) : ('https://api.whatsapp.com/send?text=' + msg);
+  window.open(url, '_blank');
+  closeSendModal();
+}
+
+function sendViaEmail() {
+  var guest = document.getElementById('targetGuestName').value.trim() || 'Honored Guest';
+  var email = document.getElementById('targetGuestEmail').value.trim();
+  var link = getCleanUrl();
+  var subject = encodeURIComponent("Invitation: " + "Engagement of Vivaan & Ananya");
+  var body = encodeURIComponent("Dearest " + guest + ",\n\nWe cordially invite you to celebrate the " + "Engagement of Vivaan & Ananya" + " on " + "Sunday, 2nd May 2027" + " at " + "ITC Grand Chola, Chennai" + ".\n\nOpen your interactive invitation here:\n" + link + "\n\nWith love,\n" + "Vivaan & Ananya");
+
+  window.location.href = 'mailto:' + (email || '') + '?subject=' + subject + '&body=' + body;
+  closeSendModal();
+}
+
+function copyPersonalizedLink() {
+  var link = getCleanUrl();
+  navigator.clipboard.writeText(link);
+  var btn = document.getElementById('btnCopyPersonal');
+  btn.textContent = '✓ Copied Link to Clipboard!';
+  setTimeout(function() { btn.textContent = 'Copy Personalized Link'; }, 2200);
+}
+
+function sendQuickRsvp(choice) {
+  var name = document.getElementById('rsvpNameInput').value.trim() || 'Guest';
+  var msg = encodeURIComponent("Namaste! RSVP from " + name + " for " + "Vivaan & Ananya" + ": " + (choice === 'yes' ? '✓ Joyfully attending with family!' : '✕ Regretfully cannot attend, sending our warmest blessings.'));
+  window.open('https://api.whatsapp.com/send?phone=919876543210&text=' + msg, '_blank');
+}
+
+// Check guest query on load
+window.addEventListener('DOMContentLoaded', function() {
+  var m = /[?&]to=([^&#]+)/.exec(window.location.search);
+  if (m) {
+    var g = decodeURIComponent(m[1].replace(/\+/g, ' '));
+    var label = document.getElementById('guestCallLabel');
+    if (label) label.innerHTML = 'Incoming call for <b>' + g + '</b><span class="dots"><i>.</i><i>.</i><i>.</i></span>';
+    var b1 = document.getElementById('guestBanner1');
+    var span = document.getElementById('guestNameSpan1');
+    if (b1 && span) {
+      span.textContent = g;
+      b1.style.display = 'inline-flex';
+    }
+  }
+});
+</script>
+
+</body>
+</html>

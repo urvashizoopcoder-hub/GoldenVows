@@ -3,9 +3,218 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>GoldenVows — Create Your Luxury Digital Wedding Invitation</title>
+<title>GoldenVows Celebration Studio — Luxury Digital Invitations & 60 Unique Templates</title>
 <link rel="stylesheet" href="assets/fonts/fonts.css">
 <link rel="stylesheet" href="assets/goldenvows_editor.css">
+<style>
+/* 60 Templates Showcase Section */
+.catalog-sec {
+  max-width: 1380px;
+  margin: 50px auto 40px;
+  padding: 0 20px;
+}
+.catalog-head {
+  text-align: center;
+  margin-bottom: 24px;
+}
+.catalog-head h2 {
+  font-family: var(--serif);
+  font-size: clamp(28px, 6vw, 42px);
+  color: #064E3B;
+  margin-bottom: 6px;
+}
+.catalog-head p {
+  font-size: 14.5px;
+  color: #4B5563;
+  max-width: 680px;
+  margin: 0 auto;
+}
+.catalog-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 20px 0;
+}
+.filter-chip {
+  padding: 7px 16px;
+  border-radius: 999px;
+  background: #E8E5D8;
+  color: #374151;
+  font-size: 13px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all .2s;
+}
+.filter-chip.active {
+  background: #064E3B;
+  color: #FDE68A;
+  box-shadow: 0 4px 12px rgba(6,78,59,0.25);
+}
+.catalog-search {
+  max-width: 440px;
+  margin: 0 auto 24px;
+  position: relative;
+}
+.catalog-search input {
+  width: 100%;
+  padding: 10px 18px 10px 38px;
+  border-radius: 999px;
+  border: 1.5px solid #D4AF37;
+  background: #fff;
+  font-size: 13.5px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+}
+.catalog-search svg {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  color: #9CA3AF;
+}
+.template-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+.tpl-card {
+  background: #fff;
+  border-radius: 18px;
+  border: 1.5px solid rgba(212,175,55,0.35);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all .25s ease;
+}
+.tpl-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(6,78,59,0.12);
+  border-color: #D4AF37;
+}
+.tpl-header {
+  height: 110px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 16px;
+  color: #fff;
+  position: relative;
+}
+.tpl-badge {
+  position: absolute;
+  top: 12px;
+  left: 14px;
+  background: rgba(0,0,0,0.45);
+  backdrop-filter: blur(8px);
+  color: #fff;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+.tpl-id {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  background: rgba(255,255,255,0.25);
+  color: #fff;
+  font-weight: 700;
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+.tpl-body {
+  padding: 16px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.tpl-title {
+  font-family: var(--serif);
+  font-size: 19px;
+  font-weight: 700;
+  color: #064E3B;
+  margin-bottom: 4px;
+}
+.tpl-sub {
+  font-size: 12.5px;
+  color: #6B7280;
+  margin-bottom: 12px;
+  line-height: 1.4;
+  flex: 1;
+}
+.tpl-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #F3F4F6;
+  padding-top: 10px;
+  margin-top: auto;
+}
+.tpl-swatches {
+  display: flex;
+  gap: 4px;
+}
+.tpl-swatches span {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.12);
+}
+.tpl-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+.btn-preview {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: #F0FDF4;
+  color: #064E3B;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  border: 1px solid #047857;
+  transition: all .2s;
+}
+.btn-preview:hover {
+  background: #064E3B;
+  color: #FDE68A;
+}
+.btn-use {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: #064E3B;
+  color: #FDE68A;
+  font-size: 12px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: all .2s;
+}
+.btn-use:hover {
+  background: #022C22;
+  box-shadow: 0 4px 10px rgba(6,78,59,0.3);
+}
+</style>
 </head>
 <body data-view="form">
 
@@ -15,66 +224,183 @@
     <span class="brand__mono">✦</span>
     <div>
       <b>GoldenVows</b>
-      <small>Artisanal Wedding Website Studio</small>
+      <small>Celebration Studio &amp; 60 Templates</small>
     </div>
   </div>
-  <nav class="tabs" role="tablist">
-    <button type="button" class="tab on" id="tabForm" onclick="setView('form')">✎ Edit Form</button>
-    <button type="button" class="tab" id="tabPrev" onclick="setView('preview')">👁 Live Preview</button>
-  </nav>
+  <div style="display:flex;align-items:center;gap:12px;">
+    <a href="#catalog" class="btn btn--soft" style="font-size:12.5px;padding:6px 14px;border-radius:999px;text-decoration:none;">
+      ✦ Explore 60 Templates
+    </a>
+    <nav class="tabs" role="tablist">
+      <button type="button" class="tab on" id="tabForm" onclick="setView('form')">✎ Studio Form</button>
+      <button type="button" class="tab" id="tabPrev" onclick="setView('preview')">👁 Live Preview</button>
+    </nav>
+  </div>
 </header>
 
 <div class="wrap">
   
-  <!-- ============ CREATION FORM ============ -->
+  <!-- ============ CREATION STUDIO FORM ============ -->
   <form class="panel" id="ed" autocomplete="off" novalidate>
     <p class="intro">
-      Fill in your wedding details below — the phone preview updates in real time as you type. Once finalized, you can preview it and send the sealed invitation directly to your desired guests.
+      Select your occasion below, fill in the celebrant details, and watch your invitation update in real time. Once finalized, you can view the full animation and dispatch sealed invitations directly via WhatsApp &amp; Email!
     </p>
 
-    <!-- 1. THE COUPLE -->
+    <!-- SECTION 1: CHOOSE OCCASION -->
     <details class="grp" open>
-      <summary>💑 The Couple</summary>
-      <div class="row2">
-        <label>Groom's first name *<input name="groom_name" maxlength="30" required placeholder="Aarav"></label>
-        <label>Bride's first name *<input name="bride_name" maxlength="30" required placeholder="Ananya"></label>
-      </div>
-      <label>Groom's full name *<input name="groom_full_name" maxlength="60" required placeholder="Aarav Malhotra"></label>
-      <label>Groom's parents <i>(optional blessing line)</i><input name="groom_parents" maxlength="120" placeholder="Son of Mr. Rajiv Malhotra & Mrs. Neelam Malhotra"></label>
+      <summary>🎉 Choose Occasion &amp; Aesthetic Style</summary>
       
-      <label>Bride's full name *<input name="bride_full_name" maxlength="60" required placeholder="Ananya Kapoor"></label>
-      <label>Bride's parents <i>(optional blessing line)</i><input name="bride_parents" maxlength="120" placeholder="Daughter of Mr. Vikram Kapoor & Mrs. Shalini Kapoor"></label>
+      <label style="margin-top:4px;">Select Function / Occasion Type:</label>
+      <div class="occasion-grid">
+        <div class="occasion-card active" data-occ="wedding">
+          <span class="occ-icon">💍</span>
+          <span class="occ-name">Wedding</span>
+          <span class="occ-sub">Royal Palaces</span>
+        </div>
+        <div class="occasion-card" data-occ="engagement">
+          <span class="occ-icon">💎</span>
+          <span class="occ-name">Engagement</span>
+          <span class="occ-sub">Ring Ceremony</span>
+        </div>
+        <div class="occasion-card" data-occ="babyshower">
+          <span class="occ-icon">🍼</span>
+          <span class="occ-name">Baby Shower</span>
+          <span class="occ-sub">Godh Bharai</span>
+        </div>
+        <div class="occasion-card" data-occ="birthday">
+          <span class="occ-icon">🎂</span>
+          <span class="occ-name">Birthday</span>
+          <span class="occ-sub">Milestone Gala</span>
+        </div>
+        <div class="occasion-card" data-occ="housewarming">
+          <span class="occ-icon">🏡</span>
+          <span class="occ-name">Housewarming</span>
+          <span class="occ-sub">Griha Pravesh</span>
+        </div>
+        <div class="occasion-card" data-occ="anniversary">
+          <span class="occ-icon">🥂</span>
+          <span class="occ-name">Anniversary</span>
+          <span class="occ-sub">Silver &amp; Golden</span>
+        </div>
+      </div>
+
+      <label style="margin-top:16px;">Color Palette Theme:</label>
+      <div class="palette-grid">
+        <div class="palette-card active" data-pal="emerald-gold">
+          <div class="palette-swatches">
+            <span style="background:#064E3B;"></span>
+            <span style="background:#D4AF37;"></span>
+            <span style="background:#FCFBF7;"></span>
+          </div>
+          <span class="pal-name">Emerald &amp; Gold</span>
+        </div>
+        <div class="palette-card" data-pal="wine-rose">
+          <div class="palette-swatches">
+            <span style="background:#74203B;"></span>
+            <span style="background:#C9975A;"></span>
+            <span style="background:#FFF6F2;"></span>
+          </div>
+          <span class="pal-name">Wine &amp; Rose Gold</span>
+        </div>
+        <div class="palette-card" data-pal="midnight-star">
+          <div class="palette-swatches">
+            <span style="background:#0F172A;"></span>
+            <span style="background:#38BDF8;"></span>
+            <span style="background:#F59E0B;"></span>
+          </div>
+          <span class="pal-name">Midnight &amp; Starlight</span>
+        </div>
+        <div class="palette-card" data-pal="pastel-cloud">
+          <div class="palette-swatches">
+            <span style="background:#DB2777;"></span>
+            <span style="background:#0284C7;"></span>
+            <span style="background:#FEF08A;"></span>
+          </div>
+          <span class="pal-name">Pastel Clouds</span>
+        </div>
+        <div class="palette-card" data-pal="terracotta-marigold">
+          <div class="palette-swatches">
+            <span style="background:#9A3412;"></span>
+            <span style="background:#EAB308;"></span>
+            <span style="background:#FFFBEB;"></span>
+          </div>
+          <span class="pal-name">Terracotta &amp; Marigold</span>
+        </div>
+      </div>
+
+      <div class="row2" style="margin-top:14px;">
+        <label>Opening Experience
+          <select name="opening_style">
+            <option value="call">📞 Incoming VIP Event Call Screen</option>
+            <option value="envelope">💌 Royal 3D Wax Seal Envelope</option>
+          </select>
+        </label>
+        <label>Viewing Experience
+          <select name="view_mode">
+            <option value="page">📖 3D Page-Turning Flipbook (Recommended)</option>
+            <option value="scroll">📜 Royal Palace Scroll Mode</option>
+          </select>
+        </label>
+      </div>
+
+      <label>Ambient Magic Particles
+        <select name="ambient_particles">
+          <option value="petals">🌸 Falling Rose &amp; Jasmine Petals</option>
+          <option value="lanterns">🏮 Glowing Floating Sky Lanterns</option>
+          <option value="stars">✨ Twinkling Fairy Dust &amp; Starlight</option>
+          <option value="confetti">🎉 Celebratory Confetti Burst</option>
+        </select>
+      </label>
+    </details>
+
+    <!-- SECTION 2: THE CELEBRANTS / HOSTS -->
+    <details class="grp" open>
+      <summary>💑 Celebrants &amp; Family Details</summary>
+      <label>Grand Occasion Title *
+        <input name="occasion_title" maxlength="60" required placeholder="Royal Wedding Celebration">
+      </label>
+      
+      <div class="row2">
+        <label id="lblCel1">Groom's first name *<input name="groom_name" maxlength="30" required placeholder="Aarav"></label>
+        <label id="lblCel2">Bride's first name *<input name="bride_name" maxlength="30" required placeholder="Ananya"></label>
+      </div>
+
+      <label id="lblCel1Full">Groom's full name *<input name="groom_full_name" maxlength="60" required placeholder="Aarav Malhotra"></label>
+      <label id="lblCel1Par">Groom's parents <i>(optional blessing line)</i><input name="groom_parents" maxlength="120" placeholder="Son of Mr. Rajiv Malhotra & Mrs. Neelam Malhotra"></label>
+      
+      <label id="lblCel2Full">Bride's full name *<input name="bride_full_name" maxlength="60" required placeholder="Ananya Kapoor"></label>
+      <label id="lblCel2Par">Bride's parents <i>(optional blessing line)</i><input name="bride_parents" maxlength="120" placeholder="Daughter of Mr. Vikram Kapoor & Mrs. Shalini Kapoor"></label>
       
       <div class="row2 photos">
-        <label class="photo">Groom photo <i>(optional)</i>
+        <label class="photo">Celebrant 1 photo <i>(optional)</i>
           <input type="file" accept="image/*" data-photo="groom_photo">
           <button type="button" class="photo__x" data-clear="groom_photo" hidden>Remove</button>
         </label>
-        <label class="photo">Bride photo <i>(optional)</i>
+        <label class="photo">Celebrant 2 photo <i>(optional)</i>
           <input type="file" accept="image/*" data-photo="bride_photo">
           <button type="button" class="photo__x" data-clear="bride_photo" hidden>Remove</button>
         </label>
       </div>
-      <label class="photo">Couple photo for opening call screen <i>(optional)</i>
+      <label class="photo">Cover photo for opening call screen <i>(optional)</i>
         <input type="file" accept="image/*" data-photo="cover_image">
         <button type="button" class="photo__x" data-clear="cover_image" hidden>Remove</button>
       </label>
       <p style="font-size:11.5px;color:#6B7280;margin-top:6px;">Leave photos empty to enjoy our curated royal heritage artwork.</p>
     </details>
 
-    <!-- 2. DATE & MAIN VENUE -->
+    <!-- SECTION 3: DATE & VENUE -->
     <details class="grp" open>
-      <summary>📅 Wedding Date &amp; Grand Venue</summary>
+      <summary>📅 Date, Time &amp; Grand Sanctuary</summary>
       <div class="row2">
-        <label>Wedding date *<input type="date" name="event_date" required></label>
+        <label>Event Date *<input type="date" name="event_date" required></label>
         <label>Time <i>(optional)</i><input type="time" name="event_time"></label>
       </div>
       <label>Sanctuary / Venue Name *<input name="venue" maxlength="90" required placeholder="The Leela Palace, Udaipur"></label>
-      <label>Venue address <i>(optional)</i><input name="venue_address" maxlength="140" placeholder="Lake Pichola, Udaipur, Rajasthan 313001"></label>
-      <label>Google Maps link <i>(optional — auto-generated if empty)</i><input type="url" name="venue_map_url" placeholder="https://maps.google.com/..."></label>
+      <label>Venue Address <i>(optional)</i><input name="venue_address" maxlength="140" placeholder="Lake Pichola, Udaipur, Rajasthan 313001"></label>
+      <label>Google Maps Link <i>(optional — auto-generated if empty)</i><input type="url" name="venue_map_url" placeholder="https://maps.google.com/..."></label>
     </details>
 
-    <!-- 3. EVENTS / FUNCTIONS -->
+    <!-- SECTION 4: CEREMONIES & ITINERARY -->
     <details class="grp" open>
       <summary>🪔 Ceremonies &amp; Itinerary</summary>
       <div id="evList"></div>
@@ -82,52 +408,56 @@
         <button type="button" class="btn btn--soft" id="evAdd">＋ Add Ceremony</button>
         <select id="evPreset" aria-label="Quick add">
           <option value="">Quick add preset ceremony…</option>
-          <option>Haldi</option>
-          <option>Mehendi</option>
-          <option>Sangeet</option>
-          <option>Wedding</option>
-          <option>Reception</option>
-          <option>Engagement</option>
-          <option>Cocktail</option>
+          <option>Haldi Ceremony</option>
+          <option>Mehendi &amp; Sangeet</option>
+          <option>The Royal Wedding</option>
+          <option>Grand Reception</option>
+          <option>Ring Exchange</option>
+          <option>Godh Bharai Blessing</option>
+          <option>Cake Cutting Celebration</option>
+          <option>Vastu Shanti Puja</option>
         </select>
       </div>
     </details>
 
-    <!-- 4. MESSAGES & QUOTES -->
+    <!-- SECTION 5: AUSPICIOUS QUOTES -->
     <details class="grp">
       <summary>💌 Auspicious Words &amp; Quotes</summary>
-      <label>Invitation message <i>(optional)</i>
+      <label>Invitation Announcement Eyebrow <i>(optional)</i>
+        <input name="invite_eyebrow" maxlength="100" placeholder="॥ Shree Ganeshaya Namah ॥ Together with their families">
+      </label>
+      <label>Invitation Message <i>(optional)</i>
         <textarea name="invite_message" rows="3" maxlength="400" placeholder="With hearts full of joy and the blessings of our elders..."></textarea>
       </label>
-      <label>Couple's sacred vow quote <i>(optional)</i>
-        <textarea name="couple_quote" rows="2" maxlength="200" placeholder="Two souls, one promise — bound by sacred vows..."></textarea>
+      <label>Sacred Vow / Love Quote <i>(optional)</i>
+        <textarea name="couple_quote" rows="2" maxlength="200" placeholder="Two souls, one sacred vow..."></textarea>
       </label>
-      <label>Closing love quote <i>(optional)</i>
+      <label>Closing Line <i>(optional)</i>
         <input name="closing_quote" maxlength="140" placeholder="In every lifetime, I would find you and choose you again.">
       </label>
       <div class="row2">
-        <label>Family sign-off <i>(optional)</i>
-          <input name="family_signoff" maxlength="100" placeholder="The Malhotra & Kapoor Families">
+        <label>Family Sign-off <i>(optional)</i>
+          <input name="family_signoff" maxlength="100" placeholder="The Malhotra &amp; Kapoor Families">
         </label>
-        <label>Wedding Hashtag <i>(optional)</i>
+        <label>Event Hashtag <i>(optional)</i>
           <input name="hashtag" maxlength="40" placeholder="#AaravWedsAnanya">
         </label>
       </div>
     </details>
 
-    <!-- 5. RSVP & MUSIC -->
+    <!-- SECTION 6: RSVP & MUSIC -->
     <details class="grp">
       <summary>✅ WhatsApp RSVP &amp; Soundtrack</summary>
-      <label>Couple WhatsApp Number for RSVPs <i>(with country code, no +)</i>
+      <label>Host WhatsApp Number for Receiving RSVPs <i>(with country code, no +)</i>
         <input type="tel" name="rsvp_whatsapp" inputmode="numeric" placeholder="919876543210" maxlength="16">
       </label>
-      <label>Reply-by deadline date <i>(optional)</i>
+      <label>Reply-by Deadline Date <i>(optional)</i>
         <input type="date" name="rsvp_deadline">
       </label>
       <div style="margin-top:14px;display:flex;flex-direction:column;gap:8px;">
         <label style="display:flex;flex-direction:row;align-items:center;gap:10px;text-transform:none;font-weight:500;font-size:13px;cursor:pointer;">
           <input type="checkbox" name="music_enabled" checked style="width:18px;height:18px;accent-color:#064E3B;">
-          <span>Play authentic acoustic piano background music</span>
+          <span>Play acoustic piano &amp; classical music</span>
         </label>
         <label style="display:flex;flex-direction:row;align-items:center;gap:10px;text-transform:none;font-weight:500;font-size:13px;cursor:pointer;">
           <input type="checkbox" name="show_gallery" checked style="width:18px;height:18px;accent-color:#064E3B;">
@@ -138,7 +468,7 @@
 
     <!-- Form Actions -->
     <div class="actions">
-      <button type="button" class="btn btn--ghost" id="resetBtn">Reset to Sample Demo</button>
+      <button type="button" class="btn btn--ghost" id="resetBtn">Reset to Preset</button>
       <button type="button" class="btn btn--ghost" id="clearBtn">Clear All</button>
     </div>
 
@@ -146,33 +476,83 @@
 
     <!-- CREATE INVITATION BUTTON -->
     <button type="button" class="btn btn--main" id="createBtn" style="margin-top:10px;">
-      ✨ Create My Golden Vows Invitation
+      ✨ Create &amp; Finalize My Invitation
     </button>
   </form>
 
-  <!-- ============ LIVE PHONE PREVIEW ============ -->
-  <section class="preview" id="preview">
+  <!-- ============ LIVE PREVIEW STAGE ============ -->
+  <section class="preview is-phone" id="preview">
+    <!-- Viewport Switcher -->
+    <div class="device-bar">
+      <button type="button" class="device-btn active" data-dev="phone">📱 Phone</button>
+      <button type="button" class="device-btn" data-dev="tablet">📟 Tablet</button>
+      <button type="button" class="device-btn" data-dev="laptop">💻 Laptop</button>
+    </div>
+
     <div class="phone">
       <div class="phone__notch"></div>
-      <iframe id="pv" title="GoldenVows Invitation Preview"></iframe>
+      <iframe id="pv" title="GoldenVows Invitation Live Preview"></iframe>
     </div>
-    <p class="pvnote">✦ Real-time live preview · Opening call screen is active for guests</p>
+    <p class="pvnote">✦ Real-time preview · Try clicking opening call or turning flipbook pages!</p>
   </section>
 
 </div>
 
-<!-- ============ MODAL SHEET: INVITATION READY & SEND ============ -->
+<!-- ============ 60 TEMPLATES SHOWCASE SECTION ============ -->
+<section class="catalog-sec" id="catalog">
+  <div class="catalog-head">
+    <h2>Explore 60 Unique Luxury Templates</h2>
+    <p>Each template features a bespoke visual aesthetic, dedicated URL, 3D flipbook page-turn mode, interactive maps, RSVP, and direct WhatsApp delivery.</p>
+  </div>
+
+  <div class="catalog-search">
+    <svg viewBox="0 0 24 24"><path fill="currentColor" d="M10 18a7.95 7.95 0 0 0 5.08-1.81l4.36 4.35 1.41-1.41-4.35-4.36A8 8 0 1 0 10 18Zm0-14a6 6 0 1 1 0 12 6 6 0 0 1 0-12Z"/></svg>
+    <input type="text" id="tplSearchInput" placeholder="Search templates by name, style, or venue..." oninput="filterTemplates()">
+  </div>
+
+  <div class="catalog-filters" id="catFilters">
+    <button type="button" class="filter-chip active" onclick="setCategoryFilter('all')">All (60)</button>
+    <button type="button" class="filter-chip" onclick="setCategoryFilter('wedding')">Weddings (22)</button>
+    <button type="button" class="filter-chip" onclick="setCategoryFilter('engagement')">Engagement (10)</button>
+    <button type="button" class="filter-chip" onclick="setCategoryFilter('babyshower')">Baby Shower (10)</button>
+    <button type="button" class="filter-chip" onclick="setCategoryFilter('birthday')">Birthday (8)</button>
+    <button type="button" class="filter-chip" onclick="setCategoryFilter('housewarming')">Housewarming (5)</button>
+    <button type="button" class="filter-chip" onclick="setCategoryFilter('anniversary')">Anniversary (5)</button>
+  </div>
+
+  <div class="template-grid" id="templateGrid"></div>
+</section>
+
+<!-- ============ MODAL SHEET: INVITATION READY & DISPATCH SUITE ============ -->
 <div class="sheet" id="sheet" hidden>
   <div class="sheet__card">
     <button type="button" class="sheet__x" id="sheetX" aria-label="Close">×</button>
     <div class="sheet__tick">✦</div>
-    <h2>Your Invitation is Ready!</h2>
-    <p>Your GoldenVows luxury invitation has been created. You can preview it now or send it sealed directly to your desired guests.</p>
+    <h2>Your Luxury Invitation is Ready!</h2>
+    <p>Your custom animated invitation has been sealed and finalized. Deliver it directly to the exact WhatsApp number or Email below!</p>
     
     <!-- Recipient Personalizer -->
     <div style="background:#F9F8F3;border:1.5px solid rgba(212,175,55,0.4);border-radius:18px;padding:16px;margin:18px 0;text-align:left;">
-      <label style="font-size:11px;font-weight:700;text-transform:uppercase;color:#064E3B;margin-top:0;">Send to Desired Person (Guest / Family):</label>
-      <input type="text" id="targetGuestInput" placeholder="e.g. Sophia & Liam, The Sharma Family" style="background:#fff;margin-top:6px;border:1px solid #D1D5DB;padding:8px 12px;font-size:13px;" oninput="updateGuestLink()">
+      <label style="font-size:11px;font-weight:700;text-transform:uppercase;color:#064E3B;margin-top:0;">Recipient Name (Guest / Family): *</label>
+      <input type="text" id="targetGuestInput" placeholder="e.g. Priya &amp; Rohan, The Sharma Family" style="background:#fff;margin-top:6px;border:1px solid #D1D5DB;padding:8px 12px;font-size:13.5px;" oninput="updateGuestLink()">
+
+      <label style="font-size:11px;font-weight:700;text-transform:uppercase;color:#064E3B;margin-top:12px;">Recipient Mobile Number (For Direct Delivery): *</label>
+      <div style="display:flex;gap:6px;margin-top:6px;">
+        <select id="modalCountryCode" style="width:110px;padding:8px;font-size:13px;border:1px solid #D1D5DB;background:#fff;" onchange="updateGuestLink()">
+          <option value="91">+91 (IN)</option>
+          <option value="1">+1 (US/CA)</option>
+          <option value="44">+44 (UK)</option>
+          <option value="971">+971 (UAE)</option>
+          <option value="61">+61 (AU)</option>
+          <option value="65">+65 (SG)</option>
+          <option value="49">+49 (DE)</option>
+        </select>
+        <input type="tel" id="modalGuestPhone" placeholder="10-digit number (e.g. 9876543210)" style="flex:1;background:#fff;border:1px solid #D1D5DB;padding:8px 12px;font-size:13.5px;" oninput="updateGuestLink()">
+      </div>
+      <small style="font-size:11px;color:#6B7280;display:block;margin-top:4px;">Delivered directly to that exact contact on WhatsApp.</small>
+
+      <label style="font-size:11px;font-weight:700;text-transform:uppercase;color:#064E3B;margin-top:12px;">Recipient Email (Optional):</label>
+      <input type="email" id="modalGuestEmail" placeholder="guest@example.com" style="background:#fff;margin-top:6px;border:1px solid #D1D5DB;padding:8px 12px;font-size:13.5px;" oninput="updateGuestLink()">
     </div>
 
     <div class="link">
@@ -184,13 +564,16 @@
     <!-- Send Actions -->
     <div class="sheet__btns">
       <a class="btn btn--wa" id="waShare" target="_blank" rel="noopener">
-        <span>Share Directly on WhatsApp</span>
+        <span>Send Directly on WhatsApp</span>
+      </a>
+      <a class="btn btn--soft" id="mailShare" target="_blank" rel="noopener">
+        <span>Send via Email</span>
       </a>
       <a class="btn btn--main" id="openLink" target="_blank" rel="noopener">
         <span>Open &amp; View Full Invitation ↗</span>
       </a>
       <button type="button" class="btn btn--ghost" onclick="closeSheet()">
-        <span>✎ Return to Edit Form</span>
+        <span>✎ Return to Studio</span>
       </button>
     </div>
   </div>
@@ -203,20 +586,22 @@
       <b class="ev__no"></b>
       <button type="button" class="ev__del" aria-label="Remove ceremony">Remove</button>
     </div>
-    <label>Ceremony name *<input data-k="name" maxlength="30" placeholder="Haldi Ceremony"></label>
+    <label>Ceremony Name *<input data-k="name" maxlength="30" placeholder="Haldi Ceremony"></label>
     <div class="row2">
       <label>Date *<input type="date" data-k="date"></label>
       <label>Time<input type="time" data-k="time"></label>
     </div>
-    <label>Venue Location <i>(leave empty to use main venue)</i><input data-k="venue" maxlength="90" placeholder="Lakeside Courtyard"></label>
+    <label>Venue Location <i>(leave empty to use main sanctuary)</i><input data-k="venue" maxlength="90" placeholder="Lakeside Courtyard"></label>
     <div class="row2">
-      <label>Map link <i>(optional)</i><input type="url" data-k="map_url" placeholder="https://maps.google.com/..."></label>
-      <label>Dress code <i>(optional)</i><input data-k="dress" maxlength="40" placeholder="Traditional Festive Yellow"></label>
+      <label>Map Link <i>(optional)</i><input type="url" data-k="map_url" placeholder="https://maps.google.com/..."></label>
+      <label>Dress Code <i>(optional)</i><input data-k="dress" maxlength="40" placeholder="Traditional Festive Yellow"></label>
     </div>
+    <label>Ceremony Note <i>(optional)</i><input data-k="note" maxlength="100" placeholder="Turmeric, marigolds and laughter..."></label>
   </div>
 </template>
 
 <script src="assets/sample-data.js"></script>
+<script src="assets/templates-data.js"></script>
 <script src="assets/jfy-codec.js"></script>
 <script src="assets/editor.js"></script>
 
@@ -232,9 +617,14 @@ function closeSheet() {
   document.getElementById('sheet').hidden = true;
 }
 
-// Guest personalizer link updates
+// Guest personalizer link updates with country code & phone sanitization
 function updateGuestLink() {
   var guest = document.getElementById('targetGuestInput').value.trim();
+  var cc = (document.getElementById('modalCountryCode').value || '91').replace(/\D/g, '');
+  var rawPhone = (document.getElementById('modalGuestPhone').value || '').trim().replace(/\D/g, '').replace(/^0+/, '');
+  var fullPhone = rawPhone ? (cc + rawPhone) : '';
+  var guestEmail = (document.getElementById('modalGuestEmail').value || '').trim();
+
   var rawUrl = document.getElementById('openLink').href || '';
   var base = rawUrl.replace(/&to=.*$/, '');
   var full = guest ? (base + '&to=' + encodeURIComponent(guest)) : base;
@@ -242,17 +632,128 @@ function updateGuestLink() {
   document.getElementById('shareUrl').value = full;
   document.getElementById('openLink').href = full;
 
-  // Update WhatsApp text
+  // Update WhatsApp text & direct phone link
   var f = document.getElementById('ed');
-  var gName = (f.groom_name && f.groom_name.value) || 'Groom';
-  var bName = (f.bride_name && f.bride_name.value) || 'Bride';
-  var msg = encodeURIComponent("Dearest " + (guest || "Honored Guest") + ",\n\nYou are warmly invited to celebrate the royal wedding of " + gName + " & " + bName + "! ✦\n\nPlease view your personalized wedding invitation here:\n" + full);
-  document.getElementById('waShare').href = 'https://api.whatsapp.com/send?text=' + msg;
+  var occTitle = (f.occasion_title && f.occasion_title.value) || 'Celebration';
+  var gName = (f.groom_name && f.groom_name.value) || 'Host';
+  var bName = (f.bride_name && f.bride_name.value) || '';
+  var names = bName ? (gName + ' & ' + bName) : gName;
+  var venue = (f.venue && f.venue.value) || 'Our Sanctuary';
+  
+  var waMsg = encodeURIComponent("Dearest " + (guest || "Honored Guest") + ",\n\nYou are warmly invited to celebrate the " + occTitle + " of " + names + "! ✦\n\nVenue: " + venue + "\n\nPlease view your exclusive personalized invitation here:\n" + full);
+  
+  var waUrl = fullPhone ? ('https://api.whatsapp.com/send?phone=' + fullPhone + '&text=' + waMsg) : ('https://api.whatsapp.com/send?text=' + waMsg);
+  document.getElementById('waShare').href = waUrl;
+
+  // Update Email link
+  var emailSub = encodeURIComponent("Invitation: " + occTitle + " of " + names);
+  var emailBody = encodeURIComponent("Dearest " + (guest || "Honored Guest") + ",\n\nWe cordially invite you to celebrate the " + occTitle + " of " + names + " at " + venue + ".\n\nOpen your interactive animated invitation here:\n" + full);
+  document.getElementById('mailShare').href = 'mailto:' + (guestEmail || '') + '?subject=' + emailSub + '&body=' + emailBody;
 }
 
-// Listen to create button open
-document.getElementById('createBtn').addEventListener('click', function() {
-  setTimeout(updateGuestLink, 50);
+window.updateGuestLink = updateGuestLink;
+
+// Render 60 Templates Catalog
+var currentFilter = 'all';
+
+function renderTemplates(list) {
+  var grid = document.getElementById('templateGrid');
+  if (!grid) return;
+  grid.innerHTML = '';
+
+  list.forEach(function(t) {
+    var card = document.createElement('div');
+    card.className = 'tpl-card';
+    card.innerHTML = 
+      '<div class="tpl-header" style="background:linear-gradient(135deg, ' + t.wine + ', ' + t.wine_d + ');">' +
+        '<span class="tpl-badge">' + t.category + '</span>' +
+        '<span class="tpl-id">#' + String(t.id).padStart(2, '0') + '</span>' +
+        '<b style="font-family:var(--serif);font-size:16px;letter-spacing:.02em;">' + t.celebrants + '</b>' +
+      '</div>' +
+      '<div class="tpl-body">' +
+        '<h4 class="tpl-title">' + t.name + '</h4>' +
+        '<p class="tpl-sub">' + t.subtitle + '</p>' +
+        '<div class="tpl-meta">' +
+          '<small style="font-size:11px;color:#6B7280;">' + t.palette_name + '</small>' +
+          '<div class="tpl-swatches">' +
+            '<span style="background:' + t.wine + ';"></span>' +
+            '<span style="background:' + t.gold + ';"></span>' +
+            '<span style="background:' + t.blush + ';"></span>' +
+          '</div>' +
+        '</div>' +
+        '<div class="tpl-actions">' +
+          '<a class="btn-preview" href="templates/' + t.slug + '.html" target="_blank">👁️ Live Preview ↗</a>' +
+          '<button type="button" class="btn-use" onclick="applyTemplate(' + t.id + ')">✏️ Customize</button>' +
+        '</div>' +
+      '</div>';
+    grid.appendChild(card);
+  });
+}
+
+function filterTemplates() {
+  var q = (document.getElementById('tplSearchInput').value || '').toLowerCase().trim();
+  var all = window.GOLDENVOWS_TEMPLATES || [];
+  var filtered = all.filter(function(t) {
+    var matchCat = (currentFilter === 'all' || t.category_key === currentFilter);
+    var matchText = !q || (t.name.toLowerCase().includes(q) || t.celebrants.toLowerCase().includes(q) || t.subtitle.toLowerCase().includes(q) || t.venue.toLowerCase().includes(q));
+    return matchCat && matchText;
+  });
+  renderTemplates(filtered);
+}
+
+function setCategoryFilter(cat) {
+  currentFilter = cat;
+  var chips = document.querySelectorAll('.filter-chip');
+  chips.forEach(function(chip) {
+    chip.classList.toggle('active', chip.getAttribute('onclick').includes("'" + cat + "'"));
+  });
+  filterTemplates();
+}
+
+function applyTemplate(id) {
+  var all = window.GOLDENVOWS_TEMPLATES || [];
+  var hit = all.find(function(t) { return t.id === id; });
+  if (!hit) return;
+
+  var mapped = {
+    occasion_type: hit.category_key,
+    occasion_title: hit.title,
+    theme_palette: hit.slug.includes('pink') ? 'wine-rose' : hit.slug.includes('star') ? 'midnight-star' : hit.slug.includes('cloud') ? 'pastel-cloud' : hit.slug.includes('marigold') ? 'terracotta-marigold' : 'emerald-gold',
+    groom_name: hit.c1_name ? hit.c1_name.split(' ')[0] : 'Aarav',
+    groom_full_name: hit.c1_name,
+    groom_parents: hit.c1_par,
+    bride_name: hit.c2_name ? hit.c2_name.split(' ')[0] : 'Ananya',
+    bride_full_name: hit.c2_name,
+    bride_parents: hit.c2_par,
+    event_date: hit.date_iso,
+    venue: hit.venue,
+    venue_address: hit.venue_addr,
+    invite_eyebrow: hit.eyebrow,
+    couple_quote: hit.quote,
+    closing_quote: hit.closing,
+    hashtag: hit.hashtag,
+    events: hit.events.map(function(e) {
+      return { name: e.name, venue: e.venue, dress: e.dress, note: e.note, date: hit.date_iso };
+    })
+  };
+
+  // Scroll to studio form
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  // Update hash and reload
+  if (window.JFYCodec) {
+    window.JFYCodec.encode(mapped).then(function(s) {
+      location.hash = 'data=' + s;
+      location.reload();
+    });
+  }
+}
+
+// Initial render
+window.addEventListener('DOMContentLoaded', function() {
+  if (window.GOLDENVOWS_TEMPLATES) {
+    renderTemplates(window.GOLDENVOWS_TEMPLATES);
+  }
 });
 </script>
 

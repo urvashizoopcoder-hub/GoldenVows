@@ -1,130 +1,426 @@
-/* Royal Palace invitation editor — fills the form, shows a live preview, and builds a shareable link (#data=...). */
+/* GoldenVows Celebration Studio — Comprehensive Multi-Occasion Editor & Dispatch Engine */
 (function () {
   'use strict';
+
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
-  var SAMPLE = JSON.parse(JSON.stringify(window.JFY_DATA || {}));
-  var TEXT = ['groom_name','groom_full_name','groom_parents','bride_name','bride_full_name','bride_parents','venue','venue_address','venue_map_url','invite_message','couple_quote','closing_quote','family_signoff','hashtag','rsvp_whatsapp','rsvp_deadline'];
-  var PHOTOS = ['groom_photo','bride_photo','cover_image'];
-  var form = $('#ed'), photos = {}, pvTimer = null, pvN = 0, DRAFT = 'jfy-royal-draft';
 
-  function split(dt) { var m = /^(\d{4}-\d{2}-\d{2})(?:T(\d{2}:\d{2}))?/.exec(dt || ''); return m ? [m[1], m[2] || ''] : ['', '']; }
+  var PRESETS = window.OCCASION_PRESETS || {};
+  var currentOccasion = 'wedding';
+  var currentPalette = 'emerald-gold';
+  var form = $('#ed');
+  var photos = {};
+  var pvTimer = null;
+  var pvN = 0;
+  var DRAFT_KEY = 'goldenvows_draft_v2';
 
-  /* ---------- fill form from data ---------- */
-  function load(d) {
-    TEXT.forEach(function (k) { if (form[k]) form[k].value = d[k] || ''; });
-    var dt = split(d.event_date); form.event_date.value = dt[0]; form.event_time.value = d.event_time || dt[1];
-    form.music_enabled.checked = d.music_enabled !== false; form.show_gallery.checked = d.show_gallery !== false;
-    photos = {}; PHOTOS.forEach(function (k) { if (d[k] && /^data:/.test(d[k])) photos[k] = d[k]; });
-    syncPhotos();
-    $('#evList').innerHTML = ''; (d.events || []).forEach(addEvent); renumber();
+  var TEXT_FIELDS = [
+    'occasion_title', 'groom_name', 'groom_full_name', 'groom_parents',
+    'bride_name', 'bride_full_name', 'bride_parents', 'venue',
+    'venue_address', 'venue_map_url', 'invite_eyebrow', 'invite_message',
+    'couple_quote', 'closing_quote', 'family_signoff', 'hashtag',
+    'rsvp_whatsapp', 'rsvp_deadline', 'opening_style', 'view_mode', 'ambient_particles'
+  ];
+  var PHOTO_FIELDS = ['groom_photo', 'bride_photo', 'cover_image'];
+
+  function splitDt(dt) {
+    var m = /^(\d{4}-\d{2}-\d{2})(?:T(\d{2}:\d{2}))?/.exec(dt || '');
+    return m ? [m[1], m[2] || ''] : ['', ''];
   }
-  function addEvent(e) {
+
+  /* ---------- Switch Occasion Preset ---------- */
+  function setOccasion(occName, skipFormFill) {
+    currentOccasion = occName;
+    var p = PRESETS[occName] || PRESETS.wedding;
+
+    // Update occasion cards UI
+    $$('.occasion-card').forEach(function (card) {
+      card.classList.toggle('active', card.getAttribute('data-occ') === occName);
+    });
+
+    // Update dynamic field labels based on occasion
+    if ($('#lblCel1')) $('#lblCel1').childNodes[0].nodeValue = (p.celebrant_1_label || "Celebrant 1") + ' *';
+    if ($('#lblCel1Full')) $('#lblCel1Full').childNodes[0].nodeValue = (p.celebrant_1_full_label || "Celebrant 1 Full Name") + ' *';
+    if ($('#lblCel1Par')) $('#lblCel1Par').childNodes[0].nodeValue = (p.celebrant_1_parents_label || "Blessing / Parents line") + ' ';
+    if ($('#lblCel2')) $('#lblCel2').childNodes[0].nodeValue = (p.celebrant_2_label || "Celebrant 2") + ' *';
+    if ($('#lblCel2Full')) $('#lblCel2Full').childNodes[0].nodeValue = (p.celebrant_2_full_label || "Celebrant 2 Full Name") + ' *';
+    if ($('#lblCel2Par')) $('#lblCel2Par').childNodes[0].nodeValue = (p.celebrant_2_parents_label || "Blessing / Parents line") + ' ';
+
+    // Update ceremony presets dropdown
+    var sel = $('#evPreset');
+    if (sel) {
+      var opts = '<option value="">Quick add preset ceremony…</option>';
+      (p.events || []).forEach(function (ev) {
+        opts += '<option value="' + ev.name + '">' + ev.name + '</option>';
+      });
+      sel.innerHTML = opts;
+    }
+
+    if (!skipFormFill) {
+      loadData(p);
+    }
+    schedulePreview();
+  }
+
+  /* ---------- Switch Color Theme Palette ---------- */
+  function setPalette(palName) {
+    currentPalette = palName;
+    $$('.palette-card').forEach(function (card) {
+      card.classList.toggle('active', card.getAttribute('data-pal') === palName);
+    });
+    schedulePreview();
+  }
+
+  /* ---------- Load Data Into Form ---------- */
+  function loadData(d) {
+    d = d || {};
+    TEXT_FIELDS.forEach(function (k) {
+      if (form[k]) form[k].value = d[k] || '';
+    });
+
+    var dt = splitDt(d.event_date);
+    if (form.event_date) form.event_date.value = dt[0];
+    if (form.event_time) form.event_time.value = d.event_time || dt[1];
+
+    if (form.music_enabled) form.music_enabled.checked = d.music_enabled !== false;
+    if (form.show_gallery) form.show_gallery.checked = d.show_gallery !== false;
+
+    if (d.theme_palette) {
+      currentPalette = d.theme_palette;
+      $$('.palette-card').forEach(function (c) {
+        c.classList.toggle('active', c.getAttribute('data-pal') === currentPalette);
+      });
+    }
+
+    if (d.opening_style && form.opening_style) form.opening_style.value = d.opening_style;
+    if (d.view_mode && form.view_mode) form.view_mode.value = d.view_mode;
+    if (d.ambient_particles && form.ambient_particles) form.ambient_particles.value = d.ambient_particles;
+
+    photos = {};
+    PHOTO_FIELDS.forEach(function (k) {
+      if (d[k] && /^data:/.test(d[k])) photos[k] = d[k];
+    });
+    syncPhotos();
+
+    var evList = $('#evList');
+    if (evList) {
+      evList.innerHTML = '';
+      (d.events || []).forEach(addEventRow);
+      renumberEvents();
+    }
+  }
+
+  /* ---------- Event Rows Management ---------- */
+  function addEventRow(e) {
     e = e || {};
-    var node = $('#evTpl').content.firstElementChild.cloneNode(true), dt = split(e.date);
-    $('[data-k=name]', node).value = e.name || ''; $('[data-k=date]', node).value = dt[0]; $('[data-k=time]', node).value = e.time || dt[1];
-    $('[data-k=venue]', node).value = e.venue || ''; $('[data-k=map_url]', node).value = e.map_url || ''; $('[data-k=dress]', node).value = e.dress || '';
-    $('.ev__del', node).onclick = function () { node.remove(); renumber(); schedule(); };
-    $('#evList').appendChild(node); renumber();
+    var tpl = $('#evTpl');
+    if (!tpl) return;
+    var node = tpl.content.firstElementChild.cloneNode(true);
+    var dt = splitDt(e.date);
+
+    $('[data-k=name]', node).value = e.name || '';
+    $('[data-k=date]', node).value = dt[0];
+    $('[data-k=time]', node).value = e.time || dt[1];
+    $('[data-k=venue]', node).value = e.venue || '';
+    $('[data-k=map_url]', node).value = e.map_url || '';
+    $('[data-k=dress]', node).value = e.dress || '';
+    $('[data-k=note]', node).value = e.note || '';
+
+    $('.ev__del', node).onclick = function () {
+      node.remove();
+      renumberEvents();
+      schedulePreview();
+    };
+
+    $('#evList').appendChild(node);
+    renumberEvents();
     return node;
   }
-  function renumber() { $$('#evList .ev').forEach(function (n, i) { $('.ev__no', n).textContent = 'Event ' + (i + 1); }); }
 
-  /* ---------- read form into data ---------- */
-  function collect() {
-    var d = {};
-    TEXT.forEach(function (k) { var v = (form[k].value || '').trim(); if (v) d[k] = v; });
-    if (d.rsvp_whatsapp) d.rsvp_whatsapp = d.rsvp_whatsapp.replace(/\D/g, '');
-    if (form.event_date.value) d.event_date = form.event_date.value + (form.event_time.value ? 'T' + form.event_time.value : '');
-    if (!form.music_enabled.checked) d.music_enabled = false;
-    if (!form.show_gallery.checked) d.show_gallery = false;
-    PHOTOS.forEach(function (k) { if (photos[k]) d[k] = photos[k]; });
+  function renumberEvents() {
+    $$('#evList .ev').forEach(function (n, i) {
+      var no = $('.ev__no', n);
+      if (no) no.textContent = 'Ceremony ' + (i + 1);
+    });
+  }
+
+  /* ---------- Collect Form Data ---------- */
+  function collectData() {
+    var d = {
+      occasion_type: currentOccasion,
+      theme_palette: currentPalette
+    };
+
+    TEXT_FIELDS.forEach(function (k) {
+      if (form[k]) {
+        var v = (form[k].value || '').trim();
+        if (v) d[k] = v;
+      }
+    });
+
+    if (d.rsvp_whatsapp) {
+      d.rsvp_whatsapp = d.rsvp_whatsapp.replace(/\D/g, '');
+    }
+
+    if (form.event_date && form.event_date.value) {
+      d.event_date = form.event_date.value + (form.event_time && form.event_time.value ? 'T' + form.event_time.value : '');
+    }
+
+    if (form.music_enabled) d.music_enabled = form.music_enabled.checked;
+    if (form.show_gallery) d.show_gallery = form.show_gallery.checked;
+
+    PHOTO_FIELDS.forEach(function (k) {
+      if (photos[k]) d[k] = photos[k];
+    });
+
     d.events = $$('#evList .ev').map(function (n) {
       var g = function (k) { return ($('[data-k=' + k + ']', n).value || '').trim(); };
-      var e = { name: g('name') }; if (!e.name) return null;
-      if (g('date')) e.date = g('date') + (g('time') ? 'T' + g('time') : '');
-      ['venue', 'map_url', 'dress'].forEach(function (k) { if (g(k)) e[k] = g(k); });
-      return e;
+      var ev = { name: g('name') };
+      if (!ev.name) return null;
+      if (g('date')) ev.date = g('date') + (g('time') ? 'T' + g('time') : '');
+      ['venue', 'map_url', 'dress', 'note'].forEach(function (k) {
+        if (g(k)) ev[k] = g(k);
+      });
+      return ev;
     }).filter(Boolean);
+
     return d;
   }
 
-  /* ---------- live preview ---------- */
-  function schedule() { clearTimeout(pvTimer); pvTimer = setTimeout(preview, 650); }
-  function preview() {
-    var d = collect();
-    try { localStorage.setItem(DRAFT, JSON.stringify(d)); } catch (e) { try { var lite = Object.assign({}, d); PHOTOS.forEach(function (k) { delete lite[k]; }); localStorage.setItem(DRAFT, JSON.stringify(lite)); } catch (_) {} }
-    JFYCodec.encode(d).then(function (s) {
-      var f = $('#pv'), y = 0; try { y = Math.round(f.contentWindow.scrollY || 0); } catch (_) {}
+  /* ---------- Live Preview Scheduler ---------- */
+  function schedulePreview() {
+    clearTimeout(pvTimer);
+    pvTimer = setTimeout(runPreview, 450);
+  }
+
+  function runPreview() {
+    var d = collectData();
+    try {
+      localStorage.setItem(DRAFT_KEY, JSON.stringify(d));
+    } catch (_) {}
+
+    if (!window.JFYCodec) return;
+
+    window.JFYCodec.encode(d).then(function (s) {
+      var f = $('#pv');
+      if (!f) return;
+      var y = 0;
+      try { y = Math.round(f.contentWindow.scrollY || 0); } catch (_) {}
       f.src = 'invite.html?skip=1&preview=1&music=0&y=' + y + '&r=' + (++pvN) + '#data=' + s;
     });
   }
-  form.addEventListener('input', schedule);
-  form.addEventListener('change', schedule);
 
-  /* ---------- photos ---------- */
+  /* ---------- Photo Upload Helpers ---------- */
   function syncPhotos() {
     $$('[data-photo]').forEach(function (inp) {
-      var k = inp.getAttribute('data-photo'), lab = inp.closest('.photo');
-      lab.classList.toggle('has', !!photos[k]); $('.photo__btn', lab).textContent = photos[k] ? '✓ Photo added' : 'Upload';
-      $('[data-clear=' + k + ']', lab).hidden = !photos[k];
+      var k = inp.getAttribute('data-photo');
+      var lab = inp.closest('.photo');
+      if (!lab) return;
+      lab.classList.toggle('has', !!photos[k]);
+      var clearBtn = $('[data-clear=' + k + ']', lab);
+      if (clearBtn) clearBtn.hidden = !photos[k];
     });
   }
+
   $$('[data-photo]').forEach(function (inp) {
     inp.addEventListener('change', function () {
-      var f = inp.files && inp.files[0]; if (!f) return;
-      var k = inp.getAttribute('data-photo'), max = k === 'cover_image' ? 520 : 420;
-      var img = new Image(), url = URL.createObjectURL(f);
+      var f = inp.files && inp.files[0];
+      if (!f) return;
+      var k = inp.getAttribute('data-photo');
+      var max = k === 'cover_image' ? 520 : 420;
+      var img = new Image();
+      var url = URL.createObjectURL(f);
       img.onload = function () {
-        var s = Math.min(1, max / Math.max(img.width, img.height)), c = document.createElement('canvas');
-        c.width = Math.round(img.width * s); c.height = Math.round(img.height * s);
+        var s = Math.min(1, max / Math.max(img.width, img.height));
+        var c = document.createElement('canvas');
+        c.width = Math.round(img.width * s);
+        c.height = Math.round(img.height * s);
         c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
-        photos[k] = c.toDataURL('image/jpeg', 0.68); URL.revokeObjectURL(url); syncPhotos(); schedule();
+        photos[k] = c.toDataURL('image/jpeg', 0.68);
+        URL.revokeObjectURL(url);
+        syncPhotos();
+        schedulePreview();
       };
-      img.onerror = function () { showErr('That file could not be read as an image.'); };
-      img.src = url; inp.value = '';
+      img.src = url;
+      inp.value = '';
     });
   });
-  $$('[data-clear]').forEach(function (b) { b.addEventListener('click', function (e) { e.preventDefault(); delete photos[b.getAttribute('data-clear')]; syncPhotos(); schedule(); }); });
 
-  /* ---------- events buttons ---------- */
-  $('#evAdd').onclick = function () { var n = addEvent({}); $('input', n).focus(); schedule(); };
-  $('#evPreset').onchange = function () { if (!this.value) return; addEvent({ name: this.value, date: form.event_date.value }); this.value = ''; schedule(); };
-  $('#resetBtn').onclick = function () { load(SAMPLE); preview(); };
-  $('#clearBtn').onclick = function () { load({ events: [], music_enabled: true }); preview(); };
-
-  /* ---------- create & share ---------- */
-  function showErr(t) { var e = $('#err'); e.textContent = t; e.hidden = !t; }
-  $('#createBtn').onclick = function () {
-    var d = collect(), miss = [];
-    [['groom_name', "Groom's first name"], ['bride_name', "Bride's first name"], ['groom_full_name', "Groom's full name"], ['bride_full_name', "Bride's full name"], ['event_date', 'Wedding date'], ['venue', 'Venue']].forEach(function (p) { if (!d[p[0]]) miss.push(p[1]); });
-    if (miss.length) { showErr('Please fill: ' + miss.join(', ')); document.body.classList.remove('v-preview'); var first = form.querySelector(':invalid'); if (first) { first.closest('details').open = true; first.focus(); } return; }
-    showErr('');
-    JFYCodec.encode(d).then(function (s) {
-      var u = new URL('invite.html', location.href); u.search = ''; u.hash = 'data=' + s;
-      var link = u.toString(), msg = 'You are invited to the wedding of ' + d.groom_name + ' & ' + d.bride_name + ' 💐\nOpen your invitation: ' + link;
-      $('#shareUrl').value = link; $('#openLink').href = link;
-      $('#waShare').href = 'https://wa.me/?text=' + encodeURIComponent(msg);
-      $('#lenNote').textContent = link.length > 6000 ? 'Your photos make this link long (' + Math.round(link.length / 1000) + 'k characters). It works in browsers, but if WhatsApp cuts it, remove the photos and share again.' : '';
-      var ns = $('#nativeShare'); ns.hidden = !navigator.share; ns.onclick = function () { navigator.share({ title: 'Wedding invitation', text: msg.split('\n')[0], url: link }).catch(function () {}); };
-      $('#sheet').hidden = false;
+  $$('[data-clear]').forEach(function (b) {
+    b.addEventListener('click', function (e) {
+      e.preventDefault();
+      delete photos[b.getAttribute('data-clear')];
+      syncPhotos();
+      schedulePreview();
     });
-  };
-  $('#copyBtn').onclick = function () {
-    var i = $('#shareUrl'), b = this; i.select();
-    var ok = function () { b.textContent = 'Copied ✓'; setTimeout(function () { b.textContent = 'Copy'; }, 1800); };
-    if (navigator.clipboard) navigator.clipboard.writeText(i.value).then(ok, function () { document.execCommand('copy'); ok(); }); else { document.execCommand('copy'); ok(); }
-  };
-  $('#sheetX').onclick = function () { $('#sheet').hidden = true; };
-
-  /* ---------- tabs (mobile) ---------- */
-  $$('.tab').forEach(function (t) { t.onclick = function () { $$('.tab').forEach(function (x) { x.classList.toggle('on', x === t); }); document.body.classList.toggle('v-preview', t.dataset.view === 'preview'); window.scrollTo(0, 0); }; });
-
-  /* ---------- start: link data > saved draft > sample ---------- */
-  var m = /[#&]data=([^&]+)/.exec(location.hash), start = Promise.resolve(null);
-  if (m) start = JFYCodec.decode(m[1]).catch(function () { return null; });
-  start.then(function (d) {
-    if (!d) { try { d = JSON.parse(localStorage.getItem(DRAFT) || 'null'); } catch (_) { d = null; } }
-    load(d || SAMPLE); preview();
   });
+
+  /* ---------- Wire UI Events ---------- */
+  form.addEventListener('input', schedulePreview);
+  form.addEventListener('change', schedulePreview);
+
+  // Occasion card clicks
+  $$('.occasion-card').forEach(function (card) {
+    card.addEventListener('click', function () {
+      var occ = card.getAttribute('data-occ');
+      if (occ) setOccasion(occ);
+    });
+  });
+
+  // Palette card clicks
+  $$('.palette-card').forEach(function (card) {
+    card.addEventListener('click', function () {
+      var pal = card.getAttribute('data-pal');
+      if (pal) setPalette(pal);
+    });
+  });
+
+  // Device switcher clicks (Phone / Tablet / Laptop)
+  $$('.device-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var dev = btn.getAttribute('data-dev');
+      $$('.device-btn').forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      var prev = $('#preview');
+      if (prev) {
+        prev.classList.remove('is-phone', 'is-tablet', 'is-laptop');
+        prev.classList.add('is-' + dev);
+      }
+    });
+  });
+
+  // Events add button
+  var evAddBtn = $('#evAdd');
+  if (evAddBtn) {
+    evAddBtn.onclick = function () {
+      var n = addEventRow({});
+      if (n) {
+        var inp = $('input', n);
+        if (inp) inp.focus();
+      }
+      schedulePreview();
+    };
+  }
+
+  // Events preset dropdown
+  var evPresetSel = $('#evPreset');
+  if (evPresetSel) {
+    evPresetSel.onchange = function () {
+      if (!this.value) return;
+      addEventRow({ name: this.value, date: form.event_date.value });
+      this.value = '';
+      schedulePreview();
+    };
+  }
+
+  // Reset & Clear buttons
+  if ($('#resetBtn')) {
+    $('#resetBtn').onclick = function () {
+      setOccasion(currentOccasion);
+    };
+  }
+  if ($('#clearBtn')) {
+    $('#clearBtn').onclick = function () {
+      loadData({ events: [], music_enabled: true });
+      schedulePreview();
+    };
+  }
+
+  /* ---------- Create & Dispatch Modal Logic ---------- */
+  function showErr(t) {
+    var e = $('#err');
+    if (e) {
+      e.textContent = t;
+      e.hidden = !t;
+    }
+  }
+
+  if ($('#createBtn')) {
+    $('#createBtn').onclick = function () {
+      var d = collectData();
+      var miss = [];
+      if (!d.groom_name) miss.push("First Host / Celebrant Name");
+      if (!d.event_date) miss.push("Event Date");
+      if (!d.venue) miss.push("Venue");
+
+      if (miss.length) {
+        showErr('Please fill required fields: ' + miss.join(', '));
+        var first = form.querySelector(':invalid');
+        if (first) {
+          first.closest('details').open = true;
+          first.focus();
+        }
+        return;
+      }
+      showErr('');
+
+      window.JFYCodec.encode(d).then(function (s) {
+        var u = new URL('invite.html', location.href);
+        u.search = '';
+        u.hash = 'data=' + s;
+        var fullLink = u.toString();
+
+        $('#shareUrl').value = fullLink;
+        $('#openLink').href = fullLink;
+
+        // Trigger guest update
+        if (window.updateGuestLink) window.updateGuestLink();
+
+        $('#sheet').hidden = false;
+      });
+    };
+  }
+
+  if ($('#copyBtn')) {
+    $('#copyBtn').onclick = function () {
+      var i = $('#shareUrl');
+      var b = this;
+      i.select();
+      var ok = function () {
+        b.textContent = 'Copied ✓';
+        setTimeout(function () { b.textContent = 'Copy Link'; }, 2000);
+      };
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(i.value).then(ok, ok);
+      } else {
+        document.execCommand('copy');
+        ok();
+      }
+    };
+  }
+
+  if ($('#sheetX')) {
+    $('#sheetX').onclick = function () {
+      $('#sheet').hidden = true;
+    };
+  }
+
+  /* ---------- Initial Boot ---------- */
+  // Check if hash has data
+  var hashMatch = /[#&]data=([^&]+)/.exec(location.hash);
+  if (hashMatch && window.JFYCodec) {
+    window.JFYCodec.decode(hashMatch[1]).then(function (decoded) {
+      if (decoded.occasion_type) currentOccasion = decoded.occasion_type;
+      setOccasion(currentOccasion, true);
+      loadData(decoded);
+      schedulePreview();
+    });
+  } else {
+    // Check localStorage draft or default
+    try {
+      var saved = localStorage.getItem(DRAFT_KEY);
+      if (saved) {
+        var parsed = JSON.parse(saved);
+        if (parsed.occasion_type) currentOccasion = parsed.occasion_type;
+        setOccasion(currentOccasion, true);
+        loadData(parsed);
+        schedulePreview();
+      } else {
+        setOccasion('wedding');
+      }
+    } catch (_) {
+      setOccasion('wedding');
+    }
+  }
+
 })();

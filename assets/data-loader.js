@@ -1,22 +1,49 @@
-/* Loads invitation data: #data=<encoded JSON> (from the editor's share link) overrides the demo sample.
-   Artwork/music defaults are kept so a shared link only needs the text fields. */
+/* GoldenVows Celebration Studio — Data Loader & Occasion Initializer */
 (function () {
-  var SAMPLE = window.JFY_DATA || {};
-  var ASSETS = { hero_image: SAMPLE.hero_image, cover_image: SAMPLE.cover_image, groom_photo: SAMPLE.groom_photo, bride_photo: SAMPLE.bride_photo, gallery: SAMPLE.gallery, music_url: SAMPLE.music_url, music_credit: SAMPLE.music_credit };
-  var PRESET = { haldi: 'ev_haldi', mehendi: 'ev_mehendi', mehndi: 'ev_mehendi', sangeet: 'ev_sangeet', wedding: 'ev_wedding', shaadi: 'ev_wedding', phera: 'ev_wedding', reception: 'ev_reception', engagement: 'ev_reception', cocktail: 'ev_sangeet' };
+  'use strict';
+
+  var PRESETS = window.OCCASION_PRESETS || {};
+  var DEFAULT_PRESET = PRESETS.wedding || window.JFY_DATA || {};
+
   function finalize(d) {
-    Object.keys(ASSETS).forEach(function (k) { if (d[k] == null || d[k] === '') d[k] = ASSETS[k]; });
+    d = d || {};
+    var occasion = d.occasion_type || 'wedding';
+    var base = PRESETS[occasion] || DEFAULT_PRESET;
+
+    // Merge missing fields from occasion defaults
+    Object.keys(base).forEach(function (k) {
+      if (d[k] === undefined || d[k] === null || d[k] === '') {
+        d[k] = base[k];
+      }
+    });
+
     if (d.music_enabled === false) d.music_url = '';
     if (d.show_gallery === false) d.gallery = [];
-    if (!d.venue_map_url && d.venue) d.venue_map_url = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(d.venue + ' ' + (d.venue_address || ''));
+    if (!d.venue_map_url && d.venue) {
+      d.venue_map_url = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(d.venue + ' ' + (d.venue_address || ''));
+    }
+
     (d.events || []).forEach(function (e) {
-      if (!e.image) { var n = String(e.name || '').toLowerCase(), hit = Object.keys(PRESET).filter(function (k) { return n.indexOf(k) > -1; })[0]; e.image = 'assets/img/' + (hit ? PRESET[hit] : 'ev_wedding') + '.webp'; }
       if (e.time && e.date && e.date.indexOf('T') < 0) e.date = e.date + 'T' + e.time;
+      if (!e.map_url && (e.venue || d.venue)) {
+        e.map_url = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent((e.venue || d.venue) + ' ' + (d.venue_address || ''));
+      }
     });
-    if (d.event_time && d.event_date && d.event_date.indexOf('T') < 0) d.event_date = d.event_date + 'T' + d.event_time;
+
+    if (d.event_time && d.event_date && d.event_date.indexOf('T') < 0) {
+      d.event_date = d.event_date + 'T' + d.event_time;
+    }
+
     return d;
   }
+
+  // Parse hash #data=...
   var m = /[#&]data=([^&]+)/.exec(location.hash);
-  window.JFY_READY = (m && window.JFYCodec ? JFYCodec.decode(m[1]).then(function (d) { window.JFY_DATA = finalize(Object.assign({}, d)); }) : Promise.resolve())
-    .catch(function (e) { console.warn('Invitation data could not be read, showing the demo.', e); });
+  window.JFY_READY = (m && window.JFYCodec ? JFYCodec.decode(m[1]).then(function (decoded) {
+    window.JFY_DATA = finalize(Object.assign({}, decoded));
+  }) : Promise.resolve(window.JFY_DATA ? finalize(window.JFY_DATA) : finalize(DEFAULT_PRESET)))
+  .catch(function (e) {
+    console.warn('Invitation data could not be read, using default preset.', e);
+    window.JFY_DATA = finalize(DEFAULT_PRESET);
+  });
 })();
