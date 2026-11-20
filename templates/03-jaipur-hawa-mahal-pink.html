@@ -3,22 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Ranveer & Isha — The Pink City Royal Union — GoldenVows #03</title>
-<meta name="description" content="Heritage Jharokha Mandap Ceremony - Ranveer Rathore & Isha Shekhawat">
+<title>Madeleine & Vittorio — Cartier Red Velvet Ribbon Wedding Invitation</title>
+<meta name="description" content="Cartier Red Velvet Box, Untying Ribbon & Rose Petals 3D Reveal Wedding Invitation">
 <link rel="stylesheet" href="../assets/fonts/fonts.css">
 <link rel="stylesheet" href="../styles.css">
 <style>
 :root {
-  --wine: #831843;
-  --wine-d: #500724;
-  --rose: #BE185D;
-  --rose-d: #9D174D;
-  --gold: #EAB308;
-  --gold-l: #FEF08A;
-  --blush: #FDF2F8;
-  --blush2: #FCE7F3;
-  --ivory: #FFF1F2;
-  --ink: #4C0519;
+  --cartier-red: #8B0018;
+  --cartier-dark: #4A000D;
+  --cartier-deep: #250006;
+  --cartier-light: #B3132B;
+  --gold: #D4AF37;
+  --gold-l: #F7D070;
+  --gold-pale: #FFF6DD;
+  --cream-card: #FAF6F0;
+  --ink: #1F0206;
 }
 
 *, *::before, *::after, html, body {
@@ -37,618 +36,1305 @@ html::-webkit-scrollbar, body::-webkit-scrollbar, ::-webkit-scrollbar, *::-webki
 }
 
 body {
-  background: #FCE7F3;
   margin: 0;
   padding: 0;
-  color: var(--ink);
+  background: #180004;
+  color: #FFF;
   font-family: var(--sans);
   overflow-x: hidden;
-}
-
-.top-template-badge {
-  position: fixed;
-  top: 10px;
-  right: 14px;
-  z-index: 1000;
-  background: var(--wine);
-  color: var(--gold-l);
-  padding: 5px 14px;
-  border-radius: 999px;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  border: 1px solid var(--gold);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-}
-
-.inv-main-wrap {
   min-height: 100vh;
-  padding: 60px 14px 90px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-sizing: border-box;
 }
 
-.wed-header-banner {
-  text-align: center;
-  margin-bottom: 16px;
-}
-.wed-sloka-line {
-  font-family: var(--serif);
-  font-size: 14px;
-  color: var(--wine);
-  font-weight: 700;
-  letter-spacing: 1px;
-  margin-bottom: 4px;
-}
-.wed-orn-divider {
-  font-size: 16px;
-  color: var(--gold);
-  margin: 2px 0 6px;
-}
-.wed-main-title {
-  font-family: var(--serif);
-  font-size: 34px;
-  color: var(--wine-d);
-  letter-spacing: 2px;
-  margin: 4px 0;
-}
-.wed-sub-title {
-  font-family: var(--cap);
-  font-size: 13.5px;
-  color: var(--rose-d);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-.wed-stage-card {
-  background: #FFFDF9;
-  border: 2px solid var(--gold);
-  border-radius: 26px;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.14);
-  max-width: 440px;
-  width: 100%;
-  padding: 24px 20px;
-  text-align: center;
-  box-sizing: border-box;
-}
-
-.wed-hero-box {
-  position: relative;
-  width: 100%;
-  height: 220px;
-  border-radius: 20px;
-  overflow: hidden;
-  border: 2px solid var(--gold);
-  margin-bottom: 16px;
-}
-.wed-hero-box img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-.wed-hero-tag {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  background: rgba(0,0,0,0.65);
+/* Sound Controller Top-Right */
+.audio-ctrl-btn {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 9999;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(30, 0, 8, 0.75);
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  backdrop-filter: blur(10px);
   color: var(--gold-l);
-  font-size: 10.5px;
-  font-weight: 700;
-  padding: 4px 12px;
-  border-radius: 999px;
-  letter-spacing: 1px;
-}
-
-.wed-couple-title {
-  font-family: var(--serif);
-  font-size: 30px;
-  color: var(--wine);
-  margin: 6px 0;
-}
-.wed-date-ribbon {
-  font-family: var(--cap);
-  font-size: 14px;
-  color: var(--rose-d);
-  font-weight: 700;
-  margin: 4px 0;
-}
-.wed-venue-tag {
-  font-size: 13px;
-  color: #4B5563;
-  margin: 2px 0 16px;
-}
-
-.wed-couple-row {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 14px;
-  background: rgba(212,175,55,0.08);
-  border: 1px solid rgba(212,175,55,0.35);
-  border-radius: 18px;
-  padding: 14px;
-  margin: 14px 0;
-}
-.wed-person-card {
-  flex: 1;
-  text-align: center;
-}
-.wed-person-card img {
-  width: 85px;
-  height: 110px;
-  border-radius: 14px;
-  border: 1.5px solid var(--gold);
-  object-fit: cover;
-  margin: 0 auto 6px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
-}
-.wed-person-card b {
-  display: block;
-  font-size: 13px;
-  color: var(--wine);
-}
-.wed-person-card small {
-  font-size: 10.5px;
-  color: #6B7280;
-  display: block;
-}
-.wed-mandap-knot {
-  font-size: 24px;
-  color: var(--gold);
-}
-
-.wed-quote {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 14px;
-  color: var(--wine-d);
-  line-height: 1.5;
-  margin: 14px 0;
-}
-
-.wed-timeline {
-  text-align: left;
-  margin: 18px 0;
-}
-.wed-sec-head {
-  font-family: var(--serif);
   font-size: 18px;
-  color: var(--wine);
-  text-align: center;
-  border-bottom: 1px solid rgba(212,175,55,0.3);
-  padding-bottom: 6px;
-  margin-bottom: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+  transition: all .25s ease;
 }
-.wed-event-card {
-  display: flex;
-  gap: 10px;
-  background: #FFF;
-  border: 1px solid #E5E7EB;
-  border-radius: 12px;
-  padding: 12px;
-  margin-bottom: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+.audio-ctrl-btn:hover {
+  transform: scale(1.08);
+  border-color: var(--gold-l);
 }
-.wed-ev-bullet {
-  font-size: 16px;
-  color: var(--gold);
-  line-height: 1.2;
-}
-.wed-ev-info b {
-  display: block;
-  font-size: 13.5px;
-  color: var(--wine);
-}
-.wed-ev-time {
-  display: block;
-  font-size: 11.5px;
-  color: var(--rose-d);
+
+/* Floating Auto-Play / Auto-Scroll Button */
+.autoscroll-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 20px;
+  z-index: 9999;
+  background: linear-gradient(135deg, #2A000A, #550012);
+  border: 1.5px solid var(--gold);
+  color: var(--gold-l);
+  font-family: var(--serif);
+  font-size: 13px;
   font-weight: 600;
+  letter-spacing: .05em;
+  padding: 10px 18px;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.7), 0 0 15px rgba(212,175,55,0.3);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all .25s;
+}
+.autoscroll-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(212,175,55,0.5);
+}
+
+/* ================= 3D RIBBON & FRENCH DOORS BOX STAGE ================= */
+.marble-stage {
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+  background: 
+    radial-gradient(circle at 50% 30%, #F5F1EB 0%, #E3D9CC 60%, #CFC2B2 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+  transition: opacity .9s cubic-bezier(0.4, 0, 0.2, 1), visibility .9s;
+}
+.marble-stage.stage-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Marble surface texture & soft window sunlight overlay */
+.marble-texture {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: 
+    radial-gradient(ellipse at 85% 15%, rgba(255,255,255,0.8) 0%, transparent 55%),
+    linear-gradient(125deg, transparent 40%, rgba(0,0,0,0.06) 50%, transparent 60%),
+    repeating-linear-gradient(45deg, rgba(200,185,170,0.08) 0px, transparent 40px, rgba(200,185,170,0.08) 80px);
+}
+
+/* Box 3D Scene Wrapper */
+.ribbon-box-scene {
+  perspective: 1400px;
+  width: 280px;
+  height: 380px;
+  position: relative;
+  margin-bottom: 24px;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* The Box Main Outer Frame */
+.ribbon-box-body {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  filter: drop-shadow(0 25px 40px rgba(0,0,0,0.45)) drop-shadow(0 8px 16px rgba(0,0,0,0.3));
+}
+
+/* Box Interior Base Tray */
+.box-interior-base {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, #4D000D 0%, #200005 100%);
+  border-radius: 12px;
+  border: 2px solid rgba(212, 175, 55, 0.4);
+  box-shadow: inset 0 0 40px rgba(0,0,0,0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Petals Bed inside Box Tray */
+.petals-bed {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: 
+    radial-gradient(circle at 10% 15%, #940C1F 0%, transparent 35%),
+    radial-gradient(circle at 90% 15%, #940C1F 0%, transparent 35%),
+    radial-gradient(circle at 10% 85%, #940C1F 0%, transparent 35%),
+    radial-gradient(circle at 90% 85%, #940C1F 0%, transparent 35%),
+    radial-gradient(circle at 50% 95%, #7A0818 0%, transparent 40%),
+    radial-gradient(circle at 50% 5%, #7A0818 0%, transparent 40%);
+  opacity: 0.85;
+}
+
+/* Acrylic Floating Card */
+.acrylic-card {
+  width: 220px;
+  height: 300px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5), inset 0 0 15px rgba(255,255,255,0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  box-sizing: border-box;
+  text-align: center;
+  color: #FFF;
+  position: relative;
+  z-index: 2;
+  transition: transform .7s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow .7s;
+}
+.acrylic-card-eyebrow {
+  font-family: var(--serif);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: #FFE5E8;
+  margin: 0 0 12px;
+  line-height: 1.3;
+}
+.acrylic-divider {
+  width: 40px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.6);
+  margin: 10px 0;
+}
+.acrylic-subtext {
+  font-size: 10px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #FFCCD3;
+  margin: 0;
+  font-weight: 600;
+}
+.acrylic-bottom-hint {
+  font-size: 9.5px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold-l);
+  margin-top: 24px;
+  font-weight: 700;
+}
+
+/* Card Elevated Class */
+.acrylic-card.is-elevated {
+  transform: translateZ(90px) scale(1.12);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.8), 0 0 30px rgba(255,255,255,0.5);
+}
+
+/* Double French Doors */
+.door {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  background: radial-gradient(circle at 50% 40%, #8A071A 0%, #5E0310 70%, #3B0008 100%);
+  transform-style: preserve-3d;
+  transition: transform 1.35s cubic-bezier(0.25, 1, 0.35, 1);
+  z-index: 10;
+  box-shadow: inset 0 0 15px rgba(0,0,0,0.6);
+}
+
+/* Left Door */
+.door-left {
+  left: 0;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+  border-right: 1px solid rgba(0,0,0,0.5);
+  transform-origin: left center;
+}
+.door-left.is-open {
+  transform: rotateY(-118deg);
+}
+
+/* Right Door */
+.door-right {
+  right: 0;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  border-left: 1px solid rgba(255,255,255,0.15);
+  transform-origin: right center;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 24px;
+  box-sizing: border-box;
+}
+.door-right.is-open {
+  transform: rotateY(118deg);
+}
+
+/* Golden Monogram on Right Door */
+.door-monogram {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--gold-l);
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.7));
+}
+.monogram-rings {
+  position: relative;
+  width: 36px;
+  height: 22px;
+}
+.mono-ring {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid var(--gold-l);
+}
+.mono-ring.m-left { left: 4px; }
+.mono-ring.m-right { right: 4px; }
+.monogram-branches {
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-top: 2px;
+}
+
+/* ================= THE LUXURY RED SILK VELVET RIBBON ================= */
+.ribbon-wrap {
+  position: absolute;
+  top: 50%;
+  left: -10px;
+  right: -10px;
+  transform: translateY(-50%);
+  z-index: 25;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity .8s ease, transform .8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.ribbon-wrap.is-untying {
+  opacity: 0;
+  transform: translateY(40px) scale(0.9);
+}
+
+/* Horizontal Ribbon Band */
+.ribbon-band {
+  position: absolute;
+  height: 38px;
+  left: 0;
+  right: 0;
+  background: linear-gradient(180deg, #A80D22 0%, #6E0513 50%, #4D000A 100%);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.7), inset 0 2px 4px rgba(255,255,255,0.25);
+  border-top: 1px solid rgba(255,255,255,0.15);
+  border-bottom: 1px solid rgba(0,0,0,0.4);
+}
+
+/* Central Velvet Bow */
+.ribbon-bow-knot {
+  position: relative;
+  width: 34px;
+  height: 34px;
+  background: radial-gradient(circle at 40% 40%, #B8142C 0%, #6E0513 70%, #3B0007 100%);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.8), inset 0 2px 4px rgba(255,255,255,0.3);
+  z-index: 3;
+}
+.ribbon-loop-left, .ribbon-loop-right {
+  position: absolute;
+  top: -8px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50% 50% 20% 50%;
+  background: linear-gradient(135deg, #B8142C 0%, #6E0513 65%, #3B0007 100%);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.65);
+}
+.ribbon-loop-left {
+  left: -40px;
+  transform: rotate(-25deg);
+}
+.ribbon-loop-right {
+  right: -40px;
+  transform: scaleX(-1) rotate(-25deg);
+}
+
+.ribbon-tail-left, .ribbon-tail-right {
+  position: absolute;
+  top: 24px;
+  width: 24px;
+  height: 60px;
+  background: linear-gradient(180deg, #8A071A, #4D000A);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+.ribbon-tail-left {
+  left: -12px;
+  transform: rotate(18deg);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 85%, 0% 100%);
+}
+.ribbon-tail-right {
+  right: -12px;
+  transform: rotate(-18deg);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 85%, 0% 100%);
+}
+
+/* Stage Captions */
+.stage-captions {
+  text-align: center;
+  color: #2D0207;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.stage-names {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0;
+  color: #380208;
+}
+.stage-cta {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #7A0A18;
+  margin: 0;
+  animation: pulseCta 2s infinite ease-in-out;
+}
+.skip-stage-btn {
+  background: rgba(110, 5, 19, 0.85);
+  color: #FFF;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 6px 22px;
+  border-radius: 999px;
+  border: 1px solid rgba(212,175,55,0.4);
+  cursor: pointer;
+  margin-top: 4px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+  transition: all .2s;
+}
+.skip-stage-btn:hover {
+  background: #900B1C;
+  transform: scale(1.05);
+}
+
+/* ================= FULL HIGH-FASHION INVITATION STORY SLIDES ================= */
+.story-container {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100vh;
+  position: relative;
+  box-sizing: border-box;
+  background: #1F0006;
+  box-shadow: 0 0 50px rgba(0,0,0,0.9);
+}
+
+/* Top Progress Bars (Instagram / Luxury Story Style) */
+.story-progress-bar {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(94%, 460px);
+  z-index: 100;
+  display: flex;
+  gap: 4px;
+}
+.progress-segment {
+  flex: 1;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.progress-fill {
+  width: 0%;
+  height: 100%;
+  background: #FFF;
+  transition: width .3s linear;
+}
+.progress-segment.active .progress-fill {
+  width: 100%;
+}
+.progress-segment.past .progress-fill {
+  width: 100%;
+}
+
+/* Individual Story Slide */
+.story-slide {
+  min-height: 100vh;
+  padding: 60px 24px 80px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+/* Slide 1: Cover Slide with Grand Candlelight Ballroom */
+.slide-cover {
+  background: 
+    linear-gradient(180deg, rgba(20,0,4,0.4) 0%, rgba(35,0,8,0.85) 100%),
+    radial-gradient(circle at 50% 40%, #730615 0%, #290006 80%);
+}
+.cover-cursive-eyebrow {
+  font-family: 'Playfair Display', Georgia, cursive, serif;
+  font-style: italic;
+  font-size: 26px;
+  color: #FFD4DC;
+  margin-bottom: 8px;
+}
+.cover-luxury-names {
+  font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: 2px;
+  color: #FFF;
+  margin: 12px 0 16px;
+  text-shadow: 0 2px 15px rgba(0,0,0,0.8);
+}
+.cover-luxury-names span {
+  display: block;
+}
+.cover-amp {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 26px;
+  color: var(--gold-l);
   margin: 2px 0;
 }
-.wed-ev-info small {
-  display: block;
-  font-size: 11px;
-  color: #6B7280;
-}
-.wed-ev-info p {
-  font-size: 11px;
-  color: #9CA3AF;
-  margin: 3px 0 0;
-}
-
-.wed-map-card {
-  background: rgba(212, 175, 55, 0.1);
-  border: 1px dashed var(--gold);
-  border-radius: 14px;
-  padding: 14px;
-  margin: 14px 0;
-}
-.wed-map-card h4 {
-  margin: 0 0 4px;
-  font-size: 13.5px;
-  color: var(--wine);
-}
-.wed-map-card p {
-  font-size: 12px;
-  color: #4B5563;
-  margin: 0 0 10px;
-}
-.btn-wed-map {
-  display: inline-block;
-  background: var(--wine);
-  color: var(--gold-l);
-  font-size: 12px;
-  font-weight: 700;
-  padding: 8px 18px;
-  border-radius: 999px;
-  text-decoration: none;
-}
-
-.wed-closing {
-  font-family: var(--script);
-  font-size: 24px;
-  color: var(--wine);
+.cover-date-text {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 20px;
+  color: #FFD6DE;
+  letter-spacing: 1px;
   margin-top: 14px;
+}
+
+/* Slide 2: "A Letter" */
+.slide-letter {
+  background: radial-gradient(circle at 50% 50%, #50000D 0%, #1A0004 90%);
+}
+.letter-script-header {
+  font-family: 'Playfair Display', Georgia, cursive, serif;
+  font-style: italic;
+  font-size: 32px;
+  color: #FFAAB8;
+  margin-bottom: 20px;
+}
+.letter-subhead {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #FFCCD4;
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+.letter-quote-body {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 28px;
+  line-height: 1.45;
+  font-weight: 600;
+  color: #FFF;
+  max-width: 380px;
+  margin: 0 auto 30px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+}
+.letter-signature {
+  font-family: 'Playfair Display', Georgia, cursive, serif;
+  font-style: italic;
+  font-size: 30px;
+  color: var(--gold-l);
+}
+
+/* Slide 3: "Seal The Date" with Interactive 3D Wax Seal */
+.slide-seal {
+  background: #FAF6F0;
+  color: #2E0208;
+}
+.seal-header-text {
+  font-family: 'Playfair Display', Georgia, cursive, serif;
+  font-style: italic;
+  font-size: 34px;
+  color: #6E0513;
+  margin-bottom: 20px;
+}
+.wax-seal-btn {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #C2132C 0%, #850617 65%, #4A000B 100%);
+  border: none;
+  cursor: pointer;
+  box-shadow: 
+    0 12px 25px rgba(110, 5, 19, 0.45),
+    inset 0 4px 8px rgba(255,255,255,0.4),
+    inset 0 -6px 12px rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: transform .25s ease, box-shadow .25s;
+  margin: 20px auto;
+}
+.wax-seal-btn:hover {
+  transform: scale(1.06);
+  box-shadow: 0 16px 30px rgba(110, 5, 19, 0.6);
+}
+.wax-seal-inner-monogram {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  border: 2px dashed rgba(255,255,255,0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #FFE5E9;
+  font-family: 'Cinzel', serif;
+  font-size: 24px;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+}
+.seal-press-hint {
+  font-family: 'Playfair Display', Georgia, cursive, serif;
+  font-style: italic;
+  font-size: 18px;
+  color: #7D0A19;
+  margin: 10px 0 6px;
+}
+.seal-date-big {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #4D000A;
+  margin-top: 10px;
+}
+
+/* Slide 4: "The Evening" (Story Timeline) */
+.slide-evening {
+  background: radial-gradient(circle at 50% 40%, #5E000F 0%, #200005 90%);
+}
+.evening-script-title {
+  font-family: 'Playfair Display', Georgia, cursive, serif;
+  font-style: italic;
+  font-size: 32px;
+  color: #FFB3C0;
+  margin-bottom: 30px;
+}
+.evening-timeline-item {
+  margin-bottom: 28px;
+  max-width: 360px;
+}
+.evening-time {
+  font-family: 'Playfair Display', Georgia, cursive, serif;
+  font-style: italic;
+  font-size: 24px;
+  color: #FFD4DC;
+  margin-bottom: 4px;
+}
+.evening-event-name {
+  font-family: 'Cinzel', 'Playfair Display', serif;
+  font-size: 34px;
+  font-weight: 700;
+  color: #FFF;
+  margin: 0 0 6px;
+  letter-spacing: 1px;
+}
+.evening-event-desc {
+  font-size: 13.5px;
+  color: #E6B8C0;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Action Buttons (Reply to invitation, WhatsApp, etc.) */
+.btn-story-reply {
+  background: rgba(140, 10, 28, 0.75);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #FFF;
+  font-family: var(--serif);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 12px 28px;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  transition: all .25s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  margin-top: 24px;
+}
+.btn-story-reply:hover {
+  background: #A60C22;
+  border-color: #FFF;
+  transform: translateY(-2px);
+}
+
+/* Slide 5: RSVP & Dispatch */
+.slide-rsvp {
+  background: radial-gradient(circle at 50% 30%, #4D000D 0%, #150003 100%);
+  padding-bottom: 120px;
+}
+.rsvp-card-box {
+  width: 100%;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 20px;
+  padding: 24px 18px;
+  box-sizing: border-box;
+  text-align: left;
+}
+.rsvp-card-box h3 {
+  font-family: var(--serif);
+  font-size: 22px;
+  color: var(--gold-l);
+  margin: 0 0 8px;
+  text-align: center;
+}
+
+/* Send to Desired Person Modal */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(8px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+.modal-body {
+  background: radial-gradient(circle at 50% 30%, #5C0010 0%, #200005 100%);
+  border: 2px solid var(--gold);
+  border-radius: 20px;
+  max-width: 440px;
+  width: 100%;
+  padding: 26px 20px;
+  box-sizing: border-box;
+  color: #FFF;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.9);
+  position: relative;
+}
+.modal-close-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: none;
+  border: none;
+  color: var(--gold-l);
+  font-size: 22px;
+  cursor: pointer;
+}
+.modal-input-group {
+  margin-bottom: 14px;
+  text-align: left;
+}
+.modal-input-group label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .5px;
+  color: var(--gold-l);
+  margin-bottom: 5px;
+}
+.modal-input-group input, .modal-input-group select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(212,175,55,0.5);
+  border-radius: 10px;
+  color: #FFF;
+  font-size: 14px;
+  outline: none;
+}
+.modal-input-group select option {
+  background: #250006;
+  color: #FFF;
+}
+
+/* Canvas for falling rose petals */
+#petalsCanvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 4999;
 }
 </style>
 </head>
-<body class="is-locked">
+<body>
 
-<div class="top-template-badge">Template #03 · Wedding</div>
+<!-- Audio Controller -->
+<button type="button" class="audio-ctrl-btn" id="audioToggle" title="Play / Mute Music" aria-label="Toggle Romantic Music">
+  🎵
+</button>
 
-<!-- ============ OPENING COVER SCREEN ============ -->
-<section class="call" id="call">
-  <div class="call__bg" style="background-image:url('../assets/img/hero_palace.webp')"></div>
-  <div class="call__couple" style="background-image:url('../assets/img/couple_call.webp')"></div>
-  <div class="call__shade"></div>
-  <div class="call__status">
-    <span>9:41</span>
-    <span class="call__icons"><i></i><i></i><i></i><b></b></span>
-  </div>
-  <div class="call__top">
-    <p class="call__label" id="guestCallLabel">Incoming Royal Wedding Call<span class="dots"><i>.</i><i>.</i><i>.</i></span></p>
-    <h1 class="call__names"><span>Ranveer &amp; Isha</span></h1>
-    <p class="call__sub">Saturday, 27th February 2027</p>
-  </div>
-  <div class="call__bottom">
-    <button class="call__magic" type="button" onclick="answerCall()">✨ Tap or Slide to Open</button>
-    <div class="slider" id="slider">
-      <div class="slider__fill"></div>
-      <div class="slider__text"><b>slide</b>&nbsp;to open</div>
-      <button class="slider__knob" id="knob" type="button" aria-label="Slide to open">
-        <svg viewBox="0 0 24 24"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z"/></svg>
-      </button>
-    </div>
-    <span class="call__home"></span>
-  </div>
-</section>
+<!-- Floating Auto-Scroll Button -->
+<button type="button" class="autoscroll-btn" id="autoScrollBtn" title="Toggle Auto-Scroll">
+  📜 <span>Auto-Play</span>
+</button>
 
-<!-- ============ AMBIENT CANVAS ============ -->
-<div class="ambient" aria-hidden="true"><div class="ambient__bg"></div></div>
-<canvas class="petals" id="petals" aria-hidden="true"></canvas>
+<!-- Falling Petals Canvas -->
+<canvas id="petalsCanvas"></canvas>
 
-<!-- ============ INVITATION STAGE ============ -->
-<div class="inv-main-wrap style-jaipur">
-  <div class="wed-header-banner">
-    <p class="wed-sloka-line">Padharo Mhare Desh · Royal Wedding of</p>
-    <div class="wed-orn-divider">✦ ❦ ✦</div>
-    <h2 class="wed-main-title">Ranveer &amp; Isha</h2>
-    <p class="wed-sub-title">Heritage Jharokha Mandap Ceremony</p>
-  </div>
+<!-- ================= 3D RIBBON & FRENCH DOORS BOX STAGE ================= -->
+<div class="marble-stage" id="marbleStage">
+  <div class="marble-texture"></div>
 
-  <div class="wed-stage-card">
-    <div class="wed-hero-box">
-      <img src="../assets/img/hero_palace.webp" alt="Wedding Pavilion">
-      <span class="wed-hero-tag">Royal Matrimony</span>
-    </div>
+  <!-- The 3D Box Scene -->
+  <div class="ribbon-box-scene" id="ribbonBoxScene" title="Tap to untie ribbon & open box">
+    <div class="ribbon-box-body">
 
-    <h1 class="wed-couple-title">Ranveer Rathore &amp; Isha Shekhawat</h1>
-    <p class="wed-date-ribbon">✦ Saturday, 27th February 2027 · 7:00 PM ✦</p>
-    <p class="wed-venue-tag">📍 Rambagh Palace, Jaipur<br><small>Bhawani Singh Rd, Jaipur 302005</small></p>
+      <!-- Interior Base with Rose Petals Bed -->
+      <div class="box-interior-base">
+        <div class="petals-bed"></div>
 
-    <div class="wed-couple-row">
-      <div class="wed-person-card">
-        <img src="../assets/img/groom.webp" alt="Ranveer">
-        <b>Ranveer Rathore</b>
-        <small>Son of Late Maharaja Digvijay Rathore</small>
+        <!-- Floating Frosted Glass Acrylic Card -->
+        <div class="acrylic-card" id="acrylicCard">
+          <div class="acrylic-card-eyebrow">WEDDING<br>INVITATION</div>
+          <div class="acrylic-divider"></div>
+          <p class="acrylic-subtext">A CELEBRATION<br>OF LOVE</p>
+          <div class="acrylic-divider"></div>
+          <p class="acrylic-bottom-hint">YOU ARE INVITED</p>
+        </div>
       </div>
-      <div class="wed-mandap-knot">❦</div>
-      <div class="wed-person-card">
-        <img src="../assets/img/bride.webp" alt="Isha">
-        <b>Isha Shekhawat</b>
-        <small>Daughter of Thakur Raghuvir Shekhawat</small>
+
+      <!-- Left French Door -->
+      <div class="door door-left" id="doorLeft"></div>
+
+      <!-- Right French Door -->
+      <div class="door door-right" id="doorRight">
+        <div class="door-monogram">
+          <div class="monogram-rings">
+            <div class="mono-ring m-left"></div>
+            <div class="mono-ring m-right"></div>
+          </div>
+          <div class="monogram-branches">❦ ❧</div>
+        </div>
       </div>
+
+      <!-- Tied Velvet Ribbon Bow Across the Doors -->
+      <div class="ribbon-wrap" id="ribbonWrap">
+        <div class="ribbon-band"></div>
+        <div class="ribbon-loop-left"></div>
+        <div class="ribbon-loop-right"></div>
+        <div class="ribbon-bow-knot"></div>
+        <div class="ribbon-tail-left"></div>
+        <div class="ribbon-tail-right"></div>
+      </div>
+
     </div>
+  </div>
 
-    <blockquote class="wed-quote">“Amidst pink sandstone jharokhas and royal trumpets, love finds its forever palace.”</blockquote>
-
-    <div class="wed-timeline">
-      <h3 class="wed-sec-head">Sacred Functions &amp; Ceremonies Itinerary</h3>
-      
-        <div class="wed-event-card">
-          <div class="wed-ev-bullet">✦</div>
-          <div class="wed-ev-info">
-            <b>Haldi Ceremony</b>
-            <span class="wed-ev-time">⏰ 10:00 AM · 📍 Lakeside Sun Courtyard</span>
-            <small>Dress: Shades of Turmeric Yellow</small>
-            <p>Marigolds, dholak beats and joyous turmeric blessings.</p>
-          </div>
-        </div>
-        <div class="wed-event-card">
-          <div class="wed-ev-bullet">✦</div>
-          <div class="wed-ev-info">
-            <b>Mehendi & Sangeet</b>
-            <span class="wed-ev-time">⏰ 5:30 PM · 📍 Grand Durbar Hall</span>
-            <small>Dress: Indo-Western Celebration Glam</small>
-            <p>Henna art, choreographed musical performances and live DJ.</p>
-          </div>
-        </div>
-        <div class="wed-event-card">
-          <div class="wed-ev-bullet">✦</div>
-          <div class="wed-ev-info">
-            <b>The Royal Wedding (Pheras)</b>
-            <span class="wed-ev-time">⏰ 7:30 PM · 📍 Rambagh Palace, Jaipur</span>
-            <small>Dress: Regal Indian Traditional</small>
-            <p>Seven sacred pheras around the holy fire amidst Vedic mantras.</p>
-          </div>
-        </div>
-        <div class="wed-event-card">
-          <div class="wed-ev-bullet">✦</div>
-          <div class="wed-ev-info">
-            <b>Grand Reception & Dinner</b>
-            <span class="wed-ev-time">⏰ 8:30 PM · 📍 Crystal Island Ballroom</span>
-            <small>Dress: Black Tie / Royal Ethnic</small>
-            <p>An evening of toasts, lavish banquet dinner and dancing.</p>
-          </div>
-        </div>
-    </div>
-
-    <div class="wed-map-card">
-      <h4>📍 Google Maps Navigation Route</h4>
-      <p>Rambagh Palace, Jaipur · Bhawani Singh Rd, Jaipur 302005</p>
-      <a href="https://maps.google.com/?q=Rambagh Palace, Jaipur" target="_blank" rel="noopener" class="btn-wed-map">➤ Open Live Navigation Map</a>
-    </div>
-
-    <p class="wed-closing">“With loving pranaam and royal hospitality.”</p>
+  <!-- Captions below Box -->
+  <div class="stage-captions">
+    <h2 class="stage-names" id="coverCoupleNames">Madeleine &amp; Vittorio</h2>
+    <p class="stage-cta" id="coverActionText">TAP TO UNTIE RIBBON &amp; OPEN</p>
+    <button type="button" class="skip-stage-btn" id="skipStageBtn">SKIP</button>
   </div>
 </div>
 
-<!-- ============ FLOATING ACTION BAR ============ -->
-<div id="rpActionBar" style="position:fixed;bottom:16px;left:50%;transform:translateX(-50%);z-index:9999;display:flex;gap:10px;align-items:center;background:rgba(255,255,255,0.96);backdrop-filter:blur(14px);padding:8px 16px;border-radius:999px;box-shadow:0 10px 30px rgba(0,0,0,0.2);border:1.5px solid var(--gold);font-family:var(--sans);">
-  <a id="btnCustomize" href="../index.html" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:var(--blush2);color:var(--wine);font-weight:700;font-size:12.5px;text-decoration:none;">
-    <span>✎ Customize</span>
-  </a>
-  <button id="btnAutoScroll" onclick="toggleAutoScroll()" type="button" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:var(--blush);color:var(--wine);font-weight:700;font-size:12.5px;border:1px solid var(--gold);cursor:pointer;">
-    <span>📜 Auto-Scroll</span>
-  </button>
-  <button onclick="openSendModal()" type="button" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:999px;background:var(--wine);color:var(--gold-l);font-weight:700;font-size:12.5px;border:none;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,0.2);">
-    <span>💌 Send to Desired Person</span>
-  </button>
-</div>
+<!-- ================= FULL STORY SLIDES INVITATION ================= -->
+<main class="story-container" id="storyMain">
 
-<!-- ============ MODAL: SEND TO DESIRED PERSON ============ -->
-<div id="sendModal" style="display:none;position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,0.65);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:16px;">
-  <div style="background:#fff;border-radius:24px;max-width:440px;width:100%;padding:24px;box-shadow:0 25px 60px rgba(0,0,0,0.4);border:2px solid var(--gold);font-family:var(--sans);position:relative;color:#111;">
-    <button onclick="closeSendModal()" type="button" style="position:absolute;top:16px;right:16px;border:none;background:none;font-size:24px;color:#6B7280;cursor:pointer;">×</button>
+  <!-- Top Progress Bar -->
+  <div class="story-progress-bar">
+    <div class="progress-segment active" id="prog0"><div class="progress-fill"></div></div>
+    <div class="progress-segment" id="prog1"><div class="progress-fill"></div></div>
+    <div class="progress-segment" id="prog2"><div class="progress-fill"></div></div>
+    <div class="progress-segment" id="prog3"><div class="progress-fill"></div></div>
+    <div class="progress-segment" id="prog4"><div class="progress-fill"></div></div>
+  </div>
+
+  <!-- SLIDE 1: COVER SLIDE -->
+  <section class="story-slide slide-cover" id="slide0">
+    <div class="cover-cursive-eyebrow">We are getting married</div>
+    <h1 class="cover-luxury-names">
+      <span id="brideNameDisplay">Madeleine</span>
+      <span class="cover-amp">&amp;</span>
+      <span id="groomNameDisplay">Vittorio</span>
+    </h1>
+    <div class="cover-date-text" id="weddingDateDisplay">
+      Saturday, the nineteenth of June
+    </div>
+    <div style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#FFCCD4;margin-top:6px;" id="weddingVenueDisplay">
+      The Grand Chandelier Ballroom, Lake Como
+    </div>
+
+    <a href="#slide4" class="btn-story-reply">
+      Reply to the invitation
+    </a>
+  </section>
+
+  <!-- SLIDE 2: A LETTER -->
+  <section class="story-slide slide-letter" id="slide1">
+    <div class="letter-script-header">A letter</div>
+    <div class="letter-subhead">Dear family &amp; friends,</div>
+    <div class="letter-quote-body">
+      we are getting married, and we want the people we love most in the front row.
+    </div>
+    <div class="letter-signature" id="letterSignature">
+      Madeleine &amp; Vittorio
+    </div>
+
+    <a href="#slide4" class="btn-story-reply" style="margin-top:32px;">
+      Reply to the invitation
+    </a>
+  </section>
+
+  <!-- SLIDE 3: SEAL THE DATE -->
+  <section class="story-slide slide-seal" id="slide2">
+    <div class="seal-header-text">Seal the date</div>
+    <p class="seal-press-hint">Press the seal to confirm your calendar</p>
+
+    <!-- Interactive Wax Seal -->
+    <button type="button" class="wax-seal-btn" id="waxSealBtn" title="Press to Seal">
+      <div class="wax-seal-inner-monogram">
+        <span>❦</span>
+      </div>
+    </button>
+
+    <div class="seal-date-big" id="sealDateBig">
+      Saturday, 19th June 2027
+    </div>
+    <p style="font-size:13px;color:#780A18;margin:6px 0 0;font-weight:600;" id="sealFeedbackText">
+      Tap the red seal to trigger the celebration!
+    </p>
+
+    <a href="#slide4" class="btn-story-reply" style="background:#6E0513;margin-top:28px;">
+      Reply to the invitation
+    </a>
+  </section>
+
+  <!-- SLIDE 4: THE EVENING (TIMELINE) -->
+  <section class="story-slide slide-evening" id="slide3">
+    <div class="evening-script-title">The evening</div>
+
+    <div class="evening-timeline-item">
+      <div class="evening-time">4:00 pm</div>
+      <h3 class="evening-event-name">The vows</h3>
+      <p class="evening-event-desc">Beneath the grand crystal chandelier, in front of everyone we love.</p>
+    </div>
+
+    <div class="evening-timeline-item">
+      <div class="evening-time">6:30 pm</div>
+      <h3 class="evening-event-name">Dinner</h3>
+      <p class="evening-event-desc">A candlelit banquet table lined with deep red roses and vintage wine.</p>
+    </div>
+
+    <div class="evening-timeline-item">
+      <div class="evening-time">9:00 pm</div>
+      <h3 class="evening-event-name">Party</h3>
+      <p class="evening-event-desc">Live jazz, champagne towers, and dancing under the stars until late.</p>
+    </div>
+
+    <a href="#slide4" class="btn-story-reply">
+      Reply to the invitation
+    </a>
+  </section>
+
+  <!-- SLIDE 5: RSVP & DIRECT DISPATCH -->
+  <section class="story-slide slide-rsvp" id="slide4">
+    <div class="rsvp-card-box">
+      <h3>RSVP &amp; Details</h3>
+      <p style="font-size:13px;color:#FFCCD4;margin:0 0 16px;text-align:center;">
+        Please confirm your attendance for our celebration.
+      </p>
+
+      <form id="storyRsvpForm" onsubmit="handleStoryRsvp(event)" style="display:flex;flex-direction:column;gap:12px;">
+        <div>
+          <label style="font-size:11.5px;color:var(--gold-l);font-weight:600;display:block;margin-bottom:4px;">Guest Name</label>
+          <input type="text" id="rsvpGuestName" required placeholder="e.g. Rajesh &amp; Sunita" style="width:100%;box-sizing:border-box;padding:10px 12px;background:rgba(255,255,255,0.08);border:1px solid rgba(212,175,55,0.5);border-radius:10px;color:#FFF;font-size:14px;outline:none;">
+        </div>
+
+        <div style="display:flex;gap:10px;">
+          <div style="flex:1;">
+            <label style="font-size:11.5px;color:var(--gold-l);font-weight:600;display:block;margin-bottom:4px;">Will you attend?</label>
+            <select id="rsvpAttending" style="width:100%;box-sizing:border-box;padding:10px 12px;background:rgba(255,255,255,0.08);border:1px solid rgba(212,175,55,0.5);border-radius:10px;color:#FFF;font-size:14px;outline:none;">
+              <option value="Joyfully Accept" style="background:#200005;">Joyfully Accept</option>
+              <option value="Regretfully Decline" style="background:#200005;">Regretfully Decline</option>
+            </select>
+          </div>
+          <div style="width:90px;">
+            <label style="font-size:11.5px;color:var(--gold-l);font-weight:600;display:block;margin-bottom:4px;">Guests</label>
+            <input type="number" id="rsvpGuestsCount" value="2" min="1" max="10" style="width:100%;box-sizing:border-box;padding:10px 12px;background:rgba(255,255,255,0.08);border:1px solid rgba(212,175,55,0.5);border-radius:10px;color:#FFF;font-size:14px;outline:none;">
+          </div>
+        </div>
+
+        <button type="submit" class="btn-story-reply" style="width:100%;justify-content:center;margin-top:6px;background:linear-gradient(135deg, #B8142C, #730615);">
+          💌 Submit RSVP
+        </button>
+      </form>
+
+      <div id="rsvpSuccessMsg" style="display:none;background:rgba(4,120,87,0.3);border:1px solid #10B981;border-radius:12px;padding:12px;margin-top:14px;color:#A7F3D0;font-size:12.5px;text-align:center;">
+        ✓ Your RSVP has been confirmed! We can't wait to see you!
+      </div>
+    </div>
+
+    <!-- Dispatch to Guests Button -->
+    <button type="button" class="btn-story-reply" style="margin-top:24px;background:linear-gradient(135deg, #FFF0A0, #D4AF37 55%, #8C6212);color:#240206;border:none;" onclick="openSendModal()">
+      📤 Send This Invitation to Desired Person
+    </button>
+  </section>
+
+</main>
+
+<!-- ================= SEND PERSONALIZED INVITATION MODAL ================= -->
+<div class="modal-backdrop" id="sendModal">
+  <div class="modal-body">
+    <button type="button" class="modal-close-btn" onclick="closeSendModal()">&times;</button>
     
-    <div style="text-align:center;margin-bottom:16px;">
-      <div style="width:44px;height:44px;border-radius:50%;background:var(--wine);color:var(--gold-l);display:inline-flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:6px;">💌</div>
-      <h3 style="font-family:var(--serif);font-size:24px;color:var(--wine);margin:0;">Send Invitation</h3>
-      <p style="font-size:12.5px;color:#6B7280;margin:3px 0 0;">Deliver directly to the correct WhatsApp number or Email</p>
+    <h3 style="font-family:var(--serif);color:var(--gold-l);margin:0 0 10px;letter-spacing:1px;font-size:20px;">
+      Send Personalized Invitation
+    </h3>
+    <p style="font-size:12.5px;color:#D8C4B0;margin:0 0 18px;">
+      Send this bespoke Cartier red velvet ribbon invitation directly to your guest's WhatsApp or Email.
+    </p>
+
+    <div class="modal-input-group">
+      <label>Guest Full Name</label>
+      <input type="text" id="targetGuestName" placeholder="e.g. Rajesh &amp; Sunita Sharma">
     </div>
 
-    <div style="margin-bottom:12px;text-align:left;">
-      <label style="display:block;font-size:11px;font-weight:700;text-transform:uppercase;color:var(--wine);margin-bottom:4px;">Guest / Family Name *</label>
-      <input type="text" id="targetGuestName" placeholder="e.g. Priya &amp; Rohan, The Sharma Family" style="width:100%;box-sizing:border-box;padding:9px 12px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:13.5px;outline:none;">
-    </div>
-
-    <div style="margin-bottom:14px;text-align:left;">
-      <label style="display:block;font-size:11px;font-weight:700;text-transform:uppercase;color:var(--wine);margin-bottom:4px;">Guest Mobile Number *</label>
+    <div class="modal-input-group">
+      <label>Guest WhatsApp Number</label>
       <div style="display:flex;gap:6px;">
-        <select id="countryCodeSelect" style="width:100px;padding:9px 8px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:13px;background:#F9FAFB;">
+        <select id="countryCodeSelect" style="width:90px;flex-shrink:0;">
           <option value="91">+91 (IN)</option>
-          <option value="1">+1 (US/CA)</option>
+          <option value="1">+1 (US)</option>
           <option value="44">+44 (UK)</option>
           <option value="971">+971 (UAE)</option>
-          <option value="61">+61 (AU)</option>
           <option value="65">+65 (SG)</option>
+          <option value="61">+61 (AU)</option>
         </select>
-        <input type="tel" id="targetGuestPhone" placeholder="10-digit number" style="flex:1;padding:9px 12px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:13.5px;outline:none;">
+        <input type="tel" id="targetGuestPhone" placeholder="10-digit number (e.g. 9876543210)" style="flex:1;">
       </div>
     </div>
 
-    <div style="margin-bottom:14px;text-align:left;">
-      <label style="display:block;font-size:11px;font-weight:700;text-transform:uppercase;color:var(--wine);margin-bottom:4px;">Guest Email (Optional)</label>
-      <input type="email" id="targetGuestEmail" placeholder="guest@example.com" style="width:100%;box-sizing:border-box;padding:9px 12px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:13.5px;outline:none;">
+    <div class="modal-input-group">
+      <label>Guest Email Address (Optional)</label>
+      <input type="email" id="targetGuestEmail" placeholder="e.g. guest@example.com">
     </div>
 
-    <div style="display:flex;flex-direction:column;gap:8px;">
-      <button onclick="sendViaWhatsApp()" type="button" class="btn btn--wa" style="width:100%;padding:11px;border-radius:12px;font-size:13.5px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:6px;">
-        <span>Send Directly on WhatsApp</span>
+    <div style="display:flex;flex-direction:column;gap:10px;margin-top:20px;">
+      <button type="button" class="btn-story-reply" style="width:100%;justify-content:center;background:linear-gradient(135deg, #25D366, #128C7E);color:#FFF;border:none;" onclick="sendViaWhatsApp()">
+        💬 Send via WhatsApp
       </button>
-
-      <button onclick="sendViaEmail()" type="button" class="btn btn--soft" style="width:100%;padding:10px;border-radius:12px;font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center;gap:6px;">
-        <span>Send via Email</span>
+      <button type="button" class="btn-story-reply" style="width:100%;justify-content:center;" onclick="sendViaEmail()">
+        ✉️ Send via Email
       </button>
-
-      <button onclick="copyPersonalizedLink()" id="btnCopyPersonal" type="button" class="btn btn--ghost" style="width:100%;padding:10px;border-radius:12px;font-size:13px;font-weight:600;">
-        <span>Copy Personalized Link</span>
+      <button type="button" class="btn-story-reply" id="btnCopyPersonal" style="width:100%;justify-content:center;background:rgba(255,255,255,0.15);" onclick="copyPersonalizedLink()">
+        🔗 Copy Personalized Link
       </button>
     </div>
+
   </div>
 </div>
 
-<!-- ============ AUDIO ============ -->
-<audio id="bgMusic" src="../audio/romantic_piano.mp3" loop preload="auto"></audio>
-
 <script>
-var opened = false;
-var autoScrolling = false;
-var scrollTimer = null;
+// Wedding config from storage or query
+var weddingConfig = {
+  bride: "Madeleine",
+  groom: "Vittorio",
+  date: "Saturday, 19th June 2027",
+  venue: "The Grand Chandelier Ballroom, Lake Como"
+};
 
-function toggleAutoScroll() {
-  if (autoScrolling) {
-    stopAutoScroll();
+try {
+  var saved = localStorage.getItem('gv_active_invite');
+  if (saved) {
+    var p = JSON.parse(saved);
+    if (p.bride) weddingConfig.bride = p.bride;
+    if (p.groom) weddingConfig.groom = p.groom;
+    if (p.date) weddingConfig.date = p.date;
+    if (p.venue) weddingConfig.venue = p.venue;
+  }
+} catch (e) {}
+
+var params = new URLSearchParams(window.location.search);
+if (params.get('bride')) weddingConfig.bride = params.get('bride');
+if (params.get('groom')) weddingConfig.groom = params.get('groom');
+if (params.get('date')) weddingConfig.date = params.get('date');
+if (params.get('venue')) weddingConfig.venue = params.get('venue');
+
+document.getElementById('coverCoupleNames').textContent = weddingConfig.bride + " & " + weddingConfig.groom;
+document.getElementById('brideNameDisplay').textContent = weddingConfig.bride;
+document.getElementById('groomNameDisplay').textContent = weddingConfig.groom;
+document.getElementById('letterSignature').textContent = weddingConfig.bride + " & " + weddingConfig.groom;
+document.getElementById('weddingDateDisplay').textContent = weddingConfig.date;
+document.getElementById('sealDateBig').textContent = weddingConfig.date;
+document.getElementById('weddingVenueDisplay').textContent = weddingConfig.venue.toUpperCase();
+document.title = weddingConfig.bride + " & " + weddingConfig.groom + " — Cartier Velvet Ribbon Wedding Invitation";
+
+// ================= AUDIO ENGINE =================
+var audioCtx = null;
+var isPlaying = false;
+var audioInterval = null;
+
+function playRomanticChime() {
+  try {
+    var AudioCtx = window.AudioContext || window.webkitAudioContext;
+    if (!AudioCtx) return;
+    if (!audioCtx) audioCtx = new AudioCtx();
+    if (audioCtx.state === 'suspended') audioCtx.resume();
+
+    var chords = [440, 554.37, 659.25, 830.61, 880];
+    chords.forEach(function(freq, idx) {
+      setTimeout(function() {
+        var osc = audioCtx.createOscillator();
+        var gain = audioCtx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        gain.gain.setValueAtTime(0.001, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.18, audioCtx.currentTime + 0.04);
+        gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 1.4);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + 1.45);
+      }, idx * 170);
+    });
+  } catch(e) {}
+}
+
+function startAmbientMusic() {
+  if (isPlaying) return;
+  isPlaying = true;
+  document.getElementById('audioToggle').textContent = '🔊';
+  playRomanticChime();
+  audioInterval = setInterval(playRomanticChime, 5400);
+}
+
+function toggleAudio() {
+  if (isPlaying) {
+    isPlaying = false;
+    if (audioInterval) clearInterval(audioInterval);
+    document.getElementById('audioToggle').textContent = '🎵';
   } else {
-    startAutoScroll();
+    startAmbientMusic();
+  }
+}
+document.getElementById('audioToggle').addEventListener('click', toggleAudio);
+
+// ================= 3D RIBBON & FRENCH DOORS INTERACTION =================
+var stageOpened = false;
+var ribbonWrap = document.getElementById('ribbonWrap');
+var doorLeft = document.getElementById('doorLeft');
+var doorRight = document.getElementById('doorRight');
+var acrylicCard = document.getElementById('acrylicCard');
+var marbleStage = document.getElementById('marbleStage');
+var boxScene = document.getElementById('ribbonBoxScene');
+var skipBtn = document.getElementById('skipStageBtn');
+
+function openRibbonBox() {
+  if (stageOpened) return;
+  stageOpened = true;
+
+  startAmbientMusic();
+  playRomanticChime();
+  burstPetals();
+
+  // Step 1: Ribbon unties
+  ribbonWrap.classList.add('is-untying');
+  document.getElementById('coverActionText').textContent = "OPENING THE LUXURY DOORS...";
+
+  // Step 2: French doors swing open horizontally
+  setTimeout(function() {
+    doorLeft.classList.add('is-open');
+    doorRight.classList.add('is-open');
+    burstPetals();
+  }, 600);
+
+  // Step 3: Card elevates
+  setTimeout(function() {
+    acrylicCard.classList.add('is-elevated');
+  }, 1300);
+
+  // Step 4: Fade to Story slides
+  setTimeout(function() {
+    revealStory();
+  }, 2700);
+}
+
+function revealStory() {
+  marbleStage.classList.add('stage-hidden');
+  burstPetals();
+}
+
+boxScene.addEventListener('click', function() {
+  if (!stageOpened) openRibbonBox();
+  else revealStory();
+});
+
+skipBtn.addEventListener('click', function(e) {
+  e.stopPropagation();
+  openRibbonBox();
+  setTimeout(revealStory, 400);
+});
+
+// ================= INTERACTIVE WAX SEAL BUTTON =================
+var waxSealBtn = document.getElementById('waxSealBtn');
+waxSealBtn.addEventListener('click', function() {
+  playRomanticChime();
+  burstPetals();
+  this.style.transform = 'scale(0.92)';
+  setTimeout(function() {
+    waxSealBtn.style.transform = 'scale(1.08)';
+  }, 180);
+  document.getElementById('sealFeedbackText').innerHTML = "❤️ Sealed with eternal love! Date saved: <b>" + weddingConfig.date + "</b>";
+});
+
+// ================= FALLING ROSE PETALS CANVAS =================
+var canvas = document.getElementById('petalsCanvas');
+var ctx = canvas.getContext('2d');
+var petals = [];
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
+
+function burstPetals() {
+  var cx = canvas.width / 2;
+  var cy = canvas.height / 3;
+  for (var i = 0; i < 35; i++) {
+    petals.push({
+      x: cx + (Math.random() - 0.5) * 200,
+      y: cy + (Math.random() - 0.5) * 100,
+      vx: (Math.random() - 0.5) * 4,
+      vy: 1.5 + Math.random() * 3,
+      size: 8 + Math.random() * 8,
+      rot: Math.random() * 360,
+      vrot: (Math.random() - 0.5) * 5,
+      alpha: 1,
+      color: ['#B8142C', '#8A071A', '#C2132C', '#6E0513', '#E63956'][Math.floor(Math.random() * 5)]
+    });
   }
 }
 
-function startAutoScroll() {
-  autoScrolling = true;
-  var btn = document.getElementById('btnAutoScroll');
-  if (btn) btn.innerHTML = '<span>⏸ Pause</span>';
-  if (scrollTimer) clearInterval(scrollTimer);
-  scrollTimer = setInterval(function() {
-    if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 5)) {
-      stopAutoScroll();
-      return;
+function updatePetals() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  for (var i = petals.length - 1; i >= 0; i--) {
+    var p = petals[i];
+    p.x += p.vx;
+    p.y += p.vy;
+    p.rot += p.vrot;
+    p.alpha -= 0.008;
+    if (p.alpha <= 0 || p.y > canvas.height + 20) {
+      petals.splice(i, 1);
+      continue;
     }
-    window.scrollBy({ top: 1.5, behavior: 'auto' });
-  }, 25);
+    ctx.save();
+    ctx.translate(p.x, p.y);
+    ctx.rotate((p.rot * Math.PI) / 180);
+    ctx.globalAlpha = p.alpha;
+    ctx.fillStyle = p.color;
+    ctx.beginPath();
+    ctx.ellipse(0, 0, p.size, p.size * 0.6, 0, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+  }
+  requestAnimationFrame(updatePetals);
 }
+requestAnimationFrame(updatePetals);
 
-function stopAutoScroll() {
-  autoScrolling = false;
-  var btn = document.getElementById('btnAutoScroll');
-  if (btn) btn.innerHTML = '<span>📜 Auto-Scroll</span>';
-  if (scrollTimer) {
-    clearInterval(scrollTimer);
-    scrollTimer = null;
-  }
-}
+// ================= STORY PROGRESS TRACKER =================
+var slides = document.querySelectorAll('.story-slide');
+var progressBars = [
+  document.getElementById('prog0'),
+  document.getElementById('prog1'),
+  document.getElementById('prog2'),
+  document.getElementById('prog3'),
+  document.getElementById('prog4')
+];
 
-window.addEventListener('touchstart', function() { if (autoScrolling) stopAutoScroll(); }, { passive: true });
-window.addEventListener('wheel', function() { if (autoScrolling) stopAutoScroll(); }, { passive: true });
-
-function answerCall() {
-  if (opened) return;
-  opened = true;
-  document.getElementById('call').classList.add('is-answered');
-  document.body.classList.remove('is-locked');
-  var m = document.getElementById('bgMusic');
-  if (m) { m.play().catch(function(){}); }
-  setTimeout(startAutoScroll, 1200);
-}
-
-// FOOLPROOF SLIDER DRAG ENGINE
-(function() {
-  var slider = document.getElementById('slider');
-  var knob = document.getElementById('knob');
-  if (!slider || !knob) return;
-
-  var dragging = false;
-  var sx0 = 0;
-  var prog = 0;
-
-  function getMaxDist() {
-    var sw = slider.clientWidth || slider.offsetWidth || 300;
-    var kw = knob.offsetWidth || knob.clientWidth || 68;
-    return Math.max(60, sw - kw - 14);
-  }
-
-  function setProgress(p) {
-    prog = Math.max(0, Math.min(1, p));
-    slider.style.setProperty('--p', prog);
-    var maxD = getMaxDist();
-    knob.style.transform = 'translateX(' + (maxD * prog) + 'px)';
-    var fill = slider.querySelector('.slider__fill');
-    if (fill) fill.style.width = 'calc(68px + ' + (maxD * prog) + 'px)';
-  }
-
-  function start(cx) {
-    if (opened) return;
-    dragging = true;
-    sx0 = cx;
-    slider.classList.add('is-drag');
-    slider.classList.remove('is-back');
-  }
-
-  function move(cx) {
-    if (!dragging || opened) return;
-    var maxD = getMaxDist();
-    setProgress((cx - sx0) / maxD);
-  }
-
-  function finish(cx) {
-    if (!dragging) return;
-    dragging = false;
-    slider.classList.remove('is-drag');
-    var moved = cx !== undefined ? Math.abs(cx - sx0) : 0;
-    if (prog > 0.5 || moved < 8) {
-      setProgress(1);
-      answerCall();
-    } else {
-      slider.classList.add('is-back');
-      setProgress(0);
+window.addEventListener('scroll', function() {
+  var top = window.scrollY + window.innerHeight * 0.4;
+  slides.forEach(function(slide, idx) {
+    if (slide.offsetTop <= top && (slide.offsetTop + slide.offsetHeight) > top) {
+      progressBars.forEach(function(bar, bIdx) {
+        if (bIdx < idx) {
+          bar.className = 'progress-segment past';
+        } else if (bIdx === idx) {
+          bar.className = 'progress-segment active';
+        } else {
+          bar.className = 'progress-segment';
+        }
+      });
     }
-  }
-
-  knob.addEventListener('pointerdown', function(e) {
-    start(e.clientX);
-    try { knob.setPointerCapture(e.pointerId); } catch (_) {}
   });
-  knob.addEventListener('touchstart', function(e) {
-    if (e.touches && e.touches[0]) start(e.touches[0].clientX);
-  }, { passive: true });
-  knob.addEventListener('click', function(e) {
-    e.stopPropagation();
-    answerCall();
-  });
+});
 
-  window.addEventListener('pointermove', function(e) { if (dragging) move(e.clientX); });
-  window.addEventListener('pointerup', function(e) { if (dragging) finish(e.clientX); });
-  window.addEventListener('pointercancel', function() { if (dragging) finish(); });
+// ================= AUTO-PLAY / AUTO-SCROLL =================
+var autoPlayActive = false;
+var autoTimer = null;
+var autoBtn = document.getElementById('autoScrollBtn');
 
-  window.addEventListener('touchmove', function(e) {
-    if (dragging && e.touches && e.touches[0]) move(e.touches[0].clientX);
-  }, { passive: true });
-  window.addEventListener('touchend', function() { if (dragging) finish(); }, { passive: true });
-
-  slider.addEventListener('click', function() {
-    if (!opened) answerCall();
-  });
-})();
-
-// PETALS ANIMATION
-(function () {
-  var c = document.getElementById('petals');
-  if (!c) return;
-  var x = c.getContext('2d'), P = [], W = 0, H = 0, dpr = Math.min(2, window.devicePixelRatio || 1);
-  var cols = ['#f4a7b5', '#ee8fa3', '#f9c5cf', '#e77d93', '#fbd9de'];
-  function size() { W = c.clientWidth; H = c.clientHeight; c.width = W * dpr; c.height = H * dpr; x.setTransform(dpr, 0, 0, dpr, 0, 0); }
-  function mk() {
-    return {
-      x: Math.random() * W, y: -20 - Math.random() * 80, r: 5 + Math.random() * 6,
-      vy: 0.8 + Math.random() * 1.2, vx: -0.4 + Math.random() * 0.8,
-      a: Math.random() * 6.28, va: 0.03 * (Math.random() > 0.5 ? 1 : -1),
-      sw: Math.random() * 6.28, c: cols[(Math.random() * cols.length) | 0]
-    };
+function toggleAutoPlay() {
+  if (autoPlayActive) {
+    autoPlayActive = false;
+    clearInterval(autoTimer);
+    autoBtn.innerHTML = '📜 <span>Auto-Play</span>';
+  } else {
+    autoPlayActive = true;
+    autoBtn.innerHTML = '⏸ <span>Pause</span>';
+    autoTimer = setInterval(function() {
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 10) {
+        autoPlayActive = false;
+        clearInterval(autoTimer);
+        autoBtn.innerHTML = '📜 <span>Auto-Play</span>';
+        return;
+      }
+      window.scrollBy({ top: 2, behavior: 'smooth' });
+    }, 30);
   }
-  function draw(p) {
-    x.save(); x.translate(p.x, p.y); x.rotate(p.a); x.fillStyle = p.c; x.globalAlpha = 0.85;
-    x.scale(1, 0.6 + 0.4 * Math.sin(p.sw)); x.beginPath();
-    x.moveTo(0, -p.r); x.bezierCurveTo(p.r, -p.r, p.r, p.r * 0.6, 0, p.r);
-    x.bezierCurveTo(-p.r, p.r * 0.6, -p.r, -p.r, 0, -p.r); x.fill();
-    x.restore();
-  }
-  function loop() {
-    x.clearRect(0, 0, W, H);
-    while (P.length < 15) P.push(mk());
-    for (var i = P.length - 1; i >= 0; i--) {
-      var p = P[i]; p.y += p.vy; p.sw += 0.05; p.x += p.vx; p.a += p.va;
-      if (p.y > H + 25) P.splice(i, 1); else draw(p);
-    }
-    requestAnimationFrame(loop);
-  }
-  window.addEventListener('resize', size); size(); requestAnimationFrame(loop);
-})();
+}
+autoBtn.addEventListener('click', toggleAutoPlay);
 
+// ================= STORY RSVP =================
+function handleStoryRsvp(e) {
+  e.preventDefault();
+  var name = document.getElementById('rsvpGuestName').value.trim();
+  var status = document.getElementById('rsvpAttending').value;
+  var guests = document.getElementById('rsvpGuestsCount').value;
+
+  var successEl = document.getElementById('rsvpSuccessMsg');
+  successEl.style.display = 'block';
+  successEl.textContent = "✓ Gracious thanks, " + name + "! Your response (" + status + " · " + guests + " guests) is confirmed.";
+  document.getElementById('storyRsvpForm').reset();
+  burstPetals();
+}
+
+// ================= SEND TO DESIRED PERSON =================
 function openSendModal() {
   document.getElementById('sendModal').style.display = 'flex';
 }
@@ -668,9 +1354,23 @@ function sendViaWhatsApp() {
   var rawPhone = document.getElementById('targetGuestPhone').value.trim().replace(/\D/g, '').replace(/^0+/, '');
   var fullPhone = rawPhone ? (cc + rawPhone) : '';
   var link = getCleanUrl();
-  var text = encodeURIComponent("Dearest " + guest + ",\n\nYou are cordially invited to celebrate the Royal Wedding of " + "Ranveer & Isha" + "! ❦\n\nDate: " + "Saturday, 27th February 2027" + "\nVenue: " + "Rambagh Palace, Jaipur" + "\n\nOpen your personalized animated invitation here:\n" + link + "\n\nWith love,\n" + "Ranveer & Isha");
-  var url = fullPhone ? ('https://api.whatsapp.com/send?phone=' + fullPhone + '&text=' + text) : ('https://api.whatsapp.com/send?text=' + text);
-  window.open(url, '_blank');
+
+  var text = encodeURIComponent(
+    "Dearest " + guest + ",\n\n" +
+    "You are warmly invited to celebrate the Wedding of " + weddingConfig.bride + " & " + weddingConfig.groom + "! ❦\n\n" +
+    "📅 Date: " + weddingConfig.date + "\n" +
+    "📍 Venue: " + weddingConfig.venue + "\n\n" +
+    "✨ Tap below to untie the red velvet ribbon and open your personal invitation:\n" +
+    link + "\n\n" +
+    "With love & warm regards,\n" +
+    weddingConfig.bride + " & " + weddingConfig.groom
+  );
+
+  var waUrl = fullPhone 
+    ? ('https://api.whatsapp.com/send?phone=' + fullPhone + '&text=' + text)
+    : ('https://api.whatsapp.com/send?text=' + text);
+
+  window.open(waUrl, '_blank');
   closeSendModal();
 }
 
@@ -678,8 +1378,18 @@ function sendViaEmail() {
   var guest = document.getElementById('targetGuestName').value.trim() || 'Honored Guest';
   var email = document.getElementById('targetGuestEmail').value.trim();
   var link = getCleanUrl();
-  var subject = encodeURIComponent("Royal Wedding Invitation: " + "Ranveer & Isha");
-  var body = encodeURIComponent("Dearest " + guest + ",\n\nWe cordially invite you to celebrate the Royal Wedding of " + "Ranveer & Isha" + " on " + "Saturday, 27th February 2027" + " at " + "Rambagh Palace, Jaipur" + ".\n\nOpen your interactive invitation here:\n" + link + "\n\nWith love,\n" + "Ranveer & Isha");
+
+  var subject = encodeURIComponent("Wedding Invitation: " + weddingConfig.bride + " & " + weddingConfig.groom);
+  var body = encodeURIComponent(
+    "Dearest " + guest + ",\n\n" +
+    "We are overjoyed to invite you to celebrate our wedding!\n\n" +
+    "Date: " + weddingConfig.date + "\n" +
+    "Venue: " + weddingConfig.venue + "\n\n" +
+    "Open your personal red velvet ribbon invitation here:\n" +
+    link + "\n\n" +
+    "With love,\n" +
+    weddingConfig.bride + " & " + weddingConfig.groom
+  );
 
   window.location.href = 'mailto:' + (email || '') + '?subject=' + subject + '&body=' + body;
   closeSendModal();
@@ -690,15 +1400,16 @@ function copyPersonalizedLink() {
   navigator.clipboard.writeText(link);
   var btn = document.getElementById('btnCopyPersonal');
   btn.textContent = '✓ Copied Link to Clipboard!';
-  setTimeout(function() { btn.textContent = 'Copy Personalized Link'; }, 2200);
+  setTimeout(function() { btn.textContent = '🔗 Copy Personalized Link'; }, 2200);
 }
 
+// Guest personalizer detection
 window.addEventListener('DOMContentLoaded', function() {
   var m = /[?&]to=([^&#]+)/.exec(window.location.search);
   if (m) {
     var g = decodeURIComponent(m[1].replace(/\+/g, ' '));
-    var label = document.getElementById('guestCallLabel');
-    if (label) label.innerHTML = 'Incoming call for <b>' + g + '</b><span class="dots"><i>.</i><i>.</i><i>.</i></span>';
+    var caption = document.getElementById('coverActionText');
+    if (caption) caption.textContent = "SPECIALLY CRAFTED FOR " + g.toUpperCase();
   }
 });
 </script>

@@ -300,19 +300,7 @@
     });
   });
 
-  // Device switcher clicks (Phone / Tablet / Laptop)
-  $$('.device-btn').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var dev = btn.getAttribute('data-dev');
-      $$('.device-btn').forEach(function (b) { b.classList.remove('active'); });
-      btn.classList.add('active');
-      var prev = $('#preview');
-      if (prev) {
-        prev.classList.remove('is-phone', 'is-tablet', 'is-laptop');
-        prev.classList.add('is-' + dev);
-      }
-    });
-  });
+
 
   // Events add button
   var evAddBtn = $('#evAdd');
