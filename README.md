@@ -21,8 +21,7 @@ Features **60 standalone, unique templates** with individual URLs, mobile and la
 1. **First Page Customization Studio (`index.html`)**:
    - Multi-occasion selector: Wedding, Engagement, Baby Shower, Birthday, Housewarming, Anniversary.
    - Dynamic form fields & celebration presets.
-   - Multi-device live preview frame: Phone (390px), Tablet (620px), and Laptop views.
-   - Live real-time preview updates as you type.
+   - Live real-time preview updates as you type in a clean luxury showcase frame.
 
 2. **Dual Experience Modes**:
    - **📖 3D Page-Turning Flipbook Mode**: Realistic page-turn album with smooth transitions, page curl, tactile navigation, and page indicators.
