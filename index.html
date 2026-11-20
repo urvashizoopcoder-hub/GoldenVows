@@ -3,10 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>GoldenVows Celebration Studio — Luxury Digital Invitations & 60 Unique Templates</title>
+<title>GoldenVows — Luxury Wedding Invitation Studio & 60 Unique Templates</title>
 <link rel="stylesheet" href="assets/fonts/fonts.css">
 <link rel="stylesheet" href="assets/goldenvows_editor.css">
 <style>
+/* Eradicate any scrollbar on entire page, preview frame, and iframe */
+*, *::before, *::after, html, body, iframe, .phone, #pv {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+html::-webkit-scrollbar, body::-webkit-scrollbar, ::-webkit-scrollbar, *::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+}
 /* 60 Templates Showcase Section */
 .catalog-sec {
   max-width: 1380px;
@@ -243,44 +254,44 @@
   <!-- ============ CREATION STUDIO FORM ============ -->
   <form class="panel" id="ed" autocomplete="off" novalidate>
     <p class="intro">
-      Select your occasion below, fill in the celebrant details, and watch your invitation update in real time. Once finalized, you can view the full animation and dispatch sealed invitations directly via WhatsApp &amp; Email!
+      Customize your bespoke royal wedding invitation below. Choose your wedding theme aesthetic, enter bride &amp; groom details, select your sacred ceremonies, and watch your invitation update in real time. Once finalized, you can view the full animation and dispatch sealed invitations directly via WhatsApp &amp; Email!
     </p>
 
-    <!-- SECTION 1: CHOOSE OCCASION -->
+    <!-- SECTION 1: CHOOSE WEDDING AESTHETIC STYLE -->
     <details class="grp" open>
-      <summary>🎉 Choose Occasion &amp; Aesthetic Style</summary>
+      <summary>💍 Wedding Celebration &amp; Aesthetic Theme</summary>
       
-      <label style="margin-top:4px;">Select Function / Occasion Type:</label>
+      <label style="margin-top:4px;">Select Wedding Theme / Style:</label>
       <div class="occasion-grid">
-        <div class="occasion-card active" data-occ="wedding">
-          <span class="occ-icon">💍</span>
-          <span class="occ-name">Wedding</span>
-          <span class="occ-sub">Royal Palaces</span>
+        <div class="occasion-card active" data-occ="royal_mandap">
+          <span class="occ-icon">👑</span>
+          <span class="occ-name">Royal Mandap</span>
+          <span class="occ-sub">Rajputana Palaces</span>
         </div>
-        <div class="occasion-card" data-occ="engagement">
-          <span class="occ-icon">💎</span>
-          <span class="occ-name">Engagement</span>
-          <span class="occ-sub">Ring Ceremony</span>
+        <div class="occasion-card" data-occ="destination_beach">
+          <span class="occ-icon">🏝️</span>
+          <span class="occ-name">Destination</span>
+          <span class="occ-sub">Lake Pichola &amp; Beach</span>
         </div>
-        <div class="occasion-card" data-occ="babyshower">
-          <span class="occ-icon">🍼</span>
-          <span class="occ-name">Baby Shower</span>
-          <span class="occ-sub">Godh Bharai</span>
+        <div class="occasion-card" data-occ="sacred_temple">
+          <span class="occ-icon">🛕</span>
+          <span class="occ-name">Sacred Temple</span>
+          <span class="occ-sub">Traditional Vedic</span>
         </div>
-        <div class="occasion-card" data-occ="birthday">
-          <span class="occ-icon">🎂</span>
-          <span class="occ-name">Birthday</span>
-          <span class="occ-sub">Milestone Gala</span>
+        <div class="occasion-card" data-occ="floral_garden">
+          <span class="occ-icon">🌸</span>
+          <span class="occ-name">Floral Garden</span>
+          <span class="occ-sub">English Rose &amp; Peony</span>
         </div>
-        <div class="occasion-card" data-occ="housewarming">
-          <span class="occ-icon">🏡</span>
-          <span class="occ-name">Housewarming</span>
-          <span class="occ-sub">Griha Pravesh</span>
+        <div class="occasion-card" data-occ="modern_minimalist">
+          <span class="occ-icon">✨</span>
+          <span class="occ-name">Modern Minimalist</span>
+          <span class="occ-sub">Vogue Editorial</span>
         </div>
-        <div class="occasion-card" data-occ="anniversary">
+        <div class="occasion-card" data-occ="grand_ballroom">
           <span class="occ-icon">🥂</span>
-          <span class="occ-name">Anniversary</span>
-          <span class="occ-sub">Silver &amp; Golden</span>
+          <span class="occ-name">Grand Ballroom</span>
+          <span class="occ-sub">Starlight &amp; Champagne</span>
         </div>
       </div>
 
@@ -331,7 +342,7 @@
       <div class="row2" style="margin-top:14px;">
         <label>Opening Experience
           <select name="opening_style">
-            <option value="call">📞 Incoming VIP Event Call Screen</option>
+            <option value="call">📞 Incoming Royal Wedding Call</option>
             <option value="envelope">💌 Royal 3D Wax Seal Envelope</option>
           </select>
         </label>
@@ -348,15 +359,15 @@
           <option value="petals">🌸 Falling Rose &amp; Jasmine Petals</option>
           <option value="lanterns">🏮 Glowing Floating Sky Lanterns</option>
           <option value="stars">✨ Twinkling Fairy Dust &amp; Starlight</option>
-          <option value="confetti">🎉 Celebratory Confetti Burst</option>
+          <option value="confetti">🎉 Celebratory Floral Burst</option>
         </select>
       </label>
     </details>
 
-    <!-- SECTION 2: THE CELEBRANTS / HOSTS -->
+    <!-- SECTION 2: THE BRIDE & GROOM -->
     <details class="grp" open>
-      <summary>💑 Celebrants &amp; Family Details</summary>
-      <label>Grand Occasion Title *
+      <summary>💑 Bride &amp; Groom (The Couple)</summary>
+      <label>Grand Wedding Title *
         <input name="occasion_title" maxlength="60" required placeholder="Royal Wedding Celebration">
       </label>
       
@@ -372,11 +383,11 @@
       <label id="lblCel2Par">Bride's parents <i>(optional blessing line)</i><input name="bride_parents" maxlength="120" placeholder="Daughter of Mr. Vikram Kapoor & Mrs. Shalini Kapoor"></label>
       
       <div class="row2 photos">
-        <label class="photo">Celebrant 1 photo <i>(optional)</i>
+        <label class="photo">Groom photo <i>(optional)</i>
           <input type="file" accept="image/*" data-photo="groom_photo">
           <button type="button" class="photo__x" data-clear="groom_photo" hidden>Remove</button>
         </label>
-        <label class="photo">Celebrant 2 photo <i>(optional)</i>
+        <label class="photo">Bride photo <i>(optional)</i>
           <input type="file" accept="image/*" data-photo="bride_photo">
           <button type="button" class="photo__x" data-clear="bride_photo" hidden>Remove</button>
         </label>
@@ -390,7 +401,7 @@
 
     <!-- SECTION 3: DATE & VENUE -->
     <details class="grp" open>
-      <summary>📅 Date, Time &amp; Grand Sanctuary</summary>
+      <summary>📅 Wedding Date, Time &amp; Royal Sanctuary</summary>
       <div class="row2">
         <label>Event Date *<input type="date" name="event_date" required></label>
         <label>Time <i>(optional)</i><input type="time" name="event_time"></label>
@@ -402,7 +413,7 @@
 
     <!-- SECTION 4: CEREMONIES & ITINERARY -->
     <details class="grp" open>
-      <summary>🪔 Ceremonies &amp; Itinerary</summary>
+      <summary>🪔 Sacred Ceremonies &amp; Itinerary</summary>
       <div id="evList"></div>
       <div class="evadd">
         <button type="button" class="btn btn--soft" id="evAdd">＋ Add Ceremony</button>
@@ -410,12 +421,12 @@
           <option value="">Quick add preset ceremony…</option>
           <option>Haldi Ceremony</option>
           <option>Mehendi &amp; Sangeet</option>
-          <option>The Royal Wedding</option>
-          <option>Grand Reception</option>
-          <option>Ring Exchange</option>
-          <option>Godh Bharai Blessing</option>
-          <option>Cake Cutting Celebration</option>
-          <option>Vastu Shanti Puja</option>
+          <option>Baraat &amp; Varmala</option>
+          <option>The Royal Wedding (Pheras)</option>
+          <option>Grand Reception &amp; Dinner</option>
+          <option>Cocktail Evening</option>
+          <option>Tilak &amp; Sagai</option>
+          <option>Chooda &amp; Kalire</option>
         </select>
       </div>
     </details>
@@ -511,13 +522,13 @@
   </div>
 
   <div class="catalog-filters" id="catFilters">
-    <button type="button" class="filter-chip active" onclick="setCategoryFilter('all')">All (60)</button>
-    <button type="button" class="filter-chip" onclick="setCategoryFilter('wedding')">Weddings (22)</button>
-    <button type="button" class="filter-chip" onclick="setCategoryFilter('engagement')">Engagement (10)</button>
-    <button type="button" class="filter-chip" onclick="setCategoryFilter('babyshower')">Baby Shower (10)</button>
-    <button type="button" class="filter-chip" onclick="setCategoryFilter('birthday')">Birthday (8)</button>
-    <button type="button" class="filter-chip" onclick="setCategoryFilter('housewarming')">Housewarming (5)</button>
-    <button type="button" class="filter-chip" onclick="setCategoryFilter('anniversary')">Anniversary (5)</button>
+    <button type="button" class="filter-chip active" onclick="setCategoryFilter('all')">All Weddings (60)</button>
+    <button type="button" class="filter-chip" onclick="setCategoryFilter('rajputana')">Royal Palaces &amp; Mandap</button>
+    <button type="button" class="filter-chip" onclick="setCategoryFilter('destination')">Destination &amp; Beach</button>
+    <button type="button" class="filter-chip" onclick="setCategoryFilter('editorial')">Minimalist &amp; Editorial</button>
+    <button type="button" class="filter-chip" onclick="setCategoryFilter('temple')">Regional &amp; Sacred</button>
+    <button type="button" class="filter-chip" onclick="setCategoryFilter('floral')">Floral &amp; Garden</button>
+    <button type="button" class="filter-chip" onclick="setCategoryFilter('glam')">Starlight &amp; Ballroom</button>
   </div>
 
   <div class="template-grid" id="templateGrid"></div>
@@ -694,7 +705,23 @@ function filterTemplates() {
   var q = (document.getElementById('tplSearchInput').value || '').toLowerCase().trim();
   var all = window.GOLDENVOWS_TEMPLATES || [];
   var filtered = all.filter(function(t) {
-    var matchCat = (currentFilter === 'all' || t.category_key === currentFilter);
+    var sl = t.slug.toLowerCase();
+    var matchCat = true;
+    if (currentFilter === 'all') {
+      matchCat = true;
+    } else if (currentFilter === 'rajputana') {
+      matchCat = t.id <= 10 || sl.includes('mandap') || sl.includes('rajputana') || sl.includes('jaipur') || sl.includes('jodhpur') || sl.includes('zardozi');
+    } else if (currentFilter === 'destination') {
+      matchCat = sl.includes('lake') || sl.includes('beach') || sl.includes('bali') || sl.includes('santorini') || sl.includes('amalfi') || sl.includes('maldives') || sl.includes('riviera') || sl.includes('dubai') || sl.includes('tuscan') || sl.includes('swiss');
+    } else if (currentFilter === 'editorial') {
+      matchCat = sl.includes('editorial') || sl.includes('minimalist') || sl.includes('swiss') || sl.includes('monochrome') || sl.includes('slate') || sl.includes('vogue');
+    } else if (currentFilter === 'temple') {
+      matchCat = sl.includes('temple') || sl.includes('kerala') || sl.includes('maratha') || sl.includes('bengali') || sl.includes('punjabi') || sl.includes('gujarati') || sl.includes('banarasi') || sl.includes('mysore') || sl.includes('kashmiri');
+    } else if (currentFilter === 'floral') {
+      matchCat = sl.includes('rose') || sl.includes('sakura') || sl.includes('peony') || sl.includes('lotus') || sl.includes('eucalyptus') || sl.includes('garden') || sl.includes('hibiscus') || sl.includes('glasshouse') || sl.includes('botanical');
+    } else if (currentFilter === 'glam') {
+      matchCat = sl.includes('starlight') || sl.includes('champagne') || sl.includes('gatsby') || sl.includes('celestial') || sl.includes('chandelier') || sl.includes('solitaire') || sl.includes('sapphire') || sl.includes('pichola') || sl.includes('art-deco');
+    }
     var matchText = !q || (t.name.toLowerCase().includes(q) || t.celebrants.toLowerCase().includes(q) || t.subtitle.toLowerCase().includes(q) || t.venue.toLowerCase().includes(q));
     return matchCat && matchText;
   });
@@ -716,25 +743,30 @@ function applyTemplate(id) {
   if (!hit) return;
 
   var mapped = {
-    occasion_type: hit.category_key,
+    occasion_type: 'wedding',
     occasion_title: hit.title,
-    theme_palette: hit.slug.includes('pink') ? 'wine-rose' : hit.slug.includes('star') ? 'midnight-star' : hit.slug.includes('cloud') ? 'pastel-cloud' : hit.slug.includes('marigold') ? 'terracotta-marigold' : 'emerald-gold',
+    theme_palette: hit.slug.includes('pink') ? 'wine-rose' : hit.slug.includes('star') ? 'midnight-star' : hit.slug.includes('terracotta') ? 'terracotta-marigold' : 'emerald-gold',
     groom_name: hit.c1_name ? hit.c1_name.split(' ')[0] : 'Aarav',
-    groom_full_name: hit.c1_name,
-    groom_parents: hit.c1_par,
+    groom_full_name: hit.c1_name || 'Aarav Malhotra',
+    groom_parents: hit.c1_par || 'Son of Mr. Rajiv & Mrs. Neelam Malhotra',
     bride_name: hit.c2_name ? hit.c2_name.split(' ')[0] : 'Ananya',
-    bride_full_name: hit.c2_name,
-    bride_parents: hit.c2_par,
-    event_date: hit.date_iso,
+    bride_full_name: hit.c2_name || 'Ananya Kapoor',
+    bride_parents: hit.c2_par || 'Daughter of Mr. Vikram & Mrs. Shalini Kapoor',
+    event_date: hit.date_iso || '2027-02-14T19:30',
     venue: hit.venue,
-    venue_address: hit.venue_addr,
-    invite_eyebrow: hit.eyebrow,
-    couple_quote: hit.quote,
-    closing_quote: hit.closing,
-    hashtag: hit.hashtag,
-    events: hit.events.map(function(e) {
-      return { name: e.name, venue: e.venue, dress: e.dress, note: e.note, date: hit.date_iso };
-    })
+    venue_address: hit.venue_addr || 'Udaipur, Rajasthan',
+    invite_eyebrow: hit.eyebrow || '॥ Shree Ganeshaya Namah ॥ Together with their families',
+    couple_quote: hit.quote || 'Two souls, one sacred vow, united forever in love, faith and royal grace.',
+    closing_quote: hit.closing || 'Your warm presence and blessings are our greatest gift.',
+    hashtag: hit.hashtag || ('#' + hit.celebrants.replace(/\\s+&\\s+/g, 'Weds').replace(/\\s+/g, '')),
+    events: (hit.events && hit.events.length) ? hit.events.map(function(e) {
+      return { name: e.name, venue: e.venue || hit.venue, dress: e.dress || '', note: e.note || '', date: '2027-02-14T19:30' };
+    }) : [
+      { name: 'Haldi Ceremony', venue: 'Lakeside Sun Courtyard', dress: 'Shades of Turmeric Yellow', note: 'Marigolds and laughter.', date: '2027-02-12T10:00' },
+      { name: 'Mehendi & Sangeet', venue: 'Grand Durbar Hall', dress: 'Indo-Western Celebration Glam', note: 'Henna and dance beats.', date: '2027-02-13T17:00' },
+      { name: 'The Royal Wedding', venue: hit.venue, dress: 'Regal Indian Traditional', note: 'Seven sacred pheras.', date: '2027-02-14T19:30' },
+      { name: 'Grand Reception', venue: 'Crystal Island Ballroom', dress: 'Black Tie / Royal Ethnic', note: 'Dinner and celebrations.', date: '2027-02-15T20:00' }
+    ]
   };
 
   // Scroll to studio form

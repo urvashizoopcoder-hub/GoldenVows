@@ -28,37 +28,36 @@
     return m ? [m[1], m[2] || ''] : ['', ''];
   }
 
-  /* ---------- Switch Occasion Preset ---------- */
+  /* ---------- Switch Wedding Aesthetic Theme Preset ---------- */
   function setOccasion(occName, skipFormFill) {
-    currentOccasion = occName;
-    var p = PRESETS[occName] || PRESETS.wedding;
+    currentOccasion = occName || 'royal_mandap';
+    var p = PRESETS[occName] || PRESETS.royal_mandap || PRESETS.wedding;
 
-    // Update occasion cards UI
+    // Update wedding theme cards UI
     $$('.occasion-card').forEach(function (card) {
       card.classList.toggle('active', card.getAttribute('data-occ') === occName);
     });
 
-    // Update dynamic field labels based on occasion
-    var isBirthday = (occName === 'birthday');
-    if ($('#lblCel1')) $('#lblCel1').childNodes[0].nodeValue = (p.celebrant_1_label || "Celebrant 1") + ' *';
-    if ($('#lblCel1Full')) $('#lblCel1Full').childNodes[0].nodeValue = (p.celebrant_1_full_label || "Celebrant 1 Full Name") + ' *';
-    if ($('#lblCel1Par')) $('#lblCel1Par').childNodes[0].nodeValue = (p.celebrant_1_parents_label || "Blessing / Parents line") + ' ';
+    // Pure wedding celebrant labels
+    if ($('#lblCel1')) $('#lblCel1').childNodes[0].nodeValue = "Groom's first name *";
+    if ($('#lblCel1Full')) $('#lblCel1Full').childNodes[0].nodeValue = "Groom's full name *";
+    if ($('#lblCel1Par')) $('#lblCel1Par').childNodes[0].nodeValue = "Groom's parents (optional blessing line) ";
     
     if ($('#lblCel2')) {
-      $('#lblCel2').childNodes[0].nodeValue = (p.celebrant_2_label || "Celebrant 2") + ' *';
-      $('#lblCel2').style.display = isBirthday ? 'none' : '';
+      $('#lblCel2').childNodes[0].nodeValue = "Bride's first name *";
+      $('#lblCel2').style.display = '';
     }
     if ($('#lblCel2Full')) {
-      $('#lblCel2Full').childNodes[0].nodeValue = (p.celebrant_2_full_label || "Celebrant 2 Full Name") + ' *';
-      $('#lblCel2Full').style.display = isBirthday ? 'none' : '';
+      $('#lblCel2Full').childNodes[0].nodeValue = "Bride's full name *";
+      $('#lblCel2Full').style.display = '';
     }
     if ($('#lblCel2Par')) {
-      $('#lblCel2Par').childNodes[0].nodeValue = (p.celebrant_2_parents_label || "Blessing / Parents line") + ' ';
-      $('#lblCel2Par').style.display = isBirthday ? 'none' : '';
+      $('#lblCel2Par').childNodes[0].nodeValue = "Bride's parents (optional blessing line) ";
+      $('#lblCel2Par').style.display = '';
     }
 
     var p2Lab = $('[data-photo="bride_photo"]') ? $('[data-photo="bride_photo"]').closest('.photo') : null;
-    if (p2Lab) p2Lab.style.display = isBirthday ? 'none' : '';
+    if (p2Lab) p2Lab.style.display = '';
 
     // Update ceremony presets dropdown
     var sel = $('#evPreset');
