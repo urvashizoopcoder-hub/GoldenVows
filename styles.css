@@ -1,14 +1,14 @@
-/* Royal Palace — live wedding invitation · Just For You (JFY-WED-ROYAL-PALACE) */
+/* GoldenVows — Royal Emerald & Antique Gold Luxury Edition */
 :root{
-  --blush:#f8e3e3;--blush2:#f3cfd2;--rose:#c96a7c;--rose-d:#a84a60;--wine:#74203b;--wine-d:#561429;
-  --gold:#c9975a;--gold-l:#ecd2a0;--ivory:#fff9f4;--ink:#5b2b37;--ink-l:#8a5a64;
+  --blush:#F6F3EB;--blush2:#EFEAD8;--rose:#047857;--rose-d:#065F46;--wine:#064E3B;--wine-d:#022C22;
+  --gold:#D4AF37;--gold-l:#FDE68A;--ivory:#FCFBF7;--ink:#132A13;--ink-l:#374151;
   --script:'Pinyon Script','Great Vibes',cursive;--serif:'Cormorant Garamond',Georgia,serif;
   --cap:'Marcellus',var(--serif);--sans:'Josefin Sans',system-ui,sans-serif;
   --col:min(100vw,500px);--ease:cubic-bezier(.22,1,.36,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%;scroll-behavior:auto}
-body{font-family:var(--sans);color:var(--ink);background:#e9c6c9;overflow-x:hidden;min-height:100vh;-webkit-tap-highlight-color:transparent}
+body{font-family:var(--sans);color:var(--ink);background:#EFEAD8;overflow-x:hidden;min-height:100vh;-webkit-tap-highlight-color:transparent}
 body.is-locked{overflow:hidden;height:100svh}
 img{display:block;max-width:100%}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}

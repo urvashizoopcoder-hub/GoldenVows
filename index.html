@@ -3,112 +3,258 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Customize your Royal Palace invitation — Just For You</title>
+<title>GoldenVows — Create Your Luxury Digital Wedding Invitation</title>
 <link rel="stylesheet" href="assets/fonts/fonts.css">
-<link rel="stylesheet" href="assets/editor.css">
+<link rel="stylesheet" href="assets/goldenvows_editor.css">
 </head>
-<body>
+<body data-view="form">
+
+<!-- ============ TOP HEADER ============ -->
 <header class="top">
-  <div class="brand"><span class="brand__mono">❦</span><div><b>Royal Palace</b><small>Wedding website invitation</small></div></div>
-  <nav class="tabs" role="tablist"><button type="button" class="tab on" data-view="form">✎ Edit</button><button type="button" class="tab" data-view="preview">👁 Preview</button></nav>
+  <div class="brand">
+    <span class="brand__mono">✦</span>
+    <div>
+      <b>GoldenVows</b>
+      <small>Artisanal Wedding Website Studio</small>
+    </div>
+  </div>
+  <nav class="tabs" role="tablist">
+    <button type="button" class="tab on" id="tabForm" onclick="setView('form')">✎ Edit Form</button>
+    <button type="button" class="tab" id="tabPrev" onclick="setView('preview')">👁 Live Preview</button>
+  </nav>
 </header>
 
 <div class="wrap">
-<form class="panel" id="ed" autocomplete="off" novalidate>
-  <p class="intro">Fill in your details — the preview updates as you type. Leave an optional field empty and it disappears from the invitation.</p>
+  
+  <!-- ============ CREATION FORM ============ -->
+  <form class="panel" id="ed" autocomplete="off" novalidate>
+    <p class="intro">
+      Fill in your wedding details below — the phone preview updates in real time as you type. Once finalized, you can preview it and send the sealed invitation directly to your desired guests.
+    </p>
 
-  <details class="grp" open><summary>💑 The Couple</summary>
-    <div class="row2">
-      <label>Groom's first name *<input name="groom_name" maxlength="30" required></label>
-      <label>Bride's first name *<input name="bride_name" maxlength="30" required></label>
+    <!-- 1. THE COUPLE -->
+    <details class="grp" open>
+      <summary>💑 The Couple</summary>
+      <div class="row2">
+        <label>Groom's first name *<input name="groom_name" maxlength="30" required placeholder="Aarav"></label>
+        <label>Bride's first name *<input name="bride_name" maxlength="30" required placeholder="Ananya"></label>
+      </div>
+      <label>Groom's full name *<input name="groom_full_name" maxlength="60" required placeholder="Aarav Malhotra"></label>
+      <label>Groom's parents <i>(optional blessing line)</i><input name="groom_parents" maxlength="120" placeholder="Son of Mr. Rajiv Malhotra & Mrs. Neelam Malhotra"></label>
+      
+      <label>Bride's full name *<input name="bride_full_name" maxlength="60" required placeholder="Ananya Kapoor"></label>
+      <label>Bride's parents <i>(optional blessing line)</i><input name="bride_parents" maxlength="120" placeholder="Daughter of Mr. Vikram Kapoor & Mrs. Shalini Kapoor"></label>
+      
+      <div class="row2 photos">
+        <label class="photo">Groom photo <i>(optional)</i>
+          <input type="file" accept="image/*" data-photo="groom_photo">
+          <button type="button" class="photo__x" data-clear="groom_photo" hidden>Remove</button>
+        </label>
+        <label class="photo">Bride photo <i>(optional)</i>
+          <input type="file" accept="image/*" data-photo="bride_photo">
+          <button type="button" class="photo__x" data-clear="bride_photo" hidden>Remove</button>
+        </label>
+      </div>
+      <label class="photo">Couple photo for opening call screen <i>(optional)</i>
+        <input type="file" accept="image/*" data-photo="cover_image">
+        <button type="button" class="photo__x" data-clear="cover_image" hidden>Remove</button>
+      </label>
+      <p style="font-size:11.5px;color:#6B7280;margin-top:6px;">Leave photos empty to enjoy our curated royal heritage artwork.</p>
+    </details>
+
+    <!-- 2. DATE & MAIN VENUE -->
+    <details class="grp" open>
+      <summary>📅 Wedding Date &amp; Grand Venue</summary>
+      <div class="row2">
+        <label>Wedding date *<input type="date" name="event_date" required></label>
+        <label>Time <i>(optional)</i><input type="time" name="event_time"></label>
+      </div>
+      <label>Sanctuary / Venue Name *<input name="venue" maxlength="90" required placeholder="The Leela Palace, Udaipur"></label>
+      <label>Venue address <i>(optional)</i><input name="venue_address" maxlength="140" placeholder="Lake Pichola, Udaipur, Rajasthan 313001"></label>
+      <label>Google Maps link <i>(optional — auto-generated if empty)</i><input type="url" name="venue_map_url" placeholder="https://maps.google.com/..."></label>
+    </details>
+
+    <!-- 3. EVENTS / FUNCTIONS -->
+    <details class="grp" open>
+      <summary>🪔 Ceremonies &amp; Itinerary</summary>
+      <div id="evList"></div>
+      <div class="evadd">
+        <button type="button" class="btn btn--soft" id="evAdd">＋ Add Ceremony</button>
+        <select id="evPreset" aria-label="Quick add">
+          <option value="">Quick add preset ceremony…</option>
+          <option>Haldi</option>
+          <option>Mehendi</option>
+          <option>Sangeet</option>
+          <option>Wedding</option>
+          <option>Reception</option>
+          <option>Engagement</option>
+          <option>Cocktail</option>
+        </select>
+      </div>
+    </details>
+
+    <!-- 4. MESSAGES & QUOTES -->
+    <details class="grp">
+      <summary>💌 Auspicious Words &amp; Quotes</summary>
+      <label>Invitation message <i>(optional)</i>
+        <textarea name="invite_message" rows="3" maxlength="400" placeholder="With hearts full of joy and the blessings of our elders..."></textarea>
+      </label>
+      <label>Couple's sacred vow quote <i>(optional)</i>
+        <textarea name="couple_quote" rows="2" maxlength="200" placeholder="Two souls, one promise — bound by sacred vows..."></textarea>
+      </label>
+      <label>Closing love quote <i>(optional)</i>
+        <input name="closing_quote" maxlength="140" placeholder="In every lifetime, I would find you and choose you again.">
+      </label>
+      <div class="row2">
+        <label>Family sign-off <i>(optional)</i>
+          <input name="family_signoff" maxlength="100" placeholder="The Malhotra & Kapoor Families">
+        </label>
+        <label>Wedding Hashtag <i>(optional)</i>
+          <input name="hashtag" maxlength="40" placeholder="#AaravWedsAnanya">
+        </label>
+      </div>
+    </details>
+
+    <!-- 5. RSVP & MUSIC -->
+    <details class="grp">
+      <summary>✅ WhatsApp RSVP &amp; Soundtrack</summary>
+      <label>Couple WhatsApp Number for RSVPs <i>(with country code, no +)</i>
+        <input type="tel" name="rsvp_whatsapp" inputmode="numeric" placeholder="919876543210" maxlength="16">
+      </label>
+      <label>Reply-by deadline date <i>(optional)</i>
+        <input type="date" name="rsvp_deadline">
+      </label>
+      <div style="margin-top:14px;display:flex;flex-direction:column;gap:8px;">
+        <label style="display:flex;flex-direction:row;align-items:center;gap:10px;text-transform:none;font-weight:500;font-size:13px;cursor:pointer;">
+          <input type="checkbox" name="music_enabled" checked style="width:18px;height:18px;accent-color:#064E3B;">
+          <span>Play authentic acoustic piano background music</span>
+        </label>
+        <label style="display:flex;flex-direction:row;align-items:center;gap:10px;text-transform:none;font-weight:500;font-size:13px;cursor:pointer;">
+          <input type="checkbox" name="show_gallery" checked style="width:18px;height:18px;accent-color:#064E3B;">
+          <span>Display "Photo Memories" gallery</span>
+        </label>
+      </div>
+    </details>
+
+    <!-- Form Actions -->
+    <div class="actions">
+      <button type="button" class="btn btn--ghost" id="resetBtn">Reset to Sample Demo</button>
+      <button type="button" class="btn btn--ghost" id="clearBtn">Clear All</button>
     </div>
-    <label>Groom's full name *<input name="groom_full_name" maxlength="60" required></label>
-    <label>Groom's parents <i>(optional)</i><input name="groom_parents" maxlength="120" placeholder="Son of Mr. … & Mrs. …"></label>
-    <label>Bride's full name *<input name="bride_full_name" maxlength="60" required></label>
-    <label>Bride's parents <i>(optional)</i><input name="bride_parents" maxlength="120" placeholder="Daughter of Mr. … & Mrs. …"></label>
-    <div class="row2 photos">
-      <label class="photo">Groom photo <i>(optional)</i><input type="file" accept="image/*" data-photo="groom_photo"><span class="photo__btn">Upload</span><button type="button" class="photo__x" data-clear="groom_photo" hidden>Remove</button></label>
-      <label class="photo">Bride photo <i>(optional)</i><input type="file" accept="image/*" data-photo="bride_photo"><span class="photo__btn">Upload</span><button type="button" class="photo__x" data-clear="bride_photo" hidden>Remove</button></label>
+
+    <p class="err" id="err" hidden style="color:#DC2626;font-size:13px;font-weight:600;"></p>
+
+    <!-- CREATE INVITATION BUTTON -->
+    <button type="button" class="btn btn--main" id="createBtn" style="margin-top:10px;">
+      ✨ Create My Golden Vows Invitation
+    </button>
+  </form>
+
+  <!-- ============ LIVE PHONE PREVIEW ============ -->
+  <section class="preview" id="preview">
+    <div class="phone">
+      <div class="phone__notch"></div>
+      <iframe id="pv" title="GoldenVows Invitation Preview"></iframe>
     </div>
-    <label class="photo">Couple photo for the opening screen <i>(optional)</i><input type="file" accept="image/*" data-photo="cover_image"><span class="photo__btn">Upload</span><button type="button" class="photo__x" data-clear="cover_image" hidden>Remove</button></label>
-    <p class="note">Photos are shrunk and saved inside your link, which makes the link longer. Leave them empty to keep our illustrated artwork.</p>
-  </details>
+    <p class="pvnote">✦ Real-time live preview · Opening call screen is active for guests</p>
+  </section>
 
-  <details class="grp" open><summary>📅 Wedding Date &amp; Venue</summary>
-    <div class="row2">
-      <label>Wedding date *<input type="date" name="event_date" required></label>
-      <label>Time <i>(optional)</i><input type="time" name="event_time"></label>
-    </div>
-    <label>Venue *<input name="venue" maxlength="90" required></label>
-    <label>Venue address <i>(optional)</i><input name="venue_address" maxlength="140"></label>
-    <label>Google Maps link <i>(optional — we create one from the venue if empty)</i><input type="url" name="venue_map_url" placeholder="https://maps.app.goo.gl/…"></label>
-  </details>
-
-  <details class="grp" open><summary>🪔 Events / Functions</summary>
-    <div id="evList"></div>
-    <div class="evadd">
-      <button type="button" class="btn btn--soft" id="evAdd">＋ Add event</button>
-      <select id="evPreset" aria-label="Quick add"><option value="">Quick add…</option><option>Haldi</option><option>Mehendi</option><option>Sangeet</option><option>Wedding</option><option>Reception</option><option>Engagement</option><option>Cocktail</option></select>
-    </div>
-  </details>
-
-  <details class="grp"><summary>💌 Messages</summary>
-    <label>Invitation message <i>(optional)</i><textarea name="invite_message" rows="3" maxlength="400"></textarea></label>
-    <label>Couple quote <i>(optional)</i><textarea name="couple_quote" rows="2" maxlength="200"></textarea></label>
-    <label>Closing quote <i>(optional)</i><input name="closing_quote" maxlength="140"></label>
-    <label>Family sign-off <i>(optional)</i><input name="family_signoff" maxlength="100"></label>
-    <label>Hashtag <i>(optional)</i><input name="hashtag" maxlength="40" placeholder="#AaravWedsAnanya"></label>
-  </details>
-
-  <details class="grp"><summary>✅ RSVP, Music &amp; Gallery</summary>
-    <label>WhatsApp number for RSVPs <i>(with country code)</i><input type="tel" name="rsvp_whatsapp" inputmode="numeric" placeholder="919876543210" maxlength="16"></label>
-    <label>Reply-by date <i>(optional)</i><input type="date" name="rsvp_deadline"></label>
-    <label class="tog"><input type="checkbox" name="music_enabled" checked><span></span>Background music (romantic piano)</label>
-    <label class="tog"><input type="checkbox" name="show_gallery" checked><span></span>Show the "Photo Memories" gallery (sample artwork)</label>
-  </details>
-
-  <div class="actions">
-    <button type="button" class="btn btn--ghost" id="resetBtn">Reset to sample</button>
-    <button type="button" class="btn btn--ghost" id="clearBtn">Clear all</button>
-  </div>
-  <p class="err" id="err" hidden></p>
-  <button type="button" class="btn btn--main" id="createBtn">✨ Create my invitation</button>
-</form>
-
-<section class="preview" id="preview">
-  <div class="phone"><div class="phone__notch"></div><iframe id="pv" title="Invitation preview"></iframe></div>
-  <p class="pvnote">Live preview · opening screen skipped here, guests will see it</p>
-</section>
 </div>
 
+<!-- ============ MODAL SHEET: INVITATION READY & SEND ============ -->
 <div class="sheet" id="sheet" hidden>
   <div class="sheet__card">
     <button type="button" class="sheet__x" id="sheetX" aria-label="Close">×</button>
-    <div class="sheet__tick">✓</div>
-    <h2>Your invitation is ready!</h2>
-    <p>Share this link with your guests. Everything you typed is saved inside the link.</p>
-    <div class="link"><input id="shareUrl" readonly aria-label="Your invitation link"><button type="button" class="btn btn--main" id="copyBtn">Copy</button></div>
-    <p class="note" id="lenNote"></p>
+    <div class="sheet__tick">✦</div>
+    <h2>Your Invitation is Ready!</h2>
+    <p>Your GoldenVows luxury invitation has been created. You can preview it now or send it sealed directly to your desired guests.</p>
+    
+    <!-- Recipient Personalizer -->
+    <div style="background:#F9F8F3;border:1.5px solid rgba(212,175,55,0.4);border-radius:18px;padding:16px;margin:18px 0;text-align:left;">
+      <label style="font-size:11px;font-weight:700;text-transform:uppercase;color:#064E3B;margin-top:0;">Send to Desired Person (Guest / Family):</label>
+      <input type="text" id="targetGuestInput" placeholder="e.g. Sophia & Liam, The Sharma Family" style="background:#fff;margin-top:6px;border:1px solid #D1D5DB;padding:8px 12px;font-size:13px;" oninput="updateGuestLink()">
+    </div>
+
+    <div class="link">
+      <input id="shareUrl" readonly aria-label="Invitation Link">
+      <button type="button" class="btn btn--soft" id="copyBtn" style="white-space:nowrap;">Copy Link</button>
+    </div>
+    <p class="note" id="lenNote" style="font-size:11px;color:#6B7280;"></p>
+
+    <!-- Send Actions -->
     <div class="sheet__btns">
-      <a class="btn btn--wa" id="waShare" target="_blank" rel="noopener">Share on WhatsApp</a>
-      <a class="btn btn--ghost" id="openLink" target="_blank" rel="noopener">Open invitation ↗</a>
-      <button type="button" class="btn btn--ghost" id="nativeShare" hidden>Share…</button>
+      <a class="btn btn--wa" id="waShare" target="_blank" rel="noopener">
+        <span>Share Directly on WhatsApp</span>
+      </a>
+      <a class="btn btn--main" id="openLink" target="_blank" rel="noopener">
+        <span>Open &amp; View Full Invitation ↗</span>
+      </a>
+      <button type="button" class="btn btn--ghost" onclick="closeSheet()">
+        <span>✎ Return to Edit Form</span>
+      </button>
     </div>
   </div>
 </div>
 
+<!-- Event Row Template -->
 <template id="evTpl">
   <div class="ev">
-    <div class="ev__head"><b class="ev__no"></b><button type="button" class="ev__del" aria-label="Remove event">Remove</button></div>
-    <label>Event name *<input data-k="name" maxlength="30"></label>
-    <div class="row2"><label>Date *<input type="date" data-k="date"></label><label>Time<input type="time" data-k="time"></label></div>
-    <label>Venue <i>(empty = main venue)</i><input data-k="venue" maxlength="90"></label>
-    <div class="row2"><label>Map link <i>(optional)</i><input type="url" data-k="map_url"></label><label>Dress code <i>(optional)</i><input data-k="dress" maxlength="40"></label></div>
+    <div class="ev__head">
+      <b class="ev__no"></b>
+      <button type="button" class="ev__del" aria-label="Remove ceremony">Remove</button>
+    </div>
+    <label>Ceremony name *<input data-k="name" maxlength="30" placeholder="Haldi Ceremony"></label>
+    <div class="row2">
+      <label>Date *<input type="date" data-k="date"></label>
+      <label>Time<input type="time" data-k="time"></label>
+    </div>
+    <label>Venue Location <i>(leave empty to use main venue)</i><input data-k="venue" maxlength="90" placeholder="Lakeside Courtyard"></label>
+    <div class="row2">
+      <label>Map link <i>(optional)</i><input type="url" data-k="map_url" placeholder="https://maps.google.com/..."></label>
+      <label>Dress code <i>(optional)</i><input data-k="dress" maxlength="40" placeholder="Traditional Festive Yellow"></label>
+    </div>
   </div>
 </template>
 
 <script src="assets/sample-data.js"></script>
 <script src="assets/jfy-codec.js"></script>
 <script src="assets/editor.js"></script>
+
+<script>
+// Responsive View Toggle for Mobile
+function setView(view) {
+  document.body.setAttribute('data-view', view);
+  document.getElementById('tabForm').classList.toggle('on', view === 'form');
+  document.getElementById('tabPrev').classList.toggle('on', view === 'preview');
+}
+
+function closeSheet() {
+  document.getElementById('sheet').hidden = true;
+}
+
+// Guest personalizer link updates
+function updateGuestLink() {
+  var guest = document.getElementById('targetGuestInput').value.trim();
+  var rawUrl = document.getElementById('openLink').href || '';
+  var base = rawUrl.replace(/&to=.*$/, '');
+  var full = guest ? (base + '&to=' + encodeURIComponent(guest)) : base;
+  
+  document.getElementById('shareUrl').value = full;
+  document.getElementById('openLink').href = full;
+
+  // Update WhatsApp text
+  var f = document.getElementById('ed');
+  var gName = (f.groom_name && f.groom_name.value) || 'Groom';
+  var bName = (f.bride_name && f.bride_name.value) || 'Bride';
+  var msg = encodeURIComponent("Dearest " + (guest || "Honored Guest") + ",\n\nYou are warmly invited to celebrate the royal wedding of " + gName + " & " + bName + "! ✦\n\nPlease view your personalized wedding invitation here:\n" + full);
+  document.getElementById('waShare').href = 'https://api.whatsapp.com/send?text=' + msg;
+}
+
+// Listen to create button open
+document.getElementById('createBtn').addEventListener('click', function() {
+  setTimeout(updateGuestLink, 50);
+});
+</script>
+
 </body>
 </html>
