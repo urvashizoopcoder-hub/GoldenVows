@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>{{groom_name}} &amp; {{bride_name}} — Wedding Invitation</title>
-<meta name="description" content="You are invited to the wedding of {{groom_full_name}} &amp; {{bride_full_name}}">
-<meta property="og:title" content="{{groom_name}} &amp; {{bride_name}} are getting married!">
-<meta property="og:description" content="Tap to open your royal wedding invitation">
+<title>{{page_title}}</title>
+<meta name="description" content="{{hero_eyebrow}} {{groom_full_name}}">
+<meta property="og:title" content="{{page_title}}">
+<meta property="og:description" content="Tap to open your luxury celebration invitation">
 <meta property="og:image" content="assets/img/hero_palace.webp">
 <meta name="theme-color" content="#e9b9bf">
 <link rel="preload" href="assets/img/couple_call.webp" as="image">
@@ -23,8 +23,8 @@
   <div class="loader__txt">Preparing your invitation…</div>
 </div>
 
-<!-- ============ COVER: INCOMING WEDDING CALL ============ -->
-<section class="call" id="call" role="dialog" aria-modal="true" aria-label="Incoming wedding call from {{groom_name}} &amp; {{bride_name}}">
+<!-- ============ COVER: INCOMING INVITATION CALL ============ -->
+<section class="call" id="call" role="dialog" aria-modal="true" aria-label="{{call_label}} from {{groom_name}}">
   <div class="call__bg" style="background-image:url('assets/img/corridor.webp')"></div>
   <div class="call__couple" data-bg="{{cover_image}}"></div>
   <div class="call__shade"></div>
@@ -33,8 +33,8 @@
     <span class="call__icons"><i></i><i></i><i></i><b></b></span>
   </div>
   <div class="call__top">
-    <p class="call__label">Incoming wedding call<span class="dots"><i>.</i><i>.</i><i>.</i></span></p>
-    <h1 class="call__names"><span>{{groom_name}}</span><span class="call__heart">❤</span><span>{{bride_name}}</span></h1>
+    <p class="call__label" id="callLabel">{{call_label}}<span class="dots"><i>.</i><i>.</i><i>.</i></span></p>
+    <h1 class="call__names"><span>{{groom_name}}</span><span class="call__heart" data-optional="bride_name">{{heart_icon}}</span><span data-optional="bride_name">{{bride_name}}</span></h1>
     <p class="call__sub">{{event_date|long}}</p>
   </div>
   <div class="call__fog"></div>
@@ -61,6 +61,16 @@
 </div>
 <canvas class="petals" id="petals" aria-hidden="true"></canvas>
 
+<!-- ============ FLOATING AUTO-SCROLL STORY CONTROLS ============ -->
+<div class="autoscroll-bar" id="autoScrollBar">
+  <button type="button" id="btnAutoScroll" onclick="toggleAutoScroll()">
+    <span id="autoScrollIcon">▶</span>
+    <span id="autoScrollText">Auto Play</span>
+  </button>
+  <button type="button" onclick="scrollSection(1)" title="Next Section">▼</button>
+  <button type="button" onclick="scrollSection(-1)" title="Previous Section">▲</button>
+</div>
+
 <main class="site" id="site">
 
   <!-- ============ HERO PALACE ============ -->
@@ -68,10 +78,10 @@
     <div class="hero__art" data-par="0.18"><img data-src="{{hero_image}}" alt="" fetchpriority="high"></div>
     <div class="hero__glow"></div>
     <div class="hero__text">
-      <p class="hero__eyebrow">you are cordially invited<br>to the wedding of</p>
+      <p class="hero__eyebrow" id="heroEyebrow">{{hero_eyebrow}}</p>
       <h2 class="hero__name" data-fit="20">{{groom_full_name}}</h2>
-      <div class="hero__amp">&amp;</div>
-      <h2 class="hero__name" data-fit="20">{{bride_full_name}}</h2>
+      <div class="hero__amp" data-optional="bride_full_name">&amp;</div>
+      <h2 class="hero__name" data-fit="20" data-optional="bride_full_name">{{bride_full_name}}</h2>
       <p class="hero__date">{{event_date|long}}</p>
     </div>
     <button class="hero__magic" type="button" data-magic>✨ Tap to feel the magic</button>
@@ -81,34 +91,34 @@
   <!-- ============ INVITE MESSAGE ============ -->
   <section class="sec invite" data-optional="invite_message">
     <svg class="orn orn--top reveal" viewBox="0 0 240 40" aria-hidden="true"><use href="#orn-divider"/></svg>
-    <p class="invite__ganesh reveal">॥ Shree Ganeshaya Namah ॥</p>
+    <p class="invite__ganesh reveal">✦ ❦ ✦</p>
     <p class="invite__msg reveal">{{invite_message}}</p>
-    <p class="invite__heart reveal">❤</p>
+    <p class="invite__heart reveal" data-optional="bride_name">{{heart_icon}}</p>
   </section>
 
-  <!-- ============ MEET THE COUPLE ============ -->
+  <!-- ============ MEET THE HOSTS / CELEBRANTS ============ -->
   <section class="sec couple">
     <header class="head reveal">
-      <p class="head__eyebrow">Getting to know us</p>
-      <h3 class="head__title">Meet The Couple</h3>
-      <p class="head__sub">Two hearts, one beautiful journey together.</p>
+      <p class="head__eyebrow">Auspicious Story</p>
+      <h3 class="head__title">{{hosts_title}}</h3>
+      <p class="head__sub">{{hosts_subtitle}}</p>
     </header>
     <article class="person reveal">
       <div class="arch">
         <img class="arch__img" data-src="{{groom_photo}}" alt="{{groom_full_name}}" loading="lazy">
         <svg class="arch__frame" viewBox="0 0 300 400" aria-hidden="true"><use href="#arch-frame"/></svg>
       </div>
-      <p class="person__role">The Groom</p>
+      <p class="person__role">{{celebrant_1_role}}</p>
       <h4 class="person__name" data-fit="22">{{groom_full_name}}</h4>
       <p class="person__parents" data-optional="groom_parents">{{groom_parents}}</p>
     </article>
-    <div class="couple__knot reveal" aria-hidden="true"><svg viewBox="0 0 120 40"><use href="#orn-knot"/></svg></div>
-    <article class="person reveal">
+    <div class="couple__knot reveal" data-optional="bride_full_name" aria-hidden="true"><svg viewBox="0 0 120 40"><use href="#orn-knot"/></svg></div>
+    <article class="person reveal" data-optional="bride_full_name">
       <div class="arch">
         <img class="arch__img" data-src="{{bride_photo}}" alt="{{bride_full_name}}" loading="lazy">
         <svg class="arch__frame" viewBox="0 0 300 400" aria-hidden="true"><use href="#arch-frame"/></svg>
       </div>
-      <p class="person__role">The Bride</p>
+      <p class="person__role">{{celebrant_2_role}}</p>
       <h4 class="person__name" data-fit="22">{{bride_full_name}}</h4>
       <p class="person__parents" data-optional="bride_parents">{{bride_parents}}</p>
     </article>
@@ -136,8 +146,8 @@
         <div class="env__pocket"></div>
         <div class="env__flap"></div>
         <div class="env__bow" aria-hidden="true"><svg viewBox="0 0 200 120"><use href="#bow"/></svg></div>
-        <div class="env__seal" aria-hidden="true"><span>{{groom_name|initial}}<i>&amp;</i>{{bride_name|initial}}</span></div>
-        <p class="env__script">The Big Day</p>
+        <div class="env__seal" aria-hidden="true"><span>{{groom_name|initial}}<i>✦</i>{{bride_name|initial}}</span></div>
+        <p class="env__script">{{save_date_script}}</p>
       </div>
     </div>
     <p class="std__line reveal">The start of a beautiful journey…</p>
@@ -173,10 +183,10 @@
     </div>
   </section>
 
-  <!-- ============ WEDDING FUNCTIONS (PINNED) ============ -->
+  <!-- ============ CEREMONIES & FUNCTIONS ============ -->
   <section class="events" id="events">
     <div class="events__pin">
-      <h3 class="events__title">Wedding Functions</h3>
+      <h3 class="events__title">{{events_title}}</h3>
       <div class="palace">
         <svg class="palace__top" viewBox="0 0 400 130" aria-hidden="true"><use href="#palace-top"/></svg>
         <div class="palace__arch">
@@ -248,16 +258,16 @@
     <div class="foot__art"><img src="assets/img/footer_lake.webp" alt="" loading="lazy"></div>
     <div class="foot__inner">
       <blockquote class="foot__quote reveal" data-optional="closing_quote">“{{closing_quote}}”</blockquote>
-      <div class="mono reveal"><span>{{groom_name|initial}}</span><i>&amp;</i><span>{{bride_name|initial}}</span></div>
-      <h3 class="foot__names reveal" data-fit="30">{{groom_name}} &amp; {{bride_name}}</h3>
+      <div class="mono reveal"><span>{{groom_name|initial}}</span><i data-optional="bride_name">✦</i><span data-optional="bride_name">{{bride_name|initial}}</span></div>
+      <h3 class="foot__names reveal" data-fit="30"><span>{{groom_name}}</span><span data-optional="bride_name"> &amp; {{bride_name}}</span></h3>
       <p class="foot__orn reveal">❦ ✿ ❦</p>
-      <p class="foot__thanks reveal">“Thank you for being part of our celebration”</p>
+      <p class="foot__thanks reveal">“{{foot_thanks}}”</p>
       <p class="foot__date reveal">{{event_date|long}}</p>
       <p class="foot__venue reveal">{{venue}}</p>
       <p class="foot__tag reveal" data-optional="hashtag">{{hashtag}}</p>
       <p class="foot__sign reveal" data-optional="family_signoff">{{family_signoff}}</p>
       
-      <p class="foot__brand">✦ Made with love on Just For You ✦</p>
+      <p class="foot__brand">✦ Crafted with love on GoldenVows Studio ✦</p>
       <a class="foot__make" href="edit.html">Create your own invitation →</a>
     </div>
   </footer>
@@ -450,6 +460,80 @@ window.addEventListener('DOMContentLoaded', function () {
     }
   }
 });
+
+// Auto-Scroll / Story Mode Engine
+var autoScrollInterval = null;
+var isAutoScrolling = false;
+var scrollSections = ['hero', 'std', 'gallery', 'events', 'rsvp', 'foot'];
+
+function toggleAutoScroll() {
+  if (isAutoScrolling) {
+    stopAutoScroll();
+  } else {
+    startAutoScroll();
+  }
+}
+
+function startAutoScroll() {
+  isAutoScrolling = true;
+  var btn = document.getElementById('btnAutoScroll');
+  var ico = document.getElementById('autoScrollIcon');
+  var txt = document.getElementById('autoScrollText');
+  if (btn) btn.classList.add('is-active');
+  if (ico) ico.textContent = '⏸';
+  if (txt) txt.textContent = 'Pause';
+
+  autoScrollInterval = setInterval(function () {
+    var maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    if (window.scrollY >= maxScroll - 4) {
+      stopAutoScroll();
+      return;
+    }
+    window.scrollBy({ top: 2, behavior: 'smooth' });
+  }, 35);
+}
+
+function stopAutoScroll() {
+  isAutoScrolling = false;
+  if (autoScrollInterval) clearInterval(autoScrollInterval);
+  var btn = document.getElementById('btnAutoScroll');
+  var ico = document.getElementById('autoScrollIcon');
+  var txt = document.getElementById('autoScrollText');
+  if (btn) btn.classList.remove('is-active');
+  if (ico) ico.textContent = '▶';
+  if (txt) txt.textContent = 'Auto Play';
+}
+
+function scrollSection(direction) {
+  stopAutoScroll();
+  var secs = scrollSections.map(function(id) { return document.getElementById(id); }).filter(Boolean);
+  var currentY = window.scrollY;
+  var target = null;
+
+  if (direction > 0) {
+    for (var i = 0; i < secs.length; i++) {
+      if (secs[i].offsetTop > currentY + 30) {
+        target = secs[i];
+        break;
+      }
+    }
+  } else {
+    for (var i = secs.length - 1; i >= 0; i--) {
+      if (secs[i].offsetTop < currentY - 30) {
+        target = secs[i];
+        break;
+      }
+    }
+  }
+  if (target) {
+    target.scrollIntoView({ behavior: 'smooth' });
+  } else if (direction < 0) {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+
+window.addEventListener('wheel', function () { if (isAutoScrolling) stopAutoScroll(); }, { passive: true });
+window.addEventListener('touchmove', function () { if (isAutoScrolling) stopAutoScroll(); }, { passive: true });
 </script>
 
 <script src="assets/sample-data.js"></script>

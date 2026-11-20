@@ -1,6 +1,6 @@
 # GoldenVows — 60 Unique Invitation Templates Catalog
 
-Each template is an independent, mobile and laptop-friendly animated invitation featuring interactive 3D Flipbook Page-Turn mode, Royal Scroll mode, Incoming VIP Call / Wax Envelope openers, real-time countdown, Google Maps navigation, RSVP, and direct WhatsApp / Email dispatching to the correct recipient number.
+Each template is an independent, mobile and laptop-friendly animated invitation featuring interactive 3D Flipbook Page-Turn mode, Royal Story Scroll mode with Auto-Scroll, Incoming VIP Call openers, real-time countdown, Google Maps navigation, RSVP, and direct WhatsApp / Email dispatching to the correct recipient number.
 
 | # | Template Name | Category | Palette | Local URL | Live GitHub Pages URL |
 |---|---|---|---|---|---|

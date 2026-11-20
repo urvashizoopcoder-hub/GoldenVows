@@ -51,7 +51,8 @@
     return 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' + encodeURIComponent(title) + '&dates=' + z(start) + '/' + z(end) + '&location=' + encodeURIComponent(venue || '') + '&details=' + encodeURIComponent(details || '') + '&ctz=Asia/Kolkata';
   }
   function mapUrl(q) { return 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(q || ''); }
-  var couple = (D.groom_name || '') + ' & ' + (D.bride_name || '');
+  var couple = D.bride_name ? ((D.groom_name || '') + ' & ' + D.bride_name) : (D.groom_name || '');
+  var fullCelebrants = D.bride_full_name ? ((D.groom_full_name || '') + ' & ' + D.bride_full_name) : (D.groom_full_name || '');
   var events = (Array.isArray(D.events) ? D.events : []).filter(function (e) { return e && e.name; });
 
   /* ---------- render ---------- */
@@ -61,10 +62,12 @@
     $$('[data-src]').forEach(function (el) { var v = el.getAttribute('data-src'); if (v && v.indexOf('{{') < 0) el.src = v; });
     $$('[data-bg]').forEach(function (el) { var v = el.getAttribute('data-bg'); if (v) el.style.backgroundImage = 'url("' + v + '")'; });
     $$('[data-fit]').forEach(fit);
-    var main = calUrl(couple + ' — Wedding', D.event_date, D.venue, 'Wedding of ' + (D.groom_full_name || '') + ' & ' + (D.bride_full_name || ''));
+    var calSuffix = D.cal_suffix || ' — Invitation';
+    var main = calUrl(couple + calSuffix, D.event_date, D.venue, (D.occasion_title || 'Celebration') + ' of ' + fullCelebrants);
     $('#remindBtn').href = main; $('#stdCal').href = main;
     var wa = String(D.rsvp_whatsapp || '').replace(/\D/g, '');
-    $('#msgBtn').href = wa ? 'https://wa.me/' + wa + '?text=' + encodeURIComponent('Congratulations ' + couple + '! 💐 Can\'t wait to celebrate with you.') : '#rsvp';
+    var waText = D.rsvp_default_msg || ('Congratulations ' + couple + '! 💐 Looking forward to celebrating with you.');
+    $('#msgBtn').href = wa ? 'https://wa.me/' + wa + '?text=' + encodeURIComponent(waText) : '#rsvp';
     if (!wa) $('#msgBtn').removeAttribute('target');
     $('#mapFrame').src = 'https://maps.google.com/maps?q=' + encodeURIComponent((D.venue || '') + ' ' + (D.venue_address || '')) + '&z=14&output=embed';
     buildCalendar(); buildEvents(); buildGallery(); buildChecks();
@@ -197,9 +200,10 @@
     try { (window.parent !== window) && window.parent.postMessage({ type: 'jfy:rsvp', data: r }, '*'); } catch (_) {}
     if (window.JFYBridge && JFYBridge.onRsvp) try { JFYBridge.onRsvp(JSON.stringify(r)); } catch (_) {}
     if (D.rsvp_endpoint) fetch(D.rsvp_endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(r) }).catch(function () {});
+    var occTitle = D.occasion_title || 'celebration';
     var msg = yes
-      ? 'Namaste! This is ' + name + '. Joyfully confirming ' + guests + ' guest' + (guests > 1 ? 's' : '') + ' for ' + (evs.length ? evs.join(', ') : 'the wedding') + ' of ' + couple + '. 💐'
-      : 'Namaste! This is ' + name + '. With regret, I won\'t be able to attend, but sending all my love and blessings to ' + couple + '. 💐';
+      ? 'Namaste! This is ' + name + '. Joyfully confirming ' + guests + ' guest' + (guests > 1 ? 's' : '') + ' for ' + (evs.length ? evs.join(', ') : occTitle) + ' of ' + couple + '. 💐'
+      : 'Namaste! This is ' + name + '. With regret, I won\'t be able to attend, but sending all my blessings and best wishes to ' + couple + '. 💐';
     if (r.note) msg += '\n\n“' + r.note + '”';
     $('#thanksMsg').textContent = yes
       ? 'Dear ' + name + ', we can\'t wait to celebrate with you' + (evs.length ? ' at the ' + evs.join(', ') : '') + '. ' + guests + ' guest' + (guests > 1 ? 's' : '') + ' noted.'

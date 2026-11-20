@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Griha Pravesh of The Sharma Family — GoldenVows Template #51</title>
+<title>Griha Pravesh of The Sharma Family — GoldenVows #51</title>
 <meta name="description" content="Entering Our New Sanctuary with Vedic Chants & Blessings - 'Anandam' — The Sharma Abode">
 <link rel="stylesheet" href="../assets/fonts/fonts.css">
 <link rel="stylesheet" href="../styles.css">
@@ -20,9 +20,28 @@
   --ivory: #FFFEFA;
   --ink: #431407;
 }
+
+/* Eradicate scrollbars everywhere while keeping smooth scrolling */
+*, *::before, *::after, html, body {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+*::-webkit-scrollbar, html::-webkit-scrollbar, body::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+}
+
 body {
   background: #FEF3C7;
+  margin: 0;
+  padding: 0;
+  color: var(--ink);
+  font-family: var(--sans);
+  overflow-x: hidden;
 }
+
 .top-template-badge {
   position: fixed;
   top: 10px;
@@ -37,7 +56,214 @@ body {
   letter-spacing: .08em;
   text-transform: uppercase;
   border: 1px solid var(--gold);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+/* Top Switcher Bar */
+.view-toggle-bar {
+  position: fixed;
+  top: 10px;
+  left: 14px;
+  z-index: 1000;
+  display: flex;
+  gap: 6px;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(10px);
+  padding: 4px;
+  border-radius: 999px;
+  border: 1px solid rgba(212,175,55,0.4);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+}
+.view-toggle-btn {
+  background: transparent;
+  border: none;
+  font-family: var(--sans);
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--wine);
+  padding: 5px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all .2s;
+}
+.view-toggle-btn.active {
+  background: var(--wine);
+  color: var(--gold-l);
+}
+
+/* Booklet Flipbook Styles */
+.booklet-stage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 70px 14px 80px;
+  box-sizing: border-box;
+}
+.booklet-card {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  min-height: 610px;
+  background: var(--ivory);
+  border-radius: 28px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.18), inset 0 0 0 1.5px var(--gold);
+  padding: 28px 22px 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.book-page {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  flex: 1;
+  animation: pageFadeIn .35s ease forwards;
+}
+.book-page.active {
+  display: flex;
+}
+@keyframes pageFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.book-eyebrow {
+  font-family: var(--cap);
+  font-size: 12px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--rose-d);
+  margin-bottom: 6px;
+}
+.book-title {
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--wine);
+  line-height: 1.15;
+  margin: 6px 0;
+}
+.book-amp {
+  font-size: 16px;
+  color: var(--gold);
+  margin: 4px 0;
+}
+.book-date {
+  font-family: var(--cap);
+  font-size: 14px;
+  color: var(--wine);
+  font-weight: 600;
+  margin: 4px 0;
+}
+.book-venue {
+  font-size: 13px;
+  color: var(--ink-l);
+  margin: 2px 0 10px;
+}
+.book-quote {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--ink-l);
+  max-width: 90%;
+  margin: 12px auto;
+}
+.guest-welcome-banner {
+  background: rgba(212,175,55,0.12);
+  border: 1px dashed var(--gold);
+  border-radius: 999px;
+  padding: 4px 14px;
+  font-size: 12px;
+  color: var(--wine);
+  font-weight: 700;
+  margin: 6px 0 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Booklet Controls */
+.book-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid rgba(212,175,55,0.25);
+  width: 100%;
+}
+.book-nav-btn {
+  background: var(--blush2);
+  color: var(--wine);
+  border: 1px solid rgba(212,175,55,0.4);
+  padding: 7px 16px;
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all .2s;
+}
+.book-nav-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+.book-page-pills {
+  display: flex;
+  gap: 6px;
+}
+.book-pill {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #D1D5DB;
+  cursor: pointer;
+  transition: all .2s;
+}
+.book-pill.active {
+  width: 22px;
+  border-radius: 999px;
+  background: var(--wine);
+}
+
+/* Auto-Scroll Floating Controls */
+.autoscroll-bar {
+  position: fixed;
+  bottom: 74px;
+  right: 14px;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(19, 42, 19, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1.5px solid var(--gold);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.3);
+  font-family: var(--sans);
+}
+.autoscroll-bar button {
+  color: var(--gold-l);
+  font-size: 11.5px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: rgba(212,175,55,0.18);
+  border: 1px solid rgba(212,175,55,0.3);
+  transition: all .2s;
+  cursor: pointer;
+}
+.autoscroll-bar button:hover, .autoscroll-bar button.is-active {
+  background: var(--gold);
+  color: var(--wine-d);
 }
 </style>
 </head>
@@ -47,8 +273,8 @@ body {
 
 <!-- ============ TOP SWITCHER BAR ============ -->
 <div class="view-toggle-bar">
-  <button type="button" class="view-toggle-btn active" id="btnModePage" onclick="switchMode('page')">📖 Flipbook Mode</button>
-  <button type="button" class="view-toggle-btn" id="btnModeScroll" onclick="switchMode('scroll')">📜 Royal Scroll</button>
+  <button type="button" class="view-toggle-btn active" id="btnModePage" onclick="switchMode('page')">📖 Flipbook</button>
+  <button type="button" class="view-toggle-btn" id="btnModeScroll" onclick="switchMode('scroll')">📜 Story Scroll</button>
   <button type="button" class="view-toggle-btn" id="btnMusic" onclick="toggleMusic()">🎵 Music</button>
 </div>
 
@@ -62,15 +288,15 @@ body {
     <span class="call__icons"><i></i><i></i><i></i><b></b></span>
   </div>
   <div class="call__top">
-    <p class="call__label" id="guestCallLabel">Incoming Invitation Call<span class="dots"><i>.</i><i>.</i><i>.</i></span></p>
+    <p class="call__label" id="guestCallLabel">Incoming Invitation<span class="dots"><i>.</i><i>.</i><i>.</i></span></p>
     <h1 class="call__names"><span>'Anandam' — The Sharma Abode</span></h1>
     <p class="call__sub">Monday, 18th January 2027</p>
   </div>
   <div class="call__bottom">
-    <button class="call__magic" type="button" onclick="answerCall()">✨ Tap or Slide to Open Invitation</button>
+    <button class="call__magic" type="button" onclick="answerCall()">✨ Tap or Slide to Open</button>
     <div class="slider" id="slider">
       <div class="slider__fill"></div>
-      <div class="slider__text"><b>slide</b>&nbsp;to answer</div>
+      <div class="slider__text"><b>slide</b>&nbsp;to open</div>
       <button class="slider__knob" id="knob" type="button" onclick="answerCall()">
         <svg viewBox="0 0 24 24"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z"/></svg>
       </button>
@@ -85,13 +311,9 @@ body {
 </div>
 <canvas class="petals" id="petals" aria-hidden="true"></canvas>
 
-<!-- ============ 1. 3D FLIPBOOK MODE ============ -->
+<!-- ============ 1. 3D FLIPBOOK MODE (PAGE TURNING) ============ -->
 <div class="booklet-stage" id="bookletStage">
   <div class="booklet-card">
-    <div class="book-corner book-corner--tl"></div>
-    <div class="book-corner book-corner--tr"></div>
-    <div class="book-corner book-corner--bl"></div>
-    <div class="book-corner book-corner--br"></div>
 
     <!-- Page 1: Grand Announcement -->
     <div class="book-page active" id="p1">
@@ -100,31 +322,31 @@ body {
         <span>💌 Exclusively for: <b id="guestNameSpan1">Valued Guest</b></span>
       </div>
       <h2 class="book-title">'Anandam' — The Sharma Abode</h2>
-      <div class="book-amp">✦ ❦ ✦</div>
+      <div class="book-amp">🪔 🏡 🪔</div>
       <p class="book-date">Monday, 18th January 2027</p>
       <p class="book-venue">'Anandam', Villa 42, Palm Greens, Gurugram</p>
       <p class="book-quote">“A house is made of walls and beams; a home is built with love and dreams.”</p>
       <p style="font-size:12px;color:var(--gold-d);margin-top:auto;">Page 1 of 5 · Tap Next Page ➔</p>
     </div>
 
-    <!-- Page 2: The Celebrants & Story -->
+    <!-- Page 2: The Celebrants & Hosts -->
     <div class="book-page" id="p2">
       <p class="book-eyebrow">Auspicious Story</p>
-      <h3 style="font-family:var(--serif);font-size:26px;color:var(--wine);margin:6px 0;">Meet The Celebrants</h3>
+      <h3 style="font-family:var(--serif);font-size:26px;color:var(--wine);margin:6px 0;">Meet The Hosts</h3>
       <div style="display:flex;gap:14px;justify-content:center;margin:12px 0;">
         <div style="text-align:center;">
-          <img src="../assets/img/groom.webp" alt="Rajesh & Sunita Sharma" style="width:90px;height:120px;object-fit:cover;border-radius:999px 999px 0 0;border:2px solid var(--gold);box-shadow:0 4px 12px rgba(0,0,0,0.15);">
+          <img src="../assets/img/groom.webp" alt="Rajesh & Sunita Sharma" style="width:90px;height:120px;object-fit:cover;border-radius: 8px; border: 2px dashed var(--gold);;box-shadow:0 4px 12px rgba(0,0,0,0.15);">
           <b style="display:block;font-size:13px;color:var(--wine);margin-top:6px;">Rajesh & Sunita Sharma</b>
           <small style="font-size:11px;color:var(--ink-l);display:block;">With the Divine Blessings of Late Pt. Hari Prasad Sharma</small>
         </div>
         <div style="text-align:center;">
-          <img src="../assets/img/bride.webp" alt="'Anandam' Residence" style="width:90px;height:120px;object-fit:cover;border-radius:999px 999px 0 0;border:2px solid var(--gold);box-shadow:0 4px 12px rgba(0,0,0,0.15);">
+          <img src="../assets/img/bride.webp" alt="'Anandam' Residence" style="width:90px;height:120px;object-fit:cover;border-radius: 8px; border: 2px dashed var(--gold);;box-shadow:0 4px 12px rgba(0,0,0,0.15);">
           <b style="display:block;font-size:13px;color:var(--wine);margin-top:6px;">'Anandam' Residence</b>
           <small style="font-size:11px;color:var(--ink-l);display:block;">A home built with dreams, prayers and elder blessings</small>
         </div>
       </div>
-      <p style="font-size:14px;line-height:1.6;color:var(--ink-l);max-width:90%;margin:10px auto;">
-        With hearts overflowing with love, we cordially invite you and your family to grace this blessed occasion with your prayers and presence.
+      <p style="font-size:13.5px;line-height:1.6;color:var(--ink-l);max-width:92%;margin:8px auto;">
+        With hearts full of gratitude, we warmly welcome your presence and blessings to celebrate this joyful milestone.
       </p>
       <p style="font-size:12px;color:var(--gold-d);margin-top:auto;">Page 2 of 5</p>
     </div>
@@ -134,59 +356,59 @@ body {
       <p class="book-eyebrow">Mark Your Calendar</p>
       <h3 style="font-family:var(--serif);font-size:26px;color:var(--wine);margin:6px 0;">Save The Auspicious Date</h3>
       <div style="background:rgba(212,175,55,0.08);border:1.5px solid var(--gold);border-radius:18px;padding:16px;width:90%;margin:12px auto;text-align:center;">
-        <span style="font-family:var(--serif);font-size:44px;font-weight:700;color:var(--wine);line-height:1;">14</span>
-        <span style="display:block;font-family:var(--cap);font-size:14px;letter-spacing:.1em;color:var(--rose-d);text-transform:uppercase;">FEBRUARY 2027</span>
-        <p style="font-size:13px;color:var(--ink-l);margin-top:6px;">'Anandam', Villa 42, Palm Greens, Gurugram</p>
+        <span style="font-family:var(--serif);font-size:42px;font-weight:700;color:var(--wine);line-height:1;">18th January 2027</span>
+        <span style="display:block;font-family:var(--cap);font-size:13px;letter-spacing:.1em;color:var(--rose-d);text-transform:uppercase;margin-top:4px;">9:30 AM</span>
+        <p style="font-size:12.5px;color:var(--ink-l);margin-top:6px;">'Anandam', Villa 42, Palm Greens, Gurugram</p>
       </div>
 
-      <div class="hearts" id="cdStage" style="margin:12px 0;">
+      <div class="hearts" id="cdStage" style="margin:10px 0;">
         <div class="hrt"><b id="cdDays">00</b><span>Days</span></div>
         <div class="hrt"><b id="cdHours">00</b><span>Hours</span></div>
         <div class="hrt"><b id="cdMins">00</b><span>Mins</span></div>
         <div class="hrt"><b id="cdSecs">00</b><span>Secs</span></div>
       </div>
 
-      <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text='Anandam' — The Sharma Abode+Celebration&location='Anandam', Villa 42, Palm Greens, Gurugram" target="_blank" rel="noopener" class="btn btn--soft" style="font-size:12.5px;padding:8px 18px;border-radius:999px;margin-top:8px;">
-        ＋ Add to Google Calendar
+      <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text='Anandam' — The Sharma Abode+Celebration&location='Anandam', Villa 42, Palm Greens, Gurugram" target="_blank" rel="noopener" class="btn btn--soft" style="font-size:12px;padding:8px 18px;border-radius:999px;margin-top:6px;">
+        ＋ Add to Calendar
       </a>
       <p style="font-size:12px;color:var(--gold-d);margin-top:auto;">Page 3 of 5</p>
     </div>
 
-    <!-- Page 4: Itinerary -->
+    <!-- Page 4: Ceremonies & Timings -->
     <div class="book-page" id="p4">
-      <p class="book-eyebrow">Celebration Itinerary</p>
-      <h3 style="font-family:var(--serif);font-size:26px;color:var(--wine);margin:6px 0;">Ceremonies &amp; Timings</h3>
+      <p class="book-eyebrow">Itinerary & Schedule</p>
+      <h3 style="font-family:var(--serif);font-size:26px;color:var(--wine);margin:6px 0;">Ceremonies</h3>
       <div style="width:100%;max-height:380px;overflow-y:auto;padding-right:4px;">
         
-        <div style="background:rgba(212,175,55,0.06);border:1px solid rgba(212,175,55,0.3);border-radius:12px;padding:12px;margin:8px 0;text-align:left;">
-          <b style="color:var(--wine);font-size:14px;display:block;">Vastu Shanti & Ganpati Puja</b>
-          <p style="font-size:12px;color:var(--rose-d);margin:3px 0;"><svg style="width:12px;height:12px;vertical-align:-1px;margin-right:4px;" viewBox="0 0 24 24"><path fill="currentColor" d="M7 2h2v2h6V2h2v2h3v18H4V4h3V2Zm11 8H6v10h12V10Z"/></svg>18 Jan 2027, 9:30 AM</p>
+        <div class="ev-card-item" style="background:rgba(212,175,55,0.07);border:1px solid rgba(212,175,55,0.3);border-radius:14px;padding:12px;margin:10px 0;text-align:left;">
+          <b style="color:var(--wine);font-size:14px;display:flex;align-items:center;gap:6px;"><span>🏡</span><span>Vastu Shanti & Ganpati Puja</span></b>
+          <p style="font-size:12px;color:var(--rose-d);margin:4px 0;"><svg style="width:12px;height:12px;vertical-align:-1px;margin-right:4px;" viewBox="0 0 24 24"><path fill="currentColor" d="M7 2h2v2h6V2h2v2h3v18H4V4h3V2Zm11 8H6v10h12V10Z"/></svg>18 Jan 2027, 9:30 AM</p>
           <p style="font-size:12px;color:var(--ink-l);margin:2px 0;"><svg style="width:12px;height:12px;vertical-align:-1px;margin-right:4px;" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7Zm0 4.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Z"/></svg>Main Courtyard</p>
-          <small style="font-size:11px;color:#6B7280;display:block;margin-top:2px;">Dress code: Traditional Indian Attire</small>
+          <small style="font-size:11px;color:#6B7280;display:block;margin-top:3px;">Dress code: Traditional Indian Attire</small>
         </div>
-        <div style="background:rgba(212,175,55,0.06);border:1px solid rgba(212,175,55,0.3);border-radius:12px;padding:12px;margin:8px 0;text-align:left;">
-          <b style="color:var(--wine);font-size:14px;display:block;">Auspicious Kalash Entry</b>
-          <p style="font-size:12px;color:var(--rose-d);margin:3px 0;"><svg style="width:12px;height:12px;vertical-align:-1px;margin-right:4px;" viewBox="0 0 24 24"><path fill="currentColor" d="M7 2h2v2h6V2h2v2h3v18H4V4h3V2Zm11 8H6v10h12V10Z"/></svg>18 Jan 2027, 11:30 AM</p>
+        <div class="ev-card-item" style="background:rgba(212,175,55,0.07);border:1px solid rgba(212,175,55,0.3);border-radius:14px;padding:12px;margin:10px 0;text-align:left;">
+          <b style="color:var(--wine);font-size:14px;display:flex;align-items:center;gap:6px;"><span>🏡</span><span>Auspicious Kalash Entry</span></b>
+          <p style="font-size:12px;color:var(--rose-d);margin:4px 0;"><svg style="width:12px;height:12px;vertical-align:-1px;margin-right:4px;" viewBox="0 0 24 24"><path fill="currentColor" d="M7 2h2v2h6V2h2v2h3v18H4V4h3V2Zm11 8H6v10h12V10Z"/></svg>18 Jan 2027, 11:30 AM</p>
           <p style="font-size:12px;color:var(--ink-l);margin:2px 0;"><svg style="width:12px;height:12px;vertical-align:-1px;margin-right:4px;" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7Zm0 4.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Z"/></svg>Main Threshold</p>
-          <small style="font-size:11px;color:#6B7280;display:block;margin-top:2px;">Dress code: Festive Wear</small>
+          <small style="font-size:11px;color:#6B7280;display:block;margin-top:3px;">Dress code: Festive Wear</small>
         </div>
-        <div style="background:rgba(212,175,55,0.06);border:1px solid rgba(212,175,55,0.3);border-radius:12px;padding:12px;margin:8px 0;text-align:left;">
-          <b style="color:var(--wine);font-size:14px;display:block;">Anandam Mahaprasad Lunch</b>
-          <p style="font-size:12px;color:var(--rose-d);margin:3px 0;"><svg style="width:12px;height:12px;vertical-align:-1px;margin-right:4px;" viewBox="0 0 24 24"><path fill="currentColor" d="M7 2h2v2h6V2h2v2h3v18H4V4h3V2Zm11 8H6v10h12V10Z"/></svg>18 Jan 2027, 12:45 PM</p>
+        <div class="ev-card-item" style="background:rgba(212,175,55,0.07);border:1px solid rgba(212,175,55,0.3);border-radius:14px;padding:12px;margin:10px 0;text-align:left;">
+          <b style="color:var(--wine);font-size:14px;display:flex;align-items:center;gap:6px;"><span>🏡</span><span>Anandam Mahaprasad Lunch</span></b>
+          <p style="font-size:12px;color:var(--rose-d);margin:4px 0;"><svg style="width:12px;height:12px;vertical-align:-1px;margin-right:4px;" viewBox="0 0 24 24"><path fill="currentColor" d="M7 2h2v2h6V2h2v2h3v18H4V4h3V2Zm11 8H6v10h12V10Z"/></svg>18 Jan 2027, 12:45 PM</p>
           <p style="font-size:12px;color:var(--ink-l);margin:2px 0;"><svg style="width:12px;height:12px;vertical-align:-1px;margin-right:4px;" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7Zm0 4.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Z"/></svg>Garden & Dining Hall</p>
-          <small style="font-size:11px;color:#6B7280;display:block;margin-top:2px;">Dress code: Comfortable Ethnic</small>
+          <small style="font-size:11px;color:#6B7280;display:block;margin-top:3px;">Dress code: Comfortable Ethnic</small>
         </div>
       </div>
       <p style="font-size:12px;color:var(--gold-d);margin-top:auto;">Page 4 of 5</p>
     </div>
 
-    <!-- Page 5: Venue, Maps & RSVP -->
+    <!-- Page 5: Venue & Direct RSVP -->
     <div class="book-page" id="p5">
       <p class="book-eyebrow">Warm Welcome</p>
       <h3 style="font-family:var(--serif);font-size:26px;color:var(--wine);margin:6px 0;">Venue &amp; RSVP</h3>
-      <p style="font-size:13.5px;color:var(--ink-l);margin:4px 0;"><b>'Anandam', Villa 42, Palm Greens, Gurugram</b><br><small>Sector 54, Golf Course Road, Gurugram 122002</small></p>
+      <p style="font-size:13px;color:var(--ink-l);margin:4px 0;"><b>'Anandam', Villa 42, Palm Greens, Gurugram</b><br><small>Sector 54, Golf Course Road, Gurugram 122002</small></p>
 
-      <div style="background:#fff;border:1px solid #E5E7EB;border-radius:14px;padding:14px;width:95%;margin:12px auto;text-align:left;">
+      <div style="background:#fff;border:1px solid #E5E7EB;border-radius:14px;padding:12px;width:95%;margin:10px auto;text-align:left;">
         <label style="font-size:11px;font-weight:700;color:var(--wine);text-transform:uppercase;">Quick RSVP via WhatsApp:</label>
         <input type="text" id="rsvpNameInput" placeholder="Your Name" style="width:100%;box-sizing:border-box;padding:8px 10px;margin-top:4px;border:1px solid #D1D5DB;border-radius:8px;font-size:13px;">
         <div style="display:flex;gap:8px;margin-top:8px;">
@@ -215,9 +437,9 @@ body {
   </div>
 </div>
 
-<!-- ============ 2. ROYAL SCROLL MODE ============ -->
+<!-- ============ 2. STORY SCROLL MODE (SMOOTH & SCROLLBAR-FREE) ============ -->
 <main class="site" id="scrollStage" style="display:none;margin-top:60px;">
-  <section class="hero">
+  <section class="hero" id="secHero">
     <div class="hero__art"><img src="../assets/img/hero_palace.webp" alt=""></div>
     <div class="hero__text">
       <p class="hero__eyebrow">॥ Shree Ganeshaya Namah ॥ Griha Pravesh</p>
@@ -227,67 +449,76 @@ body {
     </div>
   </section>
 
-  <section class="sec invite">
-    <p class="invite__ganesh">✦ ❦ ✦</p>
+  <section class="sec invite" id="secInvite">
+    <p class="invite__ganesh">🪔 🏡 🪔</p>
     <p class="invite__msg">A house is made of walls and beams; a home is built with love and dreams.</p>
   </section>
 
-  <section class="sec events" style="padding:20px;">
-    <h3 style="font-family:var(--serif);font-size:32px;color:var(--wine);text-align:center;margin-bottom:20px;">Ceremonies</h3>
+  <section class="sec events" id="secEvents" style="padding:20px;">
+    <h3 style="font-family:var(--serif);font-size:30px;color:var(--wine);text-align:center;margin-bottom:20px;">Ceremonies &amp; Schedule</h3>
     <div style="display:flex;flex-direction:column;gap:14px;max-width:500px;margin:0 auto;">
       
-        <article class="evcard">
-          <h4 class="evcard__name">Vastu Shanti & Ganpati Puja</h4>
-          <p class="evcard__orn">❦</p>
-          <p class="evcard__row"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M7 2h2v2h6V2h2v2h3v18H4V4h3V2Zm11 8H6v10h12V10Z"/></svg>18 Jan 2027, 9:30 AM</p>
-          <p class="evcard__row evcard__venue"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7Zm0 4.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Z"/></svg><span>Main Courtyard</span></p>
-          <p class="evcard__note">Dress code: Traditional Indian Attire · Havan & chanting for positive energy</p>
-          <div class="evcard__btns">
-            <a class="btn btn--rose" href="https://maps.google.com/?q='Anandam', Villa 42, Palm Greens, Gurugram" target="_blank" rel="noopener">➤ Get Directions</a>
+        <article class="evcard" style="background:#fff;border-radius:18px;padding:18px;box-shadow:0 8px 24px rgba(0,0,0,0.06);border:1px solid rgba(212,175,55,0.3);margin-bottom:14px;">
+          <h4 class="evcard__name" style="font-family:var(--serif);font-size:20px;color:var(--wine);margin-bottom:4px;">Vastu Shanti & Ganpati Puja</h4>
+          <p class="evcard__orn" style="color:var(--gold);margin:4px 0;">🪔 🏡 🪔</p>
+          <p class="evcard__row" style="font-size:13px;color:var(--rose-d);margin:4px 0;"><svg style="width:14px;height:14px;vertical-align:-2px;margin-right:6px;" viewBox="0 0 24 24"><path fill="currentColor" d="M7 2h2v2h6V2h2v2h3v18H4V4h3V2Zm11 8H6v10h12V10Z"/></svg>18 Jan 2027, 9:30 AM</p>
+          <p class="evcard__row evcard__venue" style="font-size:13px;color:var(--ink-l);margin:4px 0;"><svg style="width:14px;height:14px;vertical-align:-2px;margin-right:6px;" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7Zm0 4.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Z"/></svg><span>Main Courtyard</span></p>
+          <p class="evcard__note" style="font-size:12px;color:#6B7280;margin:6px 0;">Dress code: Traditional Indian Attire · Havan & chanting for positive energy</p>
+          <div class="evcard__btns" style="margin-top:10px;">
+            <a class="btn btn--soft" href="https://maps.google.com/?q='Anandam', Villa 42, Palm Greens, Gurugram" target="_blank" rel="noopener" style="font-size:12px;padding:6px 14px;border-radius:999px;">➤ Get Directions</a>
           </div>
         </article>
-        <article class="evcard">
-          <h4 class="evcard__name">Auspicious Kalash Entry</h4>
-          <p class="evcard__orn">❦</p>
-          <p class="evcard__row"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M7 2h2v2h6V2h2v2h3v18H4V4h3V2Zm11 8H6v10h12V10Z"/></svg>18 Jan 2027, 11:30 AM</p>
-          <p class="evcard__row evcard__venue"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7Zm0 4.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Z"/></svg><span>Main Threshold</span></p>
-          <p class="evcard__note">Dress code: Festive Wear · Boiling milk & threshold crossing</p>
-          <div class="evcard__btns">
-            <a class="btn btn--rose" href="https://maps.google.com/?q='Anandam', Villa 42, Palm Greens, Gurugram" target="_blank" rel="noopener">➤ Get Directions</a>
+        <article class="evcard" style="background:#fff;border-radius:18px;padding:18px;box-shadow:0 8px 24px rgba(0,0,0,0.06);border:1px solid rgba(212,175,55,0.3);margin-bottom:14px;">
+          <h4 class="evcard__name" style="font-family:var(--serif);font-size:20px;color:var(--wine);margin-bottom:4px;">Auspicious Kalash Entry</h4>
+          <p class="evcard__orn" style="color:var(--gold);margin:4px 0;">🪔 🏡 🪔</p>
+          <p class="evcard__row" style="font-size:13px;color:var(--rose-d);margin:4px 0;"><svg style="width:14px;height:14px;vertical-align:-2px;margin-right:6px;" viewBox="0 0 24 24"><path fill="currentColor" d="M7 2h2v2h6V2h2v2h3v18H4V4h3V2Zm11 8H6v10h12V10Z"/></svg>18 Jan 2027, 11:30 AM</p>
+          <p class="evcard__row evcard__venue" style="font-size:13px;color:var(--ink-l);margin:4px 0;"><svg style="width:14px;height:14px;vertical-align:-2px;margin-right:6px;" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7Zm0 4.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Z"/></svg><span>Main Threshold</span></p>
+          <p class="evcard__note" style="font-size:12px;color:#6B7280;margin:6px 0;">Dress code: Festive Wear · Boiling milk & threshold crossing</p>
+          <div class="evcard__btns" style="margin-top:10px;">
+            <a class="btn btn--soft" href="https://maps.google.com/?q='Anandam', Villa 42, Palm Greens, Gurugram" target="_blank" rel="noopener" style="font-size:12px;padding:6px 14px;border-radius:999px;">➤ Get Directions</a>
           </div>
         </article>
-        <article class="evcard">
-          <h4 class="evcard__name">Anandam Mahaprasad Lunch</h4>
-          <p class="evcard__orn">❦</p>
-          <p class="evcard__row"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M7 2h2v2h6V2h2v2h3v18H4V4h3V2Zm11 8H6v10h12V10Z"/></svg>18 Jan 2027, 12:45 PM</p>
-          <p class="evcard__row evcard__venue"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7Zm0 4.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Z"/></svg><span>Garden & Dining Hall</span></p>
-          <p class="evcard__note">Dress code: Comfortable Ethnic · Traditional satvik feast</p>
-          <div class="evcard__btns">
-            <a class="btn btn--rose" href="https://maps.google.com/?q='Anandam', Villa 42, Palm Greens, Gurugram" target="_blank" rel="noopener">➤ Get Directions</a>
+        <article class="evcard" style="background:#fff;border-radius:18px;padding:18px;box-shadow:0 8px 24px rgba(0,0,0,0.06);border:1px solid rgba(212,175,55,0.3);margin-bottom:14px;">
+          <h4 class="evcard__name" style="font-family:var(--serif);font-size:20px;color:var(--wine);margin-bottom:4px;">Anandam Mahaprasad Lunch</h4>
+          <p class="evcard__orn" style="color:var(--gold);margin:4px 0;">🪔 🏡 🪔</p>
+          <p class="evcard__row" style="font-size:13px;color:var(--rose-d);margin:4px 0;"><svg style="width:14px;height:14px;vertical-align:-2px;margin-right:6px;" viewBox="0 0 24 24"><path fill="currentColor" d="M7 2h2v2h6V2h2v2h3v18H4V4h3V2Zm11 8H6v10h12V10Z"/></svg>18 Jan 2027, 12:45 PM</p>
+          <p class="evcard__row evcard__venue" style="font-size:13px;color:var(--ink-l);margin:4px 0;"><svg style="width:14px;height:14px;vertical-align:-2px;margin-right:6px;" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7Zm0 4.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Z"/></svg><span>Garden & Dining Hall</span></p>
+          <p class="evcard__note" style="font-size:12px;color:#6B7280;margin:6px 0;">Dress code: Comfortable Ethnic · Traditional satvik feast</p>
+          <div class="evcard__btns" style="margin-top:10px;">
+            <a class="btn btn--soft" href="https://maps.google.com/?q='Anandam', Villa 42, Palm Greens, Gurugram" target="_blank" rel="noopener" style="font-size:12px;padding:6px 14px;border-radius:999px;">➤ Get Directions</a>
           </div>
         </article>
     </div>
   </section>
 
-  <footer class="foot">
+  <footer class="foot" id="secFoot">
     <div class="foot__inner">
       <blockquote class="foot__quote">“May this home always echo with laughter, peace and prosperity.”</blockquote>
       <h3 class="foot__names">'Anandam' — The Sharma Abode</h3>
       <p class="foot__date">Monday, 18th January 2027</p>
       <p class="foot__venue">'Anandam', Villa 42, Palm Greens, Gurugram</p>
+      <p style="font-size:12px;color:var(--gold-l);margin-top:14px;">✦ GoldenVows Template #51 ✦</p>
     </div>
   </footer>
 </main>
 
+<!-- ============ FLOATING AUTO-SCROLL STORY CONTROLS ============ -->
+<div class="autoscroll-bar" id="autoScrollBar" style="display:none;">
+  <button type="button" id="btnAutoScroll" onclick="toggleAutoScroll()">
+    <span id="autoScrollIcon">▶</span>
+    <span id="autoScrollText">Auto Play</span>
+  </button>
+  <button type="button" onclick="scrollSection(1)" title="Next Section">▼</button>
+  <button type="button" onclick="scrollSection(-1)" title="Previous Section">▲</button>
+</div>
+
 <!-- ============ FLOATING ACTION BAR ============ -->
-<div id="rpActionBar" style="position:fixed;bottom:18px;left:50%;transform:translateX(-50%);z-index:9999;display:flex;gap:10px;align-items:center;background:rgba(255,255,255,0.96);backdrop-filter:blur(14px);padding:8px 18px;border-radius:999px;box-shadow:0 10px 30px rgba(0,0,0,0.2);border:1.5px solid var(--gold);font-family:var(--sans);">
-  <a id="btnCustomize" href="../index.html" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:999px;background:var(--blush2);color:var(--wine);font-weight:700;font-size:13px;text-decoration:none;">
-    <span>✎</span>
-    <span>Customize This Template</span>
+<div id="rpActionBar" style="position:fixed;bottom:16px;left:50%;transform:translateX(-50%);z-index:9999;display:flex;gap:10px;align-items:center;background:rgba(255,255,255,0.96);backdrop-filter:blur(14px);padding:8px 16px;border-radius:999px;box-shadow:0 10px 30px rgba(0,0,0,0.2);border:1.5px solid var(--gold);font-family:var(--sans);">
+  <a id="btnCustomize" href="../index.html" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:var(--blush2);color:var(--wine);font-weight:700;font-size:12.5px;text-decoration:none;">
+    <span>✎ Customize</span>
   </a>
-  <button onclick="openSendModal()" type="button" style="display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border-radius:999px;background:var(--wine);color:var(--gold-l);font-weight:700;font-size:13px;border:none;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,0.2);">
-    <span>💌</span>
-    <span>Send to Desired Person</span>
+  <button onclick="openSendModal()" type="button" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:999px;background:var(--wine);color:var(--gold-l);font-weight:700;font-size:12.5px;border:none;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,0.2);">
+    <span>💌 Send to Desired Person</span>
   </button>
 </div>
 
@@ -304,7 +535,7 @@ body {
 
     <div style="margin-bottom:12px;">
       <label style="display:block;font-size:11px;font-weight:700;text-transform:uppercase;color:var(--wine);margin-bottom:4px;">Guest / Family Name *</label>
-      <input type="text" id="targetGuestName" placeholder="e.g. Priya & Rohan, The Sharma Family" style="width:100%;box-sizing:border-box;padding:9px 12px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:13.5px;outline:none;" oninput="updateGuestPersonalization()">
+      <input type="text" id="targetGuestName" placeholder="e.g. Priya & Rohan, The Sharma Family" style="width:100%;box-sizing:border-box;padding:9px 12px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:13.5px;outline:none;">
     </div>
 
     <div style="margin-bottom:14px;">
@@ -317,12 +548,9 @@ body {
           <option value="971">+971 (UAE)</option>
           <option value="61">+61 (AU)</option>
           <option value="65">+65 (SG)</option>
-          <option value="49">+49 (DE)</option>
-          <option value="33">+33 (FR)</option>
         </select>
-        <input type="tel" id="targetGuestPhone" placeholder="10-digit number (e.g. 9876543210)" style="flex:1;padding:9px 12px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:13.5px;outline:none;">
+        <input type="tel" id="targetGuestPhone" placeholder="10-digit number" style="flex:1;padding:9px 12px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:13.5px;outline:none;">
       </div>
-      <small style="font-size:11px;color:#6B7280;display:block;margin-top:3px;">Automatically cleaned &amp; delivered directly to their WhatsApp chat.</small>
     </div>
 
     <div style="margin-bottom:14px;">
@@ -365,17 +593,23 @@ function switchMode(mode) {
   var sStage = document.getElementById('scrollStage');
   var bPage = document.getElementById('btnModePage');
   var bScroll = document.getElementById('btnModeScroll');
+  var autoBar = document.getElementById('autoScrollBar');
 
   if (mode === 'page') {
+    stopAutoScroll();
     bStage.style.display = 'flex';
     sStage.style.display = 'none';
+    if (autoBar) autoBar.style.display = 'none';
     bPage.classList.add('active');
     bScroll.classList.remove('active');
   } else {
     bStage.style.display = 'none';
     sStage.style.display = 'block';
+    if (autoBar) autoBar.style.display = 'flex';
     bScroll.classList.add('active');
     bPage.classList.remove('active');
+    // Start smooth auto-scroll in scroll mode
+    startAutoScroll();
   }
 }
 
@@ -412,24 +646,98 @@ function toggleMusic() {
 
 // Countdown Timer
 function updateCountdown() {
-  var target = new Date('2027-01-18T09:30').getTime();
+  var target = new Date("2027-01-18T09:30").getTime();
   var now = new Date().getTime();
-  var diff = Math.max(0, target - now);
-
+  var diff = target - now;
+  if (diff <= 0) return;
   var d = Math.floor(diff / (1000 * 60 * 60 * 24));
   var h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   var m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
   var s = Math.floor((diff % (1000 * 60)) / 1000);
-
-  if (document.getElementById('cdDays')) document.getElementById('cdDays').textContent = d;
-  if (document.getElementById('cdHours')) document.getElementById('cdHours').textContent = h;
-  if (document.getElementById('cdMins')) document.getElementById('cdMins').textContent = m;
-  if (document.getElementById('cdSecs')) document.getElementById('cdSecs').textContent = s;
+  var pad = function(n) { return String(n).padStart(2, '0'); };
+  var cdD = document.getElementById('cdDays'); if (cdD) cdD.textContent = pad(d);
+  var cdH = document.getElementById('cdHours'); if (cdH) cdH.textContent = pad(h);
+  var cdM = document.getElementById('cdMins'); if (cdM) cdM.textContent = pad(m);
+  var cdS = document.getElementById('cdSecs'); if (cdS) cdS.textContent = pad(s);
 }
 setInterval(updateCountdown, 1000);
 updateCountdown();
 
-// Send Modal & WhatsApp Deliver
+// Auto Story Scroll Engine
+var autoScrollInterval = null;
+var isAutoScrolling = false;
+var scrollSections = ['secHero', 'secInvite', 'secEvents', 'secFoot'];
+
+function toggleAutoScroll() {
+  if (isAutoScrolling) {
+    stopAutoScroll();
+  } else {
+    startAutoScroll();
+  }
+}
+
+function startAutoScroll() {
+  isAutoScrolling = true;
+  var btn = document.getElementById('btnAutoScroll');
+  var ico = document.getElementById('autoScrollIcon');
+  var txt = document.getElementById('autoScrollText');
+  if (btn) btn.classList.add('is-active');
+  if (ico) ico.textContent = '⏸';
+  if (txt) txt.textContent = 'Pause';
+
+  autoScrollInterval = setInterval(function () {
+    var maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    if (window.scrollY >= maxScroll - 4) {
+      stopAutoScroll();
+      return;
+    }
+    window.scrollBy({ top: 2, behavior: 'smooth' });
+  }, 35);
+}
+
+function stopAutoScroll() {
+  isAutoScrolling = false;
+  if (autoScrollInterval) clearInterval(autoScrollInterval);
+  var btn = document.getElementById('btnAutoScroll');
+  var ico = document.getElementById('autoScrollIcon');
+  var txt = document.getElementById('autoScrollText');
+  if (btn) btn.classList.remove('is-active');
+  if (ico) ico.textContent = '▶';
+  if (txt) txt.textContent = 'Auto Play';
+}
+
+function scrollSection(direction) {
+  stopAutoScroll();
+  var secs = scrollSections.map(function(id) { return document.getElementById(id); }).filter(Boolean);
+  var currentY = window.scrollY;
+  var target = null;
+
+  if (direction > 0) {
+    for (var i = 0; i < secs.length; i++) {
+      if (secs[i].offsetTop > currentY + 30) {
+        target = secs[i];
+        break;
+      }
+    }
+  } else {
+    for (var i = secs.length - 1; i >= 0; i--) {
+      if (secs[i].offsetTop < currentY - 30) {
+        target = secs[i];
+        break;
+      }
+    }
+  }
+  if (target) {
+    target.scrollIntoView({ behavior: 'smooth' });
+  } else if (direction < 0) {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+
+window.addEventListener('wheel', function () { if (isAutoScrolling) stopAutoScroll(); }, { passive: true });
+window.addEventListener('touchmove', function () { if (isAutoScrolling) stopAutoScroll(); }, { passive: true });
+
+// Modal Logic
 function openSendModal() {
   document.getElementById('sendModal').style.display = 'flex';
 }
@@ -443,24 +751,14 @@ function getCleanUrl() {
   return href + (guest ? '?to=' + encodeURIComponent(guest) : '');
 }
 
-function updateGuestPersonalization() {
-  var guest = document.getElementById('targetGuestName').value.trim();
-  var label = document.getElementById('guestCallLabel');
-  if (label) {
-    label.innerHTML = guest ? ('Incoming call for <b>' + guest + '</b><span class="dots"><i>.</i><i>.</i><i>.</i></span>') : 'Incoming Invitation Call<span class="dots"><i>.</i><i>.</i><i>.</i></span>';
-  }
-}
-
 function sendViaWhatsApp() {
   var guest = document.getElementById('targetGuestName').value.trim() || 'Honored Guest';
-  var cc = document.getElementById('countryCodeSelect').value.replace(/\D/g, '');
+  var cc = (document.getElementById('countryCodeSelect').value || '91').replace(/\D/g, '');
   var rawPhone = document.getElementById('targetGuestPhone').value.trim().replace(/\D/g, '').replace(/^0+/, '');
   var fullPhone = rawPhone ? (cc + rawPhone) : '';
   var link = getCleanUrl();
-
-  var msg = encodeURIComponent("Dearest " + guest + ",\n\nYou are warmly invited to celebrate the " + "Griha Pravesh of The Sharma Family" + "! ✦\n\nVenue: " + "'Anandam', Villa 42, Palm Greens, Gurugram" + "\nDate: " + "Monday, 18th January 2027" + "\n\nPlease view your exclusive animated invitation here:\n" + link);
-
-  var url = fullPhone ? ('https://api.whatsapp.com/send?phone=' + fullPhone + '&text=' + msg) : ('https://api.whatsapp.com/send?text=' + msg);
+  var text = encodeURIComponent("Dearest " + guest + ",\n\nYou are cordially invited to celebrate the " + "Griha Pravesh of The Sharma Family" + "! ❦\n\nDate: " + "Monday, 18th January 2027" + "\nVenue: " + "'Anandam', Villa 42, Palm Greens, Gurugram" + "\n\nOpen your personalized animated invitation here:\n" + link + "\n\nWith love,\n" + "'Anandam' — The Sharma Abode");
+  var url = fullPhone ? ('https://api.whatsapp.com/send?phone=' + fullPhone + '&text=' + text) : ('https://api.whatsapp.com/send?text=' + text);
   window.open(url, '_blank');
   closeSendModal();
 }
