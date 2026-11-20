@@ -40,7 +40,41 @@ html::-webkit-scrollbar, body::-webkit-scrollbar, ::-webkit-scrollbar, *::-webki
   <div class="loader__txt">Preparing your invitation…</div>
 </div>
 
-<!-- ============ COVER: INCOMING INVITATION CALL ============ -->
+<!-- ============ COVER OPTION 1: 3D LUXURY WAX-SEAL ENVELOPE (The Digital Yes Style) ============ -->
+<section class="cover-env" id="coverEnv" role="dialog" aria-modal="true" style="display:none;" aria-label="3D Wax Seal Wedding Envelope">
+  <div class="cover-env__bg"></div>
+  <div class="cover-env__wrap">
+    <div class="cover-env__letter">
+      <p class="cover-env__to" id="coverEnvTo">Exclusive Wedding Invitation</p>
+      <h2 class="cover-env__couple">{{groom_name}} &amp; {{bride_name}}</h2>
+      <p class="cover-env__date">{{event_date|long}}</p>
+    </div>
+    <div class="cover-env__body" id="coverEnvBody" onclick="window.JFYRoyal && window.JFYRoyal.openCoverEnvelope && window.JFYRoyal.openCoverEnvelope()">
+      <div class="cover-env__back"></div>
+      <div class="cover-env__insert" id="coverEnvCard">
+        <div class="cover-env__card-inner">
+          <p class="cover-env__sloka">॥ श्री गणेशाय नमः ॥</p>
+          <div class="cover-env__monogram">{{groom_name|initial}} ❦ {{bride_name|initial}}</div>
+          <h3>{{groom_name}} &amp; {{bride_name}}</h3>
+          <p class="cover-env__card-date">{{event_date|long}}</p>
+          <p class="cover-env__card-venue">{{venue}}</p>
+        </div>
+      </div>
+      <div class="cover-env__pocket"></div>
+      <div class="cover-env__flap" id="coverEnvFlap"></div>
+      <div class="cover-env__seal" id="coverEnvSeal" role="button" tabindex="0" aria-label="Break seal and open invitation">
+        <div class="cover-env__wax">
+          <span>{{groom_name|initial}}<i>❦</i>{{bride_name|initial}}</span>
+        </div>
+      </div>
+    </div>
+    <button type="button" class="cover-env__tap-hint" id="coverEnvBtn" onclick="window.JFYRoyal && window.JFYRoyal.openCoverEnvelope && window.JFYRoyal.openCoverEnvelope()">
+      ✨ Tap to break seal &amp; open invitation
+    </button>
+  </div>
+</section>
+
+<!-- ============ COVER OPTION 2: INCOMING INVITATION CALL (Webgency Style) ============ -->
 <section class="call" id="call" role="dialog" aria-modal="true" aria-label="{{call_label}} from {{groom_name}}">
   <div class="call__bg" style="background-image:url('assets/img/corridor.webp')"></div>
   <div class="call__couple" data-bg="{{cover_image}}"></div>
