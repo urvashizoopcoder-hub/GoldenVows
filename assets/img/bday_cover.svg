@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 700" width="500" height="700">
+  <defs>
+    <radialGradient id="covBg" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#3B0764"/>
+      <stop offset="60%" stop-color="#1E0338"/>
+      <stop offset="100%" stop-color="#080010"/>
+    </radialGradient>
+    <linearGradient id="gGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE082"/>
+      <stop offset="50%" stop-color="#FFB300"/>
+      <stop offset="100%" stop-color="#FF6F00"/>
+    </linearGradient>
+    <filter id="cBloom">
+      <feGaussianBlur stdDeviation="8" result="b"/>
+      <feComposite in="SourceGraphic" in2="b" operator="over"/>
+    </filter>
+  </defs>
+
+  <rect width="500" height="700" fill="url(#covBg)"/>
+  <rect x="20" y="20" width="460" height="660" rx="24" fill="none" stroke="url(#gGold)" stroke-width="2.5" stroke-dasharray="12 6" opacity="0.6"/>
+
+  <!-- Golden Crown / Tiara of the Birthday Star -->
+  <g transform="translate(250, 180)">
+    <circle cx="0" cy="0" r="110" fill="rgba(255,179,0,0.12)" filter="url(#cBloom)"/>
+    <circle cx="0" cy="0" r="95" fill="#1F0433" stroke="url(#gGold)" stroke-width="3"/>
+    
+    <!-- Royal Birthday Crown Motif -->
+    <path d="M-50,30 L-50,-20 L-25,10 L0,-40 L25,10 L50,-20 L50,30 Z" fill="url(#gGold)"/>
+    <!-- Jewels on Crown -->
+    <circle cx="-50" cy="-24" r="5" fill="#FF4081"/>
+    <circle cx="0" cy="-44" r="7" fill="#00E5FF"/>
+    <circle cx="50" cy="-24" r="5" fill="#FF4081"/>
+    <circle cx="-25" cy="20" r="4" fill="#FFF"/>
+    <circle cx="0" cy="20" r="5" fill="#FFD700"/>
+    <circle cx="25" cy="20" r="4" fill="#FFF"/>
+  </g>
+
+  <!-- VIP Pass Ribbon & Label -->
+  <g transform="translate(250, 360)">
+    <rect x="-140" y="-22" width="280" height="44" rx="22" fill="url(#gGold)"/>
+    <text x="0" y="7" text-anchor="middle" font-family="'Josefin Sans', sans-serif" font-size="16" font-weight="900" fill="#120224" letter-spacing="4">★ ALL-ACCESS VIP PASS ★</text>
+  </g>
+
+  <!-- Cake & Champagne Illustration -->
+  <g transform="translate(250, 480)">
+    <!-- 2-Tier Cake -->
+    <rect x="-70" y="10" width="140" height="45" rx="8" fill="#4A0E4E" stroke="#FFD700" stroke-width="2"/>
+    <rect x="-45" y="-25" width="90" height="35" rx="6" fill="#6A1B9A" stroke="#FFD700" stroke-width="2"/>
+    <!-- Candle -->
+    <line x1="0" y1="-25" x2="0" y2="-45" stroke="#FFF" stroke-width="2.5"/>
+    <circle cx="0" cy="-50" r="6" fill="#FFEB3B" filter="url(#cBloom)"/>
+    <circle cx="0" cy="-49" r="2.5" fill="#FF5722"/>
+  </g>
+
+  <text x="250" y="590" text-anchor="middle" font-family="'Cinzel', serif" font-size="28" font-weight="bold" fill="#FFE082" letter-spacing="4">BIRTHDAY GALA</text>
+  <text x="250" y="625" text-anchor="middle" font-family="'Josefin Sans', sans-serif" font-size="14" fill="#FF80AB" letter-spacing="3">AN UNFORGETTABLE NIGHT TO CELEBRATE</text>
+</svg>

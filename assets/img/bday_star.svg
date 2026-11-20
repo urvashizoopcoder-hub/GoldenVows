@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <radialGradient id="starG" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4A0E4E"/>
+      <stop offset="100%" stop-color="#120024"/>
+    </radialGradient>
+    <linearGradient id="sGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE082"/>
+      <stop offset="50%" stop-color="#FFB300"/>
+      <stop offset="100%" stop-color="#FF6F00"/>
+    </linearGradient>
+  </defs>
+  <circle cx="200" cy="200" r="190" fill="url(#starG)" stroke="url(#sGold)" stroke-width="4"/>
+  <!-- Laurel / Celebrant Wreath -->
+  <g fill="url(#sGold)" opacity="0.85">
+    <circle cx="200" cy="60" r="8"/>
+    <!-- Stylish Birthday Star Icon -->
+    <path d="M200,90 L212,126 L250,126 L220,148 L232,185 L200,162 L168,185 L180,148 L150,126 L188,126 Z" fill="url(#sGold)"/>
+  </g>
+  <!-- Sunglasses & Smile Silhouette representing Celebration Star -->
+  <g transform="translate(200, 240)">
+    <!-- Retro VIP Sunglasses -->
+    <path d="M-60,-20 Q-30,-25 0,-15 Q30,-25 60,-20 L50,10 Q30,25 0,15 Q-30,25 -50,10 Z" fill="#000" stroke="url(#sGold)" stroke-width="3"/>
+    <path d="M-50,-10 L-10,-5 Q-25,12 -45,5 Z" fill="#00E5FF" opacity="0.8"/>
+    <path d="M50,-10 L10,-5 Q25,12 45,5 Z" fill="#FF4081" opacity="0.8"/>
+    <!-- Confident Smile -->
+    <path d="M-30,45 Q0,70 30,45" fill="none" stroke="url(#sGold)" stroke-width="4" stroke-linecap="round"/>
+  </g>
+  <text x="200" y="360" text-anchor="middle" font-family="'Cinzel', serif" font-size="20" font-weight="bold" fill="#FFE082" letter-spacing="3">THE BIRTHDAY STAR</text>
+</svg>

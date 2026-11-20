@@ -1,15 +1,9 @@
-#!/usr/bin/env python3
-"""
-GoldenVows Celebration Studio — 60 Unique Templates Generator
-Generates 60 unique, beautifully styled, interactive HTML templates with separate URLs.
-"""
 import os, json
 
-TEMPLATES_DIR = r"c:\Users\URVASHI BHARTI\OneDrive\Desktop\zoop\templates"
-ASSETS_DIR = r"c:\Users\URVASHI BHARTI\OneDrive\Desktop\zoop\assets"
+TEMPLATES_DIR = r"c:\\Users\\URVASHI BHARTI\\OneDrive\\Desktop\\zoop\\templates"
+ASSETS_DIR = r"c:\\Users\\URVASHI BHARTI\\OneDrive\\Desktop\\zoop\\assets"
 os.makedirs(TEMPLATES_DIR, exist_ok=True)
 
-# 60 Rich Template Definitions
 templates_data = [
     # 1-12: Royal & Heritage Weddings
     {
@@ -736,8 +730,8 @@ templates_data = [
         "closing": "A baby fills a place in your heart that you never knew was empty.",
         "date_str": "Sunday, 24th January 2027", "date_iso": "2027-01-24T15:30", "time_str": "3:30 PM",
         "venue": "The Oberoi Udaivilas, Udaipur", "venue_addr": "Haridas Ji Ki Magri, Udaipur 313001",
-        "hero_img": "../assets/img/hero_palace.webp", "cover_img": "../assets/img/couple_call.webp",
-        "c1_img": "../assets/img/groom.webp", "c2_img": "../assets/img/bride.webp",
+        "hero_img": "../assets/img/baby_hero.svg", "cover_img": "../assets/img/baby_cover.svg",
+        "c1_img": "../assets/img/baby_hero.svg", "c2_img": "../assets/img/baby_cover.svg",
         "opening_style": "envelope", "ambient": "stars", "music": "piano", "hashtag": "#BabySharmaOnTheWay",
         "events": [
             {"name": "Godh Bharai Blessings", "date": "24 Jan 2027, 3:30 PM", "venue": "Lawn Courtyard", "dress": "Pastel Pink or Blue", "note": "Flower shower & auspicious mantras"},
@@ -758,8 +752,8 @@ templates_data = [
         "closing": "Warm cuddles and honey smiles await.",
         "date_str": "Saturday, 13th February 2027", "date_iso": "2027-02-13T16:00", "time_str": "4:00 PM",
         "venue": "Rosewood Manor Gardens, Bengaluru", "venue_addr": "Whitefield Main Rd, Bengaluru 560066",
-        "hero_img": "../assets/img/hero_palace.webp", "cover_img": "../assets/img/couple_call.webp",
-        "c1_img": "../assets/img/groom.webp", "c2_img": "../assets/img/bride.webp",
+        "hero_img": "../assets/img/baby_hero.svg", "cover_img": "../assets/img/baby_cover.svg",
+        "c1_img": "../assets/img/baby_hero.svg", "c2_img": "../assets/img/baby_cover.svg",
         "opening_style": "envelope", "ambient": "petals", "music": "piano", "hashtag": "#BearlyWaitRoy",
         "events": [
             {"name": "Honey Tea & Welcome", "date": "13 Feb 2027, 4:00 PM", "venue": "Manor Veranda", "dress": "Brown & Cream Gingham", "note": "Honey scones and fruit tea"},
@@ -780,8 +774,8 @@ templates_data = [
         "closing": "May courage and kindness follow you wherever you roar.",
         "date_str": "Sunday, 7th March 2027", "date_iso": "2027-03-07T15:00", "time_str": "3:00 PM",
         "venue": "Emerald Park Pavilion, Pune", "venue_addr": "Koregaon Park Annexe, Pune 411036",
-        "hero_img": "../assets/img/hero_palace.webp", "cover_img": "../assets/img/couple_call.webp",
-        "c1_img": "../assets/img/groom.webp", "c2_img": "../assets/img/bride.webp",
+        "hero_img": "../assets/img/baby_hero.svg", "cover_img": "../assets/img/baby_cover.svg",
+        "c1_img": "../assets/img/baby_hero.svg", "c2_img": "../assets/img/baby_cover.svg",
         "opening_style": "call", "ambient": "petals", "music": "piano", "hashtag": "#LittleCubSaxena",
         "events": [
             {"name": "Jungle Welcome & Mocktails", "date": "07 Mar 2027, 3:00 PM", "venue": "Safari Gazebo", "dress": "Sage Green & Khaki", "note": "Tropical smoothies & treats"},
@@ -802,8 +796,8 @@ templates_data = [
         "closing": "May your life be filled with wonder and forest magic.",
         "date_str": "Saturday, 20th March 2027", "date_iso": "2027-03-20T14:30", "time_str": "2:30 PM",
         "venue": "Pinecrest Lodge, Manali", "venue_addr": "Club House Rd, Old Manali, HP 175131",
-        "hero_img": "../assets/img/hero_palace.webp", "cover_img": "../assets/img/couple_call.webp",
-        "c1_img": "../assets/img/groom.webp", "c2_img": "../assets/img/bride.webp",
+        "hero_img": "../assets/img/baby_hero.svg", "cover_img": "../assets/img/baby_cover.svg",
+        "c1_img": "../assets/img/baby_hero.svg", "c2_img": "../assets/img/baby_cover.svg",
         "opening_style": "envelope", "ambient": "petals", "music": "piano", "hashtag": "#WoodlandBabyMiller",
         "events": [
             {"name": "Forest Berry Punch & Treats", "date": "20 Mar 2027, 2:30 PM", "venue": "Woodland Porch", "dress": "Earthy Tones", "note": "Fresh berries & warm cider"},
@@ -824,8 +818,8 @@ templates_data = [
         "closing": "Your tiny wings have already touched our hearts.",
         "date_str": "Sunday, 11th April 2027", "date_iso": "2027-04-11T16:00", "time_str": "4:00 PM",
         "venue": "Grand Hyatt Courtyard, New Delhi", "venue_addr": "Vasant Kunj Phase II, Nelson Mandela Marg, New Delhi 110070",
-        "hero_img": "../assets/img/hero_palace.webp", "cover_img": "../assets/img/couple_call.webp",
-        "c1_img": "../assets/img/groom.webp", "c2_img": "../assets/img/bride.webp",
+        "hero_img": "../assets/img/baby_hero.svg", "cover_img": "../assets/img/baby_cover.svg",
+        "c1_img": "../assets/img/baby_hero.svg", "c2_img": "../assets/img/baby_cover.svg",
         "opening_style": "call", "ambient": "stars", "music": "piano", "hashtag": "#StorkBringsGroverBaby",
         "events": [
             {"name": "Welcome Clouds & Cocktails", "date": "11 Apr 2027, 4:00 PM", "venue": "Skyline Garden", "dress": "White & Gold / Blue", "note": "Cotton candy drinks and macarons"},
@@ -846,8 +840,8 @@ templates_data = [
         "closing": "May the newborn bring health, wisdom, and joy to the family.",
         "date_str": "Saturday, 24th April 2027", "date_iso": "2027-04-24T11:00", "time_str": "11:00 AM",
         "venue": "Heritage Haveli Courtyard, Jaipur", "venue_addr": "Amer Road, Jaipur 302002",
-        "hero_img": "../assets/img/hero_palace.webp", "cover_img": "../assets/img/couple_call.webp",
-        "c1_img": "../assets/img/groom.webp", "c2_img": "../assets/img/bride.webp",
+        "hero_img": "../assets/img/baby_hero.svg", "cover_img": "../assets/img/baby_cover.svg",
+        "c1_img": "../assets/img/baby_hero.svg", "c2_img": "../assets/img/baby_cover.svg",
         "opening_style": "envelope", "ambient": "petals", "music": "sitar", "hashtag": "#PoojaKiGodhBharai",
         "events": [
             {"name": "Vedic Garbha Puja", "date": "24 Apr 2027, 10:30 AM", "venue": "Puja Sthal", "dress": "Traditional Saree", "note": "Maha Lakshmi and Gauri prayers"},
@@ -868,8 +862,8 @@ templates_data = [
         "closing": "Your cradle is ready, and our hearts are yours forever.",
         "date_str": "Sunday, 9th May 2027", "date_iso": "2027-05-09T16:00", "time_str": "4:00 PM",
         "venue": "Magnolia Gardens, Chandigarh", "venue_addr": "Sector 10, Chandigarh 160011",
-        "hero_img": "../assets/img/hero_palace.webp", "cover_img": "../assets/img/couple_call.webp",
-        "c1_img": "../assets/img/groom.webp", "c2_img": "../assets/img/bride.webp",
+        "hero_img": "../assets/img/baby_hero.svg", "cover_img": "../assets/img/baby_cover.svg",
+        "c1_img": "../assets/img/baby_hero.svg", "c2_img": "../assets/img/baby_cover.svg",
         "opening_style": "envelope", "ambient": "stars", "music": "piano", "hashtag": "#DivyaKunalBabyShower",
         "events": [
             {"name": "Lullaby High Tea", "date": "09 May 2027, 4:00 PM", "venue": "The Rose Gazebo", "dress": "Pastel Lavender & White", "note": "Lavender iced tea and macarons"},
@@ -890,8 +884,8 @@ templates_data = [
         "closing": "Brightening our world in every possible way.",
         "date_str": "Saturday, 22nd May 2027", "date_iso": "2027-05-22T15:30", "time_str": "3:30 PM",
         "venue": "Sunburst Meadows, Gurugram", "venue_addr": "Sohna Road, Gurugram 122103",
-        "hero_img": "../assets/img/hero_palace.webp", "cover_img": "../assets/img/couple_call.webp",
-        "c1_img": "../assets/img/groom.webp", "c2_img": "../assets/img/bride.webp",
+        "hero_img": "../assets/img/baby_hero.svg", "cover_img": "../assets/img/baby_cover.svg",
+        "c1_img": "../assets/img/baby_hero.svg", "c2_img": "../assets/img/baby_cover.svg",
         "opening_style": "call", "ambient": "petals", "music": "piano", "hashtag": "#SunshineKapoorBaby",
         "events": [
             {"name": "Lemonade & Sunflower Bar", "date": "22 May 2027, 3:30 PM", "venue": "Meadow Deck", "dress": "Yellow & White Linen", "note": "Fresh lemonades and berry tartlets"},
@@ -912,8 +906,8 @@ templates_data = [
         "closing": "Anchored forever in unconditional love.",
         "date_str": "Sunday, 6th June 2027", "date_iso": "2027-06-06T16:00", "time_str": "4:00 PM",
         "venue": "Marine Terrace, Alibaug", "venue_addr": "Varsoli Beach Rd, Alibaug, Maharashtra 402201",
-        "hero_img": "../assets/img/hero_palace.webp", "cover_img": "../assets/img/couple_call.webp",
-        "c1_img": "../assets/img/groom.webp", "c2_img": "../assets/img/bride.webp",
+        "hero_img": "../assets/img/baby_hero.svg", "cover_img": "../assets/img/baby_cover.svg",
+        "c1_img": "../assets/img/baby_hero.svg", "c2_img": "../assets/img/baby_cover.svg",
         "opening_style": "envelope", "ambient": "stars", "music": "piano", "hashtag": "#WhaleWelcomeMehta",
         "events": [
             {"name": "Sea Breeze Welcome", "date": "06 Jun 2027, 4:00 PM", "venue": "Seaside Deck", "dress": "Nautical Navy & Sky Blue", "note": "Coconut water and coastal snacks"},
@@ -934,8 +928,8 @@ templates_data = [
         "closing": "Your great adventure starts in our loving arms.",
         "date_str": "Saturday, 19th June 2027", "date_iso": "2027-06-19T15:00", "time_str": "3:00 PM",
         "venue": "Skyline Garden Pavilion, Hyderabad", "venue_addr": "Jubilee Hills, Road No. 36, Hyderabad 500033",
-        "hero_img": "../assets/img/hero_palace.webp", "cover_img": "../assets/img/couple_call.webp",
-        "c1_img": "../assets/img/groom.webp", "c2_img": "../assets/img/bride.webp",
+        "hero_img": "../assets/img/baby_hero.svg", "cover_img": "../assets/img/baby_cover.svg",
+        "c1_img": "../assets/img/baby_hero.svg", "c2_img": "../assets/img/baby_cover.svg",
         "opening_style": "envelope", "ambient": "lanterns", "music": "piano", "hashtag": "#UpAndAwaySinghal",
         "events": [
             {"name": "Cloud Nine Punch & Desserts", "date": "19 Jun 2027, 3:00 PM", "venue": "Sky Gazebo", "dress": "Pastel Striped", "note": "Cupcakes and cloud smoothies"},
@@ -958,8 +952,8 @@ templates_data = [
         "closing": "Cheers to 50 fabulous years and the brilliant journey ahead!",
         "date_str": "Saturday, 27th March 2027", "date_iso": "2027-03-27T20:00", "time_str": "8:00 PM",
         "venue": "The Taj Mahal Palace, Mumbai", "venue_addr": "Apollo Bunder, Colaba, Mumbai 400001",
-        "hero_img": "../assets/img/hero_palace.webp", "cover_img": "../assets/img/couple_call.webp",
-        "c1_img": "../assets/img/groom.webp", "c2_img": "../assets/img/bride.webp",
+        "hero_img": "../assets/img/bday_hero.svg", "cover_img": "../assets/img/bday_cover.svg",
+        "c1_img": "../assets/img/bday_cover.svg", "c2_img": "../assets/img/bday_hero.svg",
         "opening_style": "call", "ambient": "confetti", "music": "piano", "hashtag": "#VikramTurns50",
         "events": [
             {"name": "Red Carpet Welcome & Cocktails", "date": "27 Mar 2027, 8:00 PM", "venue": "Gateway Foyer", "dress": "Black Tie / Gold Gala", "note": "Vintage champagne & live harp"},
@@ -980,8 +974,8 @@ templates_data = [
         "closing": "Dance like nobody's watching, glow until the sun rises.",
         "date_str": "Friday, 16th April 2027", "date_iso": "2027-04-16T22:00", "time_str": "10:00 PM",
         "venue": "Dragonfly Club, Aerocity, New Delhi", "venue_addr": "Worldmark 1, Aerocity, New Delhi 110037",
-        "hero_img": "../assets/img/hero_palace.webp", "cover_img": "../assets/img/couple_call.webp",
-        "c1_img": "../assets/img/groom.webp", "c2_img": "../assets/img/bride.webp",
+        "hero_img": "../assets/img/bday_hero.svg", "cover_img": "../assets/img/bday_cover.svg",
+        "c1_img": "../assets/img/bday_cover.svg", "c2_img": "../assets/img/bday_hero.svg",
         "opening_style": "call", "ambient": "confetti", "music": "piano", "hashtag": "#Aryan21Glow",
         "events": [
             {"name": "Glow Bar Pre-Drinks", "date": "16 Apr 2027, 10:00 PM", "venue": "VIP Mezzanine", "dress": "Neon & Cyber Black", "note": "Neon face paint & glow sticks"},
@@ -1002,8 +996,8 @@ templates_data = [
         "closing": "Keep on dancing under the disco light.",
         "date_str": "Saturday, 8th May 2027", "date_iso": "2027-05-08T20:30", "time_str": "8:30 PM",
         "venue": "Soho Sky Bar, Mumbai", "venue_addr": "Juhu Tara Rd, Mumbai 400049",
-        "hero_img": "../assets/img/hero_palace.webp", "cover_img": "../assets/img/couple_call.webp",
-        "c1_img": "../assets/img/groom.webp", "c2_img": "../assets/img/bride.webp",
+        "hero_img": "../assets/img/bday_hero.svg", "cover_img": "../assets/img/bday_cover.svg",
+        "c1_img": "../assets/img/bday_cover.svg", "c2_img": "../assets/img/bday_hero.svg",
         "opening_style": "call", "ambient": "confetti", "music": "piano", "hashtag": "#AliaDirtyThirty",
         "events": [
             {"name": "Sparkling Prosecco Hour", "date": "08 May 2027, 8:30 PM", "venue": "Rooftop Deck", "dress": "Sequins, Silks & 70s Glam", "note": "Disco cocktails & glitter bar"},
@@ -1024,8 +1018,8 @@ templates_data = [
         "closing": "May your 16th year shine as bright as your smile.",
         "date_str": "Sunday, 12th September 2027", "date_iso": "2027-09-12T18:00", "time_str": "6:00 PM",
         "venue": "The Imperial Ballroom, New Delhi", "venue_addr": "Janpath, Connaught Place, New Delhi 110001",
-        "hero_img": "../assets/img/hero_palace.webp", "cover_img": "../assets/img/couple_call.webp",
-        "c1_img": "../assets/img/groom.webp", "c2_img": "../assets/img/bride.webp",
+        "hero_img": "../assets/img/bday_hero.svg", "cover_img": "../assets/img/bday_cover.svg",
+        "c1_img": "../assets/img/bday_cover.svg", "c2_img": "../assets/img/bday_hero.svg",
         "opening_style": "call", "ambient": "petals", "music": "piano", "hashtag": "#AnanyaSweet16",
         "events": [
             {"name": "Princess Red Carpet", "date": "12 Sep 2027, 6:00 PM", "venue": "Grand Foyer", "dress": "Princess Pink & Suits", "note": "Photo booth & tiara station"},
@@ -1046,8 +1040,8 @@ templates_data = [
         "closing": "To 30 years of brotherhood, grit, and good times.",
         "date_str": "Saturday, 2nd October 2027", "date_iso": "2027-10-02T20:00", "time_str": "8:00 PM",
         "venue": "The Malt & Cigar Club, Bengaluru", "venue_addr": "UB City, Vittal Mallya Rd, Bengaluru 560001",
-        "hero_img": "../assets/img/hero_palace.webp", "cover_img": "../assets/img/couple_call.webp",
-        "c1_img": "../assets/img/groom.webp", "c2_img": "../assets/img/bride.webp",
+        "hero_img": "../assets/img/bday_hero.svg", "cover_img": "../assets/img/bday_cover.svg",
+        "c1_img": "../assets/img/bday_cover.svg", "c2_img": "../assets/img/bday_hero.svg",
         "opening_style": "envelope", "ambient": "confetti", "music": "piano", "hashtag": "#KaranTurns30",
         "events": [
             {"name": "Single Malt Tasting", "date": "02 Oct 2027, 8:00 PM", "venue": "Cask Room", "dress": "Smart Blazer & Loafers", "note": "Guided scotch tasting by master sommelier"},
@@ -1068,8 +1062,8 @@ templates_data = [
         "closing": "Little hands, big dreams, endless love.",
         "date_str": "Sunday, 15th August 2027", "date_iso": "2027-08-15T16:00", "time_str": "4:00 PM",
         "venue": "Sunshine Meadow Lawns, Pune", "venue_addr": "Baner Hills Rd, Pune 411045",
-        "hero_img": "../assets/img/hero_palace.webp", "cover_img": "../assets/img/couple_call.webp",
-        "c1_img": "../assets/img/groom.webp", "c2_img": "../assets/img/bride.webp",
+        "hero_img": "../assets/img/bday_hero.svg", "cover_img": "../assets/img/bday_cover.svg",
+        "c1_img": "../assets/img/bday_cover.svg", "c2_img": "../assets/img/bday_hero.svg",
         "opening_style": "call", "ambient": "confetti", "music": "piano", "hashtag": "#YuvaanTurnsOne",
         "events": [
             {"name": "Animal Kingdom Play Zone", "date": "15 Aug 2027, 4:00 PM", "venue": "Inflatable Park", "dress": "Safari / Colorful Casual", "note": "Bouncy castle and baby ball pit"},
@@ -1090,8 +1084,8 @@ templates_data = [
         "closing": "Stepping into 40 with grace, fire, and champagne.",
         "date_str": "Saturday, 11th September 2027", "date_iso": "2027-09-11T20:00", "time_str": "8:00 PM",
         "venue": "Four Seasons Rooftop Terrace, Bengaluru", "venue_addr": "8 Bellary Rd, Ganganagar, Bengaluru 560032",
-        "hero_img": "../assets/img/hero_palace.webp", "cover_img": "../assets/img/couple_call.webp",
-        "c1_img": "../assets/img/groom.webp", "c2_img": "../assets/img/bride.webp",
+        "hero_img": "../assets/img/bday_hero.svg", "cover_img": "../assets/img/bday_cover.svg",
+        "c1_img": "../assets/img/bday_cover.svg", "c2_img": "../assets/img/bday_hero.svg",
         "opening_style": "call", "ambient": "confetti", "music": "piano", "hashtag": "#ShaliniAt40",
         "events": [
             {"name": "Sparkling Cocktail Welcome", "date": "11 Sep 2027, 8:00 PM", "venue": "Copitas Bar", "dress": "Rose Gold / Black Tie", "note": "Signature cocktails & harp melodies"},
@@ -1112,8 +1106,8 @@ templates_data = [
         "closing": "Thank you for joining our circus of joy!",
         "date_str": "Saturday, 23rd October 2027", "date_iso": "2027-10-23T15:30", "time_str": "3:30 PM",
         "venue": "Wonder Carnival Lawns, Noida", "venue_addr": "Sector 38A, Noida, UP 201301",
-        "hero_img": "../assets/img/hero_palace.webp", "cover_img": "../assets/img/couple_call.webp",
-        "c1_img": "../assets/img/groom.webp", "c2_img": "../assets/img/bride.webp",
+        "hero_img": "../assets/img/bday_hero.svg", "cover_img": "../assets/img/bday_cover.svg",
+        "c1_img": "../assets/img/bday_cover.svg", "c2_img": "../assets/img/bday_hero.svg",
         "opening_style": "envelope", "ambient": "confetti", "music": "piano", "hashtag": "#KapoorTwinsCarnival",
         "events": [
             {"name": "Circus Games & Ticket Booths", "date": "23 Oct 2027, 3:30 PM", "venue": "Big Top Lawn", "dress": "Bright & Playful", "note": "Ring toss, popcorn & candy floss"},
@@ -1136,8 +1130,8 @@ templates_data = [
         "closing": "May this home always echo with laughter, peace and prosperity.",
         "date_str": "Monday, 18th January 2027", "date_iso": "2027-01-18T09:30", "time_str": "9:30 AM",
         "venue": "'Anandam', Villa 42, Palm Greens, Gurugram", "venue_addr": "Sector 54, Golf Course Road, Gurugram 122002",
-        "hero_img": "../assets/img/hero_palace.webp", "cover_img": "../assets/img/couple_call.webp",
-        "c1_img": "../assets/img/groom.webp", "c2_img": "../assets/img/bride.webp",
+        "hero_img": "../assets/img/house_hero.svg", "cover_img": "../assets/img/house_cover.svg",
+        "c1_img": "../assets/img/house_family.svg", "c2_img": "../assets/img/house_residence.svg",
         "opening_style": "envelope", "ambient": "petals", "music": "sitar", "hashtag": "#SharmaGrihaPravesh",
         "events": [
             {"name": "Vastu Shanti & Ganpati Puja", "date": "18 Jan 2027, 9:30 AM", "venue": "Main Courtyard", "dress": "Traditional Indian Attire", "note": "Havan & chanting for positive energy"},
@@ -1158,8 +1152,8 @@ templates_data = [
         "closing": "Our doors are open, our hearts are full.",
         "date_str": "Sunday, 7th February 2027", "date_iso": "2027-02-07T10:00", "time_str": "10:00 AM",
         "venue": "'Shanti Villa', Plot 18, Emerald Enclave, Jaipur", "venue_addr": "Sirsi Road, Jaipur, Rajasthan 302012",
-        "hero_img": "../assets/img/hero_palace.webp", "cover_img": "../assets/img/couple_call.webp",
-        "c1_img": "../assets/img/groom.webp", "c2_img": "../assets/img/bride.webp",
+        "hero_img": "../assets/img/house_hero.svg", "cover_img": "../assets/img/house_cover.svg",
+        "c1_img": "../assets/img/house_family.svg", "c2_img": "../assets/img/house_residence.svg",
         "opening_style": "envelope", "ambient": "petals", "music": "sitar", "hashtag": "#AgarwalShantiVilla",
         "events": [
             {"name": "Navagraha Havan", "date": "07 Feb 2027, 10:00 AM", "venue": "Rooftop Veranda", "dress": "Yellow / Orange Traditional", "note": "Vedic invocation and blessings"},
@@ -1180,8 +1174,8 @@ templates_data = [
         "closing": "Come break in our floors and drink our wine!",
         "date_str": "Saturday, 27th February 2027", "date_iso": "2027-02-27T18:00", "time_str": "6:00 PM",
         "venue": "Penthouse 42, The Grand Residences, Bengaluru", "venue_addr": "Outer Ring Road, Bellandur, Bengaluru 560103",
-        "hero_img": "../assets/img/hero_palace.webp", "cover_img": "../assets/img/couple_call.webp",
-        "c1_img": "../assets/img/groom.webp", "c2_img": "../assets/img/bride.webp",
+        "hero_img": "../assets/img/house_hero.svg", "cover_img": "../assets/img/house_cover.svg",
+        "c1_img": "../assets/img/house_family.svg", "c2_img": "../assets/img/house_residence.svg",
         "opening_style": "call", "ambient": "confetti", "music": "piano", "hashtag": "#VermaPenthouse42",
         "events": [
             {"name": "Skyline Sunset Wine & Cheese", "date": "27 Feb 2027, 6:00 PM", "venue": "Balcony Deck", "dress": "Smart Casual", "note": "Sunset view, cheese board & wines"},
@@ -1202,8 +1196,8 @@ templates_data = [
         "closing": "Your presence is our supreme blessing.",
         "date_str": "Friday, 12th March 2027", "date_iso": "2027-03-12T07:00", "time_str": "7:00 AM",
         "venue": "'Gokulam', Temple View Enclave, Chennai", "venue_addr": "ECR, Injambakkam, Chennai 600115",
-        "hero_img": "../assets/img/hero_palace.webp", "cover_img": "../assets/img/couple_call.webp",
-        "c1_img": "../assets/img/groom.webp", "c2_img": "../assets/img/bride.webp",
+        "hero_img": "../assets/img/house_hero.svg", "cover_img": "../assets/img/house_cover.svg",
+        "c1_img": "../assets/img/house_family.svg", "c2_img": "../assets/img/house_residence.svg",
         "opening_style": "envelope", "ambient": "petals", "music": "sitar", "hashtag": "#IyerGokulamHouse",
         "events": [
             {"name": "Ganapathi & Lakshmi Homam", "date": "12 Mar 2027, 6:30 AM", "venue": "Central Hall", "dress": "Veshti & Kanjeevaram", "note": "Auspicious Brahma Muhurtham homam"},
@@ -1224,8 +1218,8 @@ templates_data = [
         "closing": "A house made beautiful by the people who visit it.",
         "date_str": "Sunday, 18th April 2027", "date_iso": "2027-04-18T17:00", "time_str": "5:00 PM",
         "venue": "'Aashiyana', Royal Palms, Ahmedabad", "venue_addr": "SG Highway, Bodakdev, Ahmedabad 380054",
-        "hero_img": "../assets/img/hero_palace.webp", "cover_img": "../assets/img/couple_call.webp",
-        "c1_img": "../assets/img/groom.webp", "c2_img": "../assets/img/bride.webp",
+        "hero_img": "../assets/img/house_hero.svg", "cover_img": "../assets/img/house_cover.svg",
+        "c1_img": "../assets/img/house_family.svg", "c2_img": "../assets/img/house_residence.svg",
         "opening_style": "envelope", "ambient": "petals", "music": "piano", "hashtag": "#MehtaAashiyana",
         "events": [
             {"name": "House Blessing Ceremony", "date": "18 Apr 2027, 5:00 PM", "venue": "Main Hall", "dress": "Festive Ethnic", "note": "Family puja and auspicious blessing"},
@@ -1353,67 +1347,301 @@ with open(os.path.join(ASSETS_DIR, "templates-data.js"), "w", encoding="utf-8") 
     f.write(js_content)
 print("Generated assets/templates-data.js")
 
-# Standalone HTML Template Generator for each of the 60 unique templates
+
+
+# Write assets/templates-data.js so index.html can render the full interactive gallery
+js_content = "window.GOLDENVOWS_TEMPLATES = " + json.dumps(templates_data, indent=2) + ";\n"
+with open(os.path.join(ASSETS_DIR, "templates-data.js"), "w", encoding="utf-8") as f:
+    f.write(js_content)
+print("Generated assets/templates-data.js")
+
 for t in templates_data:
     filename = f"{t['slug']}.html"
     filepath = os.path.join(TEMPLATES_DIR, filename)
     cat_key = t.get("category_key", "wedding")
-    
-    # Category-specific theme accent & icons
-    cat_icon = "✦ ❦ ✦"
-    cat_badge_label = f"Template #{t['id']:02d} · {t['category']}"
-    hero_symbol = "❦"
-    ornament_style = ""
-    
-    if cat_key == "housewarming":
-        cat_icon = "🪔 🏡 🪔"
-        hero_symbol = "🏡"
-        ornament_style = "border-radius: 8px; border: 2px dashed var(--gold);"
-    elif cat_key == "babyshower":
-        cat_icon = "🍼 ☁️ 🍼"
-        hero_symbol = "🍼"
-        ornament_style = "border-radius: 28px; box-shadow: 0 10px 25px rgba(244,167,181,0.25);"
-    elif cat_key == "birthday":
-        cat_icon = "🎂 ✨ 🎂"
-        hero_symbol = "🎉"
-        ornament_style = "border-radius: 14px; border: 2px solid var(--gold); background: linear-gradient(135deg, rgba(212,175,55,0.12), rgba(0,0,0,0.02));"
-    elif cat_key == "engagement":
-        cat_icon = "💍 ✨ 💍"
-        hero_symbol = "💍"
-        ornament_style = "border-radius: 24px; border: 1.5px solid var(--gold);"
-    elif cat_key == "anniversary":
-        cat_icon = "🥂 ✦ 🥂"
-        hero_symbol = "🥂"
-        ornament_style = "border-radius: 20px; border: 1.5px solid var(--gold);"
-    else:
-        cat_icon = "✦ ❦ ✦"
-        hero_symbol = "❤"
-        ornament_style = "border-radius: 120px 120px 18px 18px; border: 2px solid var(--gold);"
 
-    events_html_book = ""
-    events_html_scroll = ""
-    for ev in t["events"]:
-        events_html_book += f"""
-        <div class="ev-card-item" style="background:rgba(212,175,55,0.07);border:1px solid rgba(212,175,55,0.3);border-radius:14px;padding:12px;margin:10px 0;text-align:left;">
-          <b style="color:var(--wine);font-size:14px;display:flex;align-items:center;gap:6px;"><span>{hero_symbol}</span><span>{ev['name']}</span></b>
-          <p style="font-size:12px;color:var(--rose-d);margin:4px 0;"><svg style="width:12px;height:12px;vertical-align:-1px;margin-right:4px;" viewBox="0 0 24 24"><path fill="currentColor" d="M7 2h2v2h6V2h2v2h3v18H4V4h3V2Zm11 8H6v10h12V10Z"/></svg>{ev['date']}</p>
-          <p style="font-size:12px;color:var(--ink-l);margin:2px 0;"><svg style="width:12px;height:12px;vertical-align:-1px;margin-right:4px;" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7Zm0 4.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Z"/></svg>{ev['venue']}</p>
-          <small style="font-size:11px;color:#6B7280;display:block;margin-top:3px;">Dress code: {ev['dress']}</small>
+    if cat_key == "housewarming":
+        header_banner = """
+        <div class="hw-toran-banner">
+          <div class="hw-toran-leaves">🍃 🌺 🍃 🌼 🍃 🌺 🍃 🌼 🍃</div>
+          <p class="hw-vedic-sloka">॥ ॐ नमो भगवते वास्तुपुरुषाय नमः ॥</p>
+          <div class="hw-kalash-badge">🪔 🏡 🪔</div>
+          <h2 class="hw-main-title">GRIHA PRAVESH</h2>
+          <p class="hw-sub-title">Auspicious Housewarming Ceremony</p>
         </div>"""
         
-        events_html_scroll += f"""
-        <article class="evcard" style="background:#fff;border-radius:18px;padding:18px;box-shadow:0 8px 24px rgba(0,0,0,0.06);border:1px solid rgba(212,175,55,0.3);margin-bottom:14px;">
-          <h4 class="evcard__name" style="font-family:var(--serif);font-size:20px;color:var(--wine);margin-bottom:4px;">{ev['name']}</h4>
-          <p class="evcard__orn" style="color:var(--gold);margin:4px 0;">{cat_icon}</p>
-          <p class="evcard__row" style="font-size:13px;color:var(--rose-d);margin:4px 0;"><svg style="width:14px;height:14px;vertical-align:-2px;margin-right:6px;" viewBox="0 0 24 24"><path fill="currentColor" d="M7 2h2v2h6V2h2v2h3v18H4V4h3V2Zm11 8H6v10h12V10Z"/></svg>{ev['date']}</p>
-          <p class="evcard__row evcard__venue" style="font-size:13px;color:var(--ink-l);margin:4px 0;"><svg style="width:14px;height:14px;vertical-align:-2px;margin-right:6px;" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7Zm0 4.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Z"/></svg><span>{ev['venue']}</span></p>
-          <p class="evcard__note" style="font-size:12px;color:#6B7280;margin:6px 0;">Dress code: {ev['dress']} · {ev['note']}</p>
-          <div class="evcard__btns" style="margin-top:10px;">
-            <a class="btn btn--soft" href="https://maps.google.com/?q={t['venue']}" target="_blank" rel="noopener" style="font-size:12px;padding:6px 14px;border-radius:999px;">➤ Get Directions</a>
-          </div>
-        </article>"""
+        events_html = ""
+        for ev in t['events']:
+            events_html += f"""
+            <div class="hw-time-item">
+              <div class="hw-time-icon">🪔</div>
+              <div class="hw-time-info">
+                <b>{ev['name']}</b>
+                <span>{ev['date']}</span>
+                <small>Venue: {ev['venue']} · Dress: {ev['dress']}</small>
+                <em>{ev['note']}</em>
+              </div>
+            </div>"""
 
-    # Build standalone HTML with scrollbar eradication, auto-scroll & unique layouts
+        stage_content = f"""
+        <div class="hw-stage-card">
+          <div class="hw-hero-frame">
+            <img src="{t['hero_img']}" alt="Sanctuary Entrance" class="hw-hero-art">
+            <div class="hw-hero-tag">Auspicious Abode</div>
+          </div>
+          <h1 class="hw-abode-title">{t['celebrants']}</h1>
+          <p class="hw-date-line">✦ {t['date_str']} · {t['time_str']} ✦</p>
+          <p class="hw-venue-line"><b>{t['venue']}</b><br><small>{t['venue_addr']}</small></p>
+
+          <div class="hw-hosts-row">
+            <div class="hw-host-box">
+              <img src="{t['c1_img']}" alt="{t['c1_name']}">
+              <b>{t['c1_name']}</b>
+              <small>{t['c1_par']}</small>
+            </div>
+            <div class="hw-host-divider">✦</div>
+            <div class="hw-host-box">
+              <img src="{t['c2_img']}" alt="{t['c2_name']}">
+              <b>{t['c2_name']}</b>
+              <small>{t['c2_par']}</small>
+            </div>
+          </div>
+
+          <blockquote class="hw-quote">“{t['quote']}”</blockquote>
+
+          <div class="hw-timeline">
+            <h3 class="hw-sec-head">Auspicious Puja &amp; Rituals Schedule</h3>
+            {events_html}
+          </div>
+
+          <div class="hw-location-card">
+            <h4>📍 Google Maps Route to {t['celebrants']}</h4>
+            <p>{t['venue_addr']}</p>
+            <a href="https://maps.google.com/?q={t['venue']}" target="_blank" rel="noopener" class="btn-hw-map">➤ Open Live Navigation Map</a>
+          </div>
+
+          <p class="hw-closing">“{t['closing']}”</p>
+        </div>"""
+
+    elif cat_key == "babyshower":
+        header_banner = """
+        <div class="baby-cloud-banner">
+          <div class="baby-floating-icons">🍼 ☁️ 🧸 🌟 🍼</div>
+          <p class="baby-eyebrow">A Sweet Little Miracle is on the Way!</p>
+          <h2 class="baby-main-title">BABY SHOWER</h2>
+          <p class="baby-sub-title">Godh Bharai &amp; Baby Blessings</p>
+        </div>"""
+        
+        events_html = ""
+        for ev in t['events']:
+            events_html += f"""
+            <div class="baby-event-item">
+              <span class="baby-bullet">🧸</span>
+              <div>
+                <b>{ev['name']}</b>
+                <p>{ev['date']} · {ev['venue']}</p>
+                <small>{ev['note']} · Dress: {ev['dress']}</small>
+              </div>
+            </div>"""
+
+        stage_content = f"""
+        <div class="baby-stage-card">
+          <div class="baby-cradle-box">
+            <img src="{t['hero_img']}" alt="Baby Miracle" class="baby-hero-img">
+          </div>
+          <h1 class="baby-title">{t['celebrants']}</h1>
+          <p class="baby-date">✦ {t['date_str']} · {t['time_str']} ✦</p>
+          <p class="baby-venue">{t['venue']}</p>
+
+          <div class="baby-parents-row">
+            <div class="baby-parent-box">
+              <div class="baby-avatar">👶</div>
+              <b>{t['c1_name']}</b>
+              <small>{t['c1_par']}</small>
+            </div>
+            <div class="baby-parent-divider">🍼</div>
+            <div class="baby-parent-box">
+              <div class="baby-avatar">🤱</div>
+              <b>{t['c2_name']}</b>
+              <small>{t['c2_par']}</small>
+            </div>
+          </div>
+
+          <p class="baby-msg">“{t['quote']}”</p>
+
+          <div class="baby-games-box">
+            <h3 class="baby-sec-head">Baby Shower Schedule &amp; Games</h3>
+            {events_html}
+          </div>
+
+          <p class="baby-closing">“{t['closing']}”</p>
+        </div>"""
+
+    elif cat_key == "birthday":
+        header_banner = f"""
+        <div class="bday-vip-banner">
+          <div class="bday-barcode">||| | |||| | ||||| | ||</div>
+          <p class="bday-pass-label">★ VIP CELEBRATION BASH ★</p>
+          <h2 class="bday-title">{t['celebrants']}</h2>
+          <p class="bday-sub">BIRTHDAY GALA &amp; PARTY NIGHT</p>
+        </div>"""
+        
+        events_html = ""
+        for ev in t['events']:
+            date_label = ev['date'].split(',')[1].strip() if ',' in ev['date'] else 'Night'
+            events_html += f"""
+            <div class="bday-schedule-item">
+              <span class="bday-badge-pill">{date_label}</span>
+              <div>
+                <b>{ev['name']}</b>
+                <p>{ev['note']}</p>
+                <small>Dress code: {ev['dress']}</small>
+              </div>
+            </div>"""
+
+        stage_content = f"""
+        <div class="bday-ticket-card">
+          <div class="bday-ticket-top">
+            <div class="bday-badge-circ">★ VIP CELEBRANT ★</div>
+            <h1 class="bday-star-name">{t['celebrants']}</h1>
+            <p class="bday-meta-tag">{t['eyebrow']}</p>
+            <p class="bday-date-badge">✦ {t['date_str']} · {t['time_str']} ✦</p>
+            <p class="bday-venue-badge">📍 {t['venue']}</p>
+          </div>
+          
+          <div class="bday-perforated-line">
+            <span class="notch notch-l"></span>
+            <span class="dash-line"></span>
+            <span class="notch notch-r"></span>
+          </div>
+
+          <div class="bday-ticket-bottom">
+            <div class="bday-hero-box">
+              <img src="{t['hero_img']}" alt="Party Stage" style="width:100%;height:190px;object-fit:cover;border-radius:14px;border:1.5px solid var(--gold);">
+            </div>
+
+            <div class="bday-host-badge">
+              <b>{t['c1_name']}</b>
+              <small>{t['c1_par']}</small>
+            </div>
+            <p class="bday-quote">“{t['quote']}”</p>
+
+            <h3 class="bday-sec-head">🎉 Party Highlights &amp; DJ Timeline</h3>
+            {events_html}
+
+            <div class="bday-btn-wrap">
+              <a href="https://maps.google.com/?q={t['venue']}" target="_blank" rel="noopener" class="btn-bday-map">Get Party Directions</a>
+            </div>
+
+            <p class="bday-closing">“{t['closing']}”</p>
+          </div>
+        </div>"""
+
+    elif cat_key == "engagement":
+        header_banner = f"""
+        <div class="eng-star-banner">
+          <div class="eng-ring-glow">💍</div>
+          <p class="eng-eyebrow">Under a Sky of Infinite Stars</p>
+          <h2 class="eng-title">{t['celebrants']}</h2>
+          <p class="eng-sub">Engagement &amp; Ring Ceremony</p>
+        </div>"""
+        
+        events_html = ""
+        for ev in t['events']:
+            events_html += f"""
+            <div class="eng-time-card">
+              <b>{ev['name']}</b>
+              <p>✦ {ev['date']} · {ev['venue']}</p>
+              <small>{ev['note']} · {ev['dress']}</small>
+            </div>"""
+
+        stage_content = f"""
+        <div class="eng-stage-card">
+          <div class="eng-solitaire-halo">
+            <span class="eng-sparkle">✦</span>
+            <h2>{t['celebrants']}</h2>
+            <p>{t['date_str']} · {t['time_str']}</p>
+            <p class="eng-place">{t['venue']}</p>
+          </div>
+
+          <div class="eng-couple-row">
+            <div class="eng-person">
+              <img src="{t['c1_img']}" alt="{t['c1_name']}">
+              <b>{t['c1_name']}</b>
+              <small>{t['c1_par']}</small>
+            </div>
+            <div class="eng-heart">💍</div>
+            <div class="eng-person">
+              <img src="{t['c2_img']}" alt="{t['c2_name']}">
+              <b>{t['c2_name']}</b>
+              <small>{t['c2_par']}</small>
+            </div>
+          </div>
+
+          <p class="eng-vow">“{t['quote']}”</p>
+
+          <div class="eng-timeline">
+            <h3 class="eng-sec-head">Celebration Timings</h3>
+            {events_html}
+          </div>
+
+          <p class="eng-closing">“{t['closing']}”</p>
+        </div>"""
+
+    else:
+        header_banner = f"""
+        <div class="wed-royal-banner">
+          <p class="wed-sloka">{t['eyebrow']}</p>
+          <div class="wed-symbol">✦ ❦ ✦</div>
+          <h2 class="wed-title">{t['celebrants']}</h2>
+          <p class="wed-sub">{t['subtitle']}</p>
+        </div>"""
+        
+        events_html = ""
+        for ev in t['events']:
+            events_html += f"""
+            <div class="wed-ceremony-item">
+              <div class="wed-c-icon">✦</div>
+              <div>
+                <b>{ev['name']}</b>
+                <p>{ev['date']} · {ev['venue']}</p>
+                <small>Dress code: {ev['dress']} · {ev['note']}</small>
+              </div>
+            </div>"""
+
+        stage_content = f"""
+        <div class="wed-stage-card">
+          <div class="wed-hero-arch">
+            <img src="{t['hero_img']}" alt="Palace Mandap">
+          </div>
+          <h1 class="wed-couple-names">{t['celebrants']}</h1>
+          <p class="wed-date-ribbon">✦ {t['date_str']} · {t['time_str']} ✦</p>
+          <p class="wed-venue-tag">{t['venue']}</p>
+
+          <div class="wed-couple-portraits">
+            <div class="wed-person-card">
+              <img src="{t['c1_img']}" alt="{t['c1_name']}">
+              <b>{t['c1_name']}</b>
+              <small>{t['c1_par']}</small>
+            </div>
+            <div class="wed-mandap-knot">❦</div>
+            <div class="wed-person-card">
+              <img src="{t['c2_img']}" alt="{t['c2_name']}">
+              <b>{t['c2_name']}</b>
+              <small>{t['c2_par']}</small>
+            </div>
+          </div>
+
+          <blockquote class="wed-sacred-quote">“{t['quote']}”</blockquote>
+
+          <div class="wed-functions-box">
+            <h3 class="wed-sec-title">Sacred Functions &amp; Ceremonies</h3>
+            {events_html}
+          </div>
+
+          <p class="wed-footer-quote">“{t['closing']}”</p>
+        </div>"""
+
     html = f"""<!doctype html>
 <html lang="en">
 <head>
@@ -1437,15 +1665,18 @@ for t in templates_data:
   --ink: {t['ink']};
 }}
 
-/* Eradicate scrollbars everywhere while keeping smooth scrolling */
 *, *::before, *::after, html, body {{
   scrollbar-width: none !important;
   -ms-overflow-style: none !important;
 }}
-*::-webkit-scrollbar, html::-webkit-scrollbar, body::-webkit-scrollbar {{
+::-webkit-scrollbar {{
   display: none !important;
   width: 0 !important;
   height: 0 !important;
+  background: transparent !important;
+}}
+::-webkit-scrollbar-thumb, ::-webkit-scrollbar-track {{
+  display: none !important;
   background: transparent !important;
 }}
 
@@ -1475,224 +1706,171 @@ body {{
   box-shadow: 0 4px 12px rgba(0,0,0,0.25);
 }}
 
-/* Top Switcher Bar */
-.view-toggle-bar {{
-  position: fixed;
-  top: 10px;
-  left: 14px;
-  z-index: 1000;
-  display: flex;
-  gap: 6px;
-  background: rgba(255,255,255,0.92);
-  backdrop-filter: blur(10px);
-  padding: 4px;
-  border-radius: 999px;
-  border: 1px solid rgba(212,175,55,0.4);
-  box-shadow: 0 4px 14px rgba(0,0,0,0.12);
-}}
-.view-toggle-btn {{
-  background: transparent;
-  border: none;
-  font-family: var(--sans);
-  font-size: 11.5px;
-  font-weight: 700;
-  color: var(--wine);
-  padding: 5px 12px;
-  border-radius: 999px;
-  cursor: pointer;
-  transition: all .2s;
-}}
-.view-toggle-btn.active {{
-  background: var(--wine);
-  color: var(--gold-l);
-}}
-
-/* Booklet Flipbook Styles */
-.booklet-stage {{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.inv-main-wrap {{
   min-height: 100vh;
-  padding: 70px 14px 80px;
-  box-sizing: border-box;
-}}
-.booklet-card {{
-  position: relative;
-  width: 100%;
-  max-width: 440px;
-  min-height: 610px;
-  background: var(--ivory);
-  border-radius: 28px;
-  box-shadow: 0 25px 60px rgba(0,0,0,0.18), inset 0 0 0 1.5px var(--gold);
-  padding: 28px 22px 20px;
-  box-sizing: border-box;
+  padding: 60px 14px 90px;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
-}}
-.book-page {{
-  display: none;
-  flex-direction: column;
   align-items: center;
-  text-align: center;
-  width: 100%;
-  flex: 1;
-  animation: pageFadeIn .35s ease forwards;
-}}
-.book-page.active {{
-  display: flex;
-}}
-@keyframes pageFadeIn {{
-  from {{ opacity: 0; transform: translateY(8px); }}
-  to {{ opacity: 1; transform: translateY(0); }}
-}}
-.book-eyebrow {{
-  font-family: var(--cap);
-  font-size: 12px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--rose-d);
-  margin-bottom: 6px;
-}}
-.book-title {{
-  font-family: var(--serif);
-  font-size: 32px;
-  font-weight: 700;
-  color: var(--wine);
-  line-height: 1.15;
-  margin: 6px 0;
-}}
-.book-amp {{
-  font-size: 16px;
-  color: var(--gold);
-  margin: 4px 0;
-}}
-.book-date {{
-  font-family: var(--cap);
-  font-size: 14px;
-  color: var(--wine);
-  font-weight: 600;
-  margin: 4px 0;
-}}
-.book-venue {{
-  font-size: 13px;
-  color: var(--ink-l);
-  margin: 2px 0 10px;
-}}
-.book-quote {{
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 15px;
-  line-height: 1.5;
-  color: var(--ink-l);
-  max-width: 90%;
-  margin: 12px auto;
-}}
-.guest-welcome-banner {{
-  background: rgba(212,175,55,0.12);
-  border: 1px dashed var(--gold);
-  border-radius: 999px;
-  padding: 4px 14px;
-  font-size: 12px;
-  color: var(--wine);
-  font-weight: 700;
-  margin: 6px 0 10px;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+  box-sizing: border-box;
 }}
 
-/* Booklet Controls */
-.book-controls {{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: auto;
-  padding-top: 14px;
-  border-top: 1px solid rgba(212,175,55,0.25);
-  width: 100%;
-}}
-.book-nav-btn {{
-  background: var(--blush2);
-  color: var(--wine);
-  border: 1px solid rgba(212,175,55,0.4);
-  padding: 7px 16px;
-  border-radius: 999px;
-  font-size: 12.5px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all .2s;
-}}
-.book-nav-btn:disabled {{
-  opacity: 0.35;
-  cursor: not-allowed;
-}}
-.book-page-pills {{
-  display: flex;
-  gap: 6px;
-}}
-.book-pill {{
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: #D1D5DB;
-  cursor: pointer;
-  transition: all .2s;
-}}
-.book-pill.active {{
-  width: 22px;
-  border-radius: 999px;
-  background: var(--wine);
-}}
+/* Housewarming Specific */
+.hw-toran-banner {{ text-align: center; margin-bottom: 14px; }}
+.hw-toran-leaves {{ font-size: 20px; letter-spacing: 6px; margin-bottom: 6px; }}
+.hw-vedic-sloka {{ font-family: var(--serif); font-size: 14px; color: var(--wine); font-weight: 700; letter-spacing: 1px; margin: 4px 0; }}
+.hw-kalash-badge {{ font-size: 24px; margin: 6px 0; }}
+.hw-main-title {{ font-family: var(--serif); font-size: 32px; color: var(--wine-d); letter-spacing: 3px; margin: 4px 0; }}
+.hw-sub-title {{ font-family: var(--cap); font-size: 13px; color: var(--rose-d); text-transform: uppercase; letter-spacing: 2px; }}
+.hw-stage-card {{ background: #FFFDF9; border: 2px solid var(--gold); border-radius: 24px; box-shadow: 0 20px 50px rgba(124, 45, 18, 0.15); max-width: 440px; width: 100%; padding: 24px 20px; text-align: center; box-sizing: border-box; }}
+.hw-hero-frame {{ position: relative; border-radius: 18px; overflow: hidden; border: 1.5px solid var(--gold); margin-bottom: 16px; }}
+.hw-hero-art {{ width: 100%; height: 200px; object-fit: cover; display: block; }}
+.hw-hero-tag {{ position: absolute; bottom: 8px; right: 8px; background: rgba(124, 45, 18, 0.85); color: #FEF08A; font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 999px; letter-spacing: 1px; }}
+.hw-abode-title {{ font-family: var(--serif); font-size: 26px; color: var(--wine); margin: 8px 0 4px; }}
+.hw-date-line {{ font-family: var(--cap); font-size: 13.5px; color: var(--rose-d); font-weight: 700; margin: 4px 0; }}
+.hw-venue-line {{ font-size: 13px; color: #4B5563; margin: 4px 0 16px; }}
+.hw-hosts-row {{ display: flex; align-items: center; justify-content: center; gap: 12px; background: rgba(212, 175, 55, 0.08); border: 1px solid rgba(212, 175, 55, 0.35); border-radius: 16px; padding: 14px 10px; margin: 14px 0; }}
+.hw-host-box {{ flex: 1; text-align: center; }}
+.hw-host-box img {{ width: 80px; height: 90px; border-radius: 12px; border: 1.5px solid var(--gold); object-fit: cover; margin: 0 auto 6px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }}
+.hw-host-box b {{ display: block; font-size: 12.5px; color: var(--wine); }}
+.hw-host-box small {{ font-size: 10.5px; color: #6B7280; display: block; }}
+.hw-host-divider {{ color: var(--gold); font-size: 16px; }}
+.hw-quote {{ font-family: var(--serif); font-style: italic; font-size: 14px; color: var(--wine-d); line-height: 1.5; margin: 14px 0; }}
+.hw-timeline {{ text-align: left; margin: 18px 0; }}
+.hw-sec-head {{ font-family: var(--serif); font-size: 18px; color: var(--wine); text-align: center; margin-bottom: 12px; border-bottom: 1px solid rgba(212, 175, 55, 0.3); padding-bottom: 6px; }}
+.hw-time-item {{ display: flex; gap: 10px; margin-bottom: 12px; background: #FFF; border: 1px solid #E5E7EB; border-radius: 12px; padding: 10px; }}
+.hw-time-icon {{ font-size: 20px; line-height: 1; }}
+.hw-time-info b {{ display: block; font-size: 13.5px; color: var(--wine); }}
+.hw-time-info span {{ display: block; font-size: 11.5px; color: var(--rose-d); font-weight: 600; }}
+.hw-time-info small {{ display: block; font-size: 11px; color: #6B7280; }}
+.hw-time-info em {{ display: block; font-size: 10.5px; color: #9CA3AF; font-style: normal; margin-top: 2px; }}
+.hw-location-card {{ background: rgba(212, 175, 55, 0.1); border: 1px dashed var(--gold); border-radius: 14px; padding: 14px; margin: 14px 0; }}
+.hw-location-card h4 {{ margin: 0 0 4px; font-size: 13px; color: var(--wine); }}
+.hw-location-card p {{ font-size: 12px; color: #4B5563; margin: 0 0 10px; }}
+.btn-hw-map {{ display: inline-block; background: var(--wine); color: var(--gold-l); font-size: 12px; font-weight: 700; padding: 8px 18px; border-radius: 999px; text-decoration: none; }}
+.hw-closing {{ font-family: var(--script); font-size: 22px; color: var(--wine); margin-top: 14px; }}
 
-/* Auto-Scroll Floating Controls */
-.autoscroll-bar {{
-  position: fixed;
-  bottom: 74px;
-  right: 14px;
-  z-index: 999;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  background: rgba(19, 42, 19, 0.92);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  padding: 6px 12px;
-  border-radius: 999px;
-  border: 1.5px solid var(--gold);
-  box-shadow: 0 10px 28px rgba(0,0,0,0.3);
-  font-family: var(--sans);
-}}
-.autoscroll-bar button {{
-  color: var(--gold-l);
-  font-size: 11.5px;
-  font-weight: 700;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  padding: 4px 9px;
-  border-radius: 999px;
-  background: rgba(212,175,55,0.18);
-  border: 1px solid rgba(212,175,55,0.3);
-  transition: all .2s;
-  cursor: pointer;
-}}
-.autoscroll-bar button:hover, .autoscroll-bar button.is-active {{
-  background: var(--gold);
-  color: var(--wine-d);
-}}
+/* Baby Shower Specific */
+.baby-cloud-banner {{ text-align: center; margin-bottom: 14px; }}
+.baby-floating-icons {{ font-size: 22px; letter-spacing: 8px; }}
+.baby-eyebrow {{ font-size: 13px; color: var(--rose-d); font-weight: 600; margin: 4px 0; }}
+.baby-main-title {{ font-family: var(--serif); font-size: 32px; color: var(--wine); letter-spacing: 2px; margin: 2px 0; }}
+.baby-sub-title {{ font-size: 13px; color: #9D174D; text-transform: uppercase; letter-spacing: 1.5px; }}
+.baby-stage-card {{ background: #FFF; border-radius: 32px; box-shadow: 0 20px 45px rgba(244, 114, 182, 0.2); border: 2px solid #FBCFE8; max-width: 440px; width: 100%; padding: 24px 20px; text-align: center; box-sizing: border-box; }}
+.baby-cradle-box {{ width: 100%; height: 180px; border-radius: 24px; overflow: hidden; background: #FFF1F2; margin-bottom: 14px; }}
+.baby-hero-img {{ width: 100%; height: 100%; object-fit: cover; }}
+.baby-title {{ font-family: var(--serif); font-size: 26px; color: var(--wine); margin: 6px 0; }}
+.baby-date {{ font-size: 13.5px; color: #BE185D; font-weight: 700; }}
+.baby-venue {{ font-size: 12.5px; color: #6B7280; margin: 2px 0 14px; }}
+.baby-parents-row {{ display: flex; align-items: center; justify-content: center; gap: 12px; background: #FDF2F8; border: 1px dashed #F472B6; border-radius: 20px; padding: 12px; margin: 12px 0; }}
+.baby-parent-box {{ flex: 1; text-align: center; }}
+.baby-avatar {{ font-size: 28px; }}
+.baby-parent-box b {{ display: block; font-size: 13px; color: var(--wine); }}
+.baby-parent-box small {{ font-size: 11px; color: #6B7280; }}
+.baby-parent-divider {{ font-size: 20px; }}
+.baby-msg {{ font-family: var(--serif); font-style: italic; font-size: 14px; color: #831843; margin: 12px 0; }}
+.baby-games-box {{ text-align: left; background: #F8FAFC; border-radius: 16px; padding: 14px; margin: 14px 0; }}
+.baby-sec-head {{ text-align: center; font-size: 16px; color: var(--wine); margin: 0 0 10px; }}
+.baby-event-item {{ display: flex; gap: 8px; margin-bottom: 10px; }}
+.baby-bullet {{ font-size: 18px; }}
+.baby-event-item b {{ font-size: 13px; color: var(--wine); }}
+.baby-event-item p {{ font-size: 11.5px; color: #BE185D; margin: 1px 0; }}
+.baby-event-item small {{ font-size: 10.5px; color: #6B7280; }}
+.baby-closing {{ font-family: var(--script); font-size: 22px; color: var(--wine); margin-top: 10px; }}
+
+/* Birthday VIP Pass Specific */
+.bday-vip-banner {{ text-align: center; margin-bottom: 12px; }}
+.bday-barcode {{ font-family: monospace; font-size: 18px; letter-spacing: 4px; color: var(--gold); }}
+.bday-pass-label {{ font-size: 11px; letter-spacing: 3px; color: var(--gold); font-weight: 700; margin: 3px 0; }}
+.bday-title {{ font-family: var(--serif); font-size: 30px; color: #FFF; margin: 2px 0; }}
+.bday-sub {{ font-size: 12px; letter-spacing: 2px; color: #CA8A04; }}
+.bday-ticket-card {{ background: #18181B; color: #FAFAFA; border-radius: 24px; box-shadow: 0 25px 60px rgba(0,0,0,0.5); border: 2px solid var(--gold); max-width: 440px; width: 100%; box-sizing: border-box; overflow: hidden; }}
+.bday-ticket-top {{ padding: 24px 20px 16px; text-align: center; }}
+.bday-badge-circ {{ display: inline-block; background: var(--gold); color: #18181B; font-size: 11px; font-weight: 800; letter-spacing: 2px; padding: 4px 14px; border-radius: 999px; margin-bottom: 8px; }}
+.bday-star-name {{ font-family: var(--serif); font-size: 28px; color: #FFF; margin: 0 0 4px; }}
+.bday-meta-tag {{ font-size: 11.5px; color: #A1A1AA; letter-spacing: 1px; text-transform: uppercase; margin: 0 0 10px; }}
+.bday-date-badge {{ font-size: 13.5px; color: var(--gold-l); font-weight: 700; margin: 4px 0; }}
+.bday-venue-badge {{ font-size: 12.5px; color: #E4E4E7; margin: 0; }}
+.bday-perforated-line {{ position: relative; height: 20px; display: flex; align-items: center; margin: 4px 0; }}
+.notch {{ position: absolute; width: 20px; height: 20px; border-radius: 50%; background: {t['blush2']}; top: 0; }}
+.notch-l {{ left: -10px; }}
+.notch-r {{ right: -10px; }}
+.dash-line {{ width: 100%; height: 1px; border-top: 2px dashed rgba(212,175,55,0.4); margin: 0 14px; }}
+.bday-ticket-bottom {{ padding: 16px 20px 24px; text-align: center; }}
+.bday-hero-box {{ margin-bottom: 14px; }}
+.bday-host-badge {{ background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 10px; margin-bottom: 14px; }}
+.bday-host-badge b {{ display: block; font-size: 13.5px; color: var(--gold-l); }}
+.bday-host-badge small {{ font-size: 11.5px; color: #A1A1AA; }}
+.bday-quote {{ font-family: var(--serif); font-style: italic; font-size: 14px; color: #D4D4D8; margin: 12px 0 16px; line-height: 1.5; }}
+.bday-sec-head {{ font-size: 15px; color: var(--gold-l); text-align: center; letter-spacing: 1px; margin: 0 0 12px; }}
+.bday-schedule-item {{ display: flex; align-items: flex-start; gap: 10px; text-align: left; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 10px; margin-bottom: 8px; }}
+.bday-badge-pill {{ background: var(--gold); color: #18181B; font-size: 10px; font-weight: 800; padding: 3px 8px; border-radius: 999px; white-space: nowrap; }}
+.bday-schedule-item b {{ display: block; font-size: 13px; color: #FFF; }}
+.bday-schedule-item p {{ font-size: 11.5px; color: #A1A1AA; margin: 2px 0 0; }}
+.bday-schedule-item small {{ font-size: 10.5px; color: #71717A; display: block; }}
+.bday-btn-wrap {{ margin: 18px 0 12px; }}
+.btn-bday-map {{ display: inline-block; background: var(--gold); color: #18181B; font-size: 12px; font-weight: 800; padding: 8px 18px; border-radius: 999px; text-decoration: none; }}
+.bday-closing {{ font-family: var(--script); font-size: 22px; color: var(--gold-l); margin-top: 14px; }}
+
+/* Engagement Starlight Specific */
+.eng-star-banner {{ text-align: center; margin-bottom: 14px; }}
+.eng-ring-glow {{ font-size: 28px; filter: drop-shadow(0 0 10px rgba(255,215,0,0.6)); }}
+.eng-eyebrow {{ font-size: 12.5px; letter-spacing: 2px; color: var(--gold-l); text-transform: uppercase; margin: 4px 0; }}
+.eng-title {{ font-family: var(--serif); font-size: 30px; color: var(--gold-l); margin: 2px 0; }}
+.eng-sub {{ font-size: 12px; color: #94A3B8; letter-spacing: 1px; }}
+.eng-stage-card {{ background: rgba(15,23,42,0.85); backdrop-filter: blur(14px); border: 1.5px solid var(--gold); border-radius: 28px; box-shadow: 0 20px 60px rgba(0,0,0,0.5); max-width: 440px; width: 100%; padding: 26px 20px; text-align: center; color: #F8FAFC; box-sizing: border-box; }}
+.eng-solitaire-halo {{ background: radial-gradient(circle at center, rgba(56,189,248,0.15), transparent 70%); border: 1px solid rgba(212,175,55,0.4); border-radius: 20px; padding: 18px; margin-bottom: 16px; }}
+.eng-sparkle {{ font-size: 20px; color: var(--gold); display: block; margin-bottom: 4px; }}
+.eng-solitaire-halo h2 {{ font-family: var(--serif); font-size: 26px; color: var(--gold-l); margin: 0; }}
+.eng-solitaire-halo p {{ font-size: 12.5px; color: #94A3B8; margin: 4px 0 0; }}
+.eng-place {{ font-size: 12px; color: #CBD5E1; }}
+.eng-couple-row {{ display: flex; align-items: center; justify-content: center; gap: 14px; margin: 16px 0; }}
+.eng-person {{ text-align: center; }}
+.eng-person img {{ width: 85px; height: 110px; border-radius: 14px; border: 1.5px solid var(--gold); object-fit: cover; box-shadow: 0 4px 14px rgba(0,0,0,0.3); }}
+.eng-person b {{ display: block; font-size: 13px; color: var(--gold-l); margin-top: 4px; }}
+.eng-person small {{ font-size: 10.5px; color: #94A3B8; display: block; }}
+.eng-heart {{ font-size: 22px; color: var(--gold); }}
+.eng-vow {{ font-family: var(--serif); font-style: italic; font-size: 13.5px; color: #E2E8F0; line-height: 1.5; margin: 14px 0; }}
+.eng-timeline {{ text-align: left; margin: 16px 0; }}
+.eng-sec-head {{ font-size: 15px; color: var(--gold-l); text-align: center; border-bottom: 1px solid rgba(212,175,55,0.25); padding-bottom: 6px; margin-bottom: 12px; }}
+.eng-time-card {{ background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 10px 12px; margin-bottom: 8px; }}
+.eng-time-card b {{ font-size: 13px; color: var(--gold-l); display: block; }}
+.eng-time-card p {{ font-size: 11.5px; color: #CBD5E1; margin: 2px 0; }}
+.eng-time-card small {{ font-size: 10.5px; color: #94A3B8; }}
+.eng-closing {{ font-family: var(--script); font-size: 22px; color: var(--gold-l); margin-top: 14px; }}
+
+/* Wedding Royal Rajputana Mandap Specific */
+.wed-royal-banner {{ text-align: center; margin-bottom: 14px; }}
+.wed-sloka {{ font-family: var(--serif); font-size: 13.5px; color: var(--wine); font-weight: 700; margin-bottom: 4px; }}
+.wed-symbol {{ font-size: 14px; color: var(--gold); }}
+.wed-title {{ font-family: var(--serif); font-size: 32px; color: var(--wine-d); margin: 2px 0; }}
+.wed-sub {{ font-family: var(--cap); font-size: 13px; color: var(--rose-d); text-transform: uppercase; letter-spacing: 2px; }}
+.wed-stage-card {{ background: #FFFDF8; border: 2px solid var(--gold); border-radius: 26px; box-shadow: 0 20px 50px rgba(6,78,59,0.15); max-width: 440px; width: 100%; padding: 24px 20px; text-align: center; box-sizing: border-box; }}
+.wed-hero-arch {{ width: 100%; height: 210px; border-radius: 20px; overflow: hidden; border: 2px solid var(--gold); margin-bottom: 16px; }}
+.wed-hero-arch img {{ width: 100%; height: 100%; object-fit: cover; }}
+.wed-couple-names {{ font-family: var(--serif); font-size: 28px; color: var(--wine); margin: 6px 0; }}
+.wed-date-ribbon {{ font-family: var(--cap); font-size: 13.5px; color: var(--rose-d); font-weight: 700; margin: 4px 0; }}
+.wed-venue-tag {{ font-size: 13px; color: #4B5563; margin: 2px 0 16px; }}
+.wed-couple-portraits {{ display: flex; align-items: center; justify-content: center; gap: 14px; background: rgba(212,175,55,0.08); border: 1px solid rgba(212,175,55,0.35); border-radius: 18px; padding: 14px; margin: 14px 0; }}
+.wed-person-card {{ text-align: center; }}
+.wed-person-card img {{ width: 85px; height: 110px; border-radius: 14px; border: 1.5px solid var(--gold); object-fit: cover; box-shadow: 0 4px 10px rgba(0,0,0,0.12); }}
+.wed-person-card b {{ display: block; font-size: 13px; color: var(--wine); margin-top: 4px; }}
+.wed-person-card small {{ font-size: 10.5px; color: #6B7280; display: block; }}
+.wed-mandap-knot {{ font-size: 22px; color: var(--gold); }}
+.wed-sacred-quote {{ font-family: var(--serif); font-style: italic; font-size: 14px; color: var(--wine-d); line-height: 1.5; margin: 14px 0; }}
+.wed-functions-box {{ text-align: left; margin: 18px 0; }}
+.wed-sec-title {{ font-family: var(--serif); font-size: 18px; color: var(--wine); text-align: center; border-bottom: 1px solid rgba(212,175,55,0.3); padding-bottom: 6px; margin-bottom: 12px; }}
+.wed-ceremony-item {{ display: flex; gap: 10px; background: #FFF; border: 1px solid #E5E7EB; border-radius: 12px; padding: 10px; margin-bottom: 10px; }}
+.wed-c-icon {{ font-size: 16px; color: var(--gold); line-height: 1.2; }}
+.wed-ceremony-item b {{ font-size: 13.5px; color: var(--wine); display: block; }}
+.wed-ceremony-item p {{ font-size: 12px; color: var(--rose-d); margin: 2px 0; }}
+.wed-ceremony-item small {{ font-size: 10.5px; color: #6B7280; display: block; }}
+.wed-footer-quote {{ font-family: var(--script); font-size: 22px; color: var(--wine); margin-top: 14px; }}
 </style>
 </head>
 <body class="is-locked">
 
-<div class="top-template-badge">{cat_badge_label}</div>
-
-<!-- ============ TOP SWITCHER BAR ============ -->
-<div class="view-toggle-bar">
-  <button type="button" class="view-toggle-btn active" id="btnModePage" onclick="switchMode('page')">📖 Flipbook</button>
-  <button type="button" class="view-toggle-btn" id="btnModeScroll" onclick="switchMode('scroll')">📜 Story Scroll</button>
-  <button type="button" class="view-toggle-btn" id="btnMusic" onclick="toggleMusic()">🎵 Music</button>
-</div>
+<div class="top-template-badge">Template #{t['id']:02d} · {t['category']}</div>
 
 <!-- ============ OPENING COVER SCREEN ============ -->
 <section class="call" id="call">
@@ -1713,7 +1891,7 @@ body {{
     <div class="slider" id="slider">
       <div class="slider__fill"></div>
       <div class="slider__text"><b>slide</b>&nbsp;to open</div>
-      <button class="slider__knob" id="knob" type="button" onclick="answerCall()">
+      <button class="slider__knob" id="knob" type="button" aria-label="Slide to open">
         <svg viewBox="0 0 24 24"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z"/></svg>
       </button>
     </div>
@@ -1721,163 +1899,14 @@ body {{
   </div>
 </section>
 
-<!-- ============ AMBIENT PARTICLES ============ -->
-<div class="ambient" aria-hidden="true">
-  <div class="ambient__bg"></div>
-</div>
+<!-- ============ AMBIENT CANVAS ============ -->
+<div class="ambient" aria-hidden="true"><div class="ambient__bg"></div></div>
 <canvas class="petals" id="petals" aria-hidden="true"></canvas>
 
-<!-- ============ 1. 3D FLIPBOOK MODE (PAGE TURNING) ============ -->
-<div class="booklet-stage" id="bookletStage">
-  <div class="booklet-card">
-
-    <!-- Page 1: Grand Announcement -->
-    <div class="book-page active" id="p1">
-      <p class="book-eyebrow">{t['eyebrow']}</p>
-      <div class="guest-welcome-banner" id="guestBanner1" style="display:none;">
-        <span>💌 Exclusively for: <b id="guestNameSpan1">Valued Guest</b></span>
-      </div>
-      <h2 class="book-title">{t['celebrants']}</h2>
-      <div class="book-amp">{cat_icon}</div>
-      <p class="book-date">{t['date_str']}</p>
-      <p class="book-venue">{t['venue']}</p>
-      <p class="book-quote">“{t['quote']}”</p>
-      <p style="font-size:12px;color:var(--gold-d);margin-top:auto;">Page 1 of 5 · Tap Next Page ➔</p>
-    </div>
-
-    <!-- Page 2: The Celebrants & Hosts -->
-    <div class="book-page" id="p2">
-      <p class="book-eyebrow">Auspicious Story</p>
-      <h3 style="font-family:var(--serif);font-size:26px;color:var(--wine);margin:6px 0;">Meet The Hosts</h3>
-      <div style="display:flex;gap:14px;justify-content:center;margin:12px 0;">
-        <div style="text-align:center;">
-          <img src="{t['c1_img']}" alt="{t['c1_name']}" style="width:90px;height:120px;object-fit:cover;{ornament_style};box-shadow:0 4px 12px rgba(0,0,0,0.15);">
-          <b style="display:block;font-size:13px;color:var(--wine);margin-top:6px;">{t['c1_name']}</b>
-          <small style="font-size:11px;color:var(--ink-l);display:block;">{t['c1_par']}</small>
-        </div>
-        <div style="text-align:center;">
-          <img src="{t['c2_img']}" alt="{t['c2_name']}" style="width:90px;height:120px;object-fit:cover;{ornament_style};box-shadow:0 4px 12px rgba(0,0,0,0.15);">
-          <b style="display:block;font-size:13px;color:var(--wine);margin-top:6px;">{t['c2_name']}</b>
-          <small style="font-size:11px;color:var(--ink-l);display:block;">{t['c2_par']}</small>
-        </div>
-      </div>
-      <p style="font-size:13.5px;line-height:1.6;color:var(--ink-l);max-width:92%;margin:8px auto;">
-        With hearts full of gratitude, we warmly welcome your presence and blessings to celebrate this joyful milestone.
-      </p>
-      <p style="font-size:12px;color:var(--gold-d);margin-top:auto;">Page 2 of 5</p>
-    </div>
-
-    <!-- Page 3: Calendar & Countdown -->
-    <div class="book-page" id="p3">
-      <p class="book-eyebrow">Mark Your Calendar</p>
-      <h3 style="font-family:var(--serif);font-size:26px;color:var(--wine);margin:6px 0;">Save The Auspicious Date</h3>
-      <div style="background:rgba(212,175,55,0.08);border:1.5px solid var(--gold);border-radius:18px;padding:16px;width:90%;margin:12px auto;text-align:center;">
-        <span style="font-family:var(--serif);font-size:42px;font-weight:700;color:var(--wine);line-height:1;">{t['date_str'].split(',')[1].strip() if ',' in t['date_str'] else 'Save'}</span>
-        <span style="display:block;font-family:var(--cap);font-size:13px;letter-spacing:.1em;color:var(--rose-d);text-transform:uppercase;margin-top:4px;">{t['time_str']}</span>
-        <p style="font-size:12.5px;color:var(--ink-l);margin-top:6px;">{t['venue']}</p>
-      </div>
-
-      <div class="hearts" id="cdStage" style="margin:10px 0;">
-        <div class="hrt"><b id="cdDays">00</b><span>Days</span></div>
-        <div class="hrt"><b id="cdHours">00</b><span>Hours</span></div>
-        <div class="hrt"><b id="cdMins">00</b><span>Mins</span></div>
-        <div class="hrt"><b id="cdSecs">00</b><span>Secs</span></div>
-      </div>
-
-      <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text={t['celebrants']}+Celebration&location={t['venue']}" target="_blank" rel="noopener" class="btn btn--soft" style="font-size:12px;padding:8px 18px;border-radius:999px;margin-top:6px;">
-        ＋ Add to Calendar
-      </a>
-      <p style="font-size:12px;color:var(--gold-d);margin-top:auto;">Page 3 of 5</p>
-    </div>
-
-    <!-- Page 4: Ceremonies & Timings -->
-    <div class="book-page" id="p4">
-      <p class="book-eyebrow">Itinerary & Schedule</p>
-      <h3 style="font-family:var(--serif);font-size:26px;color:var(--wine);margin:6px 0;">Ceremonies</h3>
-      <div style="width:100%;max-height:380px;overflow-y:auto;padding-right:4px;">
-        {events_html_book}
-      </div>
-      <p style="font-size:12px;color:var(--gold-d);margin-top:auto;">Page 4 of 5</p>
-    </div>
-
-    <!-- Page 5: Venue & Direct RSVP -->
-    <div class="book-page" id="p5">
-      <p class="book-eyebrow">Warm Welcome</p>
-      <h3 style="font-family:var(--serif);font-size:26px;color:var(--wine);margin:6px 0;">Venue &amp; RSVP</h3>
-      <p style="font-size:13px;color:var(--ink-l);margin:4px 0;"><b>{t['venue']}</b><br><small>{t['venue_addr']}</small></p>
-
-      <div style="background:#fff;border:1px solid #E5E7EB;border-radius:14px;padding:12px;width:95%;margin:10px auto;text-align:left;">
-        <label style="font-size:11px;font-weight:700;color:var(--wine);text-transform:uppercase;">Quick RSVP via WhatsApp:</label>
-        <input type="text" id="rsvpNameInput" placeholder="Your Name" style="width:100%;box-sizing:border-box;padding:8px 10px;margin-top:4px;border:1px solid #D1D5DB;border-radius:8px;font-size:13px;">
-        <div style="display:flex;gap:8px;margin-top:8px;">
-          <button type="button" onclick="sendQuickRsvp('yes')" class="btn btn--wa" style="flex:1;padding:8px;font-size:12px;border-radius:8px;">✓ Joyfully Attend</button>
-          <button type="button" onclick="sendQuickRsvp('no')" class="btn btn--ghost" style="padding:8px;font-size:12px;border-radius:8px;">✕ Regret</button>
-        </div>
-      </div>
-
-      <p style="font-family:var(--script);font-size:20px;color:var(--wine);margin:6px 0;">{t['closing']}</p>
-      <p style="font-size:12px;color:var(--gold-d);margin-top:auto;">Page 5 of 5</p>
-    </div>
-
-    <!-- Booklet Bottom Controls -->
-    <div class="book-controls">
-      <button type="button" class="book-nav-btn" id="btnPrev" onclick="navPage(-1)" disabled>‹ Prev</button>
-      <div class="book-page-pills">
-        <span class="book-pill active" onclick="gotoPage(1)"></span>
-        <span class="book-pill" onclick="gotoPage(2)"></span>
-        <span class="book-pill" onclick="gotoPage(3)"></span>
-        <span class="book-pill" onclick="gotoPage(4)"></span>
-        <span class="book-pill" onclick="gotoPage(5)"></span>
-      </div>
-      <button type="button" class="book-nav-btn" id="btnNext" onclick="navPage(1)">Next ›</button>
-    </div>
-
-  </div>
-</div>
-
-<!-- ============ 2. STORY SCROLL MODE (SMOOTH & SCROLLBAR-FREE) ============ -->
-<main class="site" id="scrollStage" style="display:none;margin-top:60px;">
-  <section class="hero" id="secHero">
-    <div class="hero__art"><img src="{t['hero_img']}" alt=""></div>
-    <div class="hero__text">
-      <p class="hero__eyebrow">{t['eyebrow']}</p>
-      <h2 class="hero__name">{t['celebrants']}</h2>
-      <p class="hero__date">{t['date_str']}</p>
-      <p style="font-size:15px;color:var(--gold-l);">{t['venue']}</p>
-    </div>
-  </section>
-
-  <section class="sec invite" id="secInvite">
-    <p class="invite__ganesh">{cat_icon}</p>
-    <p class="invite__msg">{t['quote']}</p>
-  </section>
-
-  <section class="sec events" id="secEvents" style="padding:20px;">
-    <h3 style="font-family:var(--serif);font-size:30px;color:var(--wine);text-align:center;margin-bottom:20px;">Ceremonies &amp; Schedule</h3>
-    <div style="display:flex;flex-direction:column;gap:14px;max-width:500px;margin:0 auto;">
-      {events_html_scroll}
-    </div>
-  </section>
-
-  <footer class="foot" id="secFoot">
-    <div class="foot__inner">
-      <blockquote class="foot__quote">“{t['closing']}”</blockquote>
-      <h3 class="foot__names">{t['celebrants']}</h3>
-      <p class="foot__date">{t['date_str']}</p>
-      <p class="foot__venue">{t['venue']}</p>
-      <p style="font-size:12px;color:var(--gold-l);margin-top:14px;">✦ GoldenVows Template #{t['id']:02d} ✦</p>
-    </div>
-  </footer>
-</main>
-
-<!-- ============ FLOATING AUTO-SCROLL STORY CONTROLS ============ -->
-<div class="autoscroll-bar" id="autoScrollBar" style="display:none;">
-  <button type="button" id="btnAutoScroll" onclick="toggleAutoScroll()">
-    <span id="autoScrollIcon">▶</span>
-    <span id="autoScrollText">Auto Play</span>
-  </button>
-  <button type="button" onclick="scrollSection(1)" title="Next Section">▼</button>
-  <button type="button" onclick="scrollSection(-1)" title="Previous Section">▲</button>
+<!-- ============ INVITATION STAGE ============ -->
+<div class="inv-main-wrap">
+  {header_banner}
+  {stage_content}
 </div>
 
 <!-- ============ FLOATING ACTION BAR ============ -->
@@ -1892,7 +1921,7 @@ body {{
 
 <!-- ============ MODAL: SEND TO DESIRED PERSON ============ -->
 <div id="sendModal" style="display:none;position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,0.65);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:16px;">
-  <div style="background:#fff;border-radius:24px;max-width:440px;width:100%;padding:24px;box-shadow:0 25px 60px rgba(0,0,0,0.4);border:2px solid var(--gold);font-family:var(--sans);position:relative;">
+  <div style="background:#fff;border-radius:24px;max-width:440px;width:100%;padding:24px;box-shadow:0 25px 60px rgba(0,0,0,0.4);border:2px solid var(--gold);font-family:var(--sans);position:relative;color:#111;">
     <button onclick="closeSendModal()" type="button" style="position:absolute;top:16px;right:16px;border:none;background:none;font-size:24px;color:#6B7280;cursor:pointer;">×</button>
     
     <div style="text-align:center;margin-bottom:16px;">
@@ -1901,12 +1930,12 @@ body {{
       <p style="font-size:12.5px;color:#6B7280;margin:3px 0 0;">Deliver directly to the correct WhatsApp number or Email</p>
     </div>
 
-    <div style="margin-bottom:12px;">
+    <div style="margin-bottom:12px;text-align:left;">
       <label style="display:block;font-size:11px;font-weight:700;text-transform:uppercase;color:var(--wine);margin-bottom:4px;">Guest / Family Name *</label>
-      <input type="text" id="targetGuestName" placeholder="e.g. Priya & Rohan, The Sharma Family" style="width:100%;box-sizing:border-box;padding:9px 12px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:13.5px;outline:none;">
+      <input type="text" id="targetGuestName" placeholder="e.g. Priya &amp; Rohan, The Sharma Family" style="width:100%;box-sizing:border-box;padding:9px 12px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:13.5px;outline:none;">
     </div>
 
-    <div style="margin-bottom:14px;">
+    <div style="margin-bottom:14px;text-align:left;">
       <label style="display:block;font-size:11px;font-weight:700;text-transform:uppercase;color:var(--wine);margin-bottom:4px;">Guest Mobile Number *</label>
       <div style="display:flex;gap:6px;">
         <select id="countryCodeSelect" style="width:100px;padding:9px 8px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:13px;background:#F9FAFB;">
@@ -1921,7 +1950,7 @@ body {{
       </div>
     </div>
 
-    <div style="margin-bottom:14px;">
+    <div style="margin-bottom:14px;text-align:left;">
       <label style="display:block;font-size:11px;font-weight:700;text-transform:uppercase;color:var(--wine);margin-bottom:4px;">Guest Email (Optional)</label>
       <input type="email" id="targetGuestEmail" placeholder="guest@example.com" style="width:100%;box-sizing:border-box;padding:9px 12px;border:1.5px solid #D1D5DB;border-radius:10px;font-size:13.5px;outline:none;">
     </div>
@@ -1946,166 +1975,143 @@ body {{
 <audio id="bgMusic" src="../audio/romantic_piano.mp3" loop preload="auto"></audio>
 
 <script>
-var curPage = 1;
-var totalPages = 5;
-
+var opened = false;
 function answerCall() {{
+  if (opened) return;
+  opened = true;
   document.getElementById('call').classList.add('is-answered');
   document.body.classList.remove('is-locked');
   var m = document.getElementById('bgMusic');
   if (m) {{ m.play().catch(function(){{}}); }}
 }}
 
-function switchMode(mode) {{
-  var bStage = document.getElementById('bookletStage');
-  var sStage = document.getElementById('scrollStage');
-  var bPage = document.getElementById('btnModePage');
-  var bScroll = document.getElementById('btnModeScroll');
-  var autoBar = document.getElementById('autoScrollBar');
+// FOOLPROOF SLIDER DRAG ENGINE
+(function() {{
+  var slider = document.getElementById('slider');
+  var knob = document.getElementById('knob');
+  if (!slider || !knob) return;
 
-  if (mode === 'page') {{
-    stopAutoScroll();
-    bStage.style.display = 'flex';
-    sStage.style.display = 'none';
-    if (autoBar) autoBar.style.display = 'none';
-    bPage.classList.add('active');
-    bScroll.classList.remove('active');
-  }} else {{
-    bStage.style.display = 'none';
-    sStage.style.display = 'block';
-    if (autoBar) autoBar.style.display = 'flex';
-    bScroll.classList.add('active');
-    bPage.classList.remove('active');
-    // Start smooth auto-scroll in scroll mode
-    startAutoScroll();
-  }}
-}}
+  var dragging = false;
+  var sx0 = 0;
+  var prog = 0;
 
-function gotoPage(n) {{
-  if (n < 1 || n > totalPages) return;
-  curPage = n;
-  for (var i = 1; i <= totalPages; i++) {{
-    var p = document.getElementById('p' + i);
-    if (p) p.classList.toggle('active', i === curPage);
+  function getMaxDist() {{
+    var sw = slider.clientWidth || slider.offsetWidth || 300;
+    var kw = knob.offsetWidth || knob.clientWidth || 68;
+    return Math.max(60, sw - kw - 14);
   }}
-  var pills = document.querySelectorAll('.book-pill');
-  pills.forEach(function(pill, idx) {{
-    pill.classList.toggle('active', (idx + 1) === curPage);
+
+  function setProgress(p) {{
+    prog = Math.max(0, Math.min(1, p));
+    slider.style.setProperty('--p', prog);
+    var maxD = getMaxDist();
+    knob.style.transform = 'translateX(' + (maxD * prog) + 'px)';
+    var fill = slider.querySelector('.slider__fill');
+    if (fill) fill.style.width = 'calc(68px + ' + (maxD * prog) + 'px)';
+  }}
+
+  function start(cx) {{
+    if (opened) return;
+    dragging = true;
+    sx0 = cx;
+    slider.classList.add('is-drag');
+    slider.classList.remove('is-back');
+  }}
+
+  function move(cx) {{
+    if (!dragging || opened) return;
+    var maxD = getMaxDist();
+    setProgress((cx - sx0) / maxD);
+  }}
+
+  function finish(cx) {{
+    if (!dragging) return;
+    dragging = false;
+    slider.classList.remove('is-drag');
+    var moved = cx !== undefined ? Math.abs(cx - sx0) : 0;
+    if (prog > 0.5 || moved < 8) {{
+      setProgress(1);
+      answerCall();
+    }} else {{
+      slider.classList.add('is-back');
+      setProgress(0);
+    }}
+  }}
+
+  knob.addEventListener('pointerdown', function(e) {{
+    start(e.clientX);
+    try {{ knob.setPointerCapture(e.pointerId); }} catch (_) {{}}
   }});
-  document.getElementById('btnPrev').disabled = (curPage === 1);
-  document.getElementById('btnNext').disabled = (curPage === totalPages);
-}}
+  knob.addEventListener('touchstart', function(e) {{
+    if (e.touches && e.touches[0]) start(e.touches[0].clientX);
+  }}, {{ passive: true }});
+  knob.addEventListener('click', function(e) {{
+    e.stopPropagation();
+    answerCall();
+  }});
 
-function navPage(delta) {{
-  gotoPage(curPage + delta);
-}}
+  window.addEventListener('pointermove', function(e) {{ if (dragging) move(e.clientX); }});
+  window.addEventListener('pointerup', function(e) {{ if (dragging) finish(e.clientX); }});
+  window.addEventListener('pointercancel', function() {{ if (dragging) finish(); }});
 
-function toggleMusic() {{
-  var m = document.getElementById('bgMusic');
-  var b = document.getElementById('btnMusic');
-  if (m.paused) {{
-    m.play();
-    b.textContent = '🎵 Playing';
-  }} else {{
-    m.pause();
-    b.textContent = '🔇 Muted';
+  window.addEventListener('touchmove', function(e) {{
+    if (dragging && e.touches && e.touches[0]) move(e.touches[0].clientX);
+  }}, {{ passive: true }});
+  window.addEventListener('touchend', function() {{ if (dragging) finish(); }}, {{ passive: true }});
+
+  slider.addEventListener('click', function() {{
+    if (!opened) answerCall();
+  }});
+}})();
+
+// DYNAMIC OCCASION PARTICLES ENGINE
+(function () {{
+  var c = document.getElementById('petals');
+  if (!c) return;
+  var x = c.getContext('2d'), P = [], W = 0, H = 0, dpr = Math.min(2, window.devicePixelRatio || 1);
+  var cat = "{cat_key}";
+  var isBday = cat === "birthday";
+  var isHw = cat === "housewarming";
+  var isBaby = cat === "babyshower";
+
+  var cols = ['#f4a7b5', '#ee8fa3', '#f9c5cf', '#e77d93']; // Wedding petals
+  if (isBday) cols = ['#FFD700', '#00E5FF', '#FF1493', '#00E676', '#FFEB3B', '#D500F9'];
+  else if (isHw) cols = ['#FFA000', '#FFD54F', '#FF6D00', '#FFE082'];
+  else if (isBaby) cols = ['#81D4FA', '#F48FB1', '#FFF59D', '#B39DDB'];
+
+  function size() {{ W = c.clientWidth; H = c.clientHeight; c.width = W * dpr; c.height = H * dpr; x.setTransform(dpr, 0, 0, dpr, 0, 0); }}
+  function mk() {{
+    return {{
+      x: Math.random() * W, y: -20 - Math.random() * 80,
+      w: isBday ? (8 + Math.random() * 12) : 8, h: isBday ? (4 + Math.random() * 8) : 8,
+      r: 5 + Math.random() * 6, vy: isBday ? (1.5 + Math.random() * 2) : (0.8 + Math.random() * 1.2),
+      vx: -0.4 + Math.random() * 0.8, a: Math.random() * 6.28, va: 0.04 * (Math.random() > 0.5 ? 1 : -1),
+      sw: Math.random() * 6.28, c: cols[(Math.random() * cols.length) | 0]
+    }};
   }}
-}}
-
-// Countdown Timer
-function updateCountdown() {{
-  var target = new Date("{t['date_iso']}").getTime();
-  var now = new Date().getTime();
-  var diff = target - now;
-  if (diff <= 0) return;
-  var d = Math.floor(diff / (1000 * 60 * 60 * 24));
-  var h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-  var s = Math.floor((diff % (1000 * 60)) / 1000);
-  var pad = function(n) {{ return String(n).padStart(2, '0'); }};
-  var cdD = document.getElementById('cdDays'); if (cdD) cdD.textContent = pad(d);
-  var cdH = document.getElementById('cdHours'); if (cdH) cdH.textContent = pad(h);
-  var cdM = document.getElementById('cdMins'); if (cdM) cdM.textContent = pad(m);
-  var cdS = document.getElementById('cdSecs'); if (cdS) cdS.textContent = pad(s);
-}}
-setInterval(updateCountdown, 1000);
-updateCountdown();
-
-// Auto Story Scroll Engine
-var autoScrollInterval = null;
-var isAutoScrolling = false;
-var scrollSections = ['secHero', 'secInvite', 'secEvents', 'secFoot'];
-
-function toggleAutoScroll() {{
-  if (isAutoScrolling) {{
-    stopAutoScroll();
-  }} else {{
-    startAutoScroll();
-  }}
-}}
-
-function startAutoScroll() {{
-  isAutoScrolling = true;
-  var btn = document.getElementById('btnAutoScroll');
-  var ico = document.getElementById('autoScrollIcon');
-  var txt = document.getElementById('autoScrollText');
-  if (btn) btn.classList.add('is-active');
-  if (ico) ico.textContent = '⏸';
-  if (txt) txt.textContent = 'Pause';
-
-  autoScrollInterval = setInterval(function () {{
-    var maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-    if (window.scrollY >= maxScroll - 4) {{
-      stopAutoScroll();
-      return;
+  function draw(p) {{
+    x.save(); x.translate(p.x, p.y); x.rotate(p.a); x.fillStyle = p.c; x.globalAlpha = 0.88;
+    if (isBday) {{
+      x.scale(1, Math.sin(p.sw)); x.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+    }} else {{
+      x.scale(1, 0.6 + 0.4 * Math.sin(p.sw)); x.beginPath();
+      x.moveTo(0, -p.r); x.bezierCurveTo(p.r, -p.r, p.r, p.r * 0.6, 0, p.r);
+      x.bezierCurveTo(-p.r, p.r * 0.6, -p.r, -p.r, 0, -p.r); x.fill();
     }}
-    window.scrollBy({{ top: 2, behavior: 'smooth' }});
-  }}, 35);
-}}
-
-function stopAutoScroll() {{
-  isAutoScrolling = false;
-  if (autoScrollInterval) clearInterval(autoScrollInterval);
-  var btn = document.getElementById('btnAutoScroll');
-  var ico = document.getElementById('autoScrollIcon');
-  var txt = document.getElementById('autoScrollText');
-  if (btn) btn.classList.remove('is-active');
-  if (ico) ico.textContent = '▶';
-  if (txt) txt.textContent = 'Auto Play';
-}}
-
-function scrollSection(direction) {{
-  stopAutoScroll();
-  var secs = scrollSections.map(function(id) {{ return document.getElementById(id); }}).filter(Boolean);
-  var currentY = window.scrollY;
-  var target = null;
-
-  if (direction > 0) {{
-    for (var i = 0; i < secs.length; i++) {{
-      if (secs[i].offsetTop > currentY + 30) {{
-        target = secs[i];
-        break;
-      }}
-    }}
-  }} else {{
-    for (var i = secs.length - 1; i >= 0; i--) {{
-      if (secs[i].offsetTop < currentY - 30) {{
-        target = secs[i];
-        break;
-      }}
-    }}
+    x.restore();
   }}
-  if (target) {{
-    target.scrollIntoView({{ behavior: 'smooth' }});
-  }} else if (direction < 0) {{
-    window.scrollTo({{ top: 0, behavior: 'smooth' }});
+  function loop() {{
+    x.clearRect(0, 0, W, H);
+    while (P.length < 16) P.push(mk());
+    for (var i = P.length - 1; i >= 0; i--) {{
+      var p = P[i]; p.y += p.vy; p.sw += 0.05; p.x += p.vx; p.a += p.va;
+      if (p.y > H + 25) P.splice(i, 1); else draw(p);
+    }}
+    requestAnimationFrame(loop);
   }}
-}}
+  window.addEventListener('resize', size); size(); requestAnimationFrame(loop);
+}})();
 
-window.addEventListener('wheel', function () {{ if (isAutoScrolling) stopAutoScroll(); }}, {{ passive: true }});
-window.addEventListener('touchmove', function () {{ if (isAutoScrolling) stopAutoScroll(); }}, {{ passive: true }});
-
-// Modal Logic
 function openSendModal() {{
   document.getElementById('sendModal').style.display = 'flex';
 }}
@@ -2125,7 +2131,7 @@ function sendViaWhatsApp() {{
   var rawPhone = document.getElementById('targetGuestPhone').value.trim().replace(/\D/g, '').replace(/^0+/, '');
   var fullPhone = rawPhone ? (cc + rawPhone) : '';
   var link = getCleanUrl();
-  var text = encodeURIComponent("Dearest " + guest + ",\\n\\nYou are cordially invited to celebrate the " + "{t['title']}" + "! ❦\\n\\nDate: " + "{t['date_str']}" + "\\nVenue: " + "{t['venue']}" + "\\n\\nOpen your personalized animated invitation here:\\n" + link + "\\n\\nWith love,\\n" + "{t['celebrants']}");
+  var text = encodeURIComponent("Dearest " + guest + ",\n\nYou are cordially invited to celebrate the " + "{t['title']}" + "! ❦\n\nDate: " + "{t['date_str']}" + "\nVenue: " + "{t['venue']}" + "\n\nOpen your personalized animated invitation here:\n" + link + "\n\nWith love,\n" + "{t['celebrants']}");
   var url = fullPhone ? ('https://api.whatsapp.com/send?phone=' + fullPhone + '&text=' + text) : ('https://api.whatsapp.com/send?text=' + text);
   window.open(url, '_blank');
   closeSendModal();
@@ -2136,7 +2142,7 @@ function sendViaEmail() {{
   var email = document.getElementById('targetGuestEmail').value.trim();
   var link = getCleanUrl();
   var subject = encodeURIComponent("Invitation: " + "{t['title']}");
-  var body = encodeURIComponent("Dearest " + guest + ",\\n\\nWe cordially invite you to celebrate the " + "{t['title']}" + " on " + "{t['date_str']}" + " at " + "{t['venue']}" + ".\\n\\nOpen your interactive invitation here:\\n" + link + "\\n\\nWith love,\\n" + "{t['celebrants']}");
+  var body = encodeURIComponent("Dearest " + guest + ",\n\nWe cordially invite you to celebrate the " + "{t['title']}" + " on " + "{t['date_str']}" + " at " + "{t['venue']}" + ".\n\nOpen your interactive invitation here:\n" + link + "\n\nWith love,\n" + "{t['celebrants']}");
 
   window.location.href = 'mailto:' + (email || '') + '?subject=' + subject + '&body=' + body;
   closeSendModal();
@@ -2150,29 +2156,15 @@ function copyPersonalizedLink() {{
   setTimeout(function() {{ btn.textContent = 'Copy Personalized Link'; }}, 2200);
 }}
 
-function sendQuickRsvp(choice) {{
-  var name = document.getElementById('rsvpNameInput').value.trim() || 'Guest';
-  var msg = encodeURIComponent("Namaste! RSVP from " + name + " for " + "{t['celebrants']}" + ": " + (choice === 'yes' ? '✓ Joyfully attending with family!' : '✕ Regretfully cannot attend, sending our warmest blessings.'));
-  window.open('https://api.whatsapp.com/send?phone=919876543210&text=' + msg, '_blank');
-}}
-
-// Check guest query on load
 window.addEventListener('DOMContentLoaded', function() {{
   var m = /[?&]to=([^&#]+)/.exec(window.location.search);
   if (m) {{
-    var g = decodeURIComponent(m[1].replace(/\\+/g, ' '));
+    var g = decodeURIComponent(m[1].replace(/\+/g, ' '));
     var label = document.getElementById('guestCallLabel');
     if (label) label.innerHTML = 'Incoming call for <b>' + g + '</b><span class="dots"><i>.</i><i>.</i><i>.</i></span>';
-    var b1 = document.getElementById('guestBanner1');
-    var span = document.getElementById('guestNameSpan1');
-    if (b1 && span) {{
-      span.textContent = g;
-      b1.style.display = 'inline-flex';
-    }}
   }}
 }});
 </script>
-
 </body>
 </html>"""
     
@@ -2181,9 +2173,8 @@ window.addEventListener('DOMContentLoaded', function() {{
 
 print(f"Successfully generated {len(templates_data)} standalone templates in {TEMPLATES_DIR}!")
 
-# Write TEMPLATES.md catalog
 md_content = "# GoldenVows — 60 Unique Invitation Templates Catalog\n\n"
-md_content += "Each template is an independent, mobile and laptop-friendly animated invitation featuring interactive 3D Flipbook Page-Turn mode, Royal Story Scroll mode with Auto-Scroll, Incoming VIP Call openers, real-time countdown, Google Maps navigation, RSVP, and direct WhatsApp / Email dispatching to the correct recipient number.\n\n"
+md_content += "Each template is an independent, mobile and laptop-friendly animated invitation featuring occasion-specific visual layouts (Royal Rajputana Mandap, Tuscan Minimalist, Starlight Ring Halo, Pastel Baby Cloud, VIP Concert Ticket, Vedic Griha Pravesh Sanctuary), touch-and-drag slider openers, real-time countdown, Google Maps navigation, RSVP, and direct WhatsApp / Email dispatching to the correct recipient number.\n\n"
 md_content += "| # | Template Name | Category | Palette | Local URL | Live GitHub Pages URL |\n"
 md_content += "|---|---|---|---|---|---|\n"
 
@@ -2192,6 +2183,6 @@ for t in templates_data:
     gh_url = f"https://urvashizoopcoder-hub.github.io/GoldenVows/templates/{t['slug']}.html"
     md_content += f"| {t['id']:02d} | **{t['name']}** | {t['category']} | {t['palette_name']} | [Open Locally]({local_url}) | [Open on GitHub Pages]({gh_url}) |\n"
 
-with open(r"c:\Users\URVASHI BHARTI\OneDrive\Desktop\zoop\TEMPLATES.md", "w", encoding="utf-8") as f:
+with open(r"c:\\Users\\URVASHI BHARTI\\OneDrive\\Desktop\\zoop\\TEMPLATES.md", "w", encoding="utf-8") as f:
     f.write(md_content)
 print("Generated TEMPLATES.md catalog table!")

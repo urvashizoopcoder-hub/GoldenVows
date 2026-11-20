@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 700" width="500" height="700">
+  <defs>
+    <radialGradient id="bCov" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFF1F2"/>
+      <stop offset="60%" stop-color="#FCE7F3"/>
+      <stop offset="100%" stop-color="#FBCFE8"/>
+    </radialGradient>
+  </defs>
+  <rect width="500" height="700" fill="url(#bCov)"/>
+  <!-- Golden Cradle with soft bunting -->
+  <g transform="translate(250, 340)">
+    <circle cx="0" cy="0" r="140" fill="#FFFFFF" opacity="0.6"/>
+    <!-- Cradle -->
+    <path d="M -90 -20 Q 0 90 90 -20 Q 70 60 0 65 Q -70 60 -90 -20 Z" fill="#F472B6"/>
+    <ellipse cx="0" cy="-20" rx="90" ry="25" fill="#FBCFE8"/>
+    <!-- Rocking legs -->
+    <path d="M -60 55 Q 0 105 60 55" fill="none" stroke="#D97706" stroke-width="6" stroke-linecap="round"/>
+    <line x1="-50" y1="40" x2="-50" y2="70" stroke="#D97706" stroke-width="4"/>
+    <line x1="50" y1="40" x2="50" y2="70" stroke="#D97706" stroke-width="4"/>
+    <!-- Baby teddy in cradle -->
+    <circle cx="0" cy="-35" r="24" fill="#FBBF24"/>
+    <circle cx="-18" cy="-52" r="10" fill="#FBBF24"/>
+    <circle cx="18" cy="-52" r="10" fill="#FBBF24"/>
+    <circle cx="-8" cy="-38" r="3" fill="#451A03"/>
+    <circle cx="8" cy="-38" r="3" fill="#451A03"/>
+    <circle cx="0" cy="-28" r="5" fill="#F472B6"/>
+  </g>
+  <text x="250" y="550" text-anchor="middle" font-family="'Cinzel', serif" font-size="26" font-weight="bold" fill="#9D174D" letter-spacing="2">GODH BHARAI</text>
+  <text x="250" y="585" text-anchor="middle" font-family="'Marcellus', serif" font-size="15" fill="#BE185D" letter-spacing="1">WELCOMING OUR LITTLE BLESSING</text>
+</svg>

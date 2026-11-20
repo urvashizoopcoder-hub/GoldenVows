@@ -8,7 +8,7 @@
   var OCCASION_CONFIG = {
     wedding: {
       typeLabel: "Royal Wedding Invitation",
-      callLabel: "Incoming Wedding Call",
+      callLabel: "Incoming Royal Wedding Call",
       eyebrow: "you are cordially invited<br>to the royal wedding of",
       heartSymbol: "❤",
       hostsTitle: "Meet The Couple",
@@ -17,21 +17,21 @@
       c2Role: "The Bride",
       eventsTitle: "Wedding Ceremonies & Itinerary",
       saveDateScript: "The Wedding Day",
-      footThanks: "Thank you for being part of our wedding celebration",
+      footThanks: "Thank you for being part of our royal celebration",
       calSuffix: " — Wedding",
       rsvpMsg: "Congratulations! We can't wait to celebrate your wedding.",
       defaultPalette: "emerald-gold"
     },
     housewarming: {
       typeLabel: "Griha Pravesh & Housewarming Invitation",
-      callLabel: "Incoming Housewarming Invitation",
-      eyebrow: "you are cordially invited<br>to the Griha Pravesh &amp; Housewarming of",
+      callLabel: "Incoming Griha Pravesh Call",
+      eyebrow: "॥ ॐ नमो भगवते वास्तुपुरुषाय नमः ॥<br>You are warmly invited to the Griha Pravesh of",
       heartSymbol: "🏡",
       hostsTitle: "The Family & Our New Abode",
       hostsSubtitle: "A sanctuary built with love, prayers and elder blessings.",
       c1Role: "Head of Family",
       c2Role: "New Residence",
-      eventsTitle: "Auspicious Puja & Ceremonies",
+      eventsTitle: "Auspicious Puja & Griha Pravesh Schedule",
       saveDateScript: "The Auspicious Day",
       footThanks: "Thank you for gracing our new home with your warm blessings",
       calSuffix: " — Griha Pravesh",
@@ -41,7 +41,7 @@
     babyshower: {
       typeLabel: "Baby Shower & Godh Bharai Invitation",
       callLabel: "Incoming Baby Shower Call",
-      eyebrow: "you are warmly invited<br>to the Baby Shower &amp; Godh Bharai of",
+      eyebrow: "A sweet little miracle is on the way!<br>You are invited to the Baby Shower of",
       heartSymbol: "🍼",
       hostsTitle: "Meet The Parents-to-be",
       hostsSubtitle: "Welcoming our little miracle with love, laughter and blessings.",
@@ -55,16 +55,16 @@
       defaultPalette: "pastel-cloud"
     },
     birthday: {
-      typeLabel: "Birthday Celebration Invitation",
-      callLabel: "Incoming Birthday Party Call",
-      eyebrow: "you are cordially invited<br>to celebrate the Birthday of",
+      typeLabel: "VIP Birthday Celebration Bash",
+      callLabel: "Incoming Birthday VIP Call",
+      eyebrow: "★ THE ULTIMATE CELEBRATION BASH ★<br>You are cordially invited to celebrate the Birthday of",
       heartSymbol: "🎂",
       hostsTitle: "The Birthday Star",
-      hostsSubtitle: "Celebrating another milestone year of joy, dreams and laughter.",
-      c1Role: "Birthday Star",
-      c2Role: "Milestone Celebration",
-      eventsTitle: "Party Schedule & Highlights",
-      saveDateScript: "The Big Party",
+      hostsSubtitle: "Celebrating another milestone year of greatness, music & cheers.",
+      c1Role: "The Birthday Legend",
+      c2Role: "",
+      eventsTitle: "VIP Party Schedule & Highlights",
+      saveDateScript: "Party Night",
       footThanks: "Thank you for bringing your sparkle to our birthday bash",
       calSuffix: " — Birthday Party",
       rsvpMsg: "Happy Birthday! Looking forward to rocking the party with you.",
@@ -89,7 +89,7 @@
     anniversary: {
       typeLabel: "Anniversary Celebration Invitation",
       callLabel: "Incoming Anniversary Call",
-      eyebrow: "you are cordially invited<br>to celebrate the Anniversary of",
+      eyebrow: "Celebrating Years of Togetherness<br>You are cordially invited to celebrate the Anniversary of",
       heartSymbol: "🥂",
       hostsTitle: "The Loving Couple",
       hostsSubtitle: "Celebrating decades of unconditional love and togetherness.",
@@ -120,6 +120,55 @@
     // Populate dynamic occasion-specific tokens
     if (!d.theme_palette) d.theme_palette = cfg.defaultPalette;
     if (!d.occasion_title) d.occasion_title = cfg.typeLabel;
+
+    // ENFORCE STRICT OCCASION PURITY (Never show bride/groom in birthday or housewarming)
+    if (occasionKey === 'birthday') {
+      if (!d.hero_image || d.hero_image.indexOf('hero_palace') > -1) d.hero_image = 'assets/img/bday_hero.svg';
+      if (!d.cover_image || d.cover_image.indexOf('couple_call') > -1) d.cover_image = 'assets/img/bday_cover.svg';
+      if (!d.groom_photo || d.groom_photo.indexOf('groom.webp') > -1) d.groom_photo = 'assets/img/bday_star.svg';
+      d.bride_photo = '';
+      d.bride_name = '';
+      d.bride_full_name = '';
+      d.bride_parents = '';
+      d.ambient_particles = 'confetti';
+      if (!d.gallery || !d.gallery.length || d.gallery.some(function(g) { return g.indexOf('gal') > -1; })) {
+        d.gallery = ['assets/img/bday_hero.svg', 'assets/img/bday_cover.svg', 'assets/img/bday_star.svg'];
+      }
+      (d.events || []).forEach(function (ev, idx) {
+        if (!ev.image || ev.image.indexOf('ev_') > -1 || ev.image.indexOf('palace') > -1) {
+          ev.image = idx === 0 ? 'assets/img/bday_cover.svg' : (idx === 1 ? 'assets/img/bday_hero.svg' : 'assets/img/bday_star.svg');
+        }
+      });
+    } else if (occasionKey === 'housewarming') {
+      if (!d.hero_image || d.hero_image.indexOf('hero_palace') > -1) d.hero_image = 'assets/img/house_hero.svg';
+      if (!d.cover_image || d.cover_image.indexOf('couple_call') > -1) d.cover_image = 'assets/img/house_cover.svg';
+      if (!d.groom_photo || d.groom_photo.indexOf('groom.webp') > -1) d.groom_photo = 'assets/img/house_family.svg';
+      if (!d.bride_photo || d.bride_photo.indexOf('bride.webp') > -1) d.bride_photo = 'assets/img/house_residence.svg';
+      d.ambient_particles = 'diyas';
+      if (!d.gallery || !d.gallery.length || d.gallery.some(function(g) { return g.indexOf('gal') > -1; })) {
+        d.gallery = ['assets/img/house_hero.svg', 'assets/img/house_cover.svg', 'assets/img/house_residence.svg', 'assets/img/house_family.svg'];
+      }
+      (d.events || []).forEach(function (ev, idx) {
+        if (!ev.image || ev.image.indexOf('ev_') > -1 || ev.image.indexOf('palace') > -1) {
+          ev.image = idx === 0 ? 'assets/img/house_cover.svg' : (idx === 1 ? 'assets/img/house_hero.svg' : 'assets/img/house_residence.svg');
+        }
+      });
+    } else if (occasionKey === 'babyshower') {
+      if (!d.hero_image || d.hero_image.indexOf('hero_palace') > -1) d.hero_image = 'assets/img/baby_hero.svg';
+      if (!d.cover_image || d.cover_image.indexOf('couple_call') > -1) d.cover_image = 'assets/img/baby_cover.svg';
+      if (!d.groom_photo || d.groom_photo.indexOf('groom.webp') > -1) d.groom_photo = 'assets/img/baby_hero.svg';
+      if (!d.bride_photo || d.bride_photo.indexOf('bride.webp') > -1) d.bride_photo = 'assets/img/baby_cover.svg';
+      d.ambient_particles = 'stars';
+      if (!d.gallery || !d.gallery.length || d.gallery.some(function(g) { return g.indexOf('gal') > -1; })) {
+        d.gallery = ['assets/img/baby_hero.svg', 'assets/img/baby_cover.svg'];
+      }
+      (d.events || []).forEach(function (ev, idx) {
+        if (!ev.image || ev.image.indexOf('ev_') > -1 || ev.image.indexOf('palace') > -1) {
+          ev.image = idx === 0 ? 'assets/img/baby_hero.svg' : 'assets/img/baby_cover.svg';
+        }
+      });
+    }
+
     d.call_label = cfg.callLabel;
     d.heart_icon = cfg.heartSymbol;
     d.hero_eyebrow = d.invite_eyebrow || cfg.eyebrow;
@@ -139,44 +188,25 @@
     if (occasionKey === 'housewarming') {
       d.page_title = (d.groom_full_name || gName) + ' — ' + d.occasion_title;
     } else if (occasionKey === 'birthday') {
-      d.page_title = gName + ' — ' + d.occasion_title;
+      d.page_title = (d.groom_full_name || gName) + ' — ' + d.occasion_title;
     } else {
       d.page_title = gName + (bName ? ' & ' + bName : '') + ' — ' + d.occasion_title;
-    }
-
-    if (d.music_enabled === false) d.music_url = '';
-    if (d.show_gallery === false) d.gallery = [];
-    if (!d.venue_map_url && d.venue) {
-      d.venue_map_url = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(d.venue + ' ' + (d.venue_address || ''));
-    }
-
-    (d.events || []).forEach(function (e) {
-      if (e.time && e.date && e.date.indexOf('T') < 0) e.date = e.date + 'T' + e.time;
-      if (!e.map_url && (e.venue || d.venue)) {
-        e.map_url = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent((e.venue || d.venue) + ' ' + (d.venue_address || ''));
-      }
-    });
-
-    if (d.event_time && d.event_date && d.event_date.indexOf('T') < 0) {
-      d.event_date = d.event_date + 'T' + d.event_time;
-    }
-
-    // Apply palette to body early
-    if (d.theme_palette && document.body) {
-      document.body.setAttribute('data-palette', d.theme_palette);
-      document.body.classList.add('palette-' + d.theme_palette);
     }
 
     return d;
   }
 
-  // Parse hash #data=...
-  var m = /[#&]data=([^&]+)/.exec(location.hash);
-  window.JFY_READY = (m && window.JFYCodec ? JFYCodec.decode(m[1]).then(function (decoded) {
-    window.JFY_DATA = finalize(Object.assign({}, decoded));
-  }) : Promise.resolve(window.JFY_DATA ? finalize(window.JFY_DATA) : finalize(DEFAULT_PRESET)))
-  .catch(function (e) {
-    console.warn('Invitation data could not be read, using default preset.', e);
-    window.JFY_DATA = finalize(DEFAULT_PRESET);
-  });
+  // Hook into URL hash or default preset
+  var hash = location.hash || '';
+  var dataMatch = hash.match(/#data=([^&]+)/);
+  if (dataMatch && window.JFYCodec) {
+    window.JFY_READY = window.JFYCodec.decode(dataMatch[1]).then(function (decoded) {
+      window.JFY_DATA = finalize(Object.assign({}, decoded));
+    }).catch(function () {
+      window.JFY_DATA = finalize(DEFAULT_PRESET);
+    });
+  } else {
+    window.JFY_READY = Promise.resolve(window.JFY_DATA ? finalize(window.JFY_DATA) : finalize(DEFAULT_PRESET));
+  }
+
 })();

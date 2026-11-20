@@ -224,16 +224,83 @@
 
   /* ---------- answer the call (slider) ---------- */
   var slider = $('#slider'), knob = $('#knob'), dragging = false, sx0 = 0, prog = 0, opened = false;
-  function track() { slider.style.setProperty('--track', (slider.clientWidth - 14) + 'px'); }
-  function setP(p) { prog = Math.max(0, Math.min(1, p)); slider.style.setProperty('--p', prog); }
-  knob.addEventListener('pointerdown', function (e) { dragging = true; sx0 = e.clientX; track(); slider.classList.add('is-drag'); slider.classList.remove('is-back'); knob.setPointerCapture && knob.setPointerCapture(e.pointerId); });
-  knob.addEventListener('pointermove', function (e) { if (!dragging) return; var max = slider.clientWidth - 14 - knob.offsetWidth; setP((e.clientX - sx0) / max); });
-  function release(e) {
-    if (!dragging) return; dragging = false; slider.classList.remove('is-drag');
-    var moved = Math.abs(e.clientX - sx0);
-    if (prog > 0.7 || moved < 6) { answer(); } else { slider.classList.add('is-back'); setP(0); }
+
+  function getTrackWidth() {
+    if (!slider || !knob) return 260;
+    var sw = slider.clientWidth || slider.offsetWidth || 300;
+    var kw = knob.offsetWidth || knob.clientWidth || 68;
+    return Math.max(60, sw - kw - 14);
   }
-  knob.addEventListener('pointerup', release); knob.addEventListener('pointercancel', release);
+
+  function track() {
+    var maxD = getTrackWidth();
+    slider.style.setProperty('--track', (maxD + 68) + 'px');
+    return maxD;
+  }
+
+  function setP(p) {
+    prog = Math.max(0, Math.min(1, p));
+    slider.style.setProperty('--p', prog);
+    var maxD = getTrackWidth();
+    knob.style.transform = 'translateX(' + (maxD * prog) + 'px)';
+  }
+
+  function startDrag(cx) {
+    if (opened) return;
+    dragging = true;
+    sx0 = cx;
+    track();
+    slider.classList.add('is-drag');
+    slider.classList.remove('is-back');
+  }
+
+  function moveDrag(cx) {
+    if (!dragging || opened) return;
+    var maxD = getTrackWidth();
+    setP((cx - sx0) / maxD);
+  }
+
+  function release(cx) {
+    if (!dragging) return;
+    dragging = false;
+    slider.classList.remove('is-drag');
+    var moved = cx != null ? Math.abs(cx - sx0) : 0;
+    if (prog > 0.55 || moved < 8) {
+      setP(1);
+      answer();
+    } else {
+      slider.classList.add('is-back');
+      setP(0);
+    }
+  }
+
+  if (knob) {
+    knob.addEventListener('pointerdown', function (e) {
+      startDrag(e.clientX);
+      try { knob.setPointerCapture(e.pointerId); } catch (_) {}
+    });
+    knob.addEventListener('touchstart', function (e) {
+      if (e.touches && e.touches[0]) startDrag(e.touches[0].clientX);
+    }, { passive: true });
+    knob.addEventListener('click', function (e) {
+      e.stopPropagation();
+      answer();
+    });
+  }
+
+  window.addEventListener('pointermove', function (e) { if (dragging) moveDrag(e.clientX); });
+  window.addEventListener('pointerup', function (e) { if (dragging) release(e.clientX); });
+  window.addEventListener('pointercancel', function () { if (dragging) release(); });
+
+  window.addEventListener('touchmove', function (e) {
+    if (dragging && e.touches && e.touches[0]) moveDrag(e.touches[0].clientX);
+  }, { passive: true });
+  window.addEventListener('touchend', function () { if (dragging) release(); }, { passive: true });
+
+  if (slider) {
+    slider.addEventListener('click', function () { if (!opened) answer(); });
+  }
+
   function answer() {
     if (opened) return; opened = true; track(); slider.classList.add('is-back', 'is-done'); setP(1);
     playMusic();
@@ -266,22 +333,107 @@
   window.addEventListener('pointermove', function (e) { if (e.pointerType === 'mouse') { tilt.x = (e.clientX / innerWidth - .5) * 2; tilt.y = (e.clientY / innerHeight - .5) * 2; } });
   $$('[data-magic]').forEach(function (b) { b.addEventListener('click', function (e) { e.stopPropagation(); enableTilt(); var r = b.getBoundingClientRect(); burst(r.left + r.width / 2, r.top + r.height / 2, 36); petals.boost(50); if (b.closest('.call')) { /* magic on the call screen also plays music preview */ playMusic(); } }); });
 
-  /* ---------- falling petals (canvas) ---------- */
+  /* ---------- dynamic celebration / occasion particles (canvas) ---------- */
   var petals = (function () {
     var c = $('#petals'), x = c.getContext('2d'), P = [], W = 0, H = 0, dpr = Math.min(2, window.devicePixelRatio || 1), extra = 0;
-    var cols = ['#f4a7b5', '#ee8fa3', '#f9c5cf', '#e77d93', '#fbd9de'];
+    var occ = (D.occasion_type || 'wedding').toLowerCase();
+    var pType = D.ambient_particles || (occ === 'birthday' ? 'confetti' : (occ === 'housewarming' ? 'diyas' : (occ === 'babyshower' ? 'stars' : 'petals')));
+
+    var cols = ['#f4a7b5', '#ee8fa3', '#f9c5cf', '#e77d93', '#fbd9de']; // default rose petals
+    if (pType === 'confetti' || occ === 'birthday') {
+      // Vibrant celebratory party confetti colors
+      cols = ['#FFD700', '#00E5FF', '#FF1493', '#00E676', '#FFEB3B', '#D500F9', '#FF6D00', '#FFFFFF'];
+    } else if (pType === 'diyas' || occ === 'housewarming') {
+      // Auspicious glowing diya sparks & warm marigold orange/yellow
+      cols = ['#FFA000', '#FFD54F', '#FF6D00', '#FFE082', '#FF8F00'];
+    } else if (pType === 'stars' || occ === 'babyshower' || occ === 'engagement') {
+      // Starlight & pastel bubbles
+      cols = ['#81D4FA', '#F48FB1', '#FFF59D', '#B39DDB', '#FFFFFF', '#FFE082'];
+    }
+
     function size() { W = c.clientWidth; H = c.clientHeight; c.width = W * dpr; c.height = H * dpr; x.setTransform(dpr, 0, 0, dpr, 0, 0); }
-    function mk(top) { return { x: Math.random() * W, y: top ? -20 - Math.random() * H * 0.3 : Math.random() * H, r: 5 + Math.random() * 7, vy: 0.5 + Math.random() * 1.1, vx: -0.3 + Math.random() * 0.6, a: Math.random() * 6.28, va: -0.03 + Math.random() * 0.06, sw: Math.random() * 6.28, c: cols[(Math.random() * cols.length) | 0] }; }
-    function draw(p) { x.save(); x.translate(p.x, p.y); x.rotate(p.a); x.scale(1, 0.6 + 0.4 * Math.sin(p.sw)); x.fillStyle = p.c; x.globalAlpha = 0.85; x.beginPath(); x.moveTo(0, -p.r); x.bezierCurveTo(p.r, -p.r, p.r, p.r * 0.6, 0, p.r); x.bezierCurveTo(-p.r, p.r * 0.6, -p.r, -p.r, 0, -p.r); x.fill(); x.restore(); }
+
+    function mk(top) {
+      var isConfetti = pType === 'confetti' || occ === 'birthday';
+      var isStar = pType === 'stars' || occ === 'babyshower' || occ === 'engagement';
+      return {
+        x: Math.random() * W,
+        y: top ? -20 - Math.random() * H * 0.3 : Math.random() * H,
+        r: isConfetti ? (4 + Math.random() * 8) : (5 + Math.random() * 7),
+        w: isConfetti ? (8 + Math.random() * 12) : (5 + Math.random() * 7),
+        h: isConfetti ? (4 + Math.random() * 7) : (5 + Math.random() * 7),
+        vy: isConfetti ? (1.2 + Math.random() * 2.2) : (0.5 + Math.random() * 1.1),
+        vx: -0.4 + Math.random() * 0.8,
+        a: Math.random() * 6.28,
+        va: (isConfetti ? 0.06 : 0.02) * (Math.random() > 0.5 ? 1 : -1),
+        sw: Math.random() * 6.28,
+        c: cols[(Math.random() * cols.length) | 0],
+        shape: isConfetti ? (Math.random() > 0.35 ? 'rect' : 'circle') : (isStar ? 'star' : 'petal')
+      };
+    }
+
+    function draw(p) {
+      x.save();
+      x.translate(p.x, p.y);
+      x.rotate(p.a);
+      x.fillStyle = p.c;
+      x.globalAlpha = 0.9;
+
+      if (p.shape === 'rect') {
+        // Tumbling rectangular confetti
+        var scaleY = Math.sin(p.sw);
+        x.scale(1, scaleY);
+        x.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+      } else if (p.shape === 'circle') {
+        // Sparkling sequin circle
+        x.beginPath();
+        x.arc(0, 0, p.r * 0.7, 0, 6.28);
+        x.fill();
+      } else if (p.shape === 'star') {
+        // 4-point glittering star
+        x.beginPath();
+        var s = p.r * 0.8;
+        x.moveTo(0, -s);
+        x.quadraticCurveTo(0, 0, s, 0);
+        x.quadraticCurveTo(0, 0, 0, s);
+        x.quadraticCurveTo(0, 0, -s, 0);
+        x.quadraticCurveTo(0, 0, 0, -s);
+        x.fill();
+      } else {
+        // Rose / Marigold petal
+        x.scale(1, 0.6 + 0.4 * Math.sin(p.sw));
+        x.beginPath();
+        x.moveTo(0, -p.r);
+        x.bezierCurveTo(p.r, -p.r, p.r, p.r * 0.6, 0, p.r);
+        x.bezierCurveTo(-p.r, p.r * 0.6, -p.r, -p.r, 0, -p.r);
+        x.fill();
+      }
+      x.restore();
+    }
+
     function loop() {
       x.clearRect(0, 0, W, H);
-      var want = (document.body.classList.contains('is-open') ? 11 : 0) + Math.round(extra);
+      var want = (document.body.classList.contains('is-open') ? 14 : 0) + Math.round(extra);
       while (P.length < want) P.push(mk(true));
-      for (var i = P.length - 1; i >= 0; i--) { var p = P[i]; p.y += p.vy; p.sw += 0.04; p.x += p.vx + Math.sin(p.sw) * 0.6; p.a += p.va; if (p.y > H + 20) { if (P.length > want) P.splice(i, 1); else Object.assign(p, mk(true)); } else draw(p); }
-      if (extra > 0) extra = Math.max(0, extra - 0.25);
+      for (var i = P.length - 1; i >= 0; i--) {
+        var p = P[i];
+        p.y += p.vy;
+        p.sw += 0.05;
+        p.x += p.vx + Math.sin(p.sw) * 0.7;
+        p.a += p.va;
+        if (p.y > H + 25) {
+          if (P.length > want) P.splice(i, 1);
+          else Object.assign(p, mk(true));
+        } else {
+          draw(p);
+        }
+      }
+      if (extra > 0) extra = Math.max(0, extra - 0.3);
       requestAnimationFrame(loop);
     }
-    window.addEventListener('resize', size); size(); requestAnimationFrame(loop);
+    window.addEventListener('resize', size);
+    size();
+    requestAnimationFrame(loop);
     return { boost: function (n) { extra += n; } };
   })();
 
@@ -308,6 +460,9 @@
   function clock() { var d = new Date(), h = d.getHours() % 12 || 12; $('#callClock').textContent = h + ':' + String(d.getMinutes()).padStart(2, '0'); }
 
   function boot() {
+    var occKey = (D.occasion_type || 'wedding').toLowerCase();
+    document.body.setAttribute('data-occasion', occKey);
+    document.documentElement.setAttribute('data-occasion', occKey);
     render(); track(); clock(); setInterval(clock, 15000); tick(); setInterval(tick, 1000);
     $$('.reveal').forEach(function (el) { io.observe(el); });
     parEls = $$('[data-par]'); parEls.forEach(function (el) { el.__k = parseFloat(el.getAttribute('data-par')) || 0; });

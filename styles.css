@@ -6,8 +6,23 @@
   --cap:'Marcellus',var(--serif);--sans:'Josefin Sans',system-ui,sans-serif;
   --col:min(100vw,500px);--ease:cubic-bezier(.22,1,.36,1);
 }
-*{box-sizing:border-box;margin:0;padding:0;scrollbar-width:none!important;-ms-overflow-style:none!important}
-*::-webkit-scrollbar,html::-webkit-scrollbar,body::-webkit-scrollbar{display:none!important;width:0!important;height:0!important;background:transparent!important}
+*, html, body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+}
+::-webkit-scrollbar-thumb, ::-webkit-scrollbar-track {
+  display: none !important;
+  background: transparent !important;
+}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scrollbar-width:none!important;-ms-overflow-style:none!important}
 body{font-family:var(--sans);color:var(--ink);background:#EFEAD8;overflow-x:hidden;min-height:100vh;-webkit-tap-highlight-color:transparent;scrollbar-width:none!important;-ms-overflow-style:none!important}
 body.is-locked{overflow:hidden;height:100svh}
@@ -93,12 +108,12 @@ a{color:inherit}
 .call__ico{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
 .call__ico svg{width:24px;height:24px}
 .call__home{width:134px;height:5px;border-radius:9px;background:rgba(255,255,255,.9);margin-top:22px}
-.slider{--p:0;--k:68px;position:relative;width:100%;height:calc(var(--k) + 14px);padding:7px;border-radius:999px;background:linear-gradient(180deg,rgba(255,255,255,.26),rgba(255,255,255,.1));border:1px solid rgba(255,255,255,.45);backdrop-filter:blur(20px) saturate(1.2);-webkit-backdrop-filter:blur(20px) saturate(1.2);box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 14px 34px -14px rgba(60,20,30,.6);touch-action:none;opacity:0;animation:rise 1s 1.7s var(--ease) forwards;overflow:hidden}
-.slider__fill{position:absolute;left:7px;top:7px;bottom:7px;border-radius:999px;width:calc(var(--k) + (100% - var(--k) - 14px)*var(--p));background:linear-gradient(90deg,rgba(52,199,89,.2),rgba(52,199,89,.65));opacity:calc(var(--p)*1.5)}
-.slider__text{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding-left:calc(var(--k) + 6px);font-size:20px;font-weight:300;color:rgba(255,255,255,.78);white-space:nowrap;pointer-events:none;opacity:calc(1 - var(--p)*1.8);-webkit-mask-image:linear-gradient(100deg,rgba(0,0,0,.55) 40%,#000 50%,rgba(0,0,0,.55) 60%);mask-image:linear-gradient(100deg,rgba(0,0,0,.55) 40%,#000 50%,rgba(0,0,0,.55) 60%);-webkit-mask-size:250% 100%;mask-size:250% 100%;animation:shimmer 2.6s linear infinite}
+.slider{--p:0;--k:68px;--track:280px;position:relative;width:100%;height:calc(var(--k) + 14px);padding:7px;border-radius:999px;background:linear-gradient(180deg,rgba(255,255,255,.26),rgba(255,255,255,.1));border:1px solid rgba(255,255,255,.45);backdrop-filter:blur(20px) saturate(1.2);-webkit-backdrop-filter:blur(20px) saturate(1.2);box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 14px 34px -14px rgba(60,20,30,.6);touch-action:none;opacity:0;animation:rise 1s 1.7s var(--ease) forwards;overflow:hidden;user-select:none;-webkit-user-select:none}
+.slider__fill{position:absolute;left:7px;top:7px;bottom:7px;border-radius:999px;width:calc(var(--k) + (100% - var(--k) - 14px)*var(--p));background:linear-gradient(90deg,rgba(52,199,89,.2),rgba(52,199,89,.65));opacity:calc(var(--p)*1.5);pointer-events:none}
+.slider__text{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding-left:calc(var(--k) + 6px);font-size:20px;font-weight:300;color:rgba(255,255,255,.78);white-space:nowrap;pointer-events:none;opacity:calc(1 - var(--p)*1.8);-webkit-mask-image:linear-gradient(100deg,rgba(0,0,0,.55) 40%,#000 50%,rgba(0,0,0,.55) 60%);mask-image:linear-gradient(100deg,rgba(0,0,0,.55) 40%,#000 50%,rgba(0,0,0,.55) 60%);-webkit-mask-size:250% 100%;mask-size:250% 100%;animation:shimmer 2.6s linear infinite;user-select:none;-webkit-user-select:none}
 .slider__text b{font-weight:600;color:#fff}
 @keyframes shimmer{from{-webkit-mask-position:130% 0;mask-position:130% 0}to{-webkit-mask-position:-130% 0;mask-position:-130% 0}}
-.slider__knob{position:relative;z-index:2;width:var(--k);height:var(--k);border-radius:50%;background:#fff;color:#34c759;display:grid;place-items:center;box-shadow:0 8px 22px -6px rgba(0,0,0,.4);transform:translateX(calc((var(--track) - var(--k)) * var(--p)));touch-action:none;cursor:grab}
+.slider__knob{position:relative;z-index:2;width:var(--k);height:var(--k);border-radius:50%;background:#fff;color:#34c759;display:grid;place-items:center;box-shadow:0 8px 22px -6px rgba(0,0,0,.4);transform:translateX(calc((var(--track) - var(--k)) * var(--p)));touch-action:none;cursor:grab;user-select:none;-webkit-user-select:none}
 .slider:not(.is-drag):not(.is-done) .slider__knob{animation:nudge 2.6s 2.6s ease-in-out infinite}
 .slider__knob svg{width:28px;height:28px;animation:wiggle 1.6s 2.4s ease-in-out infinite}
 .slider__knob::before,.slider__knob::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid rgba(255,255,255,.75);animation:pulse 2s ease-out infinite}
@@ -590,4 +605,177 @@ a{color:inherit}
   font-size: 13px;
   color: var(--wine);
   font-weight: 600;
+}
+
+/* =========================================================
+   OCCASION VISUAL ARCHETYPES (STRICT VISUAL INDEPENDENCE)
+   ========================================================= */
+
+/* --- 1. BIRTHDAY PARTY (VIP NIGHTCLUB / FESTIVE CELEBRATION) --- */
+body[data-occasion="birthday"] {
+  background: #090114 !important;
+  color: #FDF4FF !important;
+}
+body[data-occasion="birthday"] .site {
+  background: linear-gradient(180deg, #1E0338 0%, #0D001A 40%, #150226 100%) !important;
+  box-shadow: 0 0 50px rgba(225, 29, 72, 0.25) !important;
+}
+body[data-occasion="birthday"] .call {
+  background: #18042B !important;
+}
+body[data-occasion="birthday"] .call__avatar {
+  border-radius: 50% !important;
+  border: 3px solid #FFD700 !important;
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.5) !important;
+}
+body[data-occasion="birthday"] .palace__top,
+body[data-occasion="birthday"] .palace__frame,
+body[data-occasion="birthday"] .hero__glow,
+body[data-occasion="birthday"] .garland,
+body[data-occasion="birthday"] .orn--top,
+body[data-occasion="birthday"] .invite__ganesh,
+body[data-occasion="birthday"] .lanterns,
+body[data-occasion="birthday"] .couple__knot {
+  display: none !important;
+}
+body[data-occasion="birthday"] .hero__eyebrow {
+  color: #FF80AB !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.25em !important;
+}
+body[data-occasion="birthday"] .hero__name {
+  color: #FFD700 !important;
+  font-size: clamp(34px, 11vw, 54px) !important;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.4) !important;
+}
+body[data-occasion="birthday"] .hero__date {
+  color: #F472B6 !important;
+}
+body[data-occasion="birthday"] .palace {
+  background: linear-gradient(135deg, rgba(46, 8, 84, 0.95), rgba(15, 3, 30, 0.95)) !important;
+  border: 2px solid #FFD700 !important;
+  border-radius: 26px !important;
+  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2), 0 0 40px rgba(225, 29, 72, 0.25) !important;
+  padding: 16px !important;
+}
+body[data-occasion="birthday"] .evcard {
+  background: rgba(26, 4, 46, 0.95) !important;
+  border: 1.5px solid rgba(255, 215, 0, 0.4) !important;
+  border-radius: 20px !important;
+  color: #FFF !important;
+}
+body[data-occasion="birthday"] .evcard__name {
+  color: #FFD700 !important;
+}
+body[data-occasion="birthday"] .person .arch {
+  border-radius: 50% !important;
+  width: 180px !important;
+  height: 180px !important;
+  margin: 0 auto 16px !important;
+  border: 3px solid #FFD700 !important;
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.45) !important;
+  overflow: hidden !important;
+}
+body[data-occasion="birthday"] .arch__frame {
+  display: none !important;
+}
+body[data-occasion="birthday"] .arch__img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  border-radius: 50% !important;
+}
+body[data-occasion="birthday"] .head__title {
+  color: #FFD700 !important;
+}
+body[data-occasion="birthday"] .head__sub,
+body[data-occasion="birthday"] .invite__msg,
+body[data-occasion="birthday"] .quote {
+  color: #E9D5FF !important;
+}
+body[data-occasion="birthday"] .person__name {
+  color: #FFD700 !important;
+}
+body[data-occasion="birthday"] .person__role {
+  color: #FF80AB !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.2em !important;
+}
+
+/* --- 2. HOUSEWARMING (GRIHA PRAVESH AUSPICIOUS SANCTUARY) --- */
+body[data-occasion="housewarming"] {
+  background: #FFFBEB !important;
+  color: #451A03 !important;
+}
+body[data-occasion="housewarming"] .site {
+  background: linear-gradient(180deg, #FFFBEB 0%, #FEF3C7 50%, #FFFBEB 100%) !important;
+}
+body[data-occasion="housewarming"] .call {
+  background: #78350F !important;
+}
+body[data-occasion="housewarming"] .call__avatar {
+  border-radius: 24px !important;
+  border: 3px solid #F59E0B !important;
+  box-shadow: 0 8px 24px rgba(217, 119, 6, 0.4) !important;
+}
+body[data-occasion="housewarming"] .palace__top,
+body[data-occasion="housewarming"] .palace__frame,
+body[data-occasion="housewarming"] .hero__glow,
+body[data-occasion="housewarming"] .couple__knot {
+  display: none !important;
+}
+body[data-occasion="housewarming"] .palace {
+  background: linear-gradient(135deg, #FEF3C7, #FDE68A) !important;
+  border: 2px solid #D97706 !important;
+  border-radius: 22px !important;
+  box-shadow: 0 10px 30px rgba(217, 119, 6, 0.22) !important;
+}
+body[data-occasion="housewarming"] .person .arch {
+  border-radius: 20px !important;
+  border: 2.5px solid #D97706 !important;
+  overflow: hidden !important;
+  box-shadow: 0 8px 22px rgba(217, 119, 6, 0.25) !important;
+}
+body[data-occasion="housewarming"] .arch__frame {
+  display: none !important;
+}
+body[data-occasion="housewarming"] .head__title,
+body[data-occasion="housewarming"] .hero__name,
+body[data-occasion="housewarming"] .person__name {
+  color: #9A3412 !important;
+}
+
+/* --- 3. BABY SHOWER (PASTEL CLOUD NURSERY) --- */
+body[data-occasion="babyshower"] {
+  background: #FDF2F8 !important;
+  color: #1E293B !important;
+}
+body[data-occasion="babyshower"] .site {
+  background: linear-gradient(180deg, #F0F9FF 0%, #FDF2F8 50%, #FFFBEB 100%) !important;
+}
+body[data-occasion="babyshower"] .palace__top,
+body[data-occasion="babyshower"] .palace__frame,
+body[data-occasion="babyshower"] .hero__glow {
+  display: none !important;
+}
+body[data-occasion="babyshower"] .palace {
+  background: #FFF !important;
+  border: 2px solid #F472B6 !important;
+  border-radius: 24px !important;
+  box-shadow: 0 10px 30px rgba(244, 114, 182, 0.2) !important;
+}
+body[data-occasion="babyshower"] .person .arch {
+  border-radius: 50% !important;
+  width: 160px !important;
+  height: 160px !important;
+  margin: 0 auto 12px !important;
+  border: 3px solid #38BDF8 !important;
+  overflow: hidden !important;
+}
+body[data-occasion="babyshower"] .arch__frame {
+  display: none !important;
+}
+body[data-occasion="babyshower"] .head__title,
+body[data-occasion="babyshower"] .hero__name {
+  color: #BE185D !important;
 }

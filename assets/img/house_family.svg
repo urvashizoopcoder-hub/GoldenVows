@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400" width="300" height="400">
+  <defs>
+    <linearGradient id="bgG" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFFBEB"/>
+      <stop offset="100%" stop-color="#FEF3C7"/>
+    </linearGradient>
+    <linearGradient id="goldB" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FDE68A"/>
+      <stop offset="50%" stop-color="#D97706"/>
+      <stop offset="100%" stop-color="#92400E"/>
+    </linearGradient>
+  </defs>
+  <rect width="300" height="400" fill="url(#bgG)"/>
+
+  <!-- Ornate Arch Frame -->
+  <path d="M 20 380 L 20 120 Q 150 20 280 120 L 280 380 Z" fill="#FFFDF8" stroke="url(#goldB)" stroke-width="4"/>
+
+  <!-- Family / Elder Host Illustration -->
+  <g transform="translate(150, 190)">
+    <!-- Halo glow -->
+    <circle cx="0" cy="-30" r="70" fill="rgba(253, 230, 138, 0.5)"/>
+
+    <!-- Host 1 (Father / Patriarch) in Kurta -->
+    <path d="M -70 190 L -50 90 Q -25 70 0 85 Q 25 70 50 90 L 70 190 Z" fill="#78350F"/>
+    <!-- Kurta Collar & Dupatta/Stole -->
+    <path d="M -30 90 Q 0 110 30 90 L 35 190 L 15 190 L 0 120 L -15 190 L -35 190 Z" fill="#D97706"/>
+
+    <!-- Head & Tilak -->
+    <circle cx="0" cy="30" r="32" fill="#FDE68A" stroke="#B45309" stroke-width="1.5"/>
+    <path d="M -32 20 Q 0 -15 32 20 Q 25 -2 0 -5 Q -25 -2 -32 20 Z" fill="#451A03"/>
+    <!-- Sacred Chandan & Kumkum Tilak -->
+    <line x1="0" y1="18" x2="0" y2="30" stroke="#DC2626" stroke-width="3"/>
+    <circle cx="0" cy="33" r="2.5" fill="#DC2626"/>
+
+    <!-- Hands folded in Namaste (Anjali Mudra) -->
+    <g fill="#FDE68A" stroke="#B45309" stroke-width="1.5" transform="translate(0, 115)">
+      <path d="M -12 25 L 0 0 L 12 25 Z"/>
+    </g>
+  </g>
+
+  <!-- Caption Label -->
+  <text x="150" y="340" text-anchor="middle" font-family="'Marcellus', serif, Georgia" font-size="16" font-weight="bold" fill="#78350F" letter-spacing="1">THE HOST FAMILY</text>
+  <text x="150" y="365" text-anchor="middle" font-family="'Josefin Sans', sans-serif" font-size="12" fill="#92400E">Warmly Welcoming You</text>
+</svg>

@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="35%" r="75%">
+      <stop offset="0%" stop-color="#2E0854"/>
+      <stop offset="45%" stop-color="#18042B"/>
+      <stop offset="85%" stop-color="#090114"/>
+    </radialGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE082"/>
+      <stop offset="50%" stop-color="#FFB300"/>
+      <stop offset="100%" stop-color="#FF8F00"/>
+    </linearGradient>
+    <linearGradient id="neonPink" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF4081"/>
+      <stop offset="100%" stop-color="#C2185B"/>
+    </linearGradient>
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00E5FF"/>
+      <stop offset="100%" stop-color="#0091EA"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="1000" fill="url(#bgGrad)"/>
+
+  <!-- Stage Spotlights -->
+  <polygon points="100,0 260,1000 60,1000" fill="url(#neonPink)" opacity="0.12"/>
+  <polygon points="700,0 540,1000 740,1000" fill="url(#cyanGrad)" opacity="0.12"/>
+  <polygon points="400,0 250,1000 550,1000" fill="url(#goldGrad)" opacity="0.08"/>
+
+  <!-- Floating Confetti & Sparkles -->
+  <g opacity="0.9">
+    <circle cx="120" cy="180" r="8" fill="#FF4081"/>
+    <circle cx="680" cy="220" r="10" fill="#00E5FF"/>
+    <circle cx="200" cy="340" r="6" fill="#FFD700"/>
+    <circle cx="640" cy="380" r="9" fill="#FF80AB"/>
+    <circle cx="150" cy="620" r="7" fill="#69F0AE"/>
+    <circle cx="720" cy="680" r="8" fill="#FFD700"/>
+    <!-- Confetti strips -->
+    <rect x="90" y="280" width="16" height="6" rx="2" fill="#FFD700" transform="rotate(25 98 283)"/>
+    <rect x="670" y="140" width="18" height="6" rx="2" fill="#FF4081" transform="rotate(-35 679 143)"/>
+    <rect x="250" y="120" width="14" height="5" rx="2" fill="#00E5FF" transform="rotate(45 257 122)"/>
+    <rect x="580" y="290" width="15" height="5" rx="2" fill="#69F0AE" transform="rotate(-20 587 292)"/>
+    <rect x="180" y="520" width="16" height="5" rx="2" fill="#FF80AB" transform="rotate(30 188 522)"/>
+    <rect x="630" y="580" width="14" height="6" rx="2" fill="#FFD700" transform="rotate(-40 637 583)"/>
+  </g>
+
+  <!-- Big Floating Balloons -->
+  <!-- Left Balloon Cluster -->
+  <g transform="translate(140, 300)">
+    <path d="M0,0 C-45,-45 -45,-110 0,-150 C45,-110 45,-45 0,0 Z" fill="url(#goldGrad)"/>
+    <polygon points="-8,0 8,0 0,10" fill="#FFA000"/>
+    <path d="M0,10 Q-15,60 10,120 T-5,220" fill="none" stroke="#FFE082" stroke-width="1.5" opacity="0.6"/>
+  </g>
+  <g transform="translate(80, 380)">
+    <path d="M0,0 C-40,-40 -40,-100 0,-135 C40,-100 40,-40 0,0 Z" fill="url(#neonPink)"/>
+    <polygon points="-6,0 6,0 0,8" fill="#C2185B"/>
+    <path d="M0,8 Q15,50 -8,110 T8,200" fill="none" stroke="#FF80AB" stroke-width="1.5" opacity="0.6"/>
+  </g>
+  <!-- Right Balloon Cluster -->
+  <g transform="translate(660, 300)">
+    <path d="M0,0 C-45,-45 -45,-110 0,-150 C45,-110 45,-45 0,0 Z" fill="url(#cyanGrad)"/>
+    <polygon points="-8,0 8,0 0,10" fill="#0091EA"/>
+    <path d="M0,10 Q15,60 -10,120 T5,220" fill="none" stroke="#80D8FF" stroke-width="1.5" opacity="0.6"/>
+  </g>
+  <g transform="translate(720, 380)">
+    <path d="M0,0 C-40,-40 -40,-100 0,-135 C40,-100 40,-40 0,0 Z" fill="url(#goldGrad)"/>
+    <polygon points="-6,0 6,0 0,8" fill="#FFA000"/>
+    <path d="M0,8 Q-15,50 8,110 T-8,200" fill="none" stroke="#FFE082" stroke-width="1.5" opacity="0.6"/>
+  </g>
+
+  <!-- Glowing Disco Ball -->
+  <g transform="translate(400, 160)">
+    <line x1="0" y1="-160" x2="0" y2="0" stroke="#FFD700" stroke-width="2.5"/>
+    <circle cx="0" cy="0" r="50" fill="#1A1A2E" stroke="#FFD700" stroke-width="3"/>
+    <!-- Facets -->
+    <path d="M-35,-20 L35,-20 M-45,0 L45,0 M-35,20 L35,20 M-20,-35 L-20,35 M0,-48 L0,48 M20,-35 L20,35" stroke="#FFE082" stroke-width="1.5" opacity="0.75"/>
+    <!-- Sparkle rays -->
+    <circle cx="-15" cy="-15" r="4" fill="#FFFFFF" filter="url(#glow)"/>
+    <line x1="-30" y1="-15" x2="0" y2="-15" stroke="#FFF" stroke-width="2"/>
+    <line x1="-15" y1="-30" x2="-15" y2="0" stroke="#FFF" stroke-width="2"/>
+  </g>
+
+  <!-- Center Grand Birthday Celebration Stage -->
+  <g transform="translate(400, 680)">
+    <!-- Stage Pedestal Glow -->
+    <ellipse cx="0" cy="180" rx="260" ry="40" fill="url(#goldGrad)" opacity="0.3" filter="url(#glow)"/>
+    <ellipse cx="0" cy="180" rx="240" ry="30" fill="#1A032E" stroke="#FFD700" stroke-width="2"/>
+
+    <!-- 3-Tier Luxury Birthday Cake -->
+    <!-- Tier 1: Bottom -->
+    <rect x="-140" y="80" width="280" height="80" rx="14" fill="#2A0845" stroke="#FFD700" stroke-width="3"/>
+    <path d="M-135,100 Q-100,115 -70,100 Q-40,115 0,100 Q40,115 70,100 Q100,115 135,100" fill="none" stroke="#FF4081" stroke-width="4"/>
+    <!-- Tier 2: Middle -->
+    <rect x="-100" y="10" width="200" height="70" rx="12" fill="#3D0C61" stroke="#FFD700" stroke-width="3"/>
+    <path d="M-95,30 Q-60,45 -30,30 Q0,45 30,30 Q60,45 95,30" fill="none" stroke="#00E5FF" stroke-width="3.5"/>
+    <!-- Tier 3: Top -->
+    <rect x="-60" y="-50" width="120" height="60" rx="10" fill="#520F82" stroke="#FFD700" stroke-width="2.5"/>
+    <path d="M-55,-35 Q-30,-25 0,-35 Q30,-25 55,-35" fill="none" stroke="#FFD700" stroke-width="3"/>
+
+    <!-- Sparkling Birthday Candles with Glowing Flames -->
+    <!-- Candle 1 -->
+    <rect x="-35" y="-85" width="8" height="35" rx="3" fill="#FFF"/>
+    <ellipse cx="-31" cy="-95" rx="6" ry="12" fill="#FFEB3B" filter="url(#glow)"/>
+    <ellipse cx="-31" cy="-93" rx="3" ry="6" fill="#FF5722"/>
+    <!-- Candle 2 (Center) -->
+    <rect x="-4" y="-95" width="8" height="45" rx="3" fill="#FFF"/>
+    <ellipse cx="0" cy="-107" rx="7" ry="14" fill="#FFEB3B" filter="url(#glow)"/>
+    <ellipse cx="0" cy="-105" rx="3.5" ry="7" fill="#FF5722"/>
+    <!-- Candle 3 -->
+    <rect x="27" y="-85" width="8" height="35" rx="3" fill="#FFF"/>
+    <ellipse cx="31" cy="-95" rx="6" ry="12" fill="#FFEB3B" filter="url(#glow)"/>
+    <ellipse cx="31" cy="-93" rx="3" ry="6" fill="#FF5722"/>
+
+    <!-- Clinking Champagne Flutes -->
+    <g transform="translate(-180, 40) rotate(-18)">
+      <polygon points="0,0 20,-60 -20,-60" fill="rgba(255,224,130,0.5)" stroke="#FFD700" stroke-width="2"/>
+      <line x1="0" y1="0" x2="0" y2="40" stroke="#FFD700" stroke-width="3"/>
+      <ellipse cx="0" cy="40" rx="16" ry="4" fill="#FFD700"/>
+      <!-- Bubbles -->
+      <circle cx="-4" cy="-30" r="3" fill="#FFF"/>
+      <circle cx="5" cy="-45" r="2.5" fill="#FFF"/>
+    </g>
+    <g transform="translate(180, 40) rotate(18)">
+      <polygon points="0,0 20,-60 -20,-60" fill="rgba(255,224,130,0.5)" stroke="#FFD700" stroke-width="2"/>
+      <line x1="0" y1="0" x2="0" y2="40" stroke="#FFD700" stroke-width="3"/>
+      <ellipse cx="0" cy="40" rx="16" ry="4" fill="#FFD700"/>
+      <!-- Bubbles -->
+      <circle cx="4" cy="-30" r="3" fill="#FFF"/>
+      <circle cx="-5" cy="-45" r="2.5" fill="#FFF"/>
+    </g>
+  </g>
+
+  <!-- Typography Banner inside SVG -->
+  <text x="400" y="930" text-anchor="middle" font-family="'Cinzel', 'Marcellus', serif" font-size="34" font-weight="900" fill="#FFD700" letter-spacing="6" filter="url(#glow)">★ VIP CELEBRATION BASH ★</text>
+  <text x="400" y="965" text-anchor="middle" font-family="'Josefin Sans', sans-serif" font-size="16" font-weight="600" fill="#FF80AB" letter-spacing="3">MUSIC · CHAMPAGNE · DANCE FLOOR · CHEERS</text>
+</svg>

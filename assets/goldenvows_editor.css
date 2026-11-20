@@ -303,10 +303,14 @@ input:focus, textarea:focus, select:focus {
   scrollbar-width: none !important;
   -ms-overflow-style: none !important;
 }
-*::-webkit-scrollbar, html::-webkit-scrollbar, body::-webkit-scrollbar, .phone::-webkit-scrollbar, .phone iframe::-webkit-scrollbar, #pv::-webkit-scrollbar {
+::-webkit-scrollbar {
   display: none !important;
   width: 0 !important;
   height: 0 !important;
+  background: transparent !important;
+}
+::-webkit-scrollbar-thumb, ::-webkit-scrollbar-track {
+  display: none !important;
   background: transparent !important;
 }
 

@@ -39,12 +39,26 @@
     });
 
     // Update dynamic field labels based on occasion
+    var isBirthday = (occName === 'birthday');
     if ($('#lblCel1')) $('#lblCel1').childNodes[0].nodeValue = (p.celebrant_1_label || "Celebrant 1") + ' *';
     if ($('#lblCel1Full')) $('#lblCel1Full').childNodes[0].nodeValue = (p.celebrant_1_full_label || "Celebrant 1 Full Name") + ' *';
     if ($('#lblCel1Par')) $('#lblCel1Par').childNodes[0].nodeValue = (p.celebrant_1_parents_label || "Blessing / Parents line") + ' ';
-    if ($('#lblCel2')) $('#lblCel2').childNodes[0].nodeValue = (p.celebrant_2_label || "Celebrant 2") + ' *';
-    if ($('#lblCel2Full')) $('#lblCel2Full').childNodes[0].nodeValue = (p.celebrant_2_full_label || "Celebrant 2 Full Name") + ' *';
-    if ($('#lblCel2Par')) $('#lblCel2Par').childNodes[0].nodeValue = (p.celebrant_2_parents_label || "Blessing / Parents line") + ' ';
+    
+    if ($('#lblCel2')) {
+      $('#lblCel2').childNodes[0].nodeValue = (p.celebrant_2_label || "Celebrant 2") + ' *';
+      $('#lblCel2').style.display = isBirthday ? 'none' : '';
+    }
+    if ($('#lblCel2Full')) {
+      $('#lblCel2Full').childNodes[0].nodeValue = (p.celebrant_2_full_label || "Celebrant 2 Full Name") + ' *';
+      $('#lblCel2Full').style.display = isBirthday ? 'none' : '';
+    }
+    if ($('#lblCel2Par')) {
+      $('#lblCel2Par').childNodes[0].nodeValue = (p.celebrant_2_parents_label || "Blessing / Parents line") + ' ';
+      $('#lblCel2Par').style.display = isBirthday ? 'none' : '';
+    }
+
+    var p2Lab = $('[data-photo="bride_photo"]') ? $('[data-photo="bride_photo"]').closest('.photo') : null;
+    if (p2Lab) p2Lab.style.display = isBirthday ? 'none' : '';
 
     // Update ceremony presets dropdown
     var sel = $('#evPreset');
@@ -172,6 +186,18 @@
     PHOTO_FIELDS.forEach(function (k) {
       if (photos[k]) d[k] = photos[k];
     });
+
+    var p = PRESETS[currentOccasion] || PRESETS.wedding;
+    if (!d.hero_image) d.hero_image = p.hero_image;
+    if (!d.cover_image && !photos.cover_image) d.cover_image = p.cover_image;
+    if (!d.groom_photo && !photos.groom_photo) d.groom_photo = p.groom_photo;
+    if (!d.bride_photo && !photos.bride_photo && p.bride_photo) d.bride_photo = p.bride_photo;
+    if (currentOccasion === 'birthday') {
+      d.bride_name = '';
+      d.bride_full_name = '';
+      d.bride_parents = '';
+      d.bride_photo = '';
+    }
 
     d.events = $$('#evList .ev').map(function (n) {
       var g = function (k) { return ($('[data-k=' + k + ']', n).value || '').trim(); };
