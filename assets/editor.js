@@ -56,7 +56,7 @@
     try { localStorage.setItem(DRAFT, JSON.stringify(d)); } catch (e) { try { var lite = Object.assign({}, d); PHOTOS.forEach(function (k) { delete lite[k]; }); localStorage.setItem(DRAFT, JSON.stringify(lite)); } catch (_) {} }
     JFYCodec.encode(d).then(function (s) {
       var f = $('#pv'), y = 0; try { y = Math.round(f.contentWindow.scrollY || 0); } catch (_) {}
-      f.src = 'index.html?skip=1&preview=1&music=0&y=' + y + '&r=' + (++pvN) + '#data=' + s;
+      f.src = 'invite.html?skip=1&preview=1&music=0&y=' + y + '&r=' + (++pvN) + '#data=' + s;
     });
   }
   form.addEventListener('input', schedule);
@@ -101,7 +101,7 @@
     if (miss.length) { showErr('Please fill: ' + miss.join(', ')); document.body.classList.remove('v-preview'); var first = form.querySelector(':invalid'); if (first) { first.closest('details').open = true; first.focus(); } return; }
     showErr('');
     JFYCodec.encode(d).then(function (s) {
-      var u = new URL('index.html', location.href); u.search = ''; u.hash = 'data=' + s;
+      var u = new URL('invite.html', location.href); u.search = ''; u.hash = 'data=' + s;
       var link = u.toString(), msg = 'You are invited to the wedding of ' + d.groom_name + ' & ' + d.bride_name + ' 💐\nOpen your invitation: ' + link;
       $('#shareUrl').value = link; $('#openLink').href = link;
       $('#waShare').href = 'https://wa.me/?text=' + encodeURIComponent(msg);

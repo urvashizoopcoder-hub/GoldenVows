@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>{{groom_name}} &amp; {{bride_name}} — Wedding Invitation</title>
+<meta name="description" content="You are invited to the wedding of {{groom_full_name}} &amp; {{bride_full_name}}">
+<meta property="og:title" content="{{groom_name}} &amp; {{bride_name}} are getting married!">
+<meta property="og:description" content="Tap to open your royal wedding invitation">
+<meta property="og:image" content="assets/img/hero_palace.webp">
+<meta name="theme-color" content="#e9b9bf">
+<link rel="preload" href="assets/img/couple_call.webp" as="image">
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="stylesheet" href="styles.css">
+<!-- Just For You template: JFY-WED-ROYAL-PALACE · placeholders {{key}} are filled from window.JFY_DATA -->
+</head>
+<body class="is-locked">
+
+<!-- ============ LOADER ============ -->
+<div class="loader" id="loader" aria-hidden="true">
+  <svg class="loader__lotus" viewBox="0 0 64 64"><g fill="none" stroke="#b5835a" stroke-width="1.6"><path d="M32 50C22 42 20 30 32 14c12 16 10 28 0 36z"/><path d="M32 50c-9-2-18-10-20-24 10 1 17 7 20 14"/><path d="M32 50c9-2 18-10 20-24-10 1-17 7-20 14"/><path d="M14 52h36"/></g></svg>
+  <div class="loader__pct"><span id="loaderPct">0</span>%</div>
+  <div class="loader__txt">Preparing your invitation…</div>
+</div>
+
+<!-- ============ COVER: INCOMING WEDDING CALL ============ -->
+<section class="call" id="call" role="dialog" aria-modal="true" aria-label="Incoming wedding call from {{groom_name}} &amp; {{bride_name}}">
+  <div class="call__bg" style="background-image:url('assets/img/corridor.webp')"></div>
+  <div class="call__couple" data-bg="{{cover_image}}"></div>
+  <div class="call__shade"></div>
+  <div class="call__status" aria-hidden="true">
+    <span id="callClock">9:41</span>
+    <span class="call__icons"><i></i><i></i><i></i><b></b></span>
+  </div>
+  <div class="call__top">
+    <p class="call__label">Incoming wedding call<span class="dots"><i>.</i><i>.</i><i>.</i></span></p>
+    <h1 class="call__names"><span>{{groom_name}}</span><span class="call__heart">❤</span><span>{{bride_name}}</span></h1>
+    <p class="call__sub">{{event_date|long}}</p>
+  </div>
+  <div class="call__fog"></div>
+  <div class="call__bottom">
+    <button class="call__magic" type="button" data-magic>✨ Tap to feel the magic</button>
+    <div class="call__actions">
+      <a class="call__act" id="remindBtn" target="_blank" rel="noopener"><span class="call__ico"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 4.5a8 8 0 1 1 0 16 8 8 0 0 1 0-16Zm0 1.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4Zm-.9 2.4h1.8v4.1l3 1.8-.9 1.5-3.9-2.3V8.7ZM6.2 2.6l1.2 1.4-3.6 3L2.6 5.6l3.6-3Zm11.6 0 3.6 3-1.2 1.4-3.6-3 1.2-1.4Z"/></svg></span>Remind Me</a>
+      <a class="call__act" id="msgBtn" target="_blank" rel="noopener"><span class="call__ico"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 3c5 0 9 3.4 9 7.7s-4 7.7-9 7.7c-.9 0-1.8-.1-2.6-.3L5 20l.9-3.6C4.1 15 3 13 3 10.7 3 6.4 7 3 12 3Z"/></svg></span>Message</a>
+    </div>
+    <div class="slider" id="slider">
+      <div class="slider__fill"></div>
+      <div class="slider__text"><b>slide</b>&nbsp;to answer</div>
+      <button class="slider__knob" id="knob" type="button" aria-label="Slide or tap to open the invitation">
+        <svg viewBox="0 0 24 24"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z"/></svg>
+      </button>
+    </div>
+    <span class="call__home"></span>
+  </div>
+</section>
+
+<div class="ambient" aria-hidden="true">
+  <div class="ambient__bg"></div>
+  <div class="lanterns" id="lanterns"></div>
+</div>
+<canvas class="petals" id="petals" aria-hidden="true"></canvas>
+
+<main class="site" id="site">
+
+  <!-- ============ HERO PALACE ============ -->
+  <section class="hero" id="hero">
+    <div class="hero__art" data-par="0.18"><img data-src="{{hero_image}}" alt="" fetchpriority="high"></div>
+    <div class="hero__glow"></div>
+    <div class="hero__text">
+      <p class="hero__eyebrow">you are cordially invited<br>to the wedding of</p>
+      <h2 class="hero__name" data-fit="20">{{groom_full_name}}</h2>
+      <div class="hero__amp">&amp;</div>
+      <h2 class="hero__name" data-fit="20">{{bride_full_name}}</h2>
+      <p class="hero__date">{{event_date|long}}</p>
+    </div>
+    <button class="hero__magic" type="button" data-magic>✨ Tap to feel the magic</button>
+    <div class="scroll-cue"><span>Scroll</span><i></i></div>
+  </section>
+
+  <!-- ============ INVITE MESSAGE ============ -->
+  <section class="sec invite" data-optional="invite_message">
+    <svg class="orn orn--top reveal" viewBox="0 0 240 40" aria-hidden="true"><use href="#orn-divider"/></svg>
+    <p class="invite__ganesh reveal">॥ Shree Ganeshaya Namah ॥</p>
+    <p class="invite__msg reveal">{{invite_message}}</p>
+    <p class="invite__heart reveal">❤</p>
+  </section>
+
+  <!-- ============ MEET THE COUPLE ============ -->
+  <section class="sec couple">
+    <header class="head reveal">
+      <p class="head__eyebrow">Getting to know us</p>
+      <h3 class="head__title">Meet The Couple</h3>
+      <p class="head__sub">Two hearts, one beautiful journey together.</p>
+    </header>
+    <article class="person reveal">
+      <div class="arch">
+        <img class="arch__img" data-src="{{groom_photo}}" alt="{{groom_full_name}}" loading="lazy">
+        <svg class="arch__frame" viewBox="0 0 300 400" aria-hidden="true"><use href="#arch-frame"/></svg>
+      </div>
+      <p class="person__role">The Groom</p>
+      <h4 class="person__name" data-fit="22">{{groom_full_name}}</h4>
+      <p class="person__parents" data-optional="groom_parents">{{groom_parents}}</p>
+    </article>
+    <div class="couple__knot reveal" aria-hidden="true"><svg viewBox="0 0 120 40"><use href="#orn-knot"/></svg></div>
+    <article class="person reveal">
+      <div class="arch">
+        <img class="arch__img" data-src="{{bride_photo}}" alt="{{bride_full_name}}" loading="lazy">
+        <svg class="arch__frame" viewBox="0 0 300 400" aria-hidden="true"><use href="#arch-frame"/></svg>
+      </div>
+      <p class="person__role">The Bride</p>
+      <h4 class="person__name" data-fit="22">{{bride_full_name}}</h4>
+      <p class="person__parents" data-optional="bride_parents">{{bride_parents}}</p>
+    </article>
+    <blockquote class="quote reveal" data-optional="couple_quote">“{{couple_quote}}”</blockquote>
+  </section>
+
+  <!-- ============ SAVE THE DATE (ENVELOPE) ============ -->
+  <section class="sec std" id="std">
+    <div class="garland" aria-hidden="true"></div>
+    <header class="head reveal">
+      <p class="head__eyebrow">A little surprise</p>
+      <h3 class="head__title">Save The Date</h3>
+      <p class="head__sub" id="envHint">Tap the envelope to open it.</p>
+    </header>
+    <div class="env-stage reveal" id="envStage">
+      <div class="env" id="env" role="button" tabindex="0" aria-label="Open the save the date envelope">
+        <div class="env__back"></div>
+        <div class="env__card" id="envCard">
+          <div class="cal">
+            <p class="cal__big"><span id="calDay">14</span></p>
+            <p class="cal__month" id="calMonth">FEBRUARY 2027</p>
+            <div class="cal__grid" id="calGrid"></div>
+          </div>
+        </div>
+        <div class="env__pocket"></div>
+        <div class="env__flap"></div>
+        <div class="env__bow" aria-hidden="true"><svg viewBox="0 0 200 120"><use href="#bow"/></svg></div>
+        <div class="env__seal" aria-hidden="true"><span>{{groom_name|initial}}<i>&amp;</i>{{bride_name|initial}}</span></div>
+        <p class="env__script">The Big Day</p>
+      </div>
+    </div>
+    <p class="std__line reveal">The start of a beautiful journey…</p>
+    <div class="hearts reveal" id="countdown">
+      <div class="hrt"><svg viewBox="0 0 100 92"><use href="#heart"/></svg><b id="cdD">00</b><span>Days</span></div>
+      <div class="hrt"><svg viewBox="0 0 100 92"><use href="#heart"/></svg><b id="cdH">00</b><span>Hours</span></div>
+      <div class="hrt"><svg viewBox="0 0 100 92"><use href="#heart"/></svg><b id="cdM">00</b><span>Minutes</span></div>
+      <div class="hrt"><svg viewBox="0 0 100 92"><use href="#heart"/></svg><b id="cdS">00</b><span>Seconds</span></div>
+    </div>
+    <p class="std__done" id="cdDone" hidden>Today is the day! ❤</p>
+    <div class="std__info reveal">
+      <p class="std__date">{{event_date|long}}</p>
+      <p class="std__venue">{{venue}}</p>
+      <a class="btn btn--ghost" id="stdCal" target="_blank" rel="noopener">＋ Add to Calendar</a>
+    </div>
+  </section>
+
+  <!-- ============ GALLERY COVERFLOW ============ -->
+  <section class="sec gallery" id="gallery" data-optional="gallery">
+    <div class="garland" aria-hidden="true"></div>
+    <header class="head reveal">
+      <p class="head__eyebrow">Captured moments</p>
+      <h3 class="head__title">Photo Memories</h3>
+      <p class="head__sub">Every smile, every laugh, every stolen glance — captured forever.</p>
+    </header>
+    <div class="ring-wrap reveal" id="ringWrap">
+      <div class="ring" id="ring"></div>
+    </div>
+    <div class="ring-ctrl">
+      <button type="button" class="ring-btn" id="ringPrev" aria-label="Previous photo">‹</button>
+      <span>Drag to spin · tap a photo</span>
+      <button type="button" class="ring-btn" id="ringNext" aria-label="Next photo">›</button>
+    </div>
+  </section>
+
+  <!-- ============ WEDDING FUNCTIONS (PINNED) ============ -->
+  <section class="events" id="events">
+    <div class="events__pin">
+      <h3 class="events__title">Wedding Functions</h3>
+      <div class="palace">
+        <svg class="palace__top" viewBox="0 0 400 130" aria-hidden="true"><use href="#palace-top"/></svg>
+        <div class="palace__arch">
+          <div class="palace__imgs" id="evImgs"></div>
+          <svg class="palace__frame" viewBox="0 0 300 400" preserveAspectRatio="none" aria-hidden="true"><use href="#arch-frame"/></svg>
+        </div>
+        <div class="evcards" id="evCards"></div>
+      </div>
+      <div class="events__dots" id="evDots"></div>
+    </div>
+  </section>
+  <template id="evTpl">
+    <article class="evcard">
+      <h4 class="evcard__name">{{name}}</h4>
+      <p class="evcard__orn">❦</p>
+      <p class="evcard__row"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M7 2h2v2h6V2h2v2h3v18H4V4h3V2Zm11 8H6v10h12V10Z"/></svg>{{date|short}}</p>
+      <p class="evcard__row" data-optional="time"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20Zm1 5h-2v6l5 3 1-1.7-4-2.3V7Z"/></svg>{{date|time}}</p>
+      <p class="evcard__row evcard__venue"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7Zm0 4.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Z"/></svg><span>{{venue}}</span></p>
+      <p class="evcard__note" data-optional="dress">Dress code · {{dress}}</p>
+      <div class="evcard__btns">
+        <a class="btn btn--rose" href="{{map_url}}" target="_blank" rel="noopener">➤ Get Directions</a>
+        <a class="btn btn--ghost" href="{{cal_url}}" target="_blank" rel="noopener">＋ Add to Calendar</a>
+      </div>
+    </article>
+  </template>
+
+  <!-- ============ RSVP ============ -->
+  <section class="sec rsvp" id="rsvp">
+    <div class="garland" aria-hidden="true"></div>
+    <header class="head reveal">
+      <p class="head__eyebrow">Kindly respond</p>
+      <h3 class="head__title">Will You Be Joining Us?</h3>
+      <p class="head__sub">We would love to know if you'll be celebrating with us<span data-optional="rsvp_deadline"> — please reply by {{rsvp_deadline|dm}}</span>.</p>
+    </header>
+    <form class="card form reveal" id="rsvpForm" novalidate>
+      <div class="choice">
+        <label class="choice__opt"><input type="radio" name="attending" value="yes" checked><span>✓ With joy, we will be there</span></label>
+        <label class="choice__opt"><input type="radio" name="attending" value="no"><span>✕ With regret, we cannot</span></label>
+      </div>
+      <fieldset class="f f--events" id="fEvents">
+        <legend>Which celebration(s) will you join?</legend>
+        <div class="checks" id="evChecks"></div>
+      </fieldset>
+      <label class="f"><span>Your Name <em>*</em></span><input type="text" name="name" id="rName" autocomplete="name" placeholder="Full name" maxlength="60" required></label>
+      <div class="f f--guests" id="fGuests"><span>Number of Guests <em>*</em></span>
+        <div class="stepper"><button type="button" id="gMinus" aria-label="Fewer guests">−</button><output id="gCount">1</output><button type="button" id="gPlus" aria-label="More guests">+</button></div>
+      </div>
+      <label class="f"><span>Mobile Number (optional)</span>
+        <div class="phone"><select name="cc" aria-label="Country code"><option>+91</option><option>+1</option><option>+44</option><option>+971</option><option>+61</option><option>+65</option></select><input type="tel" name="phone" inputmode="numeric" placeholder="Mobile number" maxlength="12"></div></label>
+      <label class="f"><span>A note for the couple (optional)</span><textarea name="note" rows="2" maxlength="240" placeholder="Your wishes…"></textarea></label>
+      <p class="form__err" id="rErr" hidden>Please enter your name.</p>
+      <button type="submit" class="btn btn--wine btn--block">Send RSVP</button>
+    </form>
+    <div class="card thanks" id="thanks" hidden>
+      <div class="thanks__tick">✓</div>
+      <h4>Thank You!</h4>
+      <p id="thanksMsg"></p>
+      <a class="btn btn--wa btn--block" id="waBtn" target="_blank" rel="noopener">Send RSVP on WhatsApp</a>
+      <button type="button" class="linkbtn" id="editRsvp">Edit your response</button>
+    </div>
+    <div class="card mapcard reveal">
+      <iframe id="mapFrame" title="Venue map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div class="mapcard__foot"><div><b>{{venue}}</b><small data-optional="venue_address">{{venue_address}}</small></div><a class="btn btn--rose" href="{{venue_map_url}}" target="_blank" rel="noopener">Open Map</a></div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="foot" id="foot">
+    <div class="foot__art"><img src="assets/img/footer_lake.webp" alt="" loading="lazy"></div>
+    <div class="foot__inner">
+      <blockquote class="foot__quote reveal" data-optional="closing_quote">“{{closing_quote}}”</blockquote>
+      <div class="mono reveal"><span>{{groom_name|initial}}</span><i>&amp;</i><span>{{bride_name|initial}}</span></div>
+      <h3 class="foot__names reveal" data-fit="30">{{groom_name}} &amp; {{bride_name}}</h3>
+      <p class="foot__orn reveal">❦ ✿ ❦</p>
+      <p class="foot__thanks reveal">“Thank you for being part of our celebration”</p>
+      <p class="foot__date reveal">{{event_date|long}}</p>
+      <p class="foot__venue reveal">{{venue}}</p>
+      <p class="foot__tag reveal" data-optional="hashtag">{{hashtag}}</p>
+      <p class="foot__sign reveal" data-optional="family_signoff">{{family_signoff}}</p>
+      
+      <p class="foot__brand">✦ Made with love on Just For You ✦</p>
+      <a class="foot__make" href="edit.html">Create your own invitation →</a>
+    </div>
+  </footer>
+</main>
+
+<!-- lightbox -->
+<div class="lightbox" id="lightbox" hidden><button type="button" class="lightbox__x" aria-label="Close">×</button><img alt=""></div>
+
+<!-- music -->
+<audio class="jfy-music" id="music" data-src="{{music_url}}" loop preload="auto"></audio>
+<button class="music" id="musicBtn" type="button" aria-label="Toggle music" data-optional="music_url"><i></i><i></i><i></i><i></i></button>
+
+<!-- ============ SVG LIBRARY (original artwork) ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="gGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6e0b0"/><stop offset=".45" stop-color="#c9975a"/><stop offset=".7" stop-color="#f2d59a"/><stop offset="1" stop-color="#a8743e"/></linearGradient>
+    <linearGradient id="gRose" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9a3ab"/><stop offset=".55" stop-color="#b9566a"/><stop offset="1" stop-color="#8a2f45"/></linearGradient>
+    <radialGradient id="gShine" cx=".32" cy=".28" r=".5"><stop offset="0" stop-color="#fff" stop-opacity=".75"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+    <linearGradient id="gRibbon" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d48b93"/><stop offset=".5" stop-color="#a24d5e"/><stop offset="1" stop-color="#7d3043"/></linearGradient>
+    <symbol id="heart" viewBox="0 0 100 92"><path d="M50 90C20 68 2 50 2 28 2 13 14 2 28 2c9 0 17 5 22 12C55 7 63 2 72 2c14 0 26 11 26 26 0 22-18 40-48 62Z" fill="url(#gRose)"/><path d="M50 90C20 68 2 50 2 28 2 13 14 2 28 2c9 0 17 5 22 12C55 7 63 2 72 2c14 0 26 11 26 26 0 22-18 40-48 62Z" fill="url(#gShine)"/><path d="M50 84C24 64 8 48 8 29 8 17 17 8 28 8c8 0 15 4 22 13C57 12 64 8 72 8c11 0 20 9 20 21 0 19-16 35-42 55Z" fill="none" stroke="#f7d6b0" stroke-opacity=".7" stroke-width="1.4"/></symbol>
+    <symbol id="orn-divider" viewBox="0 0 240 40"><g fill="none" stroke="url(#gGold)" stroke-width="1.4" stroke-linecap="round"><path d="M10 20h70M160 20h70"/><path d="M80 20c10-12 22-12 28 0-6 10-18 10-28 0Zm80 0c-10-12-22-12-28 0 6 10 18 10 28 0Z"/><path d="M120 6c6 6 6 22 0 28-6-6-6-22 0-28Z"/><circle cx="120" cy="20" r="2.4" fill="#c9975a"/><circle cx="6" cy="20" r="2" fill="#c9975a"/><circle cx="234" cy="20" r="2" fill="#c9975a"/></g></symbol>
+    <symbol id="orn-knot" viewBox="0 0 120 40"><g fill="none" stroke="url(#gGold)" stroke-width="1.6"><circle cx="48" cy="20" r="12"/><circle cx="72" cy="20" r="12"/><path d="M4 20h28M88 20h28"/></g><path d="M60 13c3-5 10-3 9 2-1 4-9 9-9 9s-8-5-9-9c-1-5 6-7 9-2Z" fill="#c96a7c"/></symbol>
+    <symbol id="arch-frame" viewBox="0 0 300 400">
+      <path d="M8 396V150C8 92 52 40 110 26c14-4 24-12 30-22h20c6 10 16 18 30 22 58 14 102 66 102 124v246" fill="none" stroke="url(#gGold)" stroke-width="7"/>
+      <path d="M20 396V152c0-52 40-98 92-111 14-4 26-11 38-22 12 11 24 18 38 22 52 13 92 59 92 111v244" fill="none" stroke="#fff6e6" stroke-width="2" stroke-opacity=".9"/>
+      <g fill="#e8a6ae" stroke="#c9975a" stroke-width=".8"><circle cx="150" cy="10" r="7"/><circle cx="62" cy="62" r="5"/><circle cx="238" cy="62" r="5"/><circle cx="16" cy="160" r="5"/><circle cx="284" cy="160" r="5"/></g>
+      <g fill="#8fae86" opacity=".9"><path d="M150 18c-12 2-20 10-22 18 10-2 18-8 22-18Zm0 0c12 2 20 10 22 18-10-2-18-8-22-18Z"/></g>
+    </symbol>
+    <symbol id="palace-top" viewBox="0 0 400 130">
+      <g fill="#fbefe6" stroke="#c9975a" stroke-width="1.6">
+        <path d="M30 128V86h340v42"/>
+        <path d="M20 86h360l-8-10H28Z"/>
+        <path d="M60 76V52h50v24M290 76V52h50v24M160 76V40h80v36"/>
+        <path d="M56 52h58l-4-6H60ZM286 52h58l-4-6h-50ZM154 40h92l-5-7h-82Z"/>
+        <path d="M66 46c0-16 14-24 19-30 5 6 19 14 19 30M296 46c0-16 14-24 19-30 5 6 19 14 19 30M168 33c0-20 18-28 32-36 14 8 32 16 32 36"/>
+        <path d="M85 16v-8M315 16v-8M200-3v-6" stroke-linecap="round"/>
+      </g>
+      <g fill="none" stroke="#d9b07a" stroke-width="1.2"><path d="M70 76v-14c0-6 5-8 7-8s7 2 7 8v14M86 76v-14c0-6 5-8 7-8s7 2 7 8v14M300 76v-14c0-6 5-8 7-8s7 2 7 8v14M316 76v-14c0-6 5-8 7-8s7 2 7 8v14M170 76V58c0-8 7-11 10-11s10 3 10 11v18M210 76V58c0-8 7-11 10-11s10 3 10 11v18"/><path d="M40 96h320M40 104h320" stroke-dasharray="3 5"/></g>
+      <g fill="#e9a3ab"><circle cx="34" cy="84" r="5"/><circle cx="44" cy="82" r="4"/><circle cx="366" cy="84" r="5"/><circle cx="356" cy="82" r="4"/><circle cx="200" cy="84" r="4"/></g>
+    </symbol>
+    <symbol id="bow" viewBox="0 0 200 120">
+      <path d="M100 60C70 20 22 8 14 30c-8 22 30 42 86 30Z" fill="url(#gRibbon)"/>
+      <path d="M100 60C130 20 178 8 186 30c8 22-30 42-86 30Z" fill="url(#gRibbon)"/>
+      <path d="M100 60c-10 18-28 44-40 58l16 2c8-14 18-34 24-52Zm0 0c10 18 28 44 40 58l-16 2c-8-14-18-34-24-52Z" fill="#9a4456"/>
+      <path d="M30 28c20-6 46 8 66 30M170 28c-20-6-46 8-66 30" fill="none" stroke="#f3c3c8" stroke-opacity=".6" stroke-width="2"/>
+    </symbol>
+    <symbol id="lantern" viewBox="0 0 40 56"><path d="M8 8h24l4 34c0 6-7 10-16 10S4 48 4 42Z" fill="#ffd9b8"/><path d="M8 8h24l4 34c0 6-7 10-16 10S4 48 4 42Z" fill="url(#gShine)"/><ellipse cx="20" cy="40" rx="8" ry="6" fill="#fff3c4" opacity=".9"/><path d="M8 8h24" stroke="#d99a7a" stroke-width="2"/></symbol>
+  </defs>
+</svg>
+
+
+<!-- ============ FLOATING ACTION BAR: MAKE CHANGES / SEND ============ -->
+<div id="rpActionBar" style="position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:9999;display:flex;gap:10px;align-items:center;background:rgba(255,248,246,0.95);backdrop-filter:blur(12px);padding:8px 16px;border-radius:999px;box-shadow:0 10px 30px rgba(116,32,59,0.25);border:1px solid rgba(201,151,90,0.4);font-family:'Josefin Sans',sans-serif;">
+  <a id="btnMakeChanges" href="index.html" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:999px;background:#f3dfe0;color:#74203b;font-weight:600;font-size:13px;text-decoration:none;transition:all .2s;" onmouseover="this.style.background='#eac8cb'" onmouseout="this.style.background='#f3dfe0'">
+    <span>✎</span>
+    <span>Make Changes</span>
+  </a>
+  <button id="btnSendPerson" onclick="openSendModal()" type="button" style="display:inline-flex;align-items:center;gap:6px;padding:8px 18px;border-radius:999px;background:linear-gradient(135deg,#74203b,#a84a60);color:#fff;font-weight:600;font-size:13px;border:none;cursor:pointer;box-shadow:0 4px 12px rgba(116,32,59,0.3);transition:all .2s;" onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'">
+    <span>💌</span>
+    <span>Send to Desired Person</span>
+  </button>
+</div>
+
+<!-- ============ MODAL: SEND TO DESIRED PERSON ============ -->
+<div id="sendModal" style="display:none;position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,0.65);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:16px;">
+  <div style="background:#fff9f7;border-radius:24px;max-width:440px;width:100%;padding:24px;box-shadow:0 25px 60px rgba(0,0,0,0.4);border:1px solid rgba(201,151,90,0.4);font-family:'Josefin Sans',sans-serif;position:relative;">
+    <button onclick="closeSendModal()" type="button" style="position:absolute;top:16px;right:16px;border:none;background:none;font-size:22px;color:#8a5a64;cursor:pointer;line-height:1;">×</button>
+    
+    <div style="text-align:center;margin-bottom:18px;">
+      <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#74203b,#c96a7c);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:8px;">💌</div>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:24px;color:#74203b;margin:0 0 4px;">Send to Desired Person</h3>
+      <p style="font-size:13px;color:#8a5a64;margin:0;">Personalize this royal invitation for your guest</p>
+    </div>
+
+    <div style="margin-bottom:14px;">
+      <label style="display:block;font-size:11.5px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:#74203b;margin-bottom:4px;">Recipient Name (Guest / Family) *</label>
+      <input type="text" id="targetGuestName" placeholder="e.g. Priya & Rohan, The Sharma Family" style="width:100%;box-sizing:border-box;padding:10px 14px;border:1.5px solid #d4a574;border-radius:12px;font-size:14px;outline:none;background:#fff;" oninput="updatePersonalizedPreview()">
+    </div>
+
+    <div style="margin-bottom:18px;">
+      <label style="display:block;font-size:11.5px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:#74203b;margin-bottom:4px;">Guest's WhatsApp Number (Optional)</label>
+      <input type="tel" id="targetGuestPhone" placeholder="Country code + number (e.g. 919876543210)" style="width:100%;box-sizing:border-box;padding:10px 14px;border:1.5px solid #e2cbba;border-radius:12px;font-size:14px;outline:none;background:#fff;">
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:9px;">
+      <button onclick="sendViaWhatsApp()" type="button" style="width:100%;padding:12px;border-radius:14px;background:#25D366;color:#fff;font-weight:700;font-size:13.5px;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 4px 14px rgba(37,211,102,0.35);">
+        <span>Share Directly on WhatsApp</span>
+      </button>
+
+      <button onclick="sendViaEmail()" type="button" style="width:100%;padding:11px;border-radius:14px;background:#fff;border:1.5px solid #c9975a;color:#74203b;font-weight:600;font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;">
+        <span>Send via Email</span>
+      </button>
+
+      <button onclick="copyPersonalizedLink()" id="btnCopyPersonal" type="button" style="width:100%;padding:11px;border-radius:14px;background:#74203b;color:#fff;font-weight:600;font-size:13px;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;">
+        <span>Copy Personalized Invitation Link</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+function openSendModal() {
+  document.getElementById('sendModal').style.display = 'flex';
+}
+function closeSendModal() {
+  document.getElementById('sendModal').style.display = 'none';
+}
+function getCleanUrl() {
+  var href = window.location.href;
+  var hash = window.location.hash || '';
+  var guest = document.getElementById('targetGuestName').value.trim();
+  var base = href.split('#')[0];
+  if (!hash.includes('data=')) {
+    return base + (guest ? '#to=' + encodeURIComponent(guest) : '');
+  }
+  var dataPart = hash.replace(/&to=.*$/, '');
+  return base + dataPart + (guest ? '&to=' + encodeURIComponent(guest) : '');
+}
+function sendViaWhatsApp() {
+  var guest = document.getElementById('targetGuestName').value.trim() || 'Honored Guest';
+  var phone = document.getElementById('targetGuestPhone').value.trim().replace(/[^0-9]/g, '');
+  var link = getCleanUrl();
+  var d = window.JFY_DATA || {};
+  var gName = d.groom_name || 'Aarav';
+  var bName = d.bride_name || 'Ananya';
+  var text = encodeURIComponent('Dearest ' + guest + ',\n\nYou are cordially invited to celebrate the royal wedding of ' + gName + ' & ' + bName + '! ❦\n\nOpen your personal wedding invitation here:\n' + link + '\n\nWith love,\n' + (d.family_signoff || (gName + ' & ' + bName)));
+  var url = phone ? ('https://api.whatsapp.com/send?phone=' + phone + '&text=' + text) : ('https://api.whatsapp.com/send?text=' + text);
+  window.open(url, '_blank');
+  closeSendModal();
+}
+function sendViaEmail() {
+  var guest = document.getElementById('targetGuestName').value.trim() || 'Honored Guest';
+  var link = getCleanUrl();
+  var d = window.JFY_DATA || {};
+  var gName = d.groom_name || 'Aarav';
+  var bName = d.bride_name || 'Ananya';
+  var subject = encodeURIComponent('Royal Wedding Invitation: ' + gName + ' & ' + bName);
+  var body = encodeURIComponent('Dearest ' + guest + ',\n\nWe request the honour of your presence at the royal wedding celebration of ' + gName + ' & ' + bName + '.\n\nOpen your invitation here:\n' + link + '\n\nWith love,\n' + (d.family_signoff || (gName + ' & ' + bName)));
+  window.location.href = 'mailto:?subject=' + subject + '&body=' + body;
+  closeSendModal();
+}
+function copyPersonalizedLink() {
+  var link = getCleanUrl();
+  navigator.clipboard.writeText(link);
+  var btn = document.getElementById('btnCopyPersonal');
+  btn.innerHTML = '<span>✓ Copied Link to Clipboard!</span>';
+  setTimeout(function () {
+    btn.innerHTML = '<span>Copy Personalized Invitation Link</span>';
+  }, 2200);
+}
+// Sync "Make Changes" button href with current data hash
+window.addEventListener('DOMContentLoaded', function () {
+  var btn = document.getElementById('btnMakeChanges');
+  if (btn && window.location.hash) {
+    btn.href = 'index.html' + window.location.hash;
+  }
+  // Check if opened for a specific recipient
+  var m = /[#&]to=([^&]+)/.exec(window.location.hash);
+  if (m) {
+    var guestName = decodeURIComponent(m[1].replace(/\+/g, ' '));
+    var label = document.querySelector('.call__label');
+    if (label) {
+      label.innerHTML = 'Incoming call for <b>' + guestName + '</b><span class="dots"><i>.</i><i>.</i><i>.</i></span>';
+    }
+  }
+});
+</script>
+
+<script src="assets/sample-data.js"></script>
+<script src="assets/jfy-codec.js"></script>
+<script src="assets/data-loader.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
