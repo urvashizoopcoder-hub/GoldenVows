@@ -662,9 +662,9 @@ body {
   z-index: 9990;
 }
 
-/* ================= MOBILE-STORY CONTAINER SIZE ================= */
+/* ================= RESPONSIVE LUXURY INVITATION (100% MOBILE FRIENDLY) ================= */
 :root {
-  --story-width: min(100vw, 440px);
+  --container-max-w: 820px;
 }
 
 body {
@@ -677,26 +677,33 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 100vh;
 }
 
-/* Fixed width container matching user screenshots */
+/* Fully responsive mobile-friendly container */
 .main-invitation-container, .site-story-wrap {
-  width: var(--story-width);
-  max-width: 440px;
+  width: 100%;
+  max-width: var(--container-max-w, 820px);
   margin: 0 auto;
   box-shadow: 0 0 60px rgba(0, 0, 0, 0.85);
   background: var(--theme-deep, #020617);
   position: relative;
   box-sizing: border-box;
+  padding: 0 16px 48px;
+}
+
+@media (max-width: 640px) {
+  .main-invitation-container, .site-story-wrap {
+    padding: 0 12px 32px;
+  }
 }
 
 /* ================= 1. GRAND PALACE BALCONY HERO PAGE ================= */
 .hero-palace-page {
   position: relative;
   width: 100%;
-  aspect-ratio: 576 / 1024;
-  min-height: 580px;
-  max-height: 840px;
+  min-height: 88vh;
+  min-height: 88dvh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -705,6 +712,13 @@ body {
   padding: 36px 20px 24px;
   box-sizing: border-box;
   text-align: center;
+}
+
+@media (max-width: 640px) {
+  .hero-palace-page {
+    min-height: 94dvh;
+    padding: 28px 14px 20px;
+  }
 }
 
 .hero-palace-art {
