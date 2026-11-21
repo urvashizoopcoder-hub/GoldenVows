@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <title>Ranveer &amp; Shanaya — Punjabi Anand Karaj — 3D Kalire Chandelier Box & Phulkari Embroidered Border</title>
 <link rel="stylesheet" href="../assets/fonts/fonts.css">
+<link rel="stylesheet" href="../assets/editor.css">
 <style>
 :root {
   --theme-primary: #831843;
@@ -1648,6 +1649,87 @@ input:focus, textarea:focus, select:focus {
   gap: 10px;
 }
 
+
+/* EXACT USER IMAGE 1 THEME PILLS & CONTROLS */
+.theme-label-header {
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: #4B5563;
+  font-weight: 700;
+  margin-bottom: 10px;
+  display: block;
+}
+.theme-swatches-grid {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 10px !important;
+  margin-bottom: 20px !important;
+}
+.theme-pill-btn {
+  display: inline-flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 12px !important;
+  padding: 10px 18px !important;
+  border-radius: 12px !important;
+  border: 1.5px solid #E2E8F0 !important;
+  background: #FFFFFF !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04) !important;
+}
+.theme-pill-btn:hover {
+  border-color: #CBD5E1 !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06) !important;
+}
+.theme-pill-btn.active {
+  border: 2px solid #C59B27 !important;
+  box-shadow: 0 0 0 1px #C59B27 !important;
+  background: #FFFFFF !important;
+}
+.theme-pill-btn .color-dots {
+  display: flex !important;
+  gap: 5px !important;
+  align-items: center !important;
+}
+.theme-pill-btn .color-dot {
+  width: 14px !important;
+  height: 14px !important;
+  border-radius: 50% !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  display: inline-block !important;
+}
+.theme-pill-btn span {
+  font-size: 13.5px !important;
+  font-weight: 600 !important;
+  color: #1F2937 !important;
+  letter-spacing: 0.01em !important;
+}
+.option-select-row label {
+  text-transform: uppercase !important;
+  font-size: 11px !important;
+  letter-spacing: 0.12em !important;
+  color: #4B5563 !important;
+  font-weight: 700 !important;
+  margin-bottom: 6px !important;
+  display: block !important;
+}
+.option-select-row select, .panel select, .panel input:not([type=checkbox]):not([type=file]) {
+  border: 1.5px solid #E2E8F0 !important;
+  border-radius: 12px !important;
+  padding: 11px 14px !important;
+  background: #FFFFFF !important;
+  font-size: 14px !important;
+  color: #1F2937 !important;
+  font-weight: 500 !important;
+}
+.option-select-row select:focus, .panel select:focus, .panel input:focus {
+  border-color: #C59B27 !important;
+  outline: none !important;
+  box-shadow: 0 0 0 2px rgba(197, 155, 39, 0.2) !important;
+}
+
 </style>
 </head>
 <body>
@@ -1702,56 +1784,68 @@ input:focus, textarea:focus, select:focus {
     Customize your bespoke royal wedding invitation below. Choose your wedding theme aesthetic, enter bride &amp; groom details, select your sacred ceremonies, and watch your invitation update in real time. Once finalized, you can view the full animation and dispatch sealed invitations directly via WhatsApp &amp; Email!
   </p>
 
-  <!-- ==============================================
+    <!-- ==============================================
        1. THEME & EXPERIENCE SELECTION
        ============================================== -->
   <details class="grp" open><summary>🎨 Select Wedding Theme / Style</summary>
     
-    <label>Color Palette Theme:</label>
+    <label class="theme-label-header">COLOR PALETTE THEME:</label>
     <div class="theme-swatches-grid" id="themeGrid">
-      <div class="theme-pill-btn active" data-theme="crimson-gold">
-        <div class="color-dots"><span class="color-dot" style="background:#78131e"></span><span class="color-dot" style="background:#d4af37"></span></div>
-        <span>Royal Crimson &amp; Gold</span>
-      </div>
-      <div class="theme-pill-btn" data-theme="silver-diamond">
-        <div class="color-dots"><span class="color-dot" style="background:#202836"></span><span class="color-dot" style="background:#e2e8f0"></span></div>
-        <span>Silver &amp; Diamond</span>
-      </div>
       <div class="theme-pill-btn" data-theme="emerald-gold">
-        <div class="color-dots"><span class="color-dot" style="background:#2d4a3e"></span><span class="color-dot" style="background:#d4af37"></span></div>
+        <div class="color-dots">
+          <span class="color-dot" style="background:#064E3B"></span>
+          <span class="color-dot" style="background:#D4AF37"></span>
+          <span class="color-dot" style="background:#FFFFFF"></span>
+        </div>
         <span>Emerald &amp; Gold</span>
       </div>
       <div class="theme-pill-btn" data-theme="wine-rose">
-        <div class="color-dots"><span class="color-dot" style="background:#6e1c36"></span><span class="color-dot" style="background:#e0a899"></span></div>
+        <div class="color-dots">
+          <span class="color-dot" style="background:#881337"></span>
+          <span class="color-dot" style="background:#D97706"></span>
+          <span class="color-dot" style="background:#FFF1F2"></span>
+        </div>
         <span>Wine &amp; Rose Gold</span>
       </div>
       <div class="theme-pill-btn" data-theme="midnight-starlight">
-        <div class="color-dots"><span class="color-dot" style="background:#131d36"></span><span class="color-dot" style="background:#f4e29f"></span></div>
+        <div class="color-dots">
+          <span class="color-dot" style="background:#0F172A"></span>
+          <span class="color-dot" style="background:#38BDF8"></span>
+          <span class="color-dot" style="background:#F59E0B"></span>
+        </div>
         <span>Midnight &amp; Starlight</span>
       </div>
       <div class="theme-pill-btn" data-theme="pastel-clouds">
-        <div class="color-dots"><span class="color-dot" style="background:#eddcd9"></span><span class="color-dot" style="background:#b88c7d"></span></div>
+        <div class="color-dots">
+          <span class="color-dot" style="background:#EC4899"></span>
+          <span class="color-dot" style="background:#0EA5E9"></span>
+          <span class="color-dot" style="background:#FEF08A"></span>
+        </div>
         <span>Pastel Clouds</span>
       </div>
-      <div class="theme-pill-btn" data-theme="terracotta-marigold">
-        <div class="color-dots"><span class="color-dot" style="background:#c35831"></span><span class="color-dot" style="background:#f5a623"></span></div>
+      <div class="theme-pill-btn active" data-theme="terracotta-marigold">
+        <div class="color-dots">
+          <span class="color-dot" style="background:#9A3412"></span>
+          <span class="color-dot" style="background:#EAB308"></span>
+          <span class="color-dot" style="background:#FEF3C7"></span>
+        </div>
         <span>Terracotta &amp; Marigold</span>
       </div>
     </div>
-    <input type="hidden" name="color_theme" id="selectedTheme" value="crimson-gold">
+    <input type="hidden" name="color_theme" id="selectedTheme" value="terracotta-marigold">
 
     <div class="row2">
       <div class="option-select-row">
-        <label>Opening Experience</label>
+        <label>OPENING EXPERIENCE</label>
         <select name="opening_experience" id="openingExperienceSelect">
-          <option value="call" selected>📞 Incoming Royal Wedding Call (Slide to Answer)</option>
-          <option value="envelope">💌 3D Monogram Wax Seal Envelope (Instagram Video)</option>
+          <option value="call" selected>📞 Incoming Royal Wedding Call</option>
+          <option value="envelope">💌 3D Monogram Wax Seal Envelope</option>
           <option value="doors">🚪 3D Royal Vault Opening Doors</option>
         </select>
       </div>
 
       <div class="option-select-row">
-        <label>Viewing Experience</label>
+        <label>VIEWING EXPERIENCE</label>
         <select name="viewing_experience" id="viewingExperienceSelect">
           <option value="scroll" selected>📜 Royal Palace Scroll Mode</option>
         </select>
@@ -1759,9 +1853,10 @@ input:focus, textarea:focus, select:focus {
     </div>
 
     <div class="option-select-row">
-      <label>Ambient Magic Particles</label>
+      <label>AMBIENT MAGIC PARTICLES</label>
       <select name="ambient_particles" id="ambientParticlesSelect">
-        <option value="floral" selected>🎉 Celebratory Floral Burst</option>
+        <option value="falling-petals" selected>🌸 Falling Rose &amp; Jasmine Petals</option>
+        <option value="floral">🎉 Celebratory Floral Burst</option>
         <option value="gold-dust">✨ Golden Stardust</option>
       </select>
     </div>
