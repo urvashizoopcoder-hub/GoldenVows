@@ -27,10 +27,10 @@
     invite_message: "Together with their families, Ranveer & Shanaya request the honour of your presence at their wedding celebrations.",
     hashtag: "#RanveerWedsShanaya",
     events: [
-      { name: "The Sangeet Spectacular", date: "2027-11-24T19:00", venue: "The Crystal Ballroom, Taj Mahal Palace", map_url: "https://www.google.com/maps/search/?api=1&query=The+Taj+Mahal+Palace+Mumbai", dress: "Diamond Sparkle & Royal Velvet", desc: "An evening of celebrity artist performances, Broadway choreography and gala banquet." },
-      { name: "Baraat & Varmala Ceremony", date: "2027-11-25T17:30", venue: "Gateway of India Promenade", map_url: "https://www.google.com/maps/search/?api=1&query=Gateway+of+India+Mumbai", dress: "Royal Indian Aristocratic", desc: "Royal vintage car baraat procession and garland exchange overlooking the harbor." },
-      { name: "Sacred Pheras & Matrimony", date: "2027-11-25T19:30", venue: "Grand Mandap Hall, Taj Mahal Palace", map_url: "https://www.google.com/maps/search/?api=1&query=The+Taj+Mahal+Palace+Mumbai", dress: "Gold Zardozi & Pure Silk", desc: "Sacred seven circumambulations around the holy fire." },
-      { name: "Royal Governors Reception", date: "2027-11-26T20:00", venue: "The Ballroom, Taj Mahal Palace", map_url: "https://www.google.com/maps/search/?api=1&query=The+Taj+Mahal+Palace+Mumbai", dress: "Ultra Formal Black Tie", desc: "Grand banquet, champagne fountains, live 40-piece orchestra, and dancing." }
+      { name: "The Sangeet Spectacular", date: "2027-11-24T19:00", venue: "The Crystal Ballroom, Taj Mahal Palace", map_url: "https://www.google.com/maps/search/?api=1&query=The+Taj+Mahal+Palace+Mumbai", dress: "Diamond Sparkle & Royal Velvet" },
+      { name: "Baraat & Varmala Ceremony", date: "2027-11-25T17:30", venue: "Gateway of India Promenade", map_url: "https://www.google.com/maps/search/?api=1&query=Gateway+of+India+Mumbai", dress: "Royal Indian Aristocratic" },
+      { name: "Sacred Pheras & Matrimony", date: "2027-11-25T19:30", venue: "Grand Mandap Hall, Taj Mahal Palace", map_url: "https://www.google.com/maps/search/?api=1&query=The+Taj+Mahal+Palace+Mumbai", dress: "Gold Zardozi & Pure Silk" },
+      { name: "Royal Governors Reception", date: "2027-11-26T20:00", venue: "The Ballroom, Taj Mahal Palace", map_url: "https://www.google.com/maps/search/?api=1&query=The+Taj+Mahal+Palace+Mumbai", dress: "Ultra Formal Black Tie" }
     ]
   };
 
@@ -42,6 +42,8 @@
   var countdownTimer = null;
   var autoScrollTimer = null;
   var isAutoScrolling = false;
+  var userInteracting = false;
+  var resumeTimer = null;
 
   function split(dt) {
     var m = /^(\d{4}-\d{2}-\d{2})(?:T(\d{2}:\d{2}))?/.exec(dt || '');
@@ -185,17 +187,19 @@
       }
       var audio = $('#bgMusic');
       if (audio && audio.paused) {
+        audio.volume = 0.35;
         audio.play().catch(function () {});
       }
     }
   };
 
-  /* ================= Audio Toggle Engine ================= */
+  /* ================= Soft Indian Instrumental Audio Engine ================= */
   window.toggleMusic = function () {
     var audio = $('#bgMusic');
     var btn = $('#btnMusicToggle') || $('.btn-music-toggle');
     if (!audio) return;
     if (audio.paused) {
+      audio.volume = 0.35; // Soft gentle sitar
       audio.play().then(function () {
         if (btn) btn.innerHTML = '🎵 Music: ON';
       }).catch(function () {});
@@ -205,43 +209,54 @@
     }
   };
 
-  /* ================= Smooth Auto-Scrolling Engine ================= */
-  window.toggleAutoScroll = function () {
+  /* ================= Smooth Continuous Auto-Scrolling Engine ================= */
+  window.startAutoScroll = function () {
+    if (autoScrollTimer) clearInterval(autoScrollTimer);
+    isAutoScrolling = true;
     var btn = $('#btnAutoScroll') || $('.btn-autoscroll-toggle');
-    if (isAutoScrolling) {
-      isAutoScrolling = false;
-      clearInterval(autoScrollTimer);
-      if (btn) btn.innerHTML = '▶ Auto Scroll';
-    } else {
-      isAutoScrolling = true;
-      if (btn) btn.innerHTML = '⏸ Pause Scroll';
-      autoScrollTimer = setInterval(function () {
-        window.scrollBy({ top: 1.5, behavior: 'smooth' });
-        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
-          isAutoScrolling = false;
-          clearInterval(autoScrollTimer);
-          if (btn) btn.innerHTML = '▶ Auto Scroll';
+    if (btn) btn.innerHTML = '⏸ Pause Scroll';
+
+    autoScrollTimer = setInterval(function () {
+      if (!userInteracting && isAutoScrolling) {
+        window.scrollBy({ top: 1.2, behavior: 'smooth' });
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 40) {
+          window.stopAutoScroll();
         }
-      }, 35);
+      }
+    }, 32);
+  };
+
+  window.stopAutoScroll = function () {
+    isAutoScrolling = false;
+    if (autoScrollTimer) clearInterval(autoScrollTimer);
+    var btn = $('#btnAutoScroll') || $('.btn-autoscroll-toggle');
+    if (btn) btn.innerHTML = '▶ Auto Scroll';
+  };
+
+  window.toggleAutoScroll = function () {
+    if (isAutoScrolling) {
+      window.stopAutoScroll();
+    } else {
+      window.startAutoScroll();
     }
   };
 
-  /* ================= Tab Switching (Edit / Preview) ================= */
-  window.switchView = function (view) {
-    $$('.top .tab').forEach(function (t) {
-      t.classList.toggle('on', t.getAttribute('data-view') === view);
-    });
-    var ed = $('#ed');
-    var pv = $('#previewStage') || $('#preview');
-    if (view === 'form') {
-      if (ed) ed.style.display = 'block';
-      if (pv && window.innerWidth <= 840) pv.style.display = 'none';
-    } else {
-      if (ed && window.innerWidth <= 840) ed.style.display = 'none';
-      if (pv) pv.style.display = 'block';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  };
+  // Pause on user touch, resume 2.5s after user stops
+  window.addEventListener('touchstart', function () {
+    userInteracting = true;
+    clearTimeout(resumeTimer);
+  }, { passive: true });
+
+  window.addEventListener('touchend', function () {
+    clearTimeout(resumeTimer);
+    resumeTimer = setTimeout(function () { userInteracting = false; }, 2500);
+  }, { passive: true });
+
+  window.addEventListener('wheel', function () {
+    userInteracting = true;
+    clearTimeout(resumeTimer);
+    resumeTimer = setTimeout(function () { userInteracting = false; }, 2500);
+  }, { passive: true });
 
   /* ================= Modal Dispatch Sheet ================= */
   window.closeSheet = function () {
@@ -310,12 +325,6 @@
     if (archBless) {
       archBless.textContent = 'Together with their families, ' + gName + ' & ' + bName + ' request the honour of your presence at the solemn matrimonial union.';
     }
-
-    // Legacy card fallbacks
-    var cardG = $('#groomNameDisplay'); if (cardG) cardG.textContent = gFull;
-    var cardB = $('#brideNameDisplay'); if (cardB) cardB.textContent = bFull;
-    var cardD = $('#weddingDateDisplay'); if (cardD) cardD.textContent = dateFormal;
-    var cardV = $('#weddingVenueDisplay'); if (cardV) cardV.textContent = ven.toUpperCase();
 
     // Scratch Card
     var scratchD = $('#scratchDateTitle'); if (scratchD) scratchD.textContent = dateFormal;
@@ -455,44 +464,10 @@
     });
   }
 
-  var createBtn = $('#createBtn') || $('#btnCreateFinal');
-  if (createBtn) {
-    createBtn.addEventListener('click', function () {
-      var d = collect();
-      var sheet = $('#sheet');
-      if (sheet) {
-        sheet.hidden = false;
-        var shareUrl = window.location.href.split('#')[0] + '#data=' + encodeURIComponent(JSON.stringify(d));
-        var shareInput = $('#shareUrl');
-        if (shareInput) shareInput.value = shareUrl;
-
-        var copyBtn = $('#copyBtn');
-        if (copyBtn) {
-          copyBtn.onclick = function () {
-            navigator.clipboard.writeText(shareUrl).then(function () {
-              copyBtn.textContent = 'Copied!';
-              setTimeout(function () { copyBtn.textContent = 'Copy'; }, 2000);
-            });
-          };
-        }
-
-        var waShare = $('#waShare');
-        if (waShare) {
-          var msg = 'You are cordially invited to the wedding of ' + (d.groom_full_name || 'Ranveer') + ' & ' + (d.bride_full_name || 'Shanaya') + '! View invitation: ' + shareUrl;
-          waShare.href = 'https://api.whatsapp.com/send?text=' + encodeURIComponent(msg);
-        }
-
-        var openLink = $('#openLink');
-        if (openLink) openLink.href = shareUrl;
-      }
-    });
-  }
-
   /* ---------- initial load ---------- */
   document.addEventListener('DOMContentLoaded', function () {
     load(SAMPLE);
   });
-  // In case DOM already loaded
   if (document.readyState === 'complete' || document.readyState === 'interactive') {
     load(SAMPLE);
   }
