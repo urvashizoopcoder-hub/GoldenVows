@@ -984,6 +984,655 @@ body {
   cursor: pointer;
 }
 
+/* ==========================================================
+   ROYAL PALACE EDITOR - BESPOKE CEREMONY & THEME STUDIO
+   ========================================================== */
+
+[hidden] { display: none !important; }
+
+:root {
+  --primary-wine: #6e1c36;
+  --primary-gold: #c59b27;
+  --gold-glow: #e6c875;
+  --dark-ink: #2b1820;
+  --bg-creme: #fcf8f7;
+  --border-light: rgba(197, 155, 39, 0.35);
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Josefin Sans', system-ui, sans-serif;
+  --font-script: 'Alex Brush', 'Pinyon Script', cursive;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.creator-screen {
+  font-family: var(--font-body);
+  color: var(--dark-ink);
+  background: linear-gradient(180deg, #fbf2f2 0%, #f7e6e6 50%, #f0d5d7 100%) fixed;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+}
+
+/* TOP APP BAR */
+.top {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  background: rgba(255, 252, 250, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-light);
+  box-shadow: 0 4px 20px rgba(110, 28, 54, 0.08);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.brand__mono {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #8a2a48, #531427);
+  color: #f7e0aa;
+  font-size: 22px;
+  box-shadow: 0 4px 12px rgba(110, 28, 54, 0.3);
+}
+.brand b {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 22px;
+  line-height: 1.1;
+  color: var(--primary-wine);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.brand small {
+  font-size: 11px;
+  color: #8c5b67;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.tabs {
+  display: flex;
+  background: #f1dcde;
+  border-radius: 999px;
+  padding: 3px;
+  border: 1px solid rgba(197, 155, 39, 0.25);
+}
+.tab {
+  border: 0;
+  background: none;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 13.5px;
+  font-weight: 500;
+  cursor: pointer;
+  color: #6a3a46;
+  transition: all 0.2s ease;
+}
+.tab.on {
+  background: #fff;
+  color: var(--primary-wine);
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(110, 28, 54, 0.18);
+}
+
+/* MAIN WRAPPER (Split 2-Column on Desktop) */
+.wrap {
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-bottom: 60px;
+}
+
+.panel {
+  padding: 24px 18px 40px;
+  max-width: 660px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.intro {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: #6a3e49;
+  margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 14px 18px;
+  border-radius: 14px;
+  border-left: 4px solid var(--primary-gold);
+  box-shadow: 0 4px 12px rgba(110, 28, 54, 0.05);
+}
+
+/* COLLAPSIBLE ACCORDION GROUPS */
+.grp {
+  background: #fff;
+  border-radius: 20px;
+  padding: 8px 20px;
+  margin-bottom: 18px;
+  box-shadow: 0 10px 30px -15px rgba(110, 28, 54, 0.14), 0 0 0 1px rgba(197, 155, 39, 0.16);
+  transition: all 0.25s ease;
+}
+.grp:hover {
+  box-shadow: 0 14px 35px -12px rgba(110, 28, 54, 0.22), 0 0 0 1px rgba(197, 155, 39, 0.35);
+}
+
+.grp summary {
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 22px;
+  color: var(--primary-wine);
+  padding: 14px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.grp summary::-webkit-details-marker { display: none; }
+.grp summary::after {
+  content: "＋";
+  font-size: 20px;
+  color: var(--primary-gold);
+  font-weight: 400;
+}
+.grp[open] summary::after {
+  content: "−";
+}
+.grp[open] {
+  padding-bottom: 20px;
+}
+
+/* THEME SELECTION PILLS & SWATCHES */
+.theme-swatches-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 10px;
+  margin-bottom: 18px;
+}
+.theme-pill-btn {
+  background: #fffdfc;
+  border: 1.5px solid rgba(197, 155, 39, 0.35);
+  border-radius: 12px;
+  padding: 10px 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.theme-pill-btn .color-dots {
+  display: flex;
+  gap: 4px;
+}
+.theme-pill-btn .color-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.theme-pill-btn span {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #4a2832;
+}
+.theme-pill-btn.active, .theme-pill-btn:hover {
+  border-color: var(--primary-wine);
+  background: #fdf5f6;
+  box-shadow: 0 4px 12px rgba(110, 28, 54, 0.15);
+  transform: translateY(-1px);
+}
+.theme-pill-btn.active {
+  border-width: 2px;
+}
+
+/* OPTIONS SELECTOR ROWS */
+.option-select-row {
+  margin-bottom: 14px;
+}
+.option-select-row label {
+  margin-bottom: 4px;
+}
+
+/* LABELS & FORM FIELDS */
+label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 14px;
+  color: #4a232e;
+}
+label i {
+  font-weight: 300;
+  font-style: normal;
+  color: #8c5b67;
+  font-size: 12px;
+  margin-left: 4px;
+}
+
+input:not([type=checkbox]):not([type=file]), select, textarea {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  font-size: 15px;
+  font-weight: 400;
+  padding: 11px 14px;
+  border: 1.5px solid var(--border-light);
+  border-radius: 12px;
+  background: #fffdfc;
+  outline: none;
+  color: #2b141b;
+  transition: all 0.25s ease;
+}
+input:focus, textarea:focus, select:focus {
+  border-color: var(--primary-wine);
+  box-shadow: 0 0 0 3px rgba(184, 90, 108, 0.18);
+  background: #fff;
+}
+
+.row2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+@media (max-width: 480px) {
+  .row2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* PHOTO UPLOAD BOXES */
+.photo-upload-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+@media (max-width: 520px) {
+  .photo-upload-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.photo-slot {
+  position: relative;
+  background: #fff9f6;
+  border: 1.5px dashed rgba(197, 155, 39, 0.6);
+  border-radius: 14px;
+  padding: 12px 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.photo-slot input[type=file] {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.photo-slot-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #552733;
+}
+.photo-slot-hint {
+  font-size: 10px;
+  color: #8c5b67;
+  margin-top: 2px;
+}
+.photo-slot.has-file {
+  border-style: solid;
+  border-color: #2e8b57;
+  background: #f0fbf4;
+}
+
+/* CEREMONIES / FUNCTIONS CARDS */
+.ceremony-card {
+  border: 1.5px solid rgba(197, 155, 39, 0.45);
+  border-radius: 16px;
+  padding: 16px 16px 6px;
+  margin-bottom: 14px;
+  background: #fffdfc;
+  box-shadow: 0 4px 15px rgba(110, 28, 54, 0.04);
+}
+.ceremony-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed rgba(197, 155, 39, 0.3);
+}
+.ceremony-title-label {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  color: var(--primary-wine);
+  font-weight: 600;
+}
+.ceremony-remove-btn {
+  border: 0;
+  background: none;
+  color: #a3354f;
+  font-size: 13px;
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.ceremony-actions-bar {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 10px;
+}
+.ceremony-actions-bar select {
+  margin: 0;
+  flex: 1;
+}
+
+/* TOGGLE SWITCHES */
+.tog {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 400;
+  font-size: 14px;
+  cursor: pointer;
+  margin-bottom: 12px;
+}
+.tog input {
+  position: absolute;
+  opacity: 0;
+}
+.tog span {
+  flex: none;
+  width: 46px;
+  height: 26px;
+  border-radius: 99px;
+  background: #d8bec2;
+  position: relative;
+  transition: 0.25s;
+}
+.tog span::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  transition: 0.25s;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+}
+.tog input:checked + span {
+  background: #279e51;
+}
+.tog input:checked + span::after {
+  left: 23px;
+}
+
+/* BUTTONS */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 0;
+  border-radius: 999px;
+  padding: 13px 22px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+}
+.btn--main {
+  background: linear-gradient(180deg, #8a2a48 0%, #5e1730 100%);
+  color: #fff;
+  box-shadow: 0 10px 24px -10px rgba(94, 23, 48, 0.8), 0 0 0 1px rgba(197, 155, 39, 0.4);
+}
+.btn--main:hover {
+  background: linear-gradient(180deg, #9c3053 0%, #6f1c3a 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px -10px rgba(94, 23, 48, 0.9);
+}
+.panel > .btn--main {
+  width: 100%;
+  font-size: 17px;
+  padding: 17px;
+  position: sticky;
+  bottom: 14px;
+  z-index: 10;
+}
+.btn--soft {
+  background: #f7e0e3;
+  color: var(--primary-wine);
+}
+.btn--ghost {
+  background: #fff;
+  color: var(--dark-ink);
+  border: 1.5px solid var(--border-light);
+}
+.btn--ghost:hover {
+  background: #fff4f5;
+  border-color: var(--primary-wine);
+}
+.btn--wa {
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35);
+}
+.btn--wa:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(37, 211, 102, 0.5);
+}
+.btn--email {
+  background: linear-gradient(135deg, #ea4335, #c5221f);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(234, 67, 53, 0.35);
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  margin: 8px 0 16px;
+}
+.actions .btn {
+  flex: 1;
+}
+
+.err {
+  color: #b3261e;
+  font-size: 14px;
+  margin-bottom: 12px;
+  padding: 10px 14px;
+  background: #fee7e6;
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+/* ==========================================================
+   LIVE PREVIEW CONTAINER (DESKTOP & MOBILE TAB)
+   ========================================================== */
+.preview {
+  display: none;
+  padding: 24px 16px;
+  justify-items: center;
+}
+.phone {
+  position: relative;
+  width: min(100%, 420px);
+  height: min(86vh, 860px);
+  border-radius: 44px;
+  padding: 12px;
+  background: #25161b;
+  box-shadow: 
+    0 30px 70px -25px rgba(70, 20, 35, 0.7),
+    0 0 0 3px rgba(197, 155, 39, 0.4);
+}
+.phone iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 34px;
+  background: #fbf7f0;
+}
+.phone__notch {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 24px;
+  background: #25161b;
+  border-radius: 0 0 16px 16px;
+  z-index: 5;
+}
+.pvnote {
+  font-size: 12px;
+  color: #8c5b67;
+  margin-top: 12px;
+  text-align: center;
+}
+
+/* MOBILE TOGGLE (Form vs Preview) */
+.creator-screen.v-preview .panel { display: none; }
+.creator-screen.v-preview .preview { display: grid; }
+.creator-screen.v-preview .phone {
+  height: calc(100svh - 110px);
+  width: min(100%, 430px);
+}
+
+/* DESKTOP SPLIT VIEW (width >= 900px) */
+@media (min-width: 900px) {
+  .tabs { display: none; }
+  .wrap {
+    grid-template-columns: minmax(0, 1fr) 470px;
+    gap: 30px;
+    padding: 0 24px;
+  }
+  .preview {
+    display: grid;
+    position: sticky;
+    top: 74px;
+    align-self: start;
+  }
+  .panel {
+    margin: 0;
+    max-width: 100%;
+  }
+}
+
+/* ==========================================================
+   SUCCESS / SHARE BOTTOM SHEET
+   ========================================================== */
+.sheet {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(35, 10, 18, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  animation: sheetFade 0.3s ease;
+}
+@keyframes sheetFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.sheet__card {
+  position: relative;
+  width: min(100%, 480px);
+  background: #fff;
+  border-radius: 28px;
+  padding: 32px 24px 26px;
+  text-align: center;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(197, 155, 39, 0.3);
+  animation: sheetPop 0.4s cubic-bezier(0.18, 1, 0.32, 1);
+}
+@keyframes sheetPop {
+  from { transform: scale(0.88); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.sheet__x {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  border: 0;
+  background: none;
+  font-size: 32px;
+  cursor: pointer;
+  color: #8c5b67;
+  line-height: 1;
+}
+.sheet__tick {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 12px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 32px;
+  color: #fff;
+  background: linear-gradient(135deg, #8a2a48, #5e1730);
+  box-shadow: 0 6px 18px rgba(110, 28, 54, 0.4);
+}
+.sheet h2 {
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-size: 42px;
+  color: var(--primary-wine);
+  margin-bottom: 4px;
+}
+.sheet p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #5d3640;
+  margin-bottom: 16px;
+}
+
+.link {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.link input {
+  margin: 0 !important;
+  font-size: 13px !important;
+  padding: 10px 12px;
+  background: #fdf8f7;
+}
+
+.sheet__btns {
+  display: grid;
+  gap: 10px;
+}
+
 </style>
 </head>
 <body>
@@ -1029,248 +1678,245 @@ body {
 <canvas id="particlesCanvas"></canvas>
 
 <!-- ================= 1. FORM SCREEN ================= -->
+
+<!-- ================= 1. BESPOKE ROYAL WEDDING INVITATION FORM ================= -->
 <div class="creator-screen" id="creatorScreen">
-  <div class="creator-card">
-    <div class="creator-header">
-      <div style="font-size:32px;margin-bottom:4px;">👑</div>
-      <h2 class="creator-title">Customize Your Bespoke Royal Wedding Invitation</h2>
-      <p class="creator-subtitle">Choose your wedding theme aesthetic, enter bride &amp; groom details, select your sacred ceremonies, and watch your invitation update in real time. Once finalized, you can view the full animation and dispatch sealed invitations directly via WhatsApp &amp; Email!</p>
+  <div class="wrap" style="max-width:680px; margin:0 auto; padding:16px;">
+<form class="panel" id="ed" autocomplete="off" novalidate>
+  <p class="intro">
+    Customize your bespoke royal wedding invitation below. Choose your wedding theme aesthetic, enter bride &amp; groom details, select your sacred ceremonies, and watch your invitation update in real time. Once finalized, you can view the full animation and dispatch sealed invitations directly via WhatsApp &amp; Email!
+  </p>
+
+  <!-- ==============================================
+       1. THEME & EXPERIENCE SELECTION
+       ============================================== -->
+  <details class="grp" open><summary>🎨 Select Wedding Theme / Style</summary>
+    
+    <label>Color Palette Theme:</label>
+    <div class="theme-swatches-grid" id="themeGrid">
+      <div class="theme-pill-btn active" data-theme="crimson-gold">
+        <div class="color-dots"><span class="color-dot" style="background:#78131e"></span><span class="color-dot" style="background:#d4af37"></span></div>
+        <span>Royal Crimson &amp; Gold</span>
+      </div>
+      <div class="theme-pill-btn" data-theme="silver-diamond">
+        <div class="color-dots"><span class="color-dot" style="background:#202836"></span><span class="color-dot" style="background:#e2e8f0"></span></div>
+        <span>Silver &amp; Diamond</span>
+      </div>
+      <div class="theme-pill-btn" data-theme="emerald-gold">
+        <div class="color-dots"><span class="color-dot" style="background:#2d4a3e"></span><span class="color-dot" style="background:#d4af37"></span></div>
+        <span>Emerald &amp; Gold</span>
+      </div>
+      <div class="theme-pill-btn" data-theme="wine-rose">
+        <div class="color-dots"><span class="color-dot" style="background:#6e1c36"></span><span class="color-dot" style="background:#e0a899"></span></div>
+        <span>Wine &amp; Rose Gold</span>
+      </div>
+      <div class="theme-pill-btn" data-theme="midnight-starlight">
+        <div class="color-dots"><span class="color-dot" style="background:#131d36"></span><span class="color-dot" style="background:#f4e29f"></span></div>
+        <span>Midnight &amp; Starlight</span>
+      </div>
+      <div class="theme-pill-btn" data-theme="pastel-clouds">
+        <div class="color-dots"><span class="color-dot" style="background:#eddcd9"></span><span class="color-dot" style="background:#b88c7d"></span></div>
+        <span>Pastel Clouds</span>
+      </div>
+      <div class="theme-pill-btn" data-theme="terracotta-marigold">
+        <div class="color-dots"><span class="color-dot" style="background:#c35831"></span><span class="color-dot" style="background:#f5a623"></span></div>
+        <span>Terracotta &amp; Marigold</span>
+      </div>
     </div>
+    <input type="hidden" name="color_theme" id="selectedTheme" value="crimson-gold">
 
-    <form id="templateCreatorForm" onsubmit="handleCreatorSubmit(event)">
-      <div class="form-sec-heading">🎨 Select Wedding Theme / Style &amp; Color Palette</div>
-      <div class="form-field-grp">
-        <label>Color Palette Theme:</label>
-        <div class="palette-grid">
-          <div class="palette-card active" data-pal="emerald-gold">
-            <div class="palette-swatches">
-              <span style="background:#064E3B;"></span>
-              <span style="background:#D4AF37;"></span>
-              <span style="background:#FCFBF7;"></span>
-            </div>
-            <span class="pal-name">Emerald &amp; Gold</span>
-          </div>
-          <div class="palette-card" data-pal="wine-rose">
-            <div class="palette-swatches">
-              <span style="background:#74203B;"></span>
-              <span style="background:#C9975A;"></span>
-              <span style="background:#FFF6F2;"></span>
-            </div>
-            <span class="pal-name">Wine &amp; Rose Gold</span>
-          </div>
-          <div class="palette-card" data-pal="midnight-star">
-            <div class="palette-swatches">
-              <span style="background:#0F172A;"></span>
-              <span style="background:#38BDF8;"></span>
-              <span style="background:#F59E0B;"></span>
-            </div>
-            <span class="pal-name">Midnight &amp; Starlight</span>
-          </div>
-          <div class="palette-card" data-pal="pastel-cloud">
-            <div class="palette-swatches">
-              <span style="background:#DB2777;"></span>
-              <span style="background:#0284C7;"></span>
-              <span style="background:#FEF08A;"></span>
-            </div>
-            <span class="pal-name">Pastel Clouds</span>
-          </div>
-          <div class="palette-card" data-pal="terracotta-marigold">
-            <div class="palette-swatches">
-              <span style="background:#9A3412;"></span>
-              <span style="background:#EAB308;"></span>
-              <span style="background:#FFFBEB;"></span>
-            </div>
-            <span class="pal-name">Terracotta &amp; Marigold</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="form-row-2">
-        <div class="form-field-grp">
-          <label>Opening Experience</label>
-          <select id="fOpeningExp">
-            <option value="locket" selected>🥈 3D Mughal Silver Filigree Locket</option>
-            <option value="envelope">💌 3D Romantic Wax-Seal Envelope</option>
-            <option value="call">📞 Incoming Royal Wedding Call</option>
-          </select>
-        </div>
-        <div class="form-field-grp">
-          <label>Viewing Experience</label>
-          <select id="fViewingExp">
-            <option value="scroll" selected>📜 Royal Palace Scroll Mode</option>
-            <option value="flipbook">📖 3D Page-Turning Flipbook</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="form-field-grp">
-        <label>Ambient Magic Particles</label>
-        <select id="fAmbientParticles">
-          <option value="floral_burst" selected>🎉 Celebratory Floral Burst</option>
-          <option value="petals">🌸 Falling Jasmine Petals</option>
-          <option value="stars">✨ Twinkling Fairy Dust &amp; Starlight</option>
+    <div class="row2">
+      <div class="option-select-row">
+        <label>Opening Experience</label>
+        <select name="opening_experience" id="openingExperienceSelect">
+          <option value="call" selected>📞 Incoming Royal Wedding Call (Slide to Answer)</option>
+          <option value="envelope">💌 3D Monogram Wax Seal Envelope (Instagram Video)</option>
+          <option value="doors">🚪 3D Royal Vault Opening Doors</option>
         </select>
       </div>
 
-      <div class="form-sec-heading">💑 Grand Title &amp; The Couple</div>
-      <div class="form-field-grp">
-        <label>Grand Wedding Title *</label>
-        <input type="text" id="fGrandTitle" value="Grand Ballroom Starlight Wedding" required>
+      <div class="option-select-row">
+        <label>Viewing Experience</label>
+        <select name="viewing_experience" id="viewingExperienceSelect">
+          <option value="scroll" selected>📜 Royal Palace Scroll Mode</option>
+        </select>
       </div>
-      <div class="form-row-2">
-        <div class="form-field-grp">
-          <label>Groom's first name *</label>
-          <input type="text" id="fGroomName" value="Ranveer" required>
-        </div>
-        <div class="form-field-grp">
-          <label>Bride's first name *</label>
-          <input type="text" id="fBrideName" value="Shanaya" required>
-        </div>
-      </div>
-      <div class="form-row-2">
-        <div class="form-field-grp">
-          <label>Groom's full name *</label>
-          <input type="text" id="fGroomFullName" value="Ranveer Mittal" required>
-        </div>
-        <div class="form-field-grp">
-          <label>Bride's full name *</label>
-          <input type="text" id="fBrideFullName" value="Shanaya Jindal" required>
-        </div>
-      </div>
-      <div class="form-field-grp">
-        <label>Groom's parents (optional blessing line)</label>
-        <input type="text" id="fGroomParents" value="Son of Mr. Sunil Mittal &amp; Mrs. Rekha Mittal">
-      </div>
-      <div class="form-field-grp">
-        <label>Bride's parents (optional blessing line)</label>
-        <input type="text" id="fBrideParents" value="Daughter of Mr. Navin Jindal &amp; Mrs. Savitri Jindal">
-      </div>
+    </div>
 
-      <div class="form-sec-heading">📅 Event Date &amp; Sanctuary Venue</div>
-      <div class="form-row-2">
-        <div class="form-field-grp">
-          <label>Event Date *</label>
-          <input type="text" id="fWeddingDate" value="25-11-2027" required>
-        </div>
-        <div class="form-field-grp">
-          <label>Time (optional)</label>
-          <input type="text" id="fWeddingTime" value="19:00">
-        </div>
-      </div>
-      <div class="form-field-grp">
-        <label>Sanctuary / Venue Name *</label>
-        <input type="text" id="fVenueName" value="The Taj Mahal Palace Ballroom, Mumbai" required>
-      </div>
-      <div class="form-field-grp">
-        <label>Venue Address (optional)</label>
-        <input type="text" id="fVenueAddress" value="Apollo Bunder, Colaba, Mumbai, Maharashtra 400001">
-      </div>
-      <div class="form-field-grp">
-        <label>Google Maps Link (optional — auto-generated if empty)</label>
-        <input type="url" id="fMapsUrl" value="https://www.google.com/maps/search/?api=1&query=The+Taj+Mahal+Palace+Mumbai">
-      </div>
+    <div class="option-select-row">
+      <label>Ambient Magic Particles</label>
+      <select name="ambient_particles" id="ambientParticlesSelect">
+        <option value="floral" selected>🎉 Celebratory Floral Burst</option>
+        <option value="gold-dust">✨ Golden Stardust</option>
+      </select>
+    </div>
 
-      <div class="form-sec-heading">🪔 Sacred Ceremonies &amp; Functions</div>
-      <!-- Evt 1 -->
-      <div style="background:#F9FAFB;padding:12px;border-radius:12px;margin-bottom:10px;border:1px solid #E5E7EB;">
-        <div style="font-weight:700;font-size:12.5px;color:#064E3B;margin-bottom:6px;">Ceremony 1</div>
-        <div class="form-row-2">
-          <div class="form-field-grp"><label>Ceremony Name *</label><input type="text" id="fEvt1Name" value="The Sangeet Spectacular"></div>
-          <div class="form-row-2">
-            <div class="form-field-grp"><label>Date *</label><input type="text" id="fEvt1Date" value="24-11-2027"></div>
-            <div class="form-field-grp"><label>Time</label><input type="text" id="fEvt1Time" value="19:00"></div>
-          </div>
-        </div>
-        <div class="form-field-grp"><label>Venue Location</label><input type="text" id="fEvt1Venue" value="The Crystal Ballroom, Taj Mahal Palace"></div>
-        <div class="form-row-2">
-          <div class="form-field-grp"><label>Dress Code</label><input type="text" id="fEvt1Dress" value="Diamond Sparkle &amp; Royal Velvet"></div>
-          <div class="form-field-grp"><label>Ceremony Note</label><input type="text" id="fEvt1Note" value="An evening of celebrity artist performances, Broadway choreography and gala banquet."></div>
-        </div>
-      </div>
+  </details>
 
-      <!-- Evt 2 -->
-      <div style="background:#F9FAFB;padding:12px;border-radius:12px;margin-bottom:10px;border:1px solid #E5E7EB;">
-        <div style="font-weight:700;font-size:12.5px;color:#064E3B;margin-bottom:6px;">Ceremony 2</div>
-        <div class="form-row-2">
-          <div class="form-field-grp"><label>Ceremony Name *</label><input type="text" id="fEvt2Name" value="Baraat &amp; Varmala Ceremony"></div>
-          <div class="form-row-2">
-            <div class="form-field-grp"><label>Date *</label><input type="text" id="fEvt2Date" value="25-11-2027"></div>
-            <div class="form-field-grp"><label>Time</label><input type="text" id="fEvt2Time" value="17:30"></div>
-          </div>
-        </div>
-        <div class="form-field-grp"><label>Venue Location</label><input type="text" id="fEvt2Venue" value="Gateway of India Promenade"></div>
-        <div class="form-row-2">
-          <div class="form-field-grp"><label>Dress Code</label><input type="text" id="fEvt2Dress" value="Royal Indian Aristocratic"></div>
-          <div class="form-field-grp"><label>Ceremony Note</label><input type="text" id="fEvt2Note" value="Royal vintage car baraat procession and garland exchange overlooking the harbor."></div>
-        </div>
-      </div>
+  <!-- ==============================================
+       2. COUPLE & FAMILY BLESSINGS
+       ============================================== -->
+  <details class="grp" open><summary>💑 Grand Title &amp; The Couple</summary>
+    
+    <label>Grand Wedding Title *<input name="grand_title" value="Grand Ballroom Starlight Wedding" maxlength="90" required></label>
+    
+    <div class="row2">
+      <label>Groom's first name *<input name="groom_name" value="Ranveer" maxlength="30" required></label>
+      <label>Bride's first name *<input name="bride_name" value="Shanaya" maxlength="30" required></label>
+    </div>
 
-      <!-- Evt 3 -->
-      <div style="background:#F9FAFB;padding:12px;border-radius:12px;margin-bottom:10px;border:1px solid #E5E7EB;">
-        <div style="font-weight:700;font-size:12.5px;color:#064E3B;margin-bottom:6px;">Ceremony 3</div>
-        <div class="form-row-2">
-          <div class="form-field-grp"><label>Ceremony Name *</label><input type="text" id="fEvt3Name" value="Sacred Pheras &amp; Matrimony"></div>
-          <div class="form-row-2">
-            <div class="form-field-grp"><label>Date *</label><input type="text" id="fEvt3Date" value="25-11-2027"></div>
-            <div class="form-field-grp"><label>Time</label><input type="text" id="fEvt3Time" value="19:30"></div>
-          </div>
-        </div>
-        <div class="form-field-grp"><label>Venue Location</label><input type="text" id="fEvt3Venue" value="Grand Mandap Hall, Taj Mahal Palace"></div>
-        <div class="form-row-2">
-          <div class="form-field-grp"><label>Dress Code</label><input type="text" id="fEvt3Dress" value="Gold Zardozi &amp; Pure Silk"></div>
-          <div class="form-field-grp"><label>Ceremony Note</label><input type="text" id="fEvt3Note" value="Sacred seven circumambulations around the sacred fire."></div>
-        </div>
-      </div>
+    <div class="row2">
+      <label>Groom's full name *<input name="groom_full_name" value="Ranveer Mittal" maxlength="60" required></label>
+      <label>Bride's full name *<input name="bride_full_name" value="Shanaya Jindal" maxlength="60" required></label>
+    </div>
 
-      <!-- Evt 4 -->
-      <div style="background:#F9FAFB;padding:12px;border-radius:12px;margin-bottom:10px;border:1px solid #E5E7EB;">
-        <div style="font-weight:700;font-size:12.5px;color:#064E3B;margin-bottom:6px;">Ceremony 4</div>
-        <div class="form-row-2">
-          <div class="form-field-grp"><label>Ceremony Name *</label><input type="text" id="fEvt4Name" value="Royal Governors Reception"></div>
-          <div class="form-row-2">
-            <div class="form-field-grp"><label>Date *</label><input type="text" id="fEvt4Date" value="26-11-2027"></div>
-            <div class="form-field-grp"><label>Time</label><input type="text" id="fEvt4Time" value="20:00"></div>
-          </div>
-        </div>
-        <div class="form-field-grp"><label>Venue Location</label><input type="text" id="fEvt4Venue" value="The Ballroom, Taj Mahal Palace"></div>
-        <div class="form-row-2">
-          <div class="form-field-grp"><label>Dress Code</label><input type="text" id="fEvt4Dress" value="Ultra Formal Black Tie"></div>
-          <div class="form-field-grp"><label>Ceremony Note</label><input type="text" id="fEvt4Note" value="Grand banquet, champagne fountains, live 40-piece orchestra, and dancing."></div>
-        </div>
-      </div>
+    <label>Groom's parents <i>(optional blessing line)</i><input name="groom_parents" value="Son of Mr. Sunil Mittal & Mrs. Rekha Mittal" maxlength="120" placeholder="Son of Mr. … & Mrs. …"></label>
+    <label>Bride's parents <i>(optional blessing line)</i><input name="bride_parents" value="Daughter of Mr. Navin Jindal & Mrs. Savitri Jindal" maxlength="120" placeholder="Daughter of Mr. … & Mrs. …"></label>
 
-      <div class="form-sec-heading">✅ Guest &amp; WhatsApp / Email Dispatch</div>
-      <div class="form-row-2">
-        <div class="form-field-grp">
-          <label>Invitee / Guest Name *</label>
-          <input type="text" id="fGuestName" value="Dr. Ayan &amp; Family" required>
-        </div>
-        <div class="form-field-grp">
-          <label>Guest WhatsApp Number * (with country code)</label>
-          <input type="text" id="fGuestPhone" value="+971501234567" required>
-        </div>
+    <div class="photo-upload-grid">
+      <div class="photo-slot" id="slotGroomPhoto">
+        <input type="file" accept="image/*" data-photo="groom_photo">
+        <div class="photo-slot-title">Groom photo</div>
+        <div class="photo-slot-hint">(optional) · Upload</div>
       </div>
-      <div class="form-field-grp">
-        <label>Guest Email Address (optional)</label>
-        <input type="email" id="fGuestEmail" value="guest@example.com">
+      <div class="photo-slot" id="slotBridePhoto">
+        <input type="file" accept="image/*" data-photo="bride_photo">
+        <div class="photo-slot-title">Bride photo</div>
+        <div class="photo-slot-hint">(optional) · Upload</div>
       </div>
+      <div class="photo-slot" id="slotCoverPhoto">
+        <input type="file" accept="image/*" data-photo="cover_image">
+        <div class="photo-slot-title">Cover photo</div>
+        <div class="photo-slot-hint">for opening call screen</div>
+      </div>
+    </div>
+    <p class="note" style="font-size:11.5px; color:#8c5b67; margin-top:4px;">Leave photos empty to enjoy our curated royal heritage artwork.</p>
 
-      <div style="display:flex;gap:10px;margin-top:10px;">
-        <button type="button" class="btn-nav-action" style="flex:1;justify-content:center;color:#374151;background:#E5E7EB;border:none;" onclick="location.reload()">
-          Reset to Preset
-        </button>
-        <button type="button" class="btn-nav-action" style="flex:1;justify-content:center;color:#DC2626;background:#FEE2E2;border:none;" onclick="clearAllFields()">
-          Clear All
-        </button>
-      </div>
+  </details>
 
-      <button type="submit" class="btn-generate-invite">
-        ✨ Create &amp; Finalize My Invitation ✨
+  <!-- ==============================================
+       3. EVENT DATE & SANCTUARY VENUE
+       ============================================== -->
+  <details class="grp" open><summary>📅 Event Date &amp; Sanctuary Venue</summary>
+    
+    <div class="row2">
+      <label>Event Date *<input type="date" name="event_date" value="2027-11-25" required></label>
+      <label>Time <i>(optional)</i><input type="time" name="event_time" value="19:00"></label>
+    </div>
+
+    <label>Sanctuary / Venue Name *<input name="venue" value="The Taj Mahal Palace Ballroom, Mumbai" maxlength="90" required></label>
+    <label>Venue Address <i>(optional)</i><input name="venue_address" value="Apollo Bunder, Colaba, Mumbai, Maharashtra 400001" maxlength="140"></label>
+    <label>Google Maps Link <i>(optional — auto-generated if empty)</i><input type="url" name="venue_map_url" value="https://www.google.com/maps/search/?api=1&query=The+Taj+Mahal+Palace+Mumbai" placeholder="https://maps.app.goo.gl/…"></label>
+
+  </details>
+
+  <!-- ==============================================
+       4. SACRED CEREMONIES / FUNCTIONS
+       ============================================== -->
+  <details class="grp" open id="ceremoniesGroup"><summary>🪔 Sacred Ceremonies &amp; Functions</summary>
+    
+    <div id="ceremoniesList">
+      <!-- Dynamically generated ceremony cards will render here -->
+    </div>
+
+    <div class="ceremony-actions-bar">
+      <button type="button" class="btn btn--soft" id="addCeremonyBtn">＋ Add Ceremony</button>
+      <select id="quickCeremonyPreset" aria-label="Quick add preset ceremony">
+        <option value="">Quick add preset ceremony…</option>
+        <option>The Sangeet Spectacular</option>
+        <option>Baraat & Varmala Ceremony</option>
+        <option>Sacred Pheras & Matrimony</option>
+        <option>Royal Governors Reception</option>
+        <option>Haldi Ceremony</option>
+        <option>Mehendi Carnival</option>
+        <option>Welcome Cocktail & Dinner</option>
+        <option>Ring Exchange & Engagement</option>
+      </select>
+    </div>
+
+  </details>
+
+  <!-- ==============================================
+       5. GUEST & DISPATCH
+       ============================================== -->
+  <details class="grp" open><summary>✅ Guest &amp; WhatsApp / Email Dispatch</summary>
+    
+    <label>Invitee / Guest Name *<input name="guest_name" value="Dr. Ayan & Family" maxlength="60" required placeholder="e.g. The Ambani Family or Dr. Ayan & Family"></label>
+    
+    <div class="row2">
+      <label>Guest WhatsApp Number * <i>(with country code)</i><input type="tel" name="rsvp_whatsapp" value="+971501234567" inputmode="tel" placeholder="+971501234567" maxlength="18" required></label>
+      <label>Guest Email Address <i>(optional)</i><input type="email" name="guest_email" value="guest@example.com" placeholder="guest@example.com"></label>
+    </div>
+
+    <label class="tog"><input type="checkbox" name="music_enabled" checked><span></span>Background music (royal soundtrack)</label>
+
+  </details>
+
+  <!-- ACTION BUTTONS -->
+  <div class="actions">
+    <button type="button" class="btn btn--ghost" id="resetToPresetBtn">Reset to Preset</button>
+    <button type="button" class="btn btn--ghost" id="clearAllBtn">Clear All</button>
+  </div>
+
+  <p class="err" id="err" hidden></p>
+  <button type="button" class="btn btn--main" id="createBtn">✨ Create &amp; Finalize My Invitation</button>
+
+</form>
+  </div>
+
+<!-- CEREMONY CARD TEMPLATE -->
+<template id="ceremonyCardTemplate">
+  <div class="ceremony-card">
+    <div class="ceremony-head">
+      <span class="ceremony-title-label">Ceremony 1</span>
+      <button type="button" class="ceremony-remove-btn" aria-label="Remove ceremony">Remove</button>
+    </div>
+
+    <label>Ceremony Name *<input data-k="name" maxlength="60" required></label>
+    
+    <div class="row2">
+      <label>Date *<input type="date" data-k="date" required></label>
+      <label>Time<input type="time" data-k="time"></label>
+    </div>
+
+    <label>Venue Location <i>(leave empty to use main sanctuary)</i><input data-k="venue" maxlength="90"></label>
+    <label>Map Link <i>(optional)</i><input type="url" data-k="map_url" placeholder="https://maps.google.com/…"></label>
+
+    <div class="row2">
+      <label>Dress Code <i>(optional)</i><input data-k="dress" maxlength="50" placeholder="e.g. Royal Indian Aristocratic"></label>
+      <label>Ceremony Note <i>(optional)</i><input data-k="note" maxlength="140" placeholder="e.g. Sangeet performances & gala banquet"></label>
+    </div>
+  </div>
+</template>
+
+<!-- INVITATION READY SHARE SHEET -->
+<div class="sheet" id="sheet" hidden>
+  <div class="sheet__card">
+    <button type="button" class="sheet__x" id="sheetX" onclick="document.getElementById('sheet').hidden=true;" aria-label="Close">×</button>
+    <div class="sheet__tick">✓</div>
+    <h2>Your invitation is ready!</h2>
+    <p>Everything you customized is encoded into your private link. Deliver it directly to your guest's WhatsApp number or email:</p>
+    
+    <div class="link">
+      <input id="shareUrl" readonly aria-label="Your invitation link">
+      <button type="button" class="btn btn--main" id="copyBtn">Copy</button>
+    </div>
+
+    <div class="sheet__btns">
+      <a class="btn btn--wa" id="waShare" target="_blank" rel="noopener">
+        <span>💬 Send via WhatsApp directly to <span id="sheetWaNum">+971501234567</span></span>
+      </a>
+      <a class="btn btn--email" id="emailShare" target="_blank" rel="noopener">
+        <span>✉️ Send via Email to <span id="sheetEmailAddr">guest@example.com</span></span>
+      </a>
+      <button type="button" class="btn btn--ghost" onclick="document.getElementById('sheet').hidden=true; document.getElementById('mainInvite').scrollIntoView({behavior:'smooth'});">
+        <span>View Full Invitation Below ⤓</span>
       </button>
-    </form>
+    </div>
   </div>
 </div>
 
+</div>
 
 <!-- 11: 3D GUJARATI LAGAN PATRIKA -->
 <div class="stage-screen stage-hidden" id="stageScreen" onclick="openGujaratiPatrika()">
@@ -2291,6 +2937,368 @@ window.addEventListener('DOMContentLoaded', function() {
   }
 });
 </script>
-<script src="../assets/template-sync.js"></script>
+<script src="../assets/template-sync.js">
+// ================= BESPOKE ROYAL WEDDING INVITATION ENGINE =================
+var DEFAULT_CEREMONIES = [
+  {
+    name: "The Sangeet Spectacular",
+    date: "2027-11-24",
+    time: "19:00",
+    venue: "The Crystal Ballroom, Taj Mahal Palace",
+    map_url: "https://www.google.com/maps/search/?api=1&query=The+Taj+Mahal+Palace+Mumbai",
+    dress: "Diamond Sparkle & Royal Velvet",
+    note: "An evening of celebrity artist performances, Broadway choreography and gala banquet."
+  },
+  {
+    name: "Baraat & Varmala Ceremony",
+    date: "2027-11-25",
+    time: "17:30",
+    venue: "Gateway of India Promenade",
+    map_url: "https://www.google.com/maps/search/?api=1&query=Gateway+of+India+Mumbai",
+    dress: "Royal Indian Aristocratic",
+    note: "Royal vintage car baraat procession and garland exchange overlooking the harbor."
+  },
+  {
+    name: "Sacred Pheras & Matrimony",
+    date: "2027-11-25",
+    time: "19:30",
+    venue: "Grand Mandap Hall, Taj Mahal Palace",
+    map_url: "https://www.google.com/maps/search/?api=1&query=The+Taj+Mahal+Palace+Mumbai",
+    dress: "Gold Zardozi & Pure Silk",
+    note: "Sacred seven circumambulations around the sacred fire."
+  },
+  {
+    name: "Royal Governors Reception",
+    date: "2027-11-26",
+    time: "20:00",
+    venue: "The Ballroom, Taj Mahal Palace",
+    map_url: "https://www.google.com/maps/search/?api=1&query=The+Taj+Mahal+Palace+Mumbai",
+    dress: "Ultra Formal Black Tie",
+    note: "Grand banquet, champagne fountains, live 40-piece orchestra, and dancing."
+  }
+];
+
+function initBespokeForm() {
+  var form = document.getElementById('ed');
+  var ceremoniesList = document.getElementById('ceremoniesList');
+  var tpl = document.getElementById('ceremonyCardTemplate');
+  var addBtn = document.getElementById('addCeremonyBtn');
+  var presetSel = document.getElementById('quickCeremonyPreset');
+  var resetBtn = document.getElementById('resetToPresetBtn');
+  var clearBtn = document.getElementById('clearAllBtn');
+  var createBtn = document.getElementById('createBtn');
+  var themeGrid = document.getElementById('themeGrid');
+
+  function renderCeremonyCard(data, idx) {
+    if (!tpl || !ceremoniesList) return;
+    var clone = tpl.content.cloneNode(true);
+    var card = clone.querySelector('.ceremony-card');
+    var titleLbl = clone.querySelector('.ceremony-title-label');
+    var delBtn = clone.querySelector('.ceremony-remove-btn');
+
+    if (titleLbl) titleLbl.textContent = 'Ceremony ' + (idx + 1);
+
+    var inName = clone.querySelector('[data-k="name"]');
+    var inDate = clone.querySelector('[data-k="date"]');
+    var inTime = clone.querySelector('[data-k="time"]');
+    var inVenue = clone.querySelector('[data-k="venue"]');
+    var inMap = clone.querySelector('[data-k="map_url"]');
+    var inDress = clone.querySelector('[data-k="dress"]');
+    var inNote = clone.querySelector('[data-k="note"]');
+
+    if (inName) inName.value = data.name || '';
+    if (inDate) inDate.value = data.date || '';
+    if (inTime) inTime.value = data.time || '';
+    if (inVenue) inVenue.value = data.venue || '';
+    if (inMap) inMap.value = data.map_url || '';
+    if (inDress) inDress.value = data.dress || '';
+    if (inNote) inNote.value = data.note || '';
+
+    if (delBtn) {
+      delBtn.addEventListener('click', function() {
+        card.remove();
+        renumberCeremonies();
+        syncAllInvitationData();
+      });
+    }
+
+    card.addEventListener('input', syncAllInvitationData);
+    ceremoniesList.appendChild(clone);
+  }
+
+  function renumberCeremonies() {
+    if (!ceremoniesList) return;
+    var cards = ceremoniesList.querySelectorAll('.ceremony-card');
+    cards.forEach(function(c, i) {
+      var lbl = c.querySelector('.ceremony-title-label');
+      if (lbl) lbl.textContent = 'Ceremony ' + (i + 1);
+    });
+  }
+
+  function loadCeremonies(list) {
+    if (!ceremoniesList) return;
+    ceremoniesList.innerHTML = '';
+    list.forEach(function(c, i) {
+      renderCeremonyCard(c, i);
+    });
+  }
+
+  if (addBtn) {
+    addBtn.addEventListener('click', function() {
+      var count = ceremoniesList ? ceremoniesList.querySelectorAll('.ceremony-card').length : 0;
+      renderCeremonyCard({ name: 'Special Celebration' }, count);
+      syncAllInvitationData();
+    });
+  }
+
+  if (presetSel) {
+    presetSel.addEventListener('change', function() {
+      var val = presetSel.value;
+      if (!val) return;
+      var count = ceremoniesList ? ceremoniesList.querySelectorAll('.ceremony-card').length : 0;
+      renderCeremonyCard({ name: val, date: '2027-11-25', time: '18:00' }, count);
+      presetSel.value = '';
+      syncAllInvitationData();
+    });
+  }
+
+  if (themeGrid) {
+    var swatches = themeGrid.querySelectorAll('.theme-pill-btn');
+    swatches.forEach(function(s) {
+      s.addEventListener('click', function() {
+        swatches.forEach(function(o) { o.classList.remove('active'); });
+        s.classList.add('active');
+        var inputTheme = document.getElementById('selectedTheme');
+        if (inputTheme) inputTheme.value = s.getAttribute('data-theme');
+      });
+    });
+  }
+
+  // File Upload Preview handlers
+  ['slotGroomPhoto', 'slotBridePhoto', 'slotCoverPhoto'].forEach(function(slotId) {
+    var slot = document.getElementById(slotId);
+    if (!slot) return;
+    var inp = slot.querySelector('input[type="file"]');
+    if (!inp) return;
+    inp.addEventListener('change', function(e) {
+      if (e.target.files && e.target.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(evt) {
+          var k = inp.getAttribute('data-photo');
+          if (k === 'groom_photo') {
+            var gImg = document.getElementById('displayGroomPhoto');
+            if (gImg) gImg.src = evt.target.result;
+          } else if (k === 'bride_photo') {
+            var bImg = document.getElementById('displayBridePhoto');
+            if (bImg) bImg.src = evt.target.result;
+          }
+          slot.classList.add('has');
+        };
+        reader.readAsDataURL(e.target.files[0]);
+      }
+    });
+  });
+
+  if (resetBtn) {
+    resetBtn.addEventListener('click', function() {
+      if (form) {
+        form.elements.grand_title.value = "Grand Ballroom Starlight Wedding";
+        form.elements.groom_name.value = "Ranveer";
+        form.elements.bride_name.value = "Shanaya";
+        form.elements.groom_full_name.value = "Ranveer Mittal";
+        form.elements.bride_full_name.value = "Shanaya Jindal";
+        form.elements.groom_parents.value = "Son of Mr. Sunil Mittal & Mrs. Rekha Mittal";
+        form.elements.bride_parents.value = "Daughter of Mr. Navin Jindal & Mrs. Savitri Jindal";
+        form.elements.event_date.value = "2027-11-25";
+        form.elements.event_time.value = "19:00";
+        form.elements.venue.value = "The Taj Mahal Palace Ballroom, Mumbai";
+        form.elements.venue_address.value = "Apollo Bunder, Colaba, Mumbai, Maharashtra 400001";
+        form.elements.venue_map_url.value = "https://www.google.com/maps/search/?api=1&query=The+Taj+Mahal+Palace+Mumbai";
+      }
+      loadCeremonies(DEFAULT_CEREMONIES);
+      syncAllInvitationData();
+    });
+  }
+
+  if (clearBtn) {
+    clearBtn.addEventListener('click', function() {
+      if (form) form.reset();
+      if (ceremoniesList) ceremoniesList.innerHTML = '';
+      syncAllInvitationData();
+    });
+  }
+
+  // Synchronization with live invitation elements
+  function syncAllInvitationData() {
+    if (!form) return;
+    var f = form.elements;
+    var gName = (f.groom_name && f.groom_name.value) || 'Ranveer';
+    var bName = (f.bride_name && f.bride_name.value) || 'Shanaya';
+    var gFull = (f.groom_full_name && f.groom_full_name.value) || 'Ranveer Mittal';
+    var bFull = (f.bride_full_name && f.bride_full_name.value) || 'Shanaya Jindal';
+    var gParents = (f.groom_parents && f.groom_parents.value) || 'Son of Mr. Sunil Mittal & Mrs. Rekha Mittal';
+    var bParents = (f.bride_parents && f.bride_parents.value) || 'Daughter of Mr. Navin Jindal & Mrs. Savitri Jindal';
+    var evDate = (f.event_date && f.event_date.value) || '2027-11-25';
+    var evTime = (f.event_time && f.event_time.value) || '19:00';
+    var venue = (f.venue && f.venue.value) || 'The Taj Mahal Palace Ballroom, Mumbai';
+
+    // Format date string
+    var dateObj = new Date(evDate + 'T12:00:00');
+    var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    var dayStr = isNaN(dateObj.getTime()) ? 'THURSDAY' : days[dateObj.getDay()].toUpperCase();
+    var dateNum = isNaN(dateObj.getTime()) ? '25TH' : dateObj.getDate() + 'TH';
+    var monthStr = isNaN(dateObj.getTime()) ? 'NOV' : months[dateObj.getMonth()].toUpperCase();
+    var yearStr = isNaN(dateObj.getTime()) ? '2027' : dateObj.getFullYear();
+    var dateBadge = dayStr + ' | ' + dateNum + ' ' + monthStr + ' ' + yearStr;
+
+    // 1. Hero Palace (Image 1)
+    var hG = document.getElementById('heroGroomName');
+    var hB = document.getElementById('heroBrideName');
+    var hD = document.getElementById('heroDateBadge');
+    if (hG) hG.textContent = gFull;
+    if (hB) hB.textContent = bFull;
+    if (hD) hD.textContent = dateBadge;
+
+    // 2. Meet The Couple (Image 2)
+    var dG = document.getElementById('displayGroomName');
+    var dB = document.getElementById('displayBrideName');
+    var dGP = document.getElementById('displayGroomParents');
+    var dBP = document.getElementById('displayBrideParents');
+    if (dG) dG.textContent = gFull;
+    if (dB) dB.textContent = bFull;
+    if (dGP) dGP.textContent = gParents;
+    if (dBP) dBP.textContent = bParents;
+
+    // 3. Cultural Card & Scratch Card
+    var cardG = document.getElementById('groomNameDisplay');
+    var cardB = document.getElementById('brideNameDisplay');
+    var cardD = document.getElementById('weddingDateDisplay');
+    var cardV = document.getElementById('weddingVenueDisplay');
+    var scratchD = document.getElementById('scratchDateTitle');
+    var scratchV = document.querySelector('.unveiled-time-venue');
+    if (cardG) cardG.textContent = gFull;
+    if (cardB) cardB.textContent = bFull;
+    if (cardD) cardD.textContent = dayStr + ', ' + dateNum + ' ' + monthStr + ' ' + yearStr + ' · ' + evTime;
+    if (cardV) cardV.textContent = venue.toUpperCase();
+    if (scratchD) scratchD.textContent = dayStr + ', ' + dateNum + ' ' + monthStr + ' ' + yearStr;
+    if (scratchV) scratchV.textContent = evTime + ' · ' + venue;
+
+    // 4. Update Sacred Ceremonies Timeline on the card
+    var timelineGrid = document.querySelector('.timeline-grid');
+    if (timelineGrid && ceremoniesList) {
+      var cCards = ceremoniesList.querySelectorAll('.ceremony-card');
+      var cHtml = '';
+      cCards.forEach(function(c) {
+        var cName = (c.querySelector('[data-k="name"]') || {}).value || '';
+        var cDate = (c.querySelector('[data-k="date"]') || {}).value || '';
+        var cTime = (c.querySelector('[data-k="time"]') || {}).value || '';
+        var cVenue = (c.querySelector('[data-k="venue"]') || {}).value || venue;
+        var cDress = (c.querySelector('[data-k="dress"]') || {}).value || '';
+        var cNote = (c.querySelector('[data-k="note"]') || {}).value || '';
+        if (cName) {
+          cHtml += '<div class="timeline-item">' +
+            '<div class="timeline-time">' + (cDate ? cDate : '') + (cTime ? ' · ' + cTime : '') + '</div>' +
+            '<div class="timeline-name">' + cName + '</div>' +
+            '<div class="timeline-venue">📍 ' + cVenue + '</div>' +
+            (cDress ? '<div class="timeline-dress">👗 ' + cDress + '</div>' : '') +
+            (cNote ? '<div class="timeline-note">' + cNote + '</div>' : '') +
+            '</div>';
+        }
+      });
+      if (cHtml) timelineGrid.innerHTML = cHtml;
+    }
+  }
+
+  if (form) {
+    form.addEventListener('input', syncAllInvitationData);
+    form.addEventListener('change', syncAllInvitationData);
+  }
+
+  // Create & Finalize Button
+  if (createBtn) {
+    createBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      syncAllInvitationData();
+
+      var f = form.elements;
+      var gName = (f.groom_name && f.groom_name.value) || 'Ranveer';
+      var bName = (f.bride_name && f.bride_name.value) || 'Shanaya';
+      var gFull = (f.groom_full_name && f.groom_full_name.value) || 'Ranveer Mittal';
+      var bFull = (f.bride_full_name && f.bride_full_name.value) || 'Shanaya Jindal';
+      var guest = (f.guest_name && f.guest_name.value) || 'Dr. Ayan & Family';
+      var phone = (f.rsvp_whatsapp && f.rsvp_whatsapp.value) || '+971501234567';
+      var email = (f.guest_email && f.guest_email.value) || 'guest@example.com';
+      var venue = (f.venue && f.venue.value) || 'The Taj Mahal Palace Ballroom, Mumbai';
+
+      var cleanPhone = phone.replace(/[^0-9]/g, '');
+      var shareUrlInput = document.getElementById('shareUrl');
+      var currentUrl = window.location.href.split('#')[0];
+      if (shareUrlInput) shareUrlInput.value = currentUrl;
+
+      var waShare = document.getElementById('waShare');
+      var emailShare = document.getElementById('emailShare');
+      var sheetWaNum = document.getElementById('sheetWaNum');
+      var sheetEmailAddr = document.getElementById('sheetEmailAddr');
+      if (sheetWaNum) sheetWaNum.textContent = phone;
+      if (sheetEmailAddr) sheetEmailAddr.textContent = email;
+
+      var waMsg = "✨ *ROYAL WEDDING INVITATION* ✨\n\n" +
+        "Dearest " + guest + ",\n\n" +
+        "Together with our families, we cordially invite you to celebrate the royal union of\n" +
+        "💍 *" + bName + " & " + gName + "* 💍\n\n" +
+        "📍 *Venue:* " + venue + "\n\n" +
+        "🕊️ *Open your private, 3D animated invitation here:*\n" +
+        "👉 " + currentUrl + "\n\n" +
+        "With love,\n*" + bFull + " & " + gFull + "*";
+
+      if (waShare) waShare.href = "https://api.whatsapp.com/send?phone=" + cleanPhone + "&text=" + encodeURIComponent(waMsg);
+      if (emailShare) emailShare.href = "mailto:" + email + "?subject=" + encodeURIComponent("Royal Wedding of " + bName + " & " + gName) + "&body=" + encodeURIComponent(waMsg);
+
+      var sheet = document.getElementById('sheet');
+      if (sheet) sheet.hidden = false;
+
+      // Start 3D stage reveal and soft Indian music
+      if (typeof replayStageReveal === 'function') {
+        replayStageReveal();
+      }
+      if (typeof playSoftIndianMusic === 'function') {
+        playSoftIndianMusic();
+      }
+      var stage = document.getElementById('stageScreen');
+      if (stage) {
+        stage.classList.remove('stage-hidden');
+      } else {
+        var main = document.getElementById('mainInvite');
+        if (main) main.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  }
+
+  // Copy button
+  var copyBtn = document.getElementById('copyBtn');
+  if (copyBtn) {
+    copyBtn.addEventListener('click', function() {
+      var shareUrlInput = document.getElementById('shareUrl');
+      if (shareUrlInput) {
+        shareUrlInput.select();
+        navigator.clipboard.writeText(shareUrlInput.value).then(function() {
+          copyBtn.textContent = 'Copied ✓';
+          setTimeout(function() { copyBtn.textContent = 'Copy'; }, 1800);
+        });
+      }
+    });
+  }
+
+  // Initial load
+  loadCeremonies(DEFAULT_CEREMONIES);
+  syncAllInvitationData();
+}
+
+window.addEventListener('DOMContentLoaded', function() {
+  initBespokeForm();
+});
+
+</script>
 </body>
 </html>
