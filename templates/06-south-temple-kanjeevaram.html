@@ -623,6 +623,368 @@ body {
   pointer-events: none;
   z-index: 9990;
 }
+
+/* ================= MOBILE-STORY CONTAINER SIZE ================= */
+:root {
+  --story-width: min(100vw, 440px);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--theme-dark, #0F172A);
+  color: #F8FAFC;
+  font-family: var(--sans, 'Montserrat', sans-serif);
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Fixed width container matching user screenshots */
+.main-invitation-container, .site-story-wrap {
+  width: var(--story-width);
+  max-width: 440px;
+  margin: 0 auto;
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.85);
+  background: var(--theme-deep, #020617);
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* ================= 1. GRAND PALACE BALCONY HERO PAGE ================= */
+.hero-palace-page {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 576 / 1024;
+  min-height: 580px;
+  max-height: 840px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 36px 20px 24px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.hero-palace-art {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.hero-art-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  transform: scale(1.02);
+  transition: transform 3s ease;
+}
+
+.hero-palace-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.6) 100%);
+  pointer-events: none;
+}
+
+.hero-palace-content {
+  position: relative;
+  z-index: 5;
+  margin-top: 18%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.hero-eyebrow-text {
+  font-family: var(--sans);
+  font-size: clamp(9px, 2.6vw, 11px);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #FFF;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+  margin: 0 0 10px;
+  font-weight: 600;
+}
+
+/* Animated Name Reveal */
+@keyframes royalNameReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(24px) scale(0.92);
+    filter: blur(6px) brightness(1.6);
+    letter-spacing: 0.12em;
+  }
+  60% {
+    opacity: 0.95;
+    filter: blur(0px) brightness(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    letter-spacing: normal;
+    filter: drop-shadow(0 2px 10px rgba(212, 175, 55, 0.7));
+  }
+}
+
+.hero-couple-names-wrap {
+  margin: 4px 0 10px;
+}
+
+.hero-name-calligraphy {
+  font-family: var(--script, 'Great Vibes', cursive);
+  font-size: clamp(34px, 11vw, 48px);
+  font-weight: 400;
+  line-height: 1.1;
+  color: #FFF;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.9);
+  margin: 0;
+  animation: royalNameReveal 1.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  background: linear-gradient(135deg, #FFFFFF 0%, #FEF08A 40%, #D4AF37 70%, #FFFFFF 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-amp-sign {
+  font-family: var(--script);
+  font-size: clamp(26px, 8vw, 36px);
+  color: #FDE047;
+  line-height: 0.9;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+  margin: 2px 0;
+}
+
+.hero-date-text {
+  font-family: var(--sans);
+  font-size: clamp(10px, 2.8vw, 12.5px);
+  letter-spacing: 0.2em;
+  color: #FEF08A;
+  text-transform: uppercase;
+  margin: 8px 0 16px;
+  font-weight: 700;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.9);
+}
+
+.hero-magic-btn {
+  background: rgba(255, 255, 255, 0.25);
+  border: 1.5px solid rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #FFFFFF;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 22px;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  transition: all 0.3s;
+  animation: magicPulse 2.4s ease-in-out infinite;
+}
+
+@keyframes magicPulse {
+  50% { box-shadow: 0 0 25px rgba(254, 240, 138, 0.7); transform: scale(1.04); }
+}
+
+.hero-scroll-cue {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  font-weight: 700;
+  cursor: pointer;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+  margin-bottom: 8px;
+}
+
+.scroll-cue-line {
+  width: 1.5px;
+  height: 22px;
+  background: #FFF;
+  margin-top: 6px;
+  animation: cueBounce 1.8s ease-in-out infinite;
+  transform-origin: top;
+}
+
+@keyframes cueBounce {
+  0% { transform: scaleY(0); opacity: 0; }
+  50% { transform: scaleY(1); opacity: 1; }
+  100% { transform: scaleY(1); opacity: 0; }
+}
+
+/* ================= 2. MEET THE COUPLE PAGE ================= */
+.meet-couple-page {
+  position: relative;
+  padding: 44px 20px 32px;
+  background: var(--theme-deep, #020617);
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.meet-couple-header {
+  margin-bottom: 28px;
+}
+
+.meet-subtitle {
+  font-family: var(--script);
+  font-size: 24px;
+  color: var(--gold, #D4AF37);
+  margin: 0 0 2px;
+}
+
+.meet-title {
+  font-family: var(--serif);
+  font-size: clamp(26px, 8vw, 34px);
+  color: #FFFFFF;
+  margin: 0 0 6px;
+  letter-spacing: 0.04em;
+}
+
+.meet-lead {
+  font-size: 13.5px;
+  color: #CBD5E1;
+  margin: 0;
+  font-style: italic;
+}
+
+.couple-card-block {
+  margin: 0 auto 24px;
+  max-width: 320px;
+}
+
+.portrait-arch-frame {
+  position: relative;
+  width: min(80%, 250px);
+  aspect-ratio: 3 / 4;
+  margin: 0 auto 14px;
+  border-radius: 120px 120px 18px 18px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.7);
+  border: 3px solid var(--gold, #D4AF37);
+}
+
+.portrait-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+}
+
+.portrait-role-tag {
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  color: var(--gold-l, #FDE047);
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.portrait-name {
+  font-family: var(--serif);
+  font-size: clamp(24px, 7vw, 30px);
+  color: #FFFFFF;
+  margin: 0 0 6px;
+}
+
+.portrait-parents-line {
+  font-size: 13.5px;
+  color: #CBD5E1;
+  line-height: 1.5;
+  margin: 0 auto;
+  max-width: 290px;
+}
+
+.interlocking-rings-wrap {
+  margin: 18px auto 26px;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+}
+
+.rings-svg {
+  width: 80px;
+  height: 36px;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5));
+}
+
+.couple-love-quote {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--gold-l, #FDE047);
+  margin: 32px auto 8px;
+  max-width: 330px;
+  padding: 0 12px;
+}
+
+/* ================= FLOATING AUTO-SCROLL BAR ================= */
+.floating-autoscroll-bar {
+  position: fixed;
+  bottom: 18px;
+  right: 18px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1.5px solid var(--gold, #D4AF37);
+  padding: 6px 10px;
+  border-radius: 999px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+}
+
+.btn-autoscroll-toggle {
+  background: linear-gradient(135deg, #D4AF37 0%, #92400E 100%);
+  color: #020617;
+  font-weight: 700;
+  font-size: 12px;
+  border: none;
+  border-radius: 999px;
+  padding: 6px 14px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  transition: all 0.2s;
+}
+
+.btn-autoscroll-toggle.is-active {
+  background: linear-gradient(135deg, #EF4444 0%, #991B1B 100%);
+  color: #FFF;
+}
+
+.btn-autoscroll-nav {
+  background: rgba(255, 255, 255, 0.15);
+  color: #FDE047;
+  border: 1px solid rgba(253, 224, 71, 0.4);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  cursor: pointer;
+}
+
 </style>
 </head>
 <body>
@@ -638,11 +1000,28 @@ body {
     <button type="button" class="btn-nav-action primary" onclick="openSendModal()">
       💌 Send to Desired Person
     </button>
-    <button type="button" class="btn-nav-action" id="musicToggleBtn" onclick="toggleAudio()">
+    <button type="button" class="btn-nav-action" id="musicToggleBtn" onclick="toggleIndianMusic()">
       🎵 Music On
     </button>
   </div>
 </header>
+
+<!-- ============ SOFT INDIAN INSTRUMENTAL MUSIC ============ -->
+<audio id="indianBgm" loop preload="auto">
+  <source src="../assets/music.mp3" type="audio/mp3">
+</audio>
+
+
+<!-- ============ FLOATING AUTO-SCROLL BAR ============ -->
+<div class="floating-autoscroll-bar" id="autoScrollBar">
+  <button type="button" class="btn-autoscroll-toggle" id="btnAutoScroll" onclick="toggleAutoScroll()">
+    <span id="autoScrollIcon">▶</span>
+    <span id="autoScrollText">Auto Play</span>
+  </button>
+  <button type="button" class="btn-autoscroll-nav" onclick="scrollSection(1)" title="Next Section">▼</button>
+  <button type="button" class="btn-autoscroll-nav" onclick="scrollSection(-1)" title="Previous Section">▲</button>
+</div>
+
 
 <button type="button" class="btn-auto-scroll" id="btnAutoScroll" onclick="toggleAutoScroll()" aria-label="Toggle Auto-Scroll">
   📜 <span>Auto-Scroll</span>
@@ -922,6 +1301,81 @@ body {
 
 <!-- ================= 3. MUGHAL MIHRAB MAIN INVITATION ================= -->
 <main class="main-invitation-container" id="mainInvite">
+
+<!-- ============ 1. GRAND PALACE BALCONY HERO PAGE (Image 1) ============ -->
+<section class="hero-palace-page" id="heroPalaceSec">
+  <div class="hero-palace-art">
+    <img src="../assets/img/hero_palace.webp" alt="Royal Palace Balcony" class="hero-art-img" fetchpriority="high">
+    <div class="hero-palace-overlay"></div>
+  </div>
+  
+  <div class="hero-palace-content">
+    <p class="hero-eyebrow-text">YOU ARE CORDIALLY INVITED TO THE WEDDING OF</p>
+    
+    <div class="hero-couple-names-wrap">
+      <h1 class="hero-name-calligraphy animate-name" id="heroGroomName">Ranveer Mittal</h1>
+      <div class="hero-amp-sign">&amp;</div>
+      <h1 class="hero-name-calligraphy animate-name" id="heroBrideName">Shanaya Jindal</h1>
+    </div>
+    
+    <p class="hero-date-text" id="heroDateBadge">THURSDAY | 25TH NOV 2027</p>
+    
+    <button type="button" class="hero-magic-btn" onclick="triggerMagicSparkles()">
+      ✨ Tap to feel the magic
+    </button>
+  </div>
+  
+  <div class="hero-scroll-cue" onclick="scrollToSection('meetCoupleSec')">
+    <span>SCROLL</span>
+    <div class="scroll-cue-line"></div>
+  </div>
+</section>
+
+
+<!-- ============ 2. MEET THE COUPLE PAGE (Image 2) ============ -->
+<section class="meet-couple-page" id="meetCoupleSec">
+  <div class="meet-couple-header">
+    <p class="meet-subtitle">Getting to know us</p>
+    <h2 class="meet-title">Meet The Couple</h2>
+    <p class="meet-lead">Two hearts, one beautiful journey together.</p>
+  </div>
+  
+  <!-- Groom Card -->
+  <div class="couple-card-block">
+    <div class="portrait-arch-frame">
+      <img src="../assets/img/groom.webp" alt="Ranveer Mittal" class="portrait-photo" id="displayGroomPhoto">
+      <div class="portrait-arch-border"></div>
+    </div>
+    <div class="portrait-role-tag">THE GROOM</div>
+    <h3 class="portrait-name animate-name" id="displayGroomName">Ranveer Mittal</h3>
+    <p class="portrait-parents-line" id="displayGroomParents">Son of Mr. Sunil Mittal &amp; Mrs. Rekha Mittal</p>
+  </div>
+  
+  <!-- Interlocking Rings Emblem -->
+  <div class="interlocking-rings-wrap">
+    <svg viewBox="0 0 100 40" class="rings-svg">
+      <circle cx="42" cy="20" r="14" fill="none" stroke="#D4AF37" stroke-width="2.5"/>
+      <circle cx="58" cy="20" r="14" fill="none" stroke="#FDE047" stroke-width="2.5"/>
+      <path d="M 50 14 Q 50 8 46 8 Q 42 8 42 12 Q 42 16 50 22 Q 58 16 58 12 Q 58 8 54 8 Q 50 8 50 14" fill="#E11D48"/>
+    </svg>
+  </div>
+  
+  <!-- Bride Card -->
+  <div class="couple-card-block">
+    <div class="portrait-arch-frame">
+      <img src="../assets/img/bride.webp" alt="Shanaya Jindal" class="portrait-photo" id="displayBridePhoto">
+      <div class="portrait-arch-border"></div>
+    </div>
+    <div class="portrait-role-tag">THE BRIDE</div>
+    <h3 class="portrait-name animate-name" id="displayBrideName">Shanaya Jindal</h3>
+    <p class="portrait-parents-line" id="displayBrideParents">Daughter of Mr. Navin Jindal &amp; Mrs. Savitri Jindal</p>
+  </div>
+  
+  <blockquote class="couple-love-quote" id="displayCoupleQuote">
+    “Two souls, one promise — bound by seven sacred vows and a lifetime of laughter.”
+  </blockquote>
+</section>
+
   <section class="kanjeevaram-temple-spire-card">
     <div style="font-family:var(--serif);font-size:20px;color:var(--gold-l);margin-bottom:8px;">॥ ॐ नमो नारायणाय ॥</div>
     <div style="font-size:12px;letter-spacing:.25em;text-transform:uppercase;color:#E2E8F0;margin-bottom:10px;">SACRED TEMPLE MANDAPAM · KANJEEVARAM ZARI & JASMINE BLOSSOMS</div>
@@ -1179,7 +1633,36 @@ function showCreatorForm() {
   if (creator) creator.classList.remove('creator-hidden');
 }
 
+
+function syncHeroAndCouple() {
+  var g = document.getElementById('inputGroomFirst');
+  var b = document.getElementById('inputBrideFirst');
+  var gf = document.getElementById('inputGroomFull');
+  var bf = document.getElementById('inputBrideFull');
+  var d = document.getElementById('inputEventDate');
+  var gp = document.getElementById('inputGroomParents');
+  var bp = document.getElementById('inputBrideParents');
+
+  var hG = document.getElementById('heroGroomName');
+  var hB = document.getElementById('heroBrideName');
+  var hD = document.getElementById('heroDateBadge');
+  var dG = document.getElementById('displayGroomName');
+  var dB = document.getElementById('displayBrideName');
+  var dGP = document.getElementById('displayGroomParents');
+  var dBP = document.getElementById('displayBrideParents');
+
+  if (hG && (gf || g)) hG.textContent = (gf && gf.value) || (g && g.value) || 'Ranveer Mittal';
+  if (hB && (bf || b)) hB.textContent = (bf && bf.value) || (b && b.value) || 'Shanaya Jindal';
+  if (dG && (gf || g)) dG.textContent = (gf && gf.value) || (g && g.value) || 'Ranveer Mittal';
+  if (dB && (bf || b)) dB.textContent = (bf && bf.value) || (b && b.value) || 'Shanaya Jindal';
+  if (hD && d && d.value) hD.textContent = d.value;
+  if (dGP && gp && gp.value) dGP.textContent = gp.value;
+  if (dBP && bp && bp.value) dBP.textContent = bp.value;
+}
+
 function handleCreatorSubmit(e) {
+  syncHeroAndCouple();
+
   e.preventDefault();
   weddingConfig.groom = document.getElementById('fGroomName').value.trim() || "Ranveer";
   weddingConfig.groomFull = document.getElementById('fGroomFullName').value.trim() || weddingConfig.groom;
@@ -1571,7 +2054,209 @@ function downloadICalReminder() {
 }
 
 
+
+// ================= SOFT INDIAN SITAR BACKGROUND MUSIC =================
+var isMusicPlaying = false;
+function playSoftIndianMusic() {
+  var audio = document.getElementById('indianBgm');
+  if (audio) {
+    audio.volume = 0.35; // Soft gentle background level
+    var p = audio.play();
+    if (p !== undefined) {
+      p.then(function() {
+        isMusicPlaying = true;
+        updateMusicBtnState(true);
+      }).catch(function() {
+        // Fallback: Web Audio Sitar Chime if autoplay is restricted
+        startSyntheticIndianSitar();
+      });
+    }
+  }
+}
+
+function toggleIndianMusic() {
+  var audio = document.getElementById('indianBgm');
+  if (isMusicPlaying) {
+    if (audio) audio.pause();
+    isMusicPlaying = false;
+    updateMusicBtnState(false);
+  } else {
+    playSoftIndianMusic();
+  }
+}
+
+function updateMusicBtnState(playing) {
+  var btn = document.getElementById('musicToggleBtn');
+  if (btn) {
+    btn.innerHTML = playing ? '🎵 Music On' : '🔇 Mute';
+  }
+}
+
+// Fallback Indian Sitar Synthesizer using Web Audio API
+var sitarAudioCtx = null;
+function startSyntheticIndianSitar() {
+  try {
+    if (!sitarAudioCtx) sitarAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    if (sitarAudioCtx.state === 'suspended') sitarAudioCtx.resume();
+    // Gentle Indian raga sitar notes (Sa Re Ga Ma Pa Dha Ni Sa in Bhairavi)
+    var ragaFreqs = [261.63, 277.18, 311.13, 349.23, 392.00, 415.30, 466.16, 523.25];
+    var noteIdx = 0;
+    function playPluck() {
+      if (!isMusicPlaying) return;
+      var osc = sitarAudioCtx.createOscillator();
+      var gain = sitarAudioCtx.createGain();
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(ragaFreqs[noteIdx % ragaFreqs.length], sitarAudioCtx.currentTime);
+      gain.gain.setValueAtTime(0.001, sitarAudioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.08, sitarAudioCtx.currentTime + 0.05);
+      gain.gain.exponentialRampToValueAtTime(0.001, sitarAudioCtx.currentTime + 1.6);
+      osc.connect(gain);
+      gain.connect(sitarAudioCtx.destination);
+      osc.start();
+      osc.stop(sitarAudioCtx.currentTime + 1.7);
+      noteIdx = (noteIdx + 1 + Math.floor(Math.random() * 3)) % ragaFreqs.length;
+      setTimeout(playPluck, 1200 + Math.random() * 800);
+    }
+    isMusicPlaying = true;
+    updateMusicBtnState(true);
+    playPluck();
+  } catch(e) {}
+}
+
+// Sparkle Burst when 'Tap to feel the magic' is clicked
+function triggerMagicSparkles() {
+  playSoftIndianMusic();
+  var canvas = document.getElementById('particlesCanvas');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  var sparkles = [];
+  var colors = ['#FFFFFF', '#FDE047', '#D4AF37', '#FDA4AF', '#F43F5E'];
+  for (var i = 0; i < 70; i++) {
+    var angle = Math.random() * Math.PI * 2;
+    var speed = 3 + Math.random() * 8;
+    sparkles.push({
+      x: canvas.width * 0.5,
+      y: canvas.height * 0.45,
+      vx: Math.cos(angle) * speed,
+      vy: Math.sin(angle) * speed,
+      size: 3 + Math.random() * 5,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      alpha: 1,
+      decay: 0.015 + Math.random() * 0.02
+    });
+  }
+  function draw() {
+    for (var j = sparkles.length - 1; j >= 0; j--) {
+      var s = sparkles[j];
+      s.x += s.vx;
+      s.y += s.vy;
+      s.vy += 0.15; // gravity
+      s.alpha -= s.decay;
+      if (s.alpha <= 0) {
+        sparkles.splice(j, 1);
+        continue;
+      }
+      ctx.save();
+      ctx.globalAlpha = s.alpha;
+      ctx.fillStyle = s.color;
+      ctx.shadowColor = s.color;
+      ctx.shadowBlur = 10;
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+    }
+    if (sparkles.length > 0) requestAnimationFrame(draw);
+  }
+  draw();
+}
+
+// ================= AUTO SCROLL ENGINE =================
+var isAutoScrolling = false;
+var autoScrollInterval = null;
+var storySectionIds = ['heroPalaceSec', 'meetCoupleSec', 'mainInvite'];
+
+function toggleAutoScroll() {
+  if (isAutoScrolling) {
+    stopAutoScroll();
+  } else {
+    startAutoScroll();
+  }
+}
+
+function startAutoScroll() {
+  isAutoScrolling = true;
+  playSoftIndianMusic();
+  var btn = document.getElementById('btnAutoScroll');
+  var ico = document.getElementById('autoScrollIcon');
+  var txt = document.getElementById('autoScrollText');
+  if (btn) btn.classList.add('is-active');
+  if (ico) ico.textContent = '⏸';
+  if (txt) txt.textContent = 'Pause';
+
+  autoScrollInterval = setInterval(function () {
+    var maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    if (window.scrollY >= maxScroll - 4) {
+      stopAutoScroll();
+      return;
+    }
+    window.scrollBy({ top: 1.5, behavior: 'smooth' });
+  }, 30);
+}
+
+function stopAutoScroll() {
+  isAutoScrolling = false;
+  if (autoScrollInterval) clearInterval(autoScrollInterval);
+  var btn = document.getElementById('btnAutoScroll');
+  var ico = document.getElementById('autoScrollIcon');
+  var txt = document.getElementById('autoScrollText');
+  if (btn) btn.classList.remove('is-active');
+  if (ico) ico.textContent = '▶';
+  if (txt) txt.textContent = 'Auto Play';
+}
+
+function scrollToSection(id) {
+  var el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: 'smooth' });
+}
+
+function scrollSection(direction) {
+  stopAutoScroll();
+  var secs = storySectionIds.map(function(id) { return document.getElementById(id); }).filter(Boolean);
+  var currentY = window.scrollY;
+  var target = null;
+
+  if (direction > 0) {
+    for (var i = 0; i < secs.length; i++) {
+      if (secs[i].offsetTop > currentY + 40) {
+        target = secs[i];
+        break;
+      }
+    }
+  } else {
+    for (var i = secs.length - 1; i >= 0; i--) {
+      if (secs[i].offsetTop < currentY - 40) {
+        target = secs[i];
+        break;
+      }
+    }
+  }
+  if (target) {
+    target.scrollIntoView({ behavior: 'smooth' });
+  } else if (direction < 0) {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+
+window.addEventListener('wheel', function () { if (isAutoScrolling) stopAutoScroll(); }, { passive: true });
+window.addEventListener('touchmove', function () { if (isAutoScrolling) stopAutoScroll(); }, { passive: true });
+
+
 window.addEventListener('DOMContentLoaded', function() {
+  playSoftIndianMusic();
+
   initFallingRosePetals();
   initScratchToReveal();
 

@@ -274,7 +274,7 @@ html::-webkit-scrollbar, body::-webkit-scrollbar, ::-webkit-scrollbar, *::-webki
 
   <!-- ============ HERO PALACE ============ -->
   <section class="hero" id="hero">
-    <div class="hero__art" data-par="0.18"><img data-src="{{hero_image}}" alt="" fetchpriority="high"></div>
+    <div class="hero__art" data-par="0.18"><img data-src="{{hero_image}}" src="assets/img/hero_palace.webp" alt="" fetchpriority="high"></div>
     <div class="hero__glow"></div>
     <div class="hero__text">
       <p class="hero__eyebrow" id="heroEyebrow">{{hero_eyebrow}}</p>
@@ -304,7 +304,7 @@ html::-webkit-scrollbar, body::-webkit-scrollbar, ::-webkit-scrollbar, *::-webki
     </header>
     <article class="person reveal">
       <div class="arch">
-        <img class="arch__img" data-src="{{groom_photo}}" alt="{{groom_full_name}}" loading="lazy">
+        <img class="arch__img" data-src="{{groom_photo}}" src="assets/img/groom.webp" alt="{{groom_full_name}}" loading="lazy">
         <svg class="arch__frame" viewBox="0 0 300 400" aria-hidden="true"><use href="#arch-frame"/></svg>
       </div>
       <p class="person__role">{{celebrant_1_role}}</p>
@@ -314,7 +314,7 @@ html::-webkit-scrollbar, body::-webkit-scrollbar, ::-webkit-scrollbar, *::-webki
     <div class="couple__knot reveal" data-optional="bride_full_name" aria-hidden="true"><svg viewBox="0 0 120 40"><use href="#orn-knot"/></svg></div>
     <article class="person reveal" data-optional="bride_full_name">
       <div class="arch">
-        <img class="arch__img" data-src="{{bride_photo}}" alt="{{bride_full_name}}" loading="lazy">
+        <img class="arch__img" data-src="{{bride_photo}}" src="assets/img/bride.webp" alt="{{bride_full_name}}" loading="lazy">
         <svg class="arch__frame" viewBox="0 0 300 400" aria-hidden="true"><use href="#arch-frame"/></svg>
       </div>
       <p class="person__role">{{celebrant_2_role}}</p>
@@ -476,7 +476,7 @@ html::-webkit-scrollbar, body::-webkit-scrollbar, ::-webkit-scrollbar, *::-webki
 <div class="lightbox" id="lightbox" hidden><button type="button" class="lightbox__x" aria-label="Close">×</button><img alt=""></div>
 
 <!-- music -->
-<audio class="jfy-music" id="music" data-src="{{music_url}}" loop preload="auto"></audio>
+<audio class="jfy-music" id="music" src="assets/music.mp3" data-src="{{music_url}}" loop preload="auto"></audio>
 <button class="music" id="musicBtn" type="button" aria-label="Toggle music" data-optional="music_url"><i></i><i></i><i></i><i></i></button>
 
 <!-- ============ SVG LIBRARY (original artwork) ============ -->
