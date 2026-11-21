@@ -339,13 +339,19 @@
     if (photos.groom_photo && $('#scratchGroomImg')) $('#scratchGroomImg').src = photos.groom_photo;
     if (photos.bride_photo && $('#scratchBrideImg')) $('#scratchBrideImg').src = photos.bride_photo;
 
-    // 6. Timeline Sacred Functions
+    // 6. Timeline Sacred Functions with Corner Flowers & Sequential Entrance
     var timelineGrid = $('.timeline-grid') || $('#timelineGrid');
     if (timelineGrid && d.events && d.events.length > 0) {
+      var cornerTL = '<svg class="floral-corner top-left" viewBox="0 0 60 60" fill="none"><defs><radialGradient id="roseG_card" cx="35%" cy="35%" r="65%"><stop offset="0%" stop-color="#fda4af"/><stop offset="45%" stop-color="#f43f5e"/><stop offset="85%" stop-color="#be123c"/><stop offset="100%" stop-color="#881337"/></radialGradient><linearGradient id="goldG_card" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fef08a"/><stop offset="50%" stop-color="#d4af37"/><stop offset="100%" stop-color="#854d0e"/></linearGradient></defs><path d="M 0 16 C 12 18, 22 26, 28 40" stroke="url(#goldG_card)" stroke-width="1.3" stroke-linecap="round"/><path d="M 16 0 C 18 12, 26 22, 40 28" stroke="url(#goldG_card)" stroke-width="1.3" stroke-linecap="round"/><path d="M 16 12 C 20 7, 26 6, 28 10 C 25 16, 19 17, 16 12 Z" fill="#047857" stroke="#d4af37" stroke-width="0.7"/><path d="M 12 16 C 7 20, 6 26, 10 28 C 16 25, 17 19, 12 16 Z" fill="#047857" stroke="#d4af37" stroke-width="0.7"/><circle cx="14" cy="14" r="12" fill="url(#roseG_card)" filter="drop-shadow(0 2px 5px rgba(0,0,0,0.45))"/><path d="M 7 14 C 7 9, 12 5, 15 5 C 19 5, 22 9, 21 14 C 19 17, 12 17, 7 14 Z" fill="#fda4af" opacity="0.85"/><path d="M 10 11 C 12 7, 17 7, 19 11 C 21 14, 15 17, 12 15 Z" fill="#f43f5e"/><path d="M 12 12 C 13 10, 16 10, 17 12 C 17 15, 14 16, 12 12 Z" fill="#9f1239"/><circle cx="14" cy="12.5" r="2" fill="#fef08a"/><circle cx="28" cy="10" r="5.5" fill="url(#roseG_card)"/><path d="M 26 8 C 27 6, 31 7, 31 9 C 30 11, 27 10, 26 8 Z" fill="#fda4af"/><circle cx="10" cy="28" r="5.5" fill="url(#roseG_card)"/><path d="M 8 26 C 6 27, 7 31, 9 31 C 11 30, 10 27, 8 26 Z" fill="#fda4af"/><circle cx="36" cy="13" r="1.3" fill="#fef08a"/><circle cx="13" cy="36" r="1.3" fill="#fef08a"/></svg>';
+      var cornerTR = cornerTL.replace('class="floral-corner top-left"', 'class="floral-corner top-right"');
+      var cornerBL = cornerTL.replace('class="floral-corner top-left"', 'class="floral-corner bottom-left"');
+      var cornerBR = cornerTL.replace('class="floral-corner top-left"', 'class="floral-corner bottom-right"');
+
       var html = '';
       d.events.forEach(function (ev, i) {
         var eDt = split(ev.date);
-        html += '<div class="timeline-card">' +
+        html += '<div class="timeline-card function-reveal-item" data-index="' + i + '">' +
+          cornerTL + cornerTR + cornerBL + cornerBR +
           '<div class="timeline-card-inner">' +
             '<div class="timeline-step-badge">FUNCTION ' + (i + 1) + '</div>' +
             '<h3 class="ceremony-name-heading">' + (ev.name || 'Ceremony') + '</h3>' +
@@ -357,6 +363,9 @@
         '</div>';
       });
       timelineGrid.innerHTML = html;
+      if (typeof window.revealFunctionsOneByOne === 'function') {
+        window.revealFunctionsOneByOne();
+      }
     }
   }
 

@@ -1138,6 +1138,419 @@ body.mode-invite .floating-action-bar {
   transform: scale(1.04);
 }
 
+
+/* ================= CORNER FLOWERS & LUXURY CARDS ================= */
+.floral-corner {
+  position: absolute;
+  width: 54px;
+  height: 54px;
+  pointer-events: none;
+  z-index: 6;
+  filter: drop-shadow(0 3px 8px rgba(0,0,0,0.5));
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
+}
+.floral-corner.top-left {
+  top: -2px;
+  left: -2px;
+}
+.floral-corner.top-right {
+  top: -2px;
+  right: -2px;
+  transform: scaleX(-1);
+}
+.floral-corner.bottom-left {
+  bottom: -2px;
+  left: -2px;
+  transform: scaleY(-1);
+}
+.floral-corner.bottom-right {
+  bottom: -2px;
+  right: -2px;
+  transform: scale(-1, -1);
+}
+
+/* Ceremony Cards - Rich Royal Texture & One-by-One Reveal */
+.timeline-card {
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 12%, rgba(16, 75, 56, 0.96) 0%, rgba(4, 30, 22, 0.99) 100%) !important;
+  border: 1.5px solid rgba(212, 175, 55, 0.65) !important;
+  border-radius: 22px !important;
+  padding: 26px 20px !important;
+  margin-bottom: 24px !important;
+  text-align: left !important;
+  box-shadow: inset 0 0 28px rgba(212, 175, 55, 0.12), 0 12px 36px rgba(0,0,0,0.55) !important;
+  
+  /* Initial state before sequential reveal */
+  opacity: 0;
+  transform: translateY(36px) scale(0.95);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s ease;
+}
+
+.timeline-card.is-visible {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+  box-shadow: inset 0 0 32px rgba(212, 175, 55, 0.16), 0 14px 40px rgba(0,0,0,0.6) !important;
+}
+
+.timeline-step-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  color: #451a03;
+  background: linear-gradient(135deg, #fef08a, #d4af37);
+  padding: 4px 14px;
+  border-radius: 20px;
+  margin-bottom: 8px;
+  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.4);
+  transform: scale(0.9);
+  transition: transform 0.5s ease;
+}
+.timeline-card.is-visible .timeline-step-badge {
+  transform: scale(1);
+}
+
+/* The Name of Functions appears with dramatic golden glow & slide */
+.ceremony-name-heading {
+  font-family: var(--serif, "Cinzel", Georgia, serif);
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 6px 0 12px;
+  line-height: 1.25;
+  opacity: 0;
+  transform: translateX(-24px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.15s, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.15s, text-shadow 0.7s ease;
+}
+
+.timeline-card.is-visible .ceremony-name-heading {
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+  text-shadow: 0 0 20px rgba(254, 240, 138, 0.6), 0 2px 8px rgba(0,0,0,0.8);
+}
+
+.ceremony-time-text, .ceremony-venue-text, .ceremony-dress-text {
+  font-size: 13px;
+  color: #e2e8f0;
+  margin: 4px 0;
+  line-height: 1.5;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.6s ease 0.3s, transform 0.6s ease 0.3s;
+}
+.timeline-card.is-visible .ceremony-time-text,
+.timeline-card.is-visible .ceremony-venue-text,
+.timeline-card.is-visible .ceremony-dress-text {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Also add rich depth & corner flowers to other sections */
+.scratch-card-frame {
+  position: relative !important;
+  background: radial-gradient(circle at 50% 15%, rgba(13, 64, 48, 0.92) 0%, rgba(4, 28, 20, 0.98) 100%) !important;
+  border: 1.5px solid rgba(212, 175, 55, 0.55) !important;
+  box-shadow: inset 0 0 28px rgba(212, 175, 55, 0.12), 0 12px 36px rgba(0,0,0,0.55) !important;
+  overflow: hidden;
+}
+
+.rsvp-section {
+  position: relative !important;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 15%, rgba(13, 64, 48, 0.92) 0%, rgba(4, 28, 20, 0.98) 100%) !important;
+  border: 1.5px solid rgba(212, 175, 55, 0.55) !important;
+  border-radius: 24px;
+  padding: 32px 20px !important;
+  margin: 20px auto 30px;
+  box-shadow: inset 0 0 28px rgba(212, 175, 55, 0.12), 0 12px 36px rgba(0,0,0,0.55);
+}
+
+.meet-couple-section {
+  position: relative !important;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 15%, rgba(13, 64, 48, 0.85) 0%, rgba(4, 28, 20, 0.95) 100%) !important;
+  border: 1.5px solid rgba(212, 175, 55, 0.45) !important;
+  border-radius: 24px;
+  padding: 30px 18px;
+  margin: 16px auto 24px;
+  box-shadow: inset 0 0 28px rgba(212, 175, 55, 0.1), 0 12px 36px rgba(0,0,0,0.5);
+}
+
+
+/* ================= COMPLETE ROYAL ANIMATIONS SUITE ================= */
+
+/* 1. Golden Calligraphy Sheen for Names */
+@keyframes royalGoldSheen {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes nameFloatingBreathe {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-4px) scale(1.015); }
+}
+
+.hero-names-title {
+  animation: nameFloatingBreathe 4s infinite ease-in-out;
+}
+
+.couple-names-lg, .portrait-name {
+  background: linear-gradient(90deg, #fef08a 0%, #ffffff 25%, #d4af37 50%, #ffffff 75%, #fef08a 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: royalGoldSheen 5s linear infinite;
+  display: inline-block;
+}
+
+/* 2. Hanging Palace Lanterns Pendulum Sway */
+@keyframes lanternSwayL {
+  0%, 100% { transform: rotate(-3.5deg); transform-origin: top center; }
+  50% { transform: rotate(3.5deg); transform-origin: top center; }
+}
+@keyframes lanternSwayR {
+  0%, 100% { transform: rotate(3.5deg); transform-origin: top center; }
+  50% { transform: rotate(-3.5deg); transform-origin: top center; }
+}
+
+/* 3. Hero Date Badge Glowing Pulse */
+@keyframes pillGlowPulse {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.35), inset 0 0 10px rgba(212, 175, 55, 0.2);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 24px rgba(254, 240, 138, 0.65), inset 0 0 16px rgba(254, 240, 138, 0.45);
+    transform: scale(1.03);
+  }
+}
+.hero-date-badge {
+  animation: pillGlowPulse 3s infinite ease-in-out;
+}
+
+/* 4. Tap To Feel Magic Button - Interactive Beacon Pulse */
+@keyframes magicBtnPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 4px 18px rgba(225, 29, 72, 0.45), 0 0 0 0 rgba(254, 240, 138, 0.5);
+  }
+  50% {
+    transform: scale(1.06);
+    box-shadow: 0 8px 28px rgba(225, 29, 72, 0.65), 0 0 0 12px rgba(254, 240, 138, 0);
+  }
+}
+@keyframes sparkleSpin {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(25deg) scale(1.3); }
+}
+.hero-cta-btn {
+  animation: magicBtnPulse 2.4s infinite ease-in-out !important;
+}
+.hero-cta-btn .sparkle-icon {
+  display: inline-block;
+  animation: sparkleSpin 2s infinite ease-in-out;
+}
+
+/* 5. Scroll Indicator Bob */
+@keyframes scrollPromptBob {
+  0%, 100% { transform: translateY(0); opacity: 0.7; }
+  50% { transform: translateY(7px); opacity: 1; }
+}
+.scroll-indicator-pill {
+  animation: scrollPromptBob 2s infinite ease-in-out;
+}
+
+/* 6. Meet The Couple - Jharokha Arch Breathing Aura */
+@keyframes archAuraBreathe {
+  0%, 100% {
+    border-color: rgba(212, 175, 55, 0.65);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.5), inset 0 0 18px rgba(212, 175, 55, 0.2);
+  }
+  50% {
+    border-color: rgba(254, 240, 138, 0.95);
+    box-shadow: 0 14px 38px rgba(212, 175, 55, 0.45), inset 0 0 28px rgba(254, 240, 138, 0.4);
+  }
+}
+@keyframes portraitDriftKenBurns {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.portrait-arch-frame {
+  animation: archAuraBreathe 3.6s infinite ease-in-out;
+  overflow: hidden;
+}
+.portrait-photo {
+  animation: portraitDriftKenBurns 8s infinite ease-in-out;
+}
+
+/* 7. Interlocking Rings & Heart - Sacred Pulse */
+@keyframes sacredRingsPulse {
+  0%, 100% { transform: scale(1) rotate(0deg); filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.4)); }
+  50% { transform: scale(1.1) rotate(3deg); filter: drop-shadow(0 0 16px rgba(254, 240, 138, 0.85)); }
+}
+.interlocking-rings-divider svg {
+  animation: sacredRingsPulse 2.8s infinite ease-in-out;
+}
+
+/* 8. Couple Love Quote Floating Card */
+@keyframes quoteCardBreathe {
+  0%, 100% {
+    border-color: rgba(212, 175, 55, 0.35);
+    box-shadow: inset 0 0 15px rgba(212, 175, 55, 0.08);
+  }
+  50% {
+    border-color: rgba(254, 240, 138, 0.7);
+    box-shadow: inset 0 0 25px rgba(254, 240, 138, 0.18), 0 6px 20px rgba(0,0,0,0.35);
+  }
+}
+.couple-love-quote {
+  animation: quoteCardBreathe 4s infinite ease-in-out;
+}
+
+/* 9. Save The Date Scratch Card & Badge Glow */
+@keyframes goldBadgeSweep {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 2px 6px rgba(212, 175, 55, 0.4)); }
+  50% { transform: scale(1.04); filter: drop-shadow(0 4px 14px rgba(254, 240, 138, 0.8)); }
+}
+.scratch-badge-pill {
+  animation: goldBadgeSweep 2.5s infinite ease-in-out;
+}
+
+/* 10. Sacred Heartbeat for Revealed Couple Union */
+@keyframes unionHeartbeat {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 6px #e11d48); }
+  14% { transform: scale(1.22); filter: drop-shadow(0 0 16px #fda4af); }
+  28% { transform: scale(1.06); filter: drop-shadow(0 0 8px #f43f5e); }
+  42% { transform: scale(1.28); filter: drop-shadow(0 0 20px #e11d48); }
+  60% { transform: scale(1); filter: drop-shadow(0 0 6px #e11d48); }
+}
+.scratch-mandap-om {
+  animation: unionHeartbeat 2.2s infinite ease-in-out !important;
+  display: inline-block;
+}
+
+/* 11. Add to Google Calendar Button Pulsing Glow */
+@keyframes calBtnPulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 3px 12px rgba(212, 175, 55, 0.4); }
+  50% { transform: scale(1.05); box-shadow: 0 6px 22px rgba(254, 240, 138, 0.75); }
+}
+.cal-btn {
+  animation: calBtnPulse 2.2s infinite ease-in-out;
+}
+
+/* 12. 4 Countdown Hearts 3D Heartbeat */
+@keyframes heartBoxBeat3D {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 6px 14px rgba(0,0,0,0.45)); }
+  14% { transform: scale(1.06); filter: drop-shadow(0 8px 22px rgba(185, 28, 28, 0.65)); }
+  28% { transform: scale(1.02); filter: drop-shadow(0 6px 16px rgba(185, 28, 28, 0.45)); }
+  42% { transform: scale(1.08); filter: drop-shadow(0 10px 28px rgba(254, 240, 138, 0.6)); }
+  60% { transform: scale(1); filter: drop-shadow(0 6px 14px rgba(0,0,0,0.45)); }
+}
+.heart-box {
+  animation: heartBoxBeat3D 2.5s infinite ease-in-out !important;
+}
+
+/* Seconds counter tick pulse */
+@keyframes secondCounterFlash {
+  0%, 100% { transform: scale(1); text-shadow: 0 2px 6px rgba(0,0,0,0.55); }
+  50% { transform: scale(1.08); text-shadow: 0 0 16px rgba(254, 240, 138, 0.9), 0 2px 8px rgba(0,0,0,0.6); }
+}
+#cdSeconds {
+  animation: secondCounterFlash 1s infinite ease-in-out;
+  display: inline-block;
+}
+
+/* 13. Section Shloka Floating Elevation */
+@keyframes shlokaOmFloat {
+  0%, 100% { transform: translateY(0); text-shadow: 0 0 12px rgba(254, 240, 138, 0.5); }
+  50% { transform: translateY(-4px); text-shadow: 0 0 24px rgba(254, 240, 138, 0.9); }
+}
+.shloka-header {
+  animation: shlokaOmFloat 3.2s infinite ease-in-out;
+  display: inline-block;
+}
+
+/* 14. Corner Flowers Blooming & Glowing Ambient Pulse */
+@keyframes flowerCornerBloom {
+  0% { transform: scale(0.6) rotate(-15deg); opacity: 0; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+@keyframes flowerAuraGlow {
+  0%, 100% { filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4)); }
+  50% { filter: drop-shadow(0 4px 14px rgba(254, 240, 138, 0.65)); }
+}
+
+.floral-corner {
+  animation: flowerAuraGlow 3.5s infinite ease-in-out;
+}
+.timeline-card.is-visible .floral-corner {
+  animation: flowerCornerBloom 0.8s cubic-bezier(0.16, 1, 0.3, 1), flowerAuraGlow 3.5s 0.8s infinite ease-in-out;
+}
+
+/* 15. Function Badge Pop */
+@keyframes badgePopIn {
+  0% { transform: scale(0.6); opacity: 0; }
+  65% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.timeline-card.is-visible .timeline-step-badge {
+  animation: badgePopIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* 16. Function Name Sequential Dramatic Golden Entrance */
+@keyframes functionNameGlideIn {
+  0% { opacity: 0; transform: translateX(-32px); filter: blur(4px); }
+  100% { opacity: 1; transform: translateX(0); filter: blur(0); }
+}
+@keyframes goldenSheenLoop {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.timeline-card.is-visible .ceremony-name-heading {
+  animation: functionNameGlideIn 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards, royalGoldSheen 6s 0.8s linear infinite !important;
+}
+
+/* 17. Map Button Floating */
+@keyframes mapBtnBob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); box-shadow: 0 4px 14px rgba(212, 175, 55, 0.45); }
+}
+.ceremony-map-btn {
+  animation: mapBtnBob 2.6s infinite ease-in-out;
+}
+
+/* 18. Filigree Divider Crest Pulse */
+@keyframes crestShinePulse {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 4px rgba(212, 175, 55, 0.3)); color: #d4af37; }
+  50% { transform: scale(1.15); filter: drop-shadow(0 0 14px rgba(254, 240, 138, 0.85)); color: #fef08a; }
+}
+.divider-crest {
+  animation: crestShinePulse 3s infinite ease-in-out;
+  display: inline-block;
+}
+
+/* 19. WhatsApp RSVP Radar Ring Pulse */
+@keyframes whatsappRadarPulse {
+  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.75), 0 4px 16px rgba(0,0,0,0.3); transform: scale(1); }
+  70% { box-shadow: 0 0 0 16px rgba(37, 211, 102, 0), 0 6px 24px rgba(0,0,0,0.4); transform: scale(1.02); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0), 0 4px 16px rgba(0,0,0,0.3); transform: scale(1); }
+}
+.rsvp-whatsapp-btn {
+  animation: whatsappRadarPulse 2.2s infinite ease-in-out;
+}
+
+/* 20. Floating Action Bar Bob */
+@keyframes floatingBarFloat {
+  0%, 100% { transform: translateX(-50%) translateY(0); box-shadow: 0 10px 30px rgba(0,0,0,0.6); }
+  50% { transform: translateX(-50%) translateY(-5px); box-shadow: 0 16px 42px rgba(212, 175, 55, 0.4); }
+}
+body.mode-invite .floating-action-bar {
+  animation: floatingBarFloat 3.4s infinite ease-in-out;
+}
+
 </style>
 </head>
 <body>
@@ -1349,7 +1762,7 @@ body.mode-invite .floating-action-bar {
     </div>
 
     <!-- ============ SECTION 2: MEET THE COUPLE (Image 4) ============ -->
-    <section class="meet-couple-section" id="meetCoupleSec">
+    <section class="meet-couple-section" id="meetCoupleSec"><svg class="floral-corner top-left" viewBox="0 0 60 60" fill="none"><defs><radialGradient id="roseG_sec" cx="35%" cy="35%" r="65%"><stop offset="0%" stop-color="#fda4af"/><stop offset="45%" stop-color="#f43f5e"/><stop offset="85%" stop-color="#be123c"/><stop offset="100%" stop-color="#881337"/></radialGradient><linearGradient id="goldG_sec" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fef08a"/><stop offset="50%" stop-color="#d4af37"/><stop offset="100%" stop-color="#854d0e"/></linearGradient></defs><path d="M 0 16 C 12 18, 22 26, 28 40" stroke="url(#goldG_sec)" stroke-width="1.3" stroke-linecap="round"/><path d="M 16 0 C 18 12, 26 22, 40 28" stroke="url(#goldG_sec)" stroke-width="1.3" stroke-linecap="round"/><path d="M 16 12 C 20 7, 26 6, 28 10 C 25 16, 19 17, 16 12 Z" fill="#047857" stroke="#d4af37" stroke-width="0.7"/><path d="M 12 16 C 7 20, 6 26, 10 28 C 16 25, 17 19, 12 16 Z" fill="#047857" stroke="#d4af37" stroke-width="0.7"/><circle cx="14" cy="14" r="12" fill="url(#roseG_sec)" filter="drop-shadow(0 2px 5px rgba(0,0,0,0.45))"/><path d="M 7 14 C 7 9, 12 5, 15 5 C 19 5, 22 9, 21 14 C 19 17, 12 17, 7 14 Z" fill="#fda4af" opacity="0.85"/><path d="M 10 11 C 12 7, 17 7, 19 11 C 21 14, 15 17, 12 15 Z" fill="#f43f5e"/><path d="M 12 12 C 13 10, 16 10, 17 12 C 17 15, 14 16, 12 12 Z" fill="#9f1239"/><circle cx="14" cy="12.5" r="2" fill="#fef08a"/><circle cx="28" cy="10" r="5.5" fill="url(#roseG_sec)"/><path d="M 26 8 C 27 6, 31 7, 31 9 C 30 11, 27 10, 26 8 Z" fill="#fda4af"/><circle cx="10" cy="28" r="5.5" fill="url(#roseG_sec)"/><path d="M 8 26 C 6 27, 7 31, 9 31 C 11 30, 10 27, 8 26 Z" fill="#fda4af"/><circle cx="36" cy="13" r="1.3" fill="#fef08a"/><circle cx="13" cy="36" r="1.3" fill="#fef08a"/></svg><svg class="floral-corner top-right" viewBox="0 0 60 60" fill="none"><defs><radialGradient id="roseG_sec" cx="35%" cy="35%" r="65%"><stop offset="0%" stop-color="#fda4af"/><stop offset="45%" stop-color="#f43f5e"/><stop offset="85%" stop-color="#be123c"/><stop offset="100%" stop-color="#881337"/></radialGradient><linearGradient id="goldG_sec" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fef08a"/><stop offset="50%" stop-color="#d4af37"/><stop offset="100%" stop-color="#854d0e"/></linearGradient></defs><path d="M 0 16 C 12 18, 22 26, 28 40" stroke="url(#goldG_sec)" stroke-width="1.3" stroke-linecap="round"/><path d="M 16 0 C 18 12, 26 22, 40 28" stroke="url(#goldG_sec)" stroke-width="1.3" stroke-linecap="round"/><path d="M 16 12 C 20 7, 26 6, 28 10 C 25 16, 19 17, 16 12 Z" fill="#047857" stroke="#d4af37" stroke-width="0.7"/><path d="M 12 16 C 7 20, 6 26, 10 28 C 16 25, 17 19, 12 16 Z" fill="#047857" stroke="#d4af37" stroke-width="0.7"/><circle cx="14" cy="14" r="12" fill="url(#roseG_sec)" filter="drop-shadow(0 2px 5px rgba(0,0,0,0.45))"/><path d="M 7 14 C 7 9, 12 5, 15 5 C 19 5, 22 9, 21 14 C 19 17, 12 17, 7 14 Z" fill="#fda4af" opacity="0.85"/><path d="M 10 11 C 12 7, 17 7, 19 11 C 21 14, 15 17, 12 15 Z" fill="#f43f5e"/><path d="M 12 12 C 13 10, 16 10, 17 12 C 17 15, 14 16, 12 12 Z" fill="#9f1239"/><circle cx="14" cy="12.5" r="2" fill="#fef08a"/><circle cx="28" cy="10" r="5.5" fill="url(#roseG_sec)"/><path d="M 26 8 C 27 6, 31 7, 31 9 C 30 11, 27 10, 26 8 Z" fill="#fda4af"/><circle cx="10" cy="28" r="5.5" fill="url(#roseG_sec)"/><path d="M 8 26 C 6 27, 7 31, 9 31 C 11 30, 10 27, 8 26 Z" fill="#fda4af"/><circle cx="36" cy="13" r="1.3" fill="#fef08a"/><circle cx="13" cy="36" r="1.3" fill="#fef08a"/></svg><svg class="floral-corner bottom-left" viewBox="0 0 60 60" fill="none"><defs><radialGradient id="roseG_sec" cx="35%" cy="35%" r="65%"><stop offset="0%" stop-color="#fda4af"/><stop offset="45%" stop-color="#f43f5e"/><stop offset="85%" stop-color="#be123c"/><stop offset="100%" stop-color="#881337"/></radialGradient><linearGradient id="goldG_sec" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fef08a"/><stop offset="50%" stop-color="#d4af37"/><stop offset="100%" stop-color="#854d0e"/></linearGradient></defs><path d="M 0 16 C 12 18, 22 26, 28 40" stroke="url(#goldG_sec)" stroke-width="1.3" stroke-linecap="round"/><path d="M 16 0 C 18 12, 26 22, 40 28" stroke="url(#goldG_sec)" stroke-width="1.3" stroke-linecap="round"/><path d="M 16 12 C 20 7, 26 6, 28 10 C 25 16, 19 17, 16 12 Z" fill="#047857" stroke="#d4af37" stroke-width="0.7"/><path d="M 12 16 C 7 20, 6 26, 10 28 C 16 25, 17 19, 12 16 Z" fill="#047857" stroke="#d4af37" stroke-width="0.7"/><circle cx="14" cy="14" r="12" fill="url(#roseG_sec)" filter="drop-shadow(0 2px 5px rgba(0,0,0,0.45))"/><path d="M 7 14 C 7 9, 12 5, 15 5 C 19 5, 22 9, 21 14 C 19 17, 12 17, 7 14 Z" fill="#fda4af" opacity="0.85"/><path d="M 10 11 C 12 7, 17 7, 19 11 C 21 14, 15 17, 12 15 Z" fill="#f43f5e"/><path d="M 12 12 C 13 10, 16 10, 17 12 C 17 15, 14 16, 12 12 Z" fill="#9f1239"/><circle cx="14" cy="12.5" r="2" fill="#fef08a"/><circle cx="28" cy="10" r="5.5" fill="url(#roseG_sec)"/><path d="M 26 8 C 27 6, 31 7, 31 9 C 30 11, 27 10, 26 8 Z" fill="#fda4af"/><circle cx="10" cy="28" r="5.5" fill="url(#roseG_sec)"/><path d="M 8 26 C 6 27, 7 31, 9 31 C 11 30, 10 27, 8 26 Z" fill="#fda4af"/><circle cx="36" cy="13" r="1.3" fill="#fef08a"/><circle cx="13" cy="36" r="1.3" fill="#fef08a"/></svg><svg class="floral-corner bottom-right" viewBox="0 0 60 60" fill="none"><defs><radialGradient id="roseG_sec" cx="35%" cy="35%" r="65%"><stop offset="0%" stop-color="#fda4af"/><stop offset="45%" stop-color="#f43f5e"/><stop offset="85%" stop-color="#be123c"/><stop offset="100%" stop-color="#881337"/></radialGradient><linearGradient id="goldG_sec" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fef08a"/><stop offset="50%" stop-color="#d4af37"/><stop offset="100%" stop-color="#854d0e"/></linearGradient></defs><path d="M 0 16 C 12 18, 22 26, 28 40" stroke="url(#goldG_sec)" stroke-width="1.3" stroke-linecap="round"/><path d="M 16 0 C 18 12, 26 22, 40 28" stroke="url(#goldG_sec)" stroke-width="1.3" stroke-linecap="round"/><path d="M 16 12 C 20 7, 26 6, 28 10 C 25 16, 19 17, 16 12 Z" fill="#047857" stroke="#d4af37" stroke-width="0.7"/><path d="M 12 16 C 7 20, 6 26, 10 28 C 16 25, 17 19, 12 16 Z" fill="#047857" stroke="#d4af37" stroke-width="0.7"/><circle cx="14" cy="14" r="12" fill="url(#roseG_sec)" filter="drop-shadow(0 2px 5px rgba(0,0,0,0.45))"/><path d="M 7 14 C 7 9, 12 5, 15 5 C 19 5, 22 9, 21 14 C 19 17, 12 17, 7 14 Z" fill="#fda4af" opacity="0.85"/><path d="M 10 11 C 12 7, 17 7, 19 11 C 21 14, 15 17, 12 15 Z" fill="#f43f5e"/><path d="M 12 12 C 13 10, 16 10, 17 12 C 17 15, 14 16, 12 12 Z" fill="#9f1239"/><circle cx="14" cy="12.5" r="2" fill="#fef08a"/><circle cx="28" cy="10" r="5.5" fill="url(#roseG_sec)"/><path d="M 26 8 C 27 6, 31 7, 31 9 C 30 11, 27 10, 26 8 Z" fill="#fda4af"/><circle cx="10" cy="28" r="5.5" fill="url(#roseG_sec)"/><path d="M 8 26 C 6 27, 7 31, 9 31 C 11 30, 10 27, 8 26 Z" fill="#fda4af"/><circle cx="36" cy="13" r="1.3" fill="#fef08a"/><circle cx="13" cy="36" r="1.3" fill="#fef08a"/></svg>
       <div class="meet-couple-header">
         <p class="meet-subtitle">Getting to know us</p>
         <h2 class="meet-title">Meet The Couple</h2>
@@ -1401,7 +1814,7 @@ body.mode-invite .floating-action-bar {
     <section class="save-the-date-section" id="saveDateSec">
       <!-- 1. Interactive Gold Scratch-To-Reveal Couple & Calendar Card (Comes First) -->
       <div class="interactive-scratch-card">
-        <div class="scratch-card-frame">
+        <div class="scratch-card-frame"><svg class="floral-corner top-left" viewBox="0 0 60 60" fill="none"><defs><radialGradient id="roseG_sec" cx="35%" cy="35%" r="65%"><stop offset="0%" stop-color="#fda4af"/><stop offset="45%" stop-color="#f43f5e"/><stop offset="85%" stop-color="#be123c"/><stop offset="100%" stop-color="#881337"/></radialGradient><linearGradient id="goldG_sec" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fef08a"/><stop offset="50%" stop-color="#d4af37"/><stop offset="100%" stop-color="#854d0e"/></linearGradient></defs><path d="M 0 16 C 12 18, 22 26, 28 40" stroke="url(#goldG_sec)" stroke-width="1.3" stroke-linecap="round"/><path d="M 16 0 C 18 12, 26 22, 40 28" stroke="url(#goldG_sec)" stroke-width="1.3" stroke-linecap="round"/><path d="M 16 12 C 20 7, 26 6, 28 10 C 25 16, 19 17, 16 12 Z" fill="#047857" stroke="#d4af37" stroke-width="0.7"/><path d="M 12 16 C 7 20, 6 26, 10 28 C 16 25, 17 19, 12 16 Z" fill="#047857" stroke="#d4af37" stroke-width="0.7"/><circle cx="14" cy="14" r="12" fill="url(#roseG_sec)" filter="drop-shadow(0 2px 5px rgba(0,0,0,0.45))"/><path d="M 7 14 C 7 9, 12 5, 15 5 C 19 5, 22 9, 21 14 C 19 17, 12 17, 7 14 Z" fill="#fda4af" opacity="0.85"/><path d="M 10 11 C 12 7, 17 7, 19 11 C 21 14, 15 17, 12 15 Z" fill="#f43f5e"/><path d="M 12 12 C 13 10, 16 10, 17 12 C 17 15, 14 16, 12 12 Z" fill="#9f1239"/><circle cx="14" cy="12.5" r="2" fill="#fef08a"/><circle cx="28" cy="10" r="5.5" fill="url(#roseG_sec)"/><path d="M 26 8 C 27 6, 31 7, 31 9 C 30 11, 27 10, 26 8 Z" fill="#fda4af"/><circle cx="10" cy="28" r="5.5" fill="url(#roseG_sec)"/><path d="M 8 26 C 6 27, 7 31, 9 31 C 11 30, 10 27, 8 26 Z" fill="#fda4af"/><circle cx="36" cy="13" r="1.3" fill="#fef08a"/><circle cx="13" cy="36" r="1.3" fill="#fef08a"/></svg><svg class="floral-corner top-right" viewBox="0 0 60 60" fill="none"><defs><radialGradient id="roseG_sec" cx="35%" cy="35%" r="65%"><stop offset="0%" stop-color="#fda4af"/><stop offset="45%" stop-color="#f43f5e"/><stop offset="85%" stop-color="#be123c"/><stop offset="100%" stop-color="#881337"/></radialGradient><linearGradient id="goldG_sec" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fef08a"/><stop offset="50%" stop-color="#d4af37"/><stop offset="100%" stop-color="#854d0e"/></linearGradient></defs><path d="M 0 16 C 12 18, 22 26, 28 40" stroke="url(#goldG_sec)" stroke-width="1.3" stroke-linecap="round"/><path d="M 16 0 C 18 12, 26 22, 40 28" stroke="url(#goldG_sec)" stroke-width="1.3" stroke-linecap="round"/><path d="M 16 12 C 20 7, 26 6, 28 10 C 25 16, 19 17, 16 12 Z" fill="#047857" stroke="#d4af37" stroke-width="0.7"/><path d="M 12 16 C 7 20, 6 26, 10 28 C 16 25, 17 19, 12 16 Z" fill="#047857" stroke="#d4af37" stroke-width="0.7"/><circle cx="14" cy="14" r="12" fill="url(#roseG_sec)" filter="drop-shadow(0 2px 5px rgba(0,0,0,0.45))"/><path d="M 7 14 C 7 9, 12 5, 15 5 C 19 5, 22 9, 21 14 C 19 17, 12 17, 7 14 Z" fill="#fda4af" opacity="0.85"/><path d="M 10 11 C 12 7, 17 7, 19 11 C 21 14, 15 17, 12 15 Z" fill="#f43f5e"/><path d="M 12 12 C 13 10, 16 10, 17 12 C 17 15, 14 16, 12 12 Z" fill="#9f1239"/><circle cx="14" cy="12.5" r="2" fill="#fef08a"/><circle cx="28" cy="10" r="5.5" fill="url(#roseG_sec)"/><path d="M 26 8 C 27 6, 31 7, 31 9 C 30 11, 27 10, 26 8 Z" fill="#fda4af"/><circle cx="10" cy="28" r="5.5" fill="url(#roseG_sec)"/><path d="M 8 26 C 6 27, 7 31, 9 31 C 11 30, 10 27, 8 26 Z" fill="#fda4af"/><circle cx="36" cy="13" r="1.3" fill="#fef08a"/><circle cx="13" cy="36" r="1.3" fill="#fef08a"/></svg><svg class="floral-corner bottom-left" viewBox="0 0 60 60" fill="none"><defs><radialGradient id="roseG_sec" cx="35%" cy="35%" r="65%"><stop offset="0%" stop-color="#fda4af"/><stop offset="45%" stop-color="#f43f5e"/><stop offset="85%" stop-color="#be123c"/><stop offset="100%" stop-color="#881337"/></radialGradient><linearGradient id="goldG_sec" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fef08a"/><stop offset="50%" stop-color="#d4af37"/><stop offset="100%" stop-color="#854d0e"/></linearGradient></defs><path d="M 0 16 C 12 18, 22 26, 28 40" stroke="url(#goldG_sec)" stroke-width="1.3" stroke-linecap="round"/><path d="M 16 0 C 18 12, 26 22, 40 28" stroke="url(#goldG_sec)" stroke-width="1.3" stroke-linecap="round"/><path d="M 16 12 C 20 7, 26 6, 28 10 C 25 16, 19 17, 16 12 Z" fill="#047857" stroke="#d4af37" stroke-width="0.7"/><path d="M 12 16 C 7 20, 6 26, 10 28 C 16 25, 17 19, 12 16 Z" fill="#047857" stroke="#d4af37" stroke-width="0.7"/><circle cx="14" cy="14" r="12" fill="url(#roseG_sec)" filter="drop-shadow(0 2px 5px rgba(0,0,0,0.45))"/><path d="M 7 14 C 7 9, 12 5, 15 5 C 19 5, 22 9, 21 14 C 19 17, 12 17, 7 14 Z" fill="#fda4af" opacity="0.85"/><path d="M 10 11 C 12 7, 17 7, 19 11 C 21 14, 15 17, 12 15 Z" fill="#f43f5e"/><path d="M 12 12 C 13 10, 16 10, 17 12 C 17 15, 14 16, 12 12 Z" fill="#9f1239"/><circle cx="14" cy="12.5" r="2" fill="#fef08a"/><circle cx="28" cy="10" r="5.5" fill="url(#roseG_sec)"/><path d="M 26 8 C 27 6, 31 7, 31 9 C 30 11, 27 10, 26 8 Z" fill="#fda4af"/><circle cx="10" cy="28" r="5.5" fill="url(#roseG_sec)"/><path d="M 8 26 C 6 27, 7 31, 9 31 C 11 30, 10 27, 8 26 Z" fill="#fda4af"/><circle cx="36" cy="13" r="1.3" fill="#fef08a"/><circle cx="13" cy="36" r="1.3" fill="#fef08a"/></svg><svg class="floral-corner bottom-right" viewBox="0 0 60 60" fill="none"><defs><radialGradient id="roseG_sec" cx="35%" cy="35%" r="65%"><stop offset="0%" stop-color="#fda4af"/><stop offset="45%" stop-color="#f43f5e"/><stop offset="85%" stop-color="#be123c"/><stop offset="100%" stop-color="#881337"/></radialGradient><linearGradient id="goldG_sec" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fef08a"/><stop offset="50%" stop-color="#d4af37"/><stop offset="100%" stop-color="#854d0e"/></linearGradient></defs><path d="M 0 16 C 12 18, 22 26, 28 40" stroke="url(#goldG_sec)" stroke-width="1.3" stroke-linecap="round"/><path d="M 16 0 C 18 12, 26 22, 40 28" stroke="url(#goldG_sec)" stroke-width="1.3" stroke-linecap="round"/><path d="M 16 12 C 20 7, 26 6, 28 10 C 25 16, 19 17, 16 12 Z" fill="#047857" stroke="#d4af37" stroke-width="0.7"/><path d="M 12 16 C 7 20, 6 26, 10 28 C 16 25, 17 19, 12 16 Z" fill="#047857" stroke="#d4af37" stroke-width="0.7"/><circle cx="14" cy="14" r="12" fill="url(#roseG_sec)" filter="drop-shadow(0 2px 5px rgba(0,0,0,0.45))"/><path d="M 7 14 C 7 9, 12 5, 15 5 C 19 5, 22 9, 21 14 C 19 17, 12 17, 7 14 Z" fill="#fda4af" opacity="0.85"/><path d="M 10 11 C 12 7, 17 7, 19 11 C 21 14, 15 17, 12 15 Z" fill="#f43f5e"/><path d="M 12 12 C 13 10, 16 10, 17 12 C 17 15, 14 16, 12 12 Z" fill="#9f1239"/><circle cx="14" cy="12.5" r="2" fill="#fef08a"/><circle cx="28" cy="10" r="5.5" fill="url(#roseG_sec)"/><path d="M 26 8 C 27 6, 31 7, 31 9 C 30 11, 27 10, 26 8 Z" fill="#fda4af"/><circle cx="10" cy="28" r="5.5" fill="url(#roseG_sec)"/><path d="M 8 26 C 6 27, 7 31, 9 31 C 11 30, 10 27, 8 26 Z" fill="#fda4af"/><circle cx="36" cy="13" r="1.3" fill="#fef08a"/><circle cx="13" cy="36" r="1.3" fill="#fef08a"/></svg>
           <div class="scratch-badge-pill">✨ SCRATCH &amp; SAVE THE DATE ✨</div>
           <h3 class="scratch-heading">Rub Gold Foil to Reveal Groom, Bride &amp; Auspicious Date</h3>
           <p class="scratch-instruction">Drag your finger or cursor across the shimmering 24K gold foil below</p>
@@ -1603,7 +2016,7 @@ body.mode-invite .floating-action-bar {
     </div>
 
     <!-- ============ SECTION 5: RSVP & BLESSINGS ============ -->
-    <section class="rsvp-section">
+    <section class="rsvp-section"><svg class="floral-corner top-left" viewBox="0 0 60 60" fill="none"><defs><radialGradient id="roseG_sec" cx="35%" cy="35%" r="65%"><stop offset="0%" stop-color="#fda4af"/><stop offset="45%" stop-color="#f43f5e"/><stop offset="85%" stop-color="#be123c"/><stop offset="100%" stop-color="#881337"/></radialGradient><linearGradient id="goldG_sec" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fef08a"/><stop offset="50%" stop-color="#d4af37"/><stop offset="100%" stop-color="#854d0e"/></linearGradient></defs><path d="M 0 16 C 12 18, 22 26, 28 40" stroke="url(#goldG_sec)" stroke-width="1.3" stroke-linecap="round"/><path d="M 16 0 C 18 12, 26 22, 40 28" stroke="url(#goldG_sec)" stroke-width="1.3" stroke-linecap="round"/><path d="M 16 12 C 20 7, 26 6, 28 10 C 25 16, 19 17, 16 12 Z" fill="#047857" stroke="#d4af37" stroke-width="0.7"/><path d="M 12 16 C 7 20, 6 26, 10 28 C 16 25, 17 19, 12 16 Z" fill="#047857" stroke="#d4af37" stroke-width="0.7"/><circle cx="14" cy="14" r="12" fill="url(#roseG_sec)" filter="drop-shadow(0 2px 5px rgba(0,0,0,0.45))"/><path d="M 7 14 C 7 9, 12 5, 15 5 C 19 5, 22 9, 21 14 C 19 17, 12 17, 7 14 Z" fill="#fda4af" opacity="0.85"/><path d="M 10 11 C 12 7, 17 7, 19 11 C 21 14, 15 17, 12 15 Z" fill="#f43f5e"/><path d="M 12 12 C 13 10, 16 10, 17 12 C 17 15, 14 16, 12 12 Z" fill="#9f1239"/><circle cx="14" cy="12.5" r="2" fill="#fef08a"/><circle cx="28" cy="10" r="5.5" fill="url(#roseG_sec)"/><path d="M 26 8 C 27 6, 31 7, 31 9 C 30 11, 27 10, 26 8 Z" fill="#fda4af"/><circle cx="10" cy="28" r="5.5" fill="url(#roseG_sec)"/><path d="M 8 26 C 6 27, 7 31, 9 31 C 11 30, 10 27, 8 26 Z" fill="#fda4af"/><circle cx="36" cy="13" r="1.3" fill="#fef08a"/><circle cx="13" cy="36" r="1.3" fill="#fef08a"/></svg><svg class="floral-corner top-right" viewBox="0 0 60 60" fill="none"><defs><radialGradient id="roseG_sec" cx="35%" cy="35%" r="65%"><stop offset="0%" stop-color="#fda4af"/><stop offset="45%" stop-color="#f43f5e"/><stop offset="85%" stop-color="#be123c"/><stop offset="100%" stop-color="#881337"/></radialGradient><linearGradient id="goldG_sec" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fef08a"/><stop offset="50%" stop-color="#d4af37"/><stop offset="100%" stop-color="#854d0e"/></linearGradient></defs><path d="M 0 16 C 12 18, 22 26, 28 40" stroke="url(#goldG_sec)" stroke-width="1.3" stroke-linecap="round"/><path d="M 16 0 C 18 12, 26 22, 40 28" stroke="url(#goldG_sec)" stroke-width="1.3" stroke-linecap="round"/><path d="M 16 12 C 20 7, 26 6, 28 10 C 25 16, 19 17, 16 12 Z" fill="#047857" stroke="#d4af37" stroke-width="0.7"/><path d="M 12 16 C 7 20, 6 26, 10 28 C 16 25, 17 19, 12 16 Z" fill="#047857" stroke="#d4af37" stroke-width="0.7"/><circle cx="14" cy="14" r="12" fill="url(#roseG_sec)" filter="drop-shadow(0 2px 5px rgba(0,0,0,0.45))"/><path d="M 7 14 C 7 9, 12 5, 15 5 C 19 5, 22 9, 21 14 C 19 17, 12 17, 7 14 Z" fill="#fda4af" opacity="0.85"/><path d="M 10 11 C 12 7, 17 7, 19 11 C 21 14, 15 17, 12 15 Z" fill="#f43f5e"/><path d="M 12 12 C 13 10, 16 10, 17 12 C 17 15, 14 16, 12 12 Z" fill="#9f1239"/><circle cx="14" cy="12.5" r="2" fill="#fef08a"/><circle cx="28" cy="10" r="5.5" fill="url(#roseG_sec)"/><path d="M 26 8 C 27 6, 31 7, 31 9 C 30 11, 27 10, 26 8 Z" fill="#fda4af"/><circle cx="10" cy="28" r="5.5" fill="url(#roseG_sec)"/><path d="M 8 26 C 6 27, 7 31, 9 31 C 11 30, 10 27, 8 26 Z" fill="#fda4af"/><circle cx="36" cy="13" r="1.3" fill="#fef08a"/><circle cx="13" cy="36" r="1.3" fill="#fef08a"/></svg><svg class="floral-corner bottom-left" viewBox="0 0 60 60" fill="none"><defs><radialGradient id="roseG_sec" cx="35%" cy="35%" r="65%"><stop offset="0%" stop-color="#fda4af"/><stop offset="45%" stop-color="#f43f5e"/><stop offset="85%" stop-color="#be123c"/><stop offset="100%" stop-color="#881337"/></radialGradient><linearGradient id="goldG_sec" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fef08a"/><stop offset="50%" stop-color="#d4af37"/><stop offset="100%" stop-color="#854d0e"/></linearGradient></defs><path d="M 0 16 C 12 18, 22 26, 28 40" stroke="url(#goldG_sec)" stroke-width="1.3" stroke-linecap="round"/><path d="M 16 0 C 18 12, 26 22, 40 28" stroke="url(#goldG_sec)" stroke-width="1.3" stroke-linecap="round"/><path d="M 16 12 C 20 7, 26 6, 28 10 C 25 16, 19 17, 16 12 Z" fill="#047857" stroke="#d4af37" stroke-width="0.7"/><path d="M 12 16 C 7 20, 6 26, 10 28 C 16 25, 17 19, 12 16 Z" fill="#047857" stroke="#d4af37" stroke-width="0.7"/><circle cx="14" cy="14" r="12" fill="url(#roseG_sec)" filter="drop-shadow(0 2px 5px rgba(0,0,0,0.45))"/><path d="M 7 14 C 7 9, 12 5, 15 5 C 19 5, 22 9, 21 14 C 19 17, 12 17, 7 14 Z" fill="#fda4af" opacity="0.85"/><path d="M 10 11 C 12 7, 17 7, 19 11 C 21 14, 15 17, 12 15 Z" fill="#f43f5e"/><path d="M 12 12 C 13 10, 16 10, 17 12 C 17 15, 14 16, 12 12 Z" fill="#9f1239"/><circle cx="14" cy="12.5" r="2" fill="#fef08a"/><circle cx="28" cy="10" r="5.5" fill="url(#roseG_sec)"/><path d="M 26 8 C 27 6, 31 7, 31 9 C 30 11, 27 10, 26 8 Z" fill="#fda4af"/><circle cx="10" cy="28" r="5.5" fill="url(#roseG_sec)"/><path d="M 8 26 C 6 27, 7 31, 9 31 C 11 30, 10 27, 8 26 Z" fill="#fda4af"/><circle cx="36" cy="13" r="1.3" fill="#fef08a"/><circle cx="13" cy="36" r="1.3" fill="#fef08a"/></svg><svg class="floral-corner bottom-right" viewBox="0 0 60 60" fill="none"><defs><radialGradient id="roseG_sec" cx="35%" cy="35%" r="65%"><stop offset="0%" stop-color="#fda4af"/><stop offset="45%" stop-color="#f43f5e"/><stop offset="85%" stop-color="#be123c"/><stop offset="100%" stop-color="#881337"/></radialGradient><linearGradient id="goldG_sec" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#fef08a"/><stop offset="50%" stop-color="#d4af37"/><stop offset="100%" stop-color="#854d0e"/></linearGradient></defs><path d="M 0 16 C 12 18, 22 26, 28 40" stroke="url(#goldG_sec)" stroke-width="1.3" stroke-linecap="round"/><path d="M 16 0 C 18 12, 26 22, 40 28" stroke="url(#goldG_sec)" stroke-width="1.3" stroke-linecap="round"/><path d="M 16 12 C 20 7, 26 6, 28 10 C 25 16, 19 17, 16 12 Z" fill="#047857" stroke="#d4af37" stroke-width="0.7"/><path d="M 12 16 C 7 20, 6 26, 10 28 C 16 25, 17 19, 12 16 Z" fill="#047857" stroke="#d4af37" stroke-width="0.7"/><circle cx="14" cy="14" r="12" fill="url(#roseG_sec)" filter="drop-shadow(0 2px 5px rgba(0,0,0,0.45))"/><path d="M 7 14 C 7 9, 12 5, 15 5 C 19 5, 22 9, 21 14 C 19 17, 12 17, 7 14 Z" fill="#fda4af" opacity="0.85"/><path d="M 10 11 C 12 7, 17 7, 19 11 C 21 14, 15 17, 12 15 Z" fill="#f43f5e"/><path d="M 12 12 C 13 10, 16 10, 17 12 C 17 15, 14 16, 12 12 Z" fill="#9f1239"/><circle cx="14" cy="12.5" r="2" fill="#fef08a"/><circle cx="28" cy="10" r="5.5" fill="url(#roseG_sec)"/><path d="M 26 8 C 27 6, 31 7, 31 9 C 30 11, 27 10, 26 8 Z" fill="#fda4af"/><circle cx="10" cy="28" r="5.5" fill="url(#roseG_sec)"/><path d="M 8 26 C 6 27, 7 31, 9 31 C 11 30, 10 27, 8 26 Z" fill="#fda4af"/><circle cx="36" cy="13" r="1.3" fill="#fef08a"/><circle cx="13" cy="36" r="1.3" fill="#fef08a"/></svg>
       <h3 class="rsvp-title">Celebrate With Us</h3>
       <p class="rsvp-desc">Your blessings and presence are our greatest treasure. Kindly RSVP to confirm your attendance.</p>
       <a href="https://api.whatsapp.com/send?phone=919876543210&text=Congratulations!+Delighted+to+confirm+attendance+for+the+Royal+Wedding+of+Ranveer+%26+Shanaya!" target="_blank" rel="noopener" class="btn-rsvp-wa">
