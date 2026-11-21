@@ -3,29 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<title>Ranveer &amp; Shanaya — Royal Rajputana Mandap 3D Wedding Invitation</title>
+<title>Ranveer &amp; Shanaya — Royal Rajputana Mandap — 3D Golden Temple Sanctuary Doors & Jharokha Arch</title>
 <link rel="stylesheet" href="../assets/fonts/fonts.css">
 <style>
-/* CSS Reset & Global Rajputana Styling */
 :root {
-  --mandap-green: #064E3B;
-  --mandap-dark: #022C22;
-  --mandap-deep: #011C15;
-  --mandap-light: #047857;
+  --theme-primary: #881337;
+  --theme-dark: #4C0519;
+  --theme-deep: #1F040A;
+  --theme-accent: #F59E0B;
+  --silver: #E2E8F0;
+  --silver-glow: #F8FAFC;
   --gold: #D4AF37;
   --gold-l: #F7D070;
-  --gold-pale: #FEF9C3;
-  --gold-bronze: #8C6212;
-  --marigold: #F59E0B;
-  --crimson: #991B1B;
-  --satin-cream: #FCFBF7;
+  --marble-cream: #FCFBF7;
   --serif: "Cinzel", "Playfair Display", "Georgia", serif;
   --script: "Great Vibes", "Alex Brush", cursive;
   --sans: "Montserrat", "Segoe UI", sans-serif;
-  --hindi: "Rozha One", "Cinzel", serif;
 }
 
-/* Eradicate all scrollbars across all viewports */
 *, *::before, *::after, html, body {
   scrollbar-width: none !important;
   -ms-overflow-style: none !important;
@@ -44,14 +39,14 @@ html::-webkit-scrollbar, body::-webkit-scrollbar, ::-webkit-scrollbar, *::-webki
 body {
   margin: 0;
   padding: 0;
-  background: var(--mandap-deep);
+  background: radial-gradient(circle at 50% 20%, #881337 0%, #4C0519 65%, #1F040A 100%);
   color: #FFF;
   font-family: var(--sans);
   overflow-x: hidden;
   min-height: 100vh;
 }
 
-/* Persistent Top Luxury Navigation */
+/* Persistent Top Bar */
 .top-nav-bar {
   position: fixed;
   top: 14px;
@@ -89,10 +84,9 @@ body {
 }
 .btn-nav-action:hover {
   background: var(--gold);
-  color: var(--mandap-deep);
+  color: var(--mughal-deep);
   border-color: #FFF;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
 }
 .btn-nav-action.primary {
   background: linear-gradient(135deg, #D4AF37 0%, #AA7C11 100%);
@@ -127,12 +121,12 @@ body {
   transform: scale(1.05);
 }
 
-/* ================= 1. INVITATION CREATOR FORM SCREEN ================= */
+/* ================= 1. CONTRASTING FORM SCREEN (MUGHAL EMERALD & MARBLE) ================= */
 .creator-screen {
   position: fixed;
   inset: 0;
   z-index: 8500;
-  background: radial-gradient(circle at 50% 25%, #047857 0%, #064E3B 60%, #011C15 100%);
+  background: radial-gradient(circle at 50% 25%, #065F46 0%, #064E3B 60%, #011C15 100%);
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -149,14 +143,15 @@ body {
 .creator-card {
   width: 100%;
   max-width: 680px;
-  background: rgba(255, 255, 255, 0.98);
-  border-radius: 24px;
-  padding: 28px 24px;
+  background: #FCFDFB;
+  border-radius: 28px;
+  padding: 30px 24px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.85);
   color: #1F2937;
   font-family: var(--sans);
   margin-bottom: 40px;
   box-sizing: border-box;
+  border: 2px solid #059669;
 }
 .creator-header {
   text-align: center;
@@ -164,7 +159,7 @@ body {
 }
 .creator-title {
   font-family: var(--serif);
-  font-size: clamp(22px, 5vw, 30px);
+  font-size: clamp(22px, 5vw, 28px);
   color: #064E3B;
   margin: 0 0 8px;
   letter-spacing: .02em;
@@ -180,7 +175,7 @@ body {
   font-size: 16px;
   font-weight: 700;
   color: #064E3B;
-  border-bottom: 2px solid #E2E8F0;
+  border-bottom: 2px solid #D1FAE5;
   padding-bottom: 6px;
   margin: 22px 0 14px;
   display: flex;
@@ -210,7 +205,7 @@ body {
   box-sizing: border-box;
   padding: 10px 12px;
   border: 1.5px solid #D1D5DB;
-  border-radius: 10px;
+  border-radius: 12px;
   font-size: 13.5px;
   color: #111827;
   background: #F9FAFB;
@@ -219,58 +214,11 @@ body {
   transition: border-color .2s, box-shadow .2s;
 }
 .form-field-grp input:focus, .form-field-grp textarea:focus, .form-field-grp select:focus {
-  border-color: #D4AF37;
+  border-color: #059669;
   background: #FFF;
-  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+  box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.2);
 }
 
-/* Occasion Theme & Style Cards */
-.occasion-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-  gap: 10px;
-  margin-top: 10px;
-  margin-bottom: 16px;
-}
-.occasion-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 12px 8px;
-  border-radius: 14px;
-  background: #FCFBF7;
-  border: 1.5px solid #E5E7EB;
-  cursor: pointer;
-  transition: all .2s;
-  user-select: none;
-}
-.occasion-card:hover {
-  border-color: #D4AF37;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(6, 78, 59, 0.08);
-}
-.occasion-card.active {
-  border-color: #064E3B;
-  background: #F0FDF4;
-  box-shadow: 0 0 0 2px #064E3B, 0 6px 16px rgba(6, 78, 59, 0.15);
-}
-.occasion-card .occ-icon {
-  font-size: 26px;
-  margin-bottom: 4px;
-}
-.occasion-card .occ-name {
-  font-weight: 700;
-  font-size: 13px;
-  color: #064E3B;
-}
-.occasion-card .occ-sub {
-  font-size: 10.5px;
-  color: #6B7280;
-  margin-top: 2px;
-}
-
-/* Color Palettes Grid */
 .palette-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -283,32 +231,25 @@ body {
   align-items: center;
   gap: 8px;
   padding: 8px 10px;
-  border-radius: 10px;
+  border-radius: 12px;
   background: #FCFBF7;
   border: 1.5px solid #E5E7EB;
   cursor: pointer;
   transition: all .2s;
 }
 .palette-card.active {
-  border-color: #D4AF37;
-  background: #FFFDF5;
-  box-shadow: 0 0 0 2px #D4AF37;
+  border-color: #064E3B;
+  background: #ECFDF5;
+  box-shadow: 0 0 0 2px #064E3B;
 }
-.palette-swatches {
-  display: flex;
-  gap: 3px;
-}
+.palette-swatches { display: flex; gap: 3px; }
 .palette-swatches span {
   width: 14px;
   height: 14px;
   border-radius: 50%;
   border: 1px solid rgba(0,0,0,0.1);
 }
-.palette-card span.pal-name {
-  font-size: 11.5px;
-  font-weight: 600;
-  color: #374151;
-}
+.palette-card span.pal-name { font-size: 11.5px; font-weight: 600; color: #374151; }
 
 .btn-generate-invite {
   width: 100%;
@@ -333,311 +274,230 @@ body {
 .btn-generate-invite:hover {
   transform: translateY(-2px);
   box-shadow: 0 12px 30px rgba(6, 78, 59, 0.6);
-  background: linear-gradient(135deg, #047857 0%, #064E3B 100%);
 }
 
-/* ================= 2. 3D ROYAL RAJPUTANA HAVELI MANDAP GATE ================= */
-.mandap-stage {
+
+/* ================= 2. 3D ROYAL MANDAP DOORS STAGE ================= */
+.stage-screen {
   position: fixed;
   inset: 0;
   z-index: 6000;
-  background: radial-gradient(circle at 50% 35%, #084c3b 0%, #032d23 55%, #01140f 100%);
+  background: radial-gradient(circle at 50% 35%, #881337 0%, #4C0519 65%, #1F040A 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 20px;
   box-sizing: border-box;
-  transition: opacity .9s cubic-bezier(0.4, 0, 0.2, 1), visibility .9s;
-}
-.mandap-stage.stage-hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-/* Floating Swaying Brass Hanging Lanterns */
-.mandap-lanterns {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: space-around;
-  pointer-events: none;
-  padding: 0 20px;
-}
-.h-lantern {
-  width: 32px;
-  height: 70px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  animation: lanternSway 4s ease-in-out infinite alternate;
-}
-.h-lantern:nth-child(2) { animation-delay: 1.2s; }
-.h-lantern:nth-child(3) { animation-delay: 2.1s; }
-.lantern-chain {
-  width: 2px;
-  height: 38px;
-  background: linear-gradient(180deg, rgba(212, 175, 55, 0.3), #D4AF37);
-}
-.lantern-cage {
-  width: 24px;
-  height: 30px;
-  border: 1.5px solid #F5D061;
-  border-radius: 6px;
-  background: radial-gradient(circle at 50% 50%, #FFDF79 20%, rgba(212,175,55,0.4) 60%, transparent 100%);
-  box-shadow: 0 0 16px rgba(245, 208, 97, 0.8);
-}
-@keyframes lanternSway {
-  from { transform: rotate(-3deg); }
-  to { transform: rotate(3deg); }
-}
-
-/* 3D Mandap Gate Perspective Container */
-.mandap-scene {
-  perspective: 1200px;
-  width: min(92vw, 360px);
-  height: 380px;
-  position: relative;
-  margin-bottom: 24px;
+  transition: opacity .8s ease, visibility .8s;
   cursor: pointer;
-  user-select: none;
-  transform-style: preserve-3d;
 }
-.gate-body {
-  width: 100%;
-  height: 100%;
+.stage-screen.stage-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+
+
+/* 01: Royal Rajputana Triple Jharokha Arch Silhouette */
+.mandap-jharokha-card {
   position: relative;
-  transform-style: preserve-3d;
-  filter: drop-shadow(0 25px 40px rgba(0,0,0,0.9));
-  transition: transform 0.3s ease-out;
+  background: radial-gradient(ellipse at 50% 20%, #881337 0%, #4C0519 65%, #1F040A 100%);
+  border: 4px double #F59E0B;
+  border-radius: 40px 40px 24px 24px;
+  box-shadow: 0 25px 65px rgba(0,0,0,0.85), inset 0 0 35px rgba(245, 158, 11, 0.25);
+  padding: 48px 24px 38px;
+  margin-bottom: 28px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.mandap-jharokha-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 18px;
+  background: repeating-linear-gradient(90deg, #F59E0B 0, #F59E0B 12px, transparent 12px, transparent 24px);
+  opacity: 0.8;
+}
+.mandap-jharokha-card::after {
+  content: "☬ ॐ ☬";
+  position: absolute;
+  top: 14px; left: 50%; transform: translateX(-50%);
+  font-size: 14px; color: #FDE68A; letter-spacing: 0.3em;
 }
 
-/* Sandstone & Gold Arch Outer Frame */
-.gate-frame-arch {
-  position: absolute;
-  inset: -12px;
-  border: 4px solid var(--gold);
-  border-radius: 180px 180px 16px 16px;
-  background: linear-gradient(180deg, rgba(6, 78, 59, 0.95), rgba(2, 44, 34, 0.98));
-  box-shadow: 
-    inset 0 0 30px rgba(0,0,0,0.8),
-    0 0 25px rgba(212, 175, 55, 0.4);
-  pointer-events: none;
-  transform: translateZ(-25px);
+
+
+/* ================= LUXURY ROSE & SCRATCH CARD STYLES ================= */
+.luxury-rose-banner {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto 14px;
+  display: flex;
+  justify-content: center;
 }
-.gate-arch-jharokha {
-  position: absolute;
-  top: -24px;
-  left: 50%;
-  transform: translateX(-50%);
+.rose-garland-svg {
+  width: 100%;
+  height: auto;
+  max-height: 90px;
+  filter: drop-shadow(0 6px 14px rgba(0,0,0,0.6));
+}
+.interactive-scratch-card {
+  max-width: 520px;
+  margin: 32px auto 28px;
+  position: relative;
+}
+.scratch-card-frame {
+  background: linear-gradient(145deg, rgba(255,255,255,0.08) 0%, rgba(0,0,0,0.5) 100%);
+  border: 2px solid var(--gold);
+  border-radius: 24px;
+  padding: 24px 20px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.7), inset 0 0 25px rgba(212,175,55,0.15);
+  text-align: center;
+  backdrop-filter: blur(12px);
+  position: relative;
+}
+.scratch-badge-pill {
+  display: inline-block;
+  padding: 6px 16px;
+  background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+  color: #000;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .15em;
+  border-radius: 999px;
+  margin-bottom: 8px;
+  box-shadow: 0 4px 15px rgba(245,158,11,0.5);
+}
+.scratch-heading {
+  font-family: var(--serif);
+  font-size: 22px;
   color: var(--gold-l);
-  font-size: 28px;
-  text-shadow: 0 0 12px rgba(247, 208, 112, 0.8);
+  margin: 6px 0 4px;
 }
-
-/* Sanctum Chamber with Agni Kund Fire */
-.mandap-chamber-interior {
+.scratch-instruction {
+  font-size: 12px;
+  color: #CBD5E1;
+  margin: 0 0 16px;
+}
+.scratch-surface-wrap {
+  position: relative;
+  width: 100%;
+  height: 230px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.9), 0 10px 30px rgba(0,0,0,0.6);
+  border: 2px solid rgba(212,175,55,0.6);
+}
+.scratch-unveiled-card {
   position: absolute;
   inset: 0;
-  border-radius: 170px 170px 12px 12px;
-  background: radial-gradient(circle at 50% 60%, #B45309 0%, #78350F 45%, #022C22 100%);
+  background: radial-gradient(circle at 50% 35%, #FFFDF7 0%, #FEF3C7 60%, #FDE68A 100%);
+  color: #78350F;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-  box-shadow: inset 0 0 35px rgba(0,0,0,0.95);
-  transform: translateZ(-15px);
-}
-.mandap-sacred-fire {
-  font-size: 34px;
-  animation: fireFlicker 1.5s infinite alternate ease-in-out;
-  filter: drop-shadow(0 0 16px #F59E0B);
-  margin-top: 15px;
-}
-@keyframes fireFlicker {
-  0% { transform: scale(1) translateY(0); filter: drop-shadow(0 0 14px #F59E0B); }
-  50% { transform: scale(1.1) translateY(-3px); filter: drop-shadow(0 0 22px #EF4444); }
-  100% { transform: scale(0.96) translateY(2px); filter: drop-shadow(0 0 16px #FBBF24); }
-}
-
-/* Floating Auspicious Mandap Card Preview */
-.mandap-card-plaque {
-  position: absolute;
-  width: 84%;
-  height: 84%;
-  background: radial-gradient(circle at 50% 50%, #FAF7EE 0%, #EDE4D3 80%, #D6C7AD 100%);
-  border: 2px solid #D4AF37;
-  border-radius: 130px 130px 10px 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  padding: 16px;
+  box-sizing: border-box;
   text-align: center;
-  padding: 16px 12px;
-  box-sizing: border-box;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.5);
-  transform: translateZ(0);
-  transition: transform 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
-.mandap-card-plaque.elevated {
-  transform: translateZ(120px) scale(1.06);
-  box-shadow: 0 25px 60px rgba(0,0,0,0.85);
+.save-the-date-tag {
+  font-size: 11px;
+  letter-spacing: .25em;
+  font-weight: 800;
+  color: #B45309;
+  text-transform: uppercase;
 }
-
-/* Dual Carved Teakwood Haveli Doors */
-.gate-door {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 50%;
-  background: linear-gradient(135deg, #3d1d0c 0%, #1f0b04 60%, #120401 100%);
-  border: 2px solid #D4AF37;
-  box-sizing: border-box;
-  transition: transform 1.6s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 1.6s;
-  box-shadow: inset 0 0 25px rgba(0,0,0,0.9), 0 15px 30px rgba(0,0,0,0.7);
-  z-index: 20;
+.unveiled-date-title {
+  font-family: var(--serif);
+  font-size: clamp(20px, 4vw, 26px);
+  color: #881337;
+  font-weight: 700;
+  margin: 4px 0;
+}
+.unveiled-time-venue {
+  font-size: 12.5px;
+  color: #78350F;
+  margin-bottom: 12px;
+}
+.calendar-btn-group {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
   justify-content: center;
 }
-.door-l {
-  left: 0;
-  border-top-left-radius: 170px;
-  border-bottom-left-radius: 12px;
-  border-right: 1px solid rgba(245, 208, 97, 0.6);
-  transform-origin: left center;
-}
-.door-r {
-  right: 0;
-  border-top-right-radius: 170px;
-  border-bottom-right-radius: 12px;
-  border-left: 1px solid rgba(245, 208, 97, 0.6);
-  transform-origin: right center;
-}
-.door-l.is-open {
-  transform: rotateY(-118deg);
-}
-.door-r.is-open {
-  transform: rotateY(118deg);
-}
-
-/* Door Jali Pattern & Elephant Crests */
-.door-jali-pattern {
-  position: absolute;
-  inset: 12px;
-  border: 1.5px solid rgba(247, 208, 112, 0.5);
-  border-radius: 150px 150px 8px 8px;
-  background-image: 
-    radial-gradient(circle, rgba(212,175,55,0.3) 1px, transparent 1px),
-    radial-gradient(circle, rgba(212,175,55,0.3) 1px, transparent 1px);
-  background-size: 16px 16px;
-  background-position: 0 0, 8px 8px;
-  pointer-events: none;
-}
-.door-crest {
-  font-size: 26px;
-  color: var(--gold-l);
-  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.8));
-  z-index: 2;
-}
-
-/* Center Auspicious Shubh Vivah Golden Seal */
-.mandap-shubh-seal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 76px;
-  height: 76px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 45% 45%, #F59E0B 0%, #B45309 60%, #78350F 100%);
-  border: 3px solid #FFF0A0;
-  box-shadow: 
-    0 0 15px rgba(245, 158, 11, 0.8),
-    0 8px 20px rgba(0,0,0,0.85);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  z-index: 30;
+.cal-btn {
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  border: none;
   cursor: pointer;
-  transition: transform .3s, box-shadow .3s, opacity .6s;
-  animation: sealGlow 2.5s infinite alternate ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all .25s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
 }
-@keyframes sealGlow {
-  0% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 14px rgba(245,158,11,0.6); }
-  100% { transform: translate(-50%, -50%) scale(1.06); box-shadow: 0 0 24px rgba(245,158,11,0.95); }
+.cal-btn.gcal { background: #2563EB; color: #FFF; }
+.cal-btn.gcal:hover { background: #1D4ED8; transform: translateY(-2px); }
+.cal-btn.ical { background: #881337; color: #FFF; }
+.cal-btn.ical:hover { background: #9F1239; transform: translateY(-2px); }
+
+.scratch-foil-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+  touch-action: none;
+  z-index: 5;
+  transition: opacity .8s ease;
 }
-.mandap-shubh-seal.seal-broken {
-  transform: translate(-50%, -50%) scale(1.6);
+.scratch-foil-canvas.is-cleared {
   opacity: 0;
   pointer-events: none;
 }
-.seal-sanskrit {
-  font-family: var(--hindi);
-  font-size: 14.5px;
-  font-weight: 700;
-  color: #FFFDF5;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.8);
-  line-height: 1.1;
-  text-align: center;
+.scratch-status-hint {
+  font-size: 12px;
+  color: var(--gold-l);
+  margin-top: 10px;
 }
 
-/* ================= 3. RAJPUTANA PALACE MAIN INVITATION ================= */
+/* Floating Roses & Falling Petals Canvas */
+#particlesCanvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9990;
+}
+
+
+/* ================= 3. MUGHAL MIHRAB ARCH INVITATION CARD ================= */
 .main-invitation-container {
   max-width: 820px;
   margin: 0 auto;
   padding: 80px 18px 60px;
   box-sizing: border-box;
 }
-.mandap-palace-hero {
+.mughal-hero-card {
   text-align: center;
-  padding: 40px 20px;
-  background: linear-gradient(180deg, rgba(6, 78, 59, 0.85) 0%, rgba(2, 44, 34, 0.6) 100%);
-  border-radius: 28px;
-  border: 2px solid rgba(212, 175, 55, 0.4);
-  box-shadow: 0 25px 60px rgba(0,0,0,0.7);
+  padding: 45px 24px;
+  background: linear-gradient(180deg, rgba(6, 78, 59, 0.9) 0%, rgba(2, 44, 34, 0.75) 100%);
+  border-radius: 200px 200px 24px 24px;
+  border: 3px solid var(--gold);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.75);
   margin-bottom: 30px;
   position: relative;
-  overflow: hidden;
-}
-.hero-shloka {
-  font-family: var(--hindi);
-  font-size: 19px;
-  color: var(--gold-l);
-  margin-bottom: 12px;
-}
-.hero-eyebrow {
-  font-size: 13px;
-  letter-spacing: .25em;
-  text-transform: uppercase;
-  color: var(--gold-pale);
-  margin-bottom: 12px;
-  font-weight: 500;
 }
 .hero-names {
   font-family: var(--serif);
   font-size: clamp(38px, 8vw, 64px);
-  color: var(--gold-pale);
+  color: var(--gold-l);
   line-height: 1.1;
-  margin: 8px 0 16px;
+  margin: 10px 0 16px;
   text-shadow: 0 4px 20px rgba(0,0,0,0.8);
 }
-.hero-date-venue {
-  font-size: 15px;
-  color: #E2E8F0;
-  letter-spacing: .08em;
-  line-height: 1.6;
-}
-
-/* Rajputana Content Cards */
-.rajputana-card {
-  background: rgba(2, 44, 34, 0.82);
+.mughal-section-card {
+  background: rgba(2, 44, 34, 0.85);
   border: 1.5px solid rgba(212, 175, 55, 0.35);
   border-radius: 22px;
   padding: 30px 24px;
@@ -661,7 +521,7 @@ body {
   max-width: 620px;
 }
 
-/* Timeline Grid */
+/* Timeline */
 .timeline-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -672,7 +532,7 @@ body {
 .timeline-item {
   background: rgba(1, 28, 21, 0.7);
   border: 1px solid rgba(212, 175, 55, 0.25);
-  border-radius: 16px;
+  border-radius: 18px;
   padding: 20px;
   transition: all .3s;
 }
@@ -695,22 +555,9 @@ body {
   color: #FFF;
   margin-bottom: 8px;
 }
-.timeline-venue {
-  font-size: 13px;
-  color: #94A3B8;
-  margin-bottom: 4px;
-}
-.timeline-dress {
-  font-size: 12px;
-  color: var(--gold-pale);
-  font-style: italic;
-  margin-bottom: 6px;
-}
-.timeline-note {
-  font-size: 12.5px;
-  color: #CBD5E1;
-  line-height: 1.5;
-}
+.timeline-venue { font-size: 13px; color: #94A3B8; margin-bottom: 4px; }
+.timeline-dress { font-size: 12px; color: var(--gold-l); font-style: italic; margin-bottom: 6px; }
+.timeline-note { font-size: 12.5px; color: #CBD5E1; line-height: 1.5; }
 
 .btn-gold-action {
   background: linear-gradient(135deg, var(--gold) 0%, #AA7C11 100%);
@@ -777,8 +624,7 @@ body {
   color: #6B7280;
 }
 
-/* Petals Canvas */
-#petalsCanvas {
+#particlesCanvas {
   position: fixed;
   inset: 0;
   pointer-events: none;
@@ -788,15 +634,12 @@ body {
 </head>
 <body>
 
-<!-- Persistent Top Luxury Bar -->
 <header class="top-nav-bar">
   <div class="nav-actions">
     <button type="button" class="btn-nav-action primary" onclick="showCreatorForm()">
       ✎ Edit Form
     </button>
-    <button type="button" class="btn-nav-action" onclick="replayMandapReveal()">
-      🚪 3D Mandap Gate
-    </button>
+    <button type="button" class="btn-nav-action" onclick="replayStageReveal()">✨ 3D Royal Mandap Doors</button>
   </div>
   <div class="nav-actions">
     <button type="button" class="btn-nav-action primary" onclick="openSendModal()">
@@ -808,66 +651,27 @@ body {
   </div>
 </header>
 
-<!-- Floating Auto-Scroll Button -->
 <button type="button" class="btn-auto-scroll" id="btnAutoScroll" onclick="toggleAutoScroll()" aria-label="Toggle Auto-Scroll">
   📜 <span>Auto-Scroll</span>
 </button>
 
-<!-- Canvas for Marigold & Rose Petals Shower -->
-<canvas id="petalsCanvas"></canvas>
+<canvas id="particlesCanvas"></canvas>
 
-<!-- ================= 1. INVITATION CREATOR FORM SCREEN ================= -->
+<!-- ================= 1. FORM SCREEN ================= -->
 <div class="creator-screen" id="creatorScreen">
   <div class="creator-card">
     <div class="creator-header">
       <div style="font-size:32px;margin-bottom:4px;">👑</div>
-      <h2 class="creator-title">Customize Rajputana Mandap 3D Invitation</h2>
-      <p class="creator-subtitle">Enter your royal wedding details. Tap <b>"Enter the Royal Mandap"</b> to generate your bespoke 3D haveli gate &amp; palace courtyard invitation.</p>
+      <h2 class="creator-title">Customize Your Bespoke Royal Wedding Invitation</h2>
+      <p class="creator-subtitle">Choose your wedding theme aesthetic, enter bride &amp; groom details, select your sacred ceremonies, and watch your invitation update in real time. Once finalized, you can view the full animation and dispatch sealed invitations directly via WhatsApp &amp; Email!</p>
     </div>
 
     <form id="templateCreatorForm" onsubmit="handleCreatorSubmit(event)">
-      <!-- SECTION 1: WEDDING CELEBRATION & AESTHETIC THEME -->
-      <div class="form-sec-heading">💍 Wedding Celebration &amp; Aesthetic Theme</div>
-      <div class="form-field-grp">
-        <label>Select Wedding Theme / Style:</label>
-        <div class="occasion-grid">
-          <div class="occasion-card active" data-occ="royal_mandap" onclick="selectOccasion('royal_mandap', this)">
-            <span class="occ-icon">👑</span>
-            <span class="occ-name">Royal Mandap</span>
-            <span class="occ-sub">Rajputana Palaces</span>
-          </div>
-          <div class="occasion-card" data-occ="destination_beach" onclick="selectOccasion('destination_beach', this)">
-            <span class="occ-icon">🏝️</span>
-            <span class="occ-name">Destination</span>
-            <span class="occ-sub">Lake Pichola &amp; Beach</span>
-          </div>
-          <div class="occasion-card" data-occ="sacred_temple" onclick="selectOccasion('sacred_temple', this)">
-            <span class="occ-icon">🛕</span>
-            <span class="occ-name">Sacred Temple</span>
-            <span class="occ-sub">Traditional Vedic</span>
-          </div>
-          <div class="occasion-card" data-occ="floral_garden" onclick="selectOccasion('floral_garden', this)">
-            <span class="occ-icon">🌸</span>
-            <span class="occ-name">Floral Garden</span>
-            <span class="occ-sub">English Rose &amp; Peony</span>
-          </div>
-          <div class="occasion-card" data-occ="modern_minimalist" onclick="selectOccasion('modern_minimalist', this)">
-            <span class="occ-icon">✨</span>
-            <span class="occ-name">Modern Minimalist</span>
-            <span class="occ-sub">Vogue Editorial</span>
-          </div>
-          <div class="occasion-card" data-occ="grand_ballroom" onclick="selectOccasion('grand_ballroom', this)">
-            <span class="occ-icon">🥂</span>
-            <span class="occ-name">Grand Ballroom</span>
-            <span class="occ-sub">Starlight &amp; Champagne</span>
-          </div>
-        </div>
-      </div>
-
+      <div class="form-sec-heading">🎨 Select Wedding Theme / Style &amp; Color Palette</div>
       <div class="form-field-grp">
         <label>Color Palette Theme:</label>
         <div class="palette-grid">
-          <div class="palette-card active" data-pal="emerald-gold" onclick="selectPalette('emerald-gold', this)">
+          <div class="palette-card active" data-pal="emerald-gold">
             <div class="palette-swatches">
               <span style="background:#064E3B;"></span>
               <span style="background:#D4AF37;"></span>
@@ -875,7 +679,7 @@ body {
             </div>
             <span class="pal-name">Emerald &amp; Gold</span>
           </div>
-          <div class="palette-card" data-pal="wine-rose" onclick="selectPalette('wine-rose', this)">
+          <div class="palette-card" data-pal="wine-rose">
             <div class="palette-swatches">
               <span style="background:#74203B;"></span>
               <span style="background:#C9975A;"></span>
@@ -883,7 +687,7 @@ body {
             </div>
             <span class="pal-name">Wine &amp; Rose Gold</span>
           </div>
-          <div class="palette-card" data-pal="midnight-star" onclick="selectPalette('midnight-star', this)">
+          <div class="palette-card" data-pal="midnight-star">
             <div class="palette-swatches">
               <span style="background:#0F172A;"></span>
               <span style="background:#38BDF8;"></span>
@@ -891,7 +695,7 @@ body {
             </div>
             <span class="pal-name">Midnight &amp; Starlight</span>
           </div>
-          <div class="palette-card" data-pal="pastel-cloud" onclick="selectPalette('pastel-cloud', this)">
+          <div class="palette-card" data-pal="pastel-cloud">
             <div class="palette-swatches">
               <span style="background:#DB2777;"></span>
               <span style="background:#0284C7;"></span>
@@ -899,7 +703,7 @@ body {
             </div>
             <span class="pal-name">Pastel Clouds</span>
           </div>
-          <div class="palette-card" data-pal="terracotta-marigold" onclick="selectPalette('terracotta-marigold', this)">
+          <div class="palette-card" data-pal="terracotta-marigold">
             <div class="palette-swatches">
               <span style="background:#9A3412;"></span>
               <span style="background:#EAB308;"></span>
@@ -914,8 +718,8 @@ body {
         <div class="form-field-grp">
           <label>Opening Experience</label>
           <select id="fOpeningExp">
-            <option value="mandap" selected>🚪 3D Royal Rajputana Haveli Gate</option>
-            <option value="envelope">💌 Royal 3D Wax Seal Envelope</option>
+            <option value="locket" selected>🥈 3D Mughal Silver Filigree Locket</option>
+            <option value="envelope">💌 3D Romantic Wax-Seal Envelope</option>
             <option value="call">📞 Incoming Royal Wedding Call</option>
           </select>
         </div>
@@ -931,312 +735,354 @@ body {
       <div class="form-field-grp">
         <label>Ambient Magic Particles</label>
         <select id="fAmbientParticles">
-          <option value="petals" selected>🌸 Falling Marigold &amp; Rose Petals</option>
-          <option value="lanterns">🏮 Glowing Floating Sky Lanterns</option>
+          <option value="floral_burst" selected>🎉 Celebratory Floral Burst</option>
+          <option value="petals">🌸 Falling Jasmine Petals</option>
           <option value="stars">✨ Twinkling Fairy Dust &amp; Starlight</option>
         </select>
       </div>
 
-      <!-- SECTION 2: COUPLE & PARENTS -->
-      <div class="form-sec-heading">👑 Royal Couple &amp; Parents</div>
+      <div class="form-sec-heading">💑 Grand Title &amp; The Couple</div>
+      <div class="form-field-grp">
+        <label>Grand Wedding Title *</label>
+        <input type="text" id="fGrandTitle" value="Grand Ballroom Starlight Wedding" required>
+      </div>
       <div class="form-row-2">
         <div class="form-field-grp">
-          <label>Groom's First Name *</label>
+          <label>Groom's first name *</label>
           <input type="text" id="fGroomName" value="Ranveer" required>
         </div>
         <div class="form-field-grp">
-          <label>Groom's Full Name *</label>
-          <input type="text" id="fGroomFullName" value="Ranveer Mittal" required>
-        </div>
-      </div>
-      <div class="form-field-grp">
-        <label>Groom's Parents (Blessing Line)</label>
-        <input type="text" id="fGroomParents" value="Son of Mr. Sunil Mittal &amp; Mrs. Rekha Mittal">
-      </div>
-
-      <div class="form-row-2">
-        <div class="form-field-grp">
-          <label>Bride's First Name *</label>
+          <label>Bride's first name *</label>
           <input type="text" id="fBrideName" value="Shanaya" required>
         </div>
+      </div>
+      <div class="form-row-2">
         <div class="form-field-grp">
-          <label>Bride's Full Name *</label>
+          <label>Groom's full name *</label>
+          <input type="text" id="fGroomFullName" value="Ranveer Mittal" required>
+        </div>
+        <div class="form-field-grp">
+          <label>Bride's full name *</label>
           <input type="text" id="fBrideFullName" value="Shanaya Jindal" required>
         </div>
       </div>
       <div class="form-field-grp">
-        <label>Bride's Parents (Blessing Line)</label>
+        <label>Groom's parents (optional blessing line)</label>
+        <input type="text" id="fGroomParents" value="Son of Mr. Sunil Mittal &amp; Mrs. Rekha Mittal">
+      </div>
+      <div class="form-field-grp">
+        <label>Bride's parents (optional blessing line)</label>
         <input type="text" id="fBrideParents" value="Daughter of Mr. Navin Jindal &amp; Mrs. Savitri Jindal">
       </div>
 
-      <!-- SECTION 3: GRAND CELEBRATION & VENUE -->
-      <div class="form-sec-heading">🏰 Grand Celebration &amp; Venue</div>
-      <div class="form-field-grp">
-        <label>Grand Wedding Title *</label>
-        <input type="text" id="fGrandTitle" value="Grand Rajputana Mandap Royal Wedding" required>
-      </div>
-      <div class="form-field-grp">
-        <label>Sub-Eyebrow Headline</label>
-        <input type="text" id="fEyebrow" value="Under the auspicious Vedic Mandap &amp; Royal Courtyard">
-      </div>
+      <div class="form-sec-heading">📅 Event Date &amp; Sanctuary Venue</div>
       <div class="form-row-2">
         <div class="form-field-grp">
-          <label>Wedding Date *</label>
-          <input type="text" id="fWeddingDate" value="Thursday, 25th Nov 2027" required>
+          <label>Event Date *</label>
+          <input type="text" id="fWeddingDate" value="25-11-2027" required>
         </div>
         <div class="form-field-grp">
-          <label>Ceremony Time *</label>
-          <input type="text" id="fWeddingTime" value="7:00 PM" required>
+          <label>Time (optional)</label>
+          <input type="text" id="fWeddingTime" value="19:00">
         </div>
       </div>
       <div class="form-field-grp">
-        <label>Grand Venue Name *</label>
-        <input type="text" id="fVenueName" value="The Rambagh Palace Royal Mandap, Jaipur" required>
+        <label>Sanctuary / Venue Name *</label>
+        <input type="text" id="fVenueName" value="The Taj Mahal Palace Ballroom, Mumbai" required>
       </div>
       <div class="form-field-grp">
-        <label>Venue Full Address</label>
-        <input type="text" id="fVenueAddress" value="Bhawani Singh Road, Jaipur, Rajasthan 302005">
+        <label>Venue Address (optional)</label>
+        <input type="text" id="fVenueAddress" value="Apollo Bunder, Colaba, Mumbai, Maharashtra 400001">
       </div>
       <div class="form-field-grp">
-        <label>Google Maps Directions URL</label>
-        <input type="url" id="fMapsUrl" value="https://www.google.com/maps/search/?api=1&query=Rambagh+Palace+Jaipur">
+        <label>Google Maps Link (optional — auto-generated if empty)</label>
+        <input type="url" id="fMapsUrl" value="https://www.google.com/maps/search/?api=1&query=The+Taj+Mahal+Palace+Mumbai">
       </div>
 
-      <!-- SECTION 4: INVITATION WORDS & RSVP -->
-      <div class="form-sec-heading">✍️ Invitation Words, Quotes &amp; RSVP</div>
-      <div class="form-field-grp">
-        <label>Welcome Invitation Message</label>
-        <textarea id="fInviteMessage" rows="2">With the divine blessings of Lord Ganesha, Ranveer &amp; Shanaya joyously request your presence and heartfelt blessings on their sacred wedding union.</textarea>
-      </div>
-      <div class="form-field-grp">
-        <label>Sacred Sanskrit / Couple Quote</label>
-        <input type="text" id="fCoupleQuote" value="माङ्गल्यं तन्तुनानेन लोकधारणहेतुना। कण्ठे बध्नामि शुभगे सञ्जीव शरदः शतम्॥">
-      </div>
-      <div class="form-row-2">
-        <div class="form-field-grp">
-          <label>Family Sign-off</label>
-          <input type="text" id="fFamilySignoff" value="The Mittal &amp; Jindal Families">
-        </div>
-        <div class="form-field-grp">
-          <label>Wedding Hashtag</label>
-          <input type="text" id="fHashtag" value="#RanveerShanayaForever">
-        </div>
-      </div>
-      <div class="form-field-grp">
-        <label>RSVP WhatsApp Phone *</label>
-        <input type="text" id="fRsvpNumber" value="919876543210" required>
-      </div>
-
-      <!-- SECTION 5: CEREMONIES & TIMELINE -->
-      <div class="form-sec-heading">📅 Sacred Events &amp; Timeline</div>
+      <div class="form-sec-heading">🪔 Sacred Ceremonies &amp; Functions</div>
       <!-- Evt 1 -->
       <div style="background:#F9FAFB;padding:12px;border-radius:12px;margin-bottom:10px;border:1px solid #E5E7EB;">
-        <div style="font-weight:700;font-size:12.5px;color:#064E3B;margin-bottom:6px;">Event 1 (Sangeet &amp; Mehendi)</div>
+        <div style="font-weight:700;font-size:12.5px;color:#064E3B;margin-bottom:6px;">Ceremony 1</div>
         <div class="form-row-2">
-          <input type="text" id="fEvt1Name" value="Royal Sangeet &amp; Mehendi">
-          <input type="text" id="fEvt1Date" value="Wednesday, 24th Nov · 6:30 PM">
+          <div class="form-field-grp"><label>Ceremony Name *</label><input type="text" id="fEvt1Name" value="The Sangeet Spectacular"></div>
+          <div class="form-row-2">
+            <div class="form-field-grp"><label>Date *</label><input type="text" id="fEvt1Date" value="24-11-2027"></div>
+            <div class="form-field-grp"><label>Time</label><input type="text" id="fEvt1Time" value="19:00"></div>
+          </div>
         </div>
-        <div class="form-row-2" style="margin-top:6px;">
-          <input type="text" id="fEvt1Venue" value="The Mughal Gardens, Rambagh Palace">
-          <input type="text" id="fEvt1Dress" value="Royal Emerald &amp; Zari">
+        <div class="form-field-grp"><label>Venue Location</label><input type="text" id="fEvt1Venue" value="The Crystal Ballroom, Taj Mahal Palace"></div>
+        <div class="form-row-2">
+          <div class="form-field-grp"><label>Dress Code</label><input type="text" id="fEvt1Dress" value="Diamond Sparkle &amp; Royal Velvet"></div>
+          <div class="form-field-grp"><label>Ceremony Note</label><input type="text" id="fEvt1Note" value="An evening of celebrity artist performances, Broadway choreography and gala banquet."></div>
         </div>
-        <input type="text" id="fEvt1Note" value="An evening of folk dancers, traditional dholak, mehendi artisans, and celebratory feast." style="margin-top:6px;">
       </div>
 
       <!-- Evt 2 -->
       <div style="background:#F9FAFB;padding:12px;border-radius:12px;margin-bottom:10px;border:1px solid #E5E7EB;">
-        <div style="font-weight:700;font-size:12.5px;color:#064E3B;margin-bottom:6px;">Event 2 (Baraat Swagat)</div>
+        <div style="font-weight:700;font-size:12.5px;color:#064E3B;margin-bottom:6px;">Ceremony 2</div>
         <div class="form-row-2">
-          <input type="text" id="fEvt2Name" value="Royal Shahi Baraat Swagat">
-          <input type="text" id="fEvt2Date" value="Thursday, 25th Nov · 5:00 PM">
+          <div class="form-field-grp"><label>Ceremony Name *</label><input type="text" id="fEvt2Name" value="Baraat &amp; Varmala Ceremony"></div>
+          <div class="form-row-2">
+            <div class="form-field-grp"><label>Date *</label><input type="text" id="fEvt2Date" value="25-11-2027"></div>
+            <div class="form-field-grp"><label>Time</label><input type="text" id="fEvt2Time" value="17:30"></div>
+          </div>
         </div>
-        <div class="form-row-2" style="margin-top:6px;">
-          <input type="text" id="fEvt2Venue" value="Palace Courtyard &amp; Toran Dwar">
-          <input type="text" id="fEvt2Dress" value="Heritage Sherwanis &amp; Turbans">
+        <div class="form-field-grp"><label>Venue Location</label><input type="text" id="fEvt2Venue" value="Gateway of India Promenade"></div>
+        <div class="form-row-2">
+          <div class="form-field-grp"><label>Dress Code</label><input type="text" id="fEvt2Dress" value="Royal Indian Aristocratic"></div>
+          <div class="form-field-grp"><label>Ceremony Note</label><input type="text" id="fEvt2Note" value="Royal vintage car baraat procession and garland exchange overlooking the harbor."></div>
         </div>
-        <input type="text" id="fEvt2Note" value="Grand elephant &amp; cavalry welcome procession with shehnai musicians." style="margin-top:6px;">
       </div>
 
       <!-- Evt 3 -->
       <div style="background:#F9FAFB;padding:12px;border-radius:12px;margin-bottom:10px;border:1px solid #E5E7EB;">
-        <div style="font-weight:700;font-size:12.5px;color:#064E3B;margin-bottom:6px;">Event 3 (Vedic Pheras)</div>
+        <div style="font-weight:700;font-size:12.5px;color:#064E3B;margin-bottom:6px;">Ceremony 3</div>
         <div class="form-row-2">
-          <input type="text" id="fEvt3Name" value="Sacred Vedic Mandap Pheras">
-          <input type="text" id="fEvt3Date" value="Thursday, 25th Nov · 7:30 PM">
+          <div class="form-field-grp"><label>Ceremony Name *</label><input type="text" id="fEvt3Name" value="Sacred Pheras &amp; Matrimony"></div>
+          <div class="form-row-2">
+            <div class="form-field-grp"><label>Date *</label><input type="text" id="fEvt3Date" value="25-11-2027"></div>
+            <div class="form-field-grp"><label>Time</label><input type="text" id="fEvt3Time" value="19:30"></div>
+          </div>
         </div>
-        <div class="form-row-2" style="margin-top:6px;">
-          <input type="text" id="fEvt3Venue" value="Sacred Agni Mandap Pavilion">
-          <input type="text" id="fEvt3Dress" value="Pure Gold &amp; Crimson Silk">
+        <div class="form-field-grp"><label>Venue Location</label><input type="text" id="fEvt3Venue" value="Grand Mandap Hall, Taj Mahal Palace"></div>
+        <div class="form-row-2">
+          <div class="form-field-grp"><label>Dress Code</label><input type="text" id="fEvt3Dress" value="Gold Zardozi &amp; Pure Silk"></div>
+          <div class="form-field-grp"><label>Ceremony Note</label><input type="text" id="fEvt3Note" value="Sacred seven circumambulations around the sacred fire."></div>
         </div>
-        <input type="text" id="fEvt3Note" value="Sacred Saptapadi vows and Sindoor Daan around the consecrated Vedic fire." style="margin-top:6px;">
       </div>
 
       <!-- Evt 4 -->
       <div style="background:#F9FAFB;padding:12px;border-radius:12px;margin-bottom:10px;border:1px solid #E5E7EB;">
-        <div style="font-weight:700;font-size:12.5px;color:#064E3B;margin-bottom:6px;">Event 4 (Royal Dastoor Reception)</div>
+        <div style="font-weight:700;font-size:12.5px;color:#064E3B;margin-bottom:6px;">Ceremony 4</div>
         <div class="form-row-2">
-          <input type="text" id="fEvt4Name" value="Shahi Dastoor Banquet &amp; Reception">
-          <input type="text" id="fEvt4Date" value="Friday, 26th Nov · 8:00 PM">
+          <div class="form-field-grp"><label>Ceremony Name *</label><input type="text" id="fEvt4Name" value="Royal Governors Reception"></div>
+          <div class="form-row-2">
+            <div class="form-field-grp"><label>Date *</label><input type="text" id="fEvt4Date" value="26-11-2027"></div>
+            <div class="form-field-grp"><label>Time</label><input type="text" id="fEvt4Time" value="20:00"></div>
+          </div>
         </div>
-        <div class="form-row-2" style="margin-top:6px;">
-          <input type="text" id="fEvt4Venue" value="The Grand Maharani Hall">
-          <input type="text" id="fEvt4Dress" value="Royal Rajputana Regalia">
+        <div class="form-field-grp"><label>Venue Location</label><input type="text" id="fEvt4Venue" value="The Ballroom, Taj Mahal Palace"></div>
+        <div class="form-row-2">
+          <div class="form-field-grp"><label>Dress Code</label><input type="text" id="fEvt4Dress" value="Ultra Formal Black Tie"></div>
+          <div class="form-field-grp"><label>Ceremony Note</label><input type="text" id="fEvt4Note" value="Grand banquet, champagne fountains, live 40-piece orchestra, and dancing."></div>
         </div>
-        <input type="text" id="fEvt4Note" value="Gala royal banquet with classical sitar ensemble and family felicitations." style="margin-top:6px;">
+      </div>
+
+      <div class="form-sec-heading">✅ Guest &amp; WhatsApp / Email Dispatch</div>
+      <div class="form-row-2">
+        <div class="form-field-grp">
+          <label>Invitee / Guest Name *</label>
+          <input type="text" id="fGuestName" value="Dr. Ayan &amp; Family" required>
+        </div>
+        <div class="form-field-grp">
+          <label>Guest WhatsApp Number * (with country code)</label>
+          <input type="text" id="fGuestPhone" value="+971501234567" required>
+        </div>
+      </div>
+      <div class="form-field-grp">
+        <label>Guest Email Address (optional)</label>
+        <input type="email" id="fGuestEmail" value="guest@example.com">
+      </div>
+
+      <div style="display:flex;gap:10px;margin-top:10px;">
+        <button type="button" class="btn-nav-action" style="flex:1;justify-content:center;color:#374151;background:#E5E7EB;border:none;" onclick="location.reload()">
+          Reset to Preset
+        </button>
+        <button type="button" class="btn-nav-action" style="flex:1;justify-content:center;color:#DC2626;background:#FEE2E2;border:none;" onclick="clearAllFields()">
+          Clear All
+        </button>
       </div>
 
       <button type="submit" class="btn-generate-invite">
-        ✨ Enter the Royal Mandap ✨
+        ✨ Create &amp; Finalize My Invitation ✨
       </button>
     </form>
   </div>
 </div>
 
-<!-- ================= 2. 3D ROYAL RAJPUTANA MANDAP STAGE ================= -->
-<div class="mandap-stage stage-hidden" id="mandapStage" onclick="unsealMandapGate()">
-  <!-- Floating Swaying Hanging Lanterns -->
-  <div class="mandap-lanterns">
-    <div class="h-lantern"><div class="lantern-chain"></div><div class="lantern-cage"></div></div>
-    <div class="h-lantern"><div class="lantern-chain"></div><div class="lantern-cage"></div></div>
-    <div class="h-lantern"><div class="lantern-chain"></div><div class="lantern-cage"></div></div>
-  </div>
 
-  <div class="mandap-scene" id="mandapScene">
-    <div class="gate-body" id="gateBody">
-      <!-- Sandstone & Gold Outer Arch -->
-      <div class="gate-frame-arch">
-        <div class="gate-arch-jharokha">⚜️</div>
-      </div>
-
-      <!-- Sacred Agni Kund Chamber Interior -->
-      <div class="mandap-chamber-interior">
-        <div class="mandap-sacred-fire">🔥</div>
-        <div style="font-family:var(--hindi);font-size:13px;color:var(--gold-l);margin-top:6px;">॥ पवित्र अग्नि ॥</div>
-        
-        <!-- Elevated Plaque Card -->
-        <div class="mandap-card-plaque" id="mandapPlaque">
-          <div style="font-size:24px;margin-bottom:2px;">👑</div>
-          <p style="font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:#78350F;margin:0;">ROYAL RAJPUTANA MANDAP</p>
-          <h2 style="font-family:var(--serif);font-size:22px;color:#064E3B;margin:6px 0;" id="mandapCoupleNames">Ranveer &amp; Shanaya</h2>
-          <p style="font-size:11px;letter-spacing:.12em;color:#92400E;margin:0;" id="mandapDateSub">THURSDAY, 25TH NOV 2027</p>
-          <p style="font-size:10.5px;color:#047857;margin-top:8px;font-weight:600;">ENTER SACRED MANDAP</p>
-        </div>
-      </div>
-
-      <!-- Left Carved Teakwood Door -->
-      <div class="gate-door door-l" id="doorL">
-        <div class="door-jali-pattern"></div>
-        <div class="door-crest">🐘</div>
-        <div style="font-family:var(--hindi);color:var(--gold-l);font-size:14px;margin-top:8px;z-index:2;">शुभ</div>
-      </div>
-
-      <!-- Right Carved Teakwood Door -->
-      <div class="gate-door door-r" id="doorR">
-        <div class="door-jali-pattern"></div>
-        <div class="door-crest">🦚</div>
-        <div style="font-family:var(--hindi);color:var(--gold-l);font-size:14px;margin-top:8px;z-index:2;">लाभ</div>
-      </div>
-
-      <!-- Center Auspicious Shubh Vivah Golden Wax Seal -->
-      <div class="mandap-shubh-seal" id="mandapSeal">
-        <div class="seal-sanskrit">॥ शुभ<br>विवाह ॥</div>
-      </div>
+<!-- 01: 3D ROYAL MANDAP SANCTUARY DOORS -->
+<div class="stage-screen stage-hidden" id="stageScreen" onclick="openMandapDoors()">
+  <div style="perspective:1200px; width:300px; height:380px; display:flex; align-items:center; justify-content:center; position:relative;">
+    <div style="position:absolute; width:260px; height:340px; border-radius:30px; background:radial-gradient(circle at 50% 40%, #881337 0%, #35040F 100%); border:3px solid #F59E0B; box-shadow:0 25px 60px rgba(0,0,0,0.95); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:16px;">
+      <div style="font-size:32px; margin-bottom:4px;">🕉️</div>
+      <p style="font-size:11px; letter-spacing:.25em; color:#FDE68A; text-transform:uppercase; margin:0;">SACRED ROYAL MANDAP</p>
+      <h2 style="font-family:var(--serif); font-size:22px; color:#FFF; margin:8px 0;">Ranveer &amp; Shanaya</h2>
+      <p style="font-size:12px; color:#FBBF24; margin:0;">25TH NOVEMBER 2027</p>
+      <div style="margin-top:14px; font-size:11px; color:#FDE68A; font-weight:600; letter-spacing:.15em;">ENTER SACRED PAVILION</div>
+    </div>
+    <!-- Left Carved Door -->
+    <div id="mandapDoorLeft" style="position:absolute; left:20px; top:20px; width:130px; height:340px; background:linear-gradient(135deg, #78350F 0%, #451A03 100%); border:3px solid #D4AF37; border-radius:30px 0 0 30px; transform-origin:left center; transition:transform 1.6s cubic-bezier(0.2, 0.8, 0.2, 1); box-shadow:inset -5px 0 20px rgba(0,0,0,0.8), 0 15px 35px rgba(0,0,0,0.9); display:flex; flex-direction:column; align-items:center; justify-content:center; z-index:20;">
+      <div style="font-size:28px;">🔔</div>
+      <div style="font-size:10px; color:#FDE68A; letter-spacing:.1em; margin-top:8px;">SHREE</div>
+    </div>
+    <!-- Right Carved Door -->
+    <div id="mandapDoorRight" style="position:absolute; right:20px; top:20px; width:130px; height:340px; background:linear-gradient(225deg, #78350F 0%, #451A03 100%); border:3px solid #D4AF37; border-radius:0 30px 30px 0; transform-origin:right center; transition:transform 1.6s cubic-bezier(0.2, 0.8, 0.2, 1); box-shadow:inset 5px 0 20px rgba(0,0,0,0.8), 0 15px 35px rgba(0,0,0,0.9); display:flex; flex-direction:column; align-items:center; justify-content:center; z-index:20;">
+      <div style="font-size:28px;">🔔</div>
+      <div style="font-size:10px; color:#FDE68A; letter-spacing:.1em; margin-top:8px;">GANESH</div>
     </div>
   </div>
-
-  <p style="font-size:12.5px;letter-spacing:.15em;color:var(--gold-pale);text-transform:uppercase;margin:0;">
-    ✨ Tap to unseal the Royal Rajputana Gate ✨
+  <p style="font-size:13px; letter-spacing:.18em; color:#FDE68A; text-transform:uppercase; margin-top:20px; text-shadow:0 2px 8px #000;">
+    ✨ Tap to Part the Golden Mandap Doors ✨
   </p>
 </div>
 
-<!-- ================= 3. RAJPUTANA PALACE MAIN INVITATION ================= -->
+<!-- ================= 3. MUGHAL MIHRAB MAIN INVITATION ================= -->
 <main class="main-invitation-container" id="mainInvite">
-  <!-- Hero Section -->
-  <section class="mandap-palace-hero">
-    <div class="hero-shloka">॥ श्री गणेशाय नमः ॥</div>
-    <div class="hero-eyebrow" id="grandEyebrowDisplay">UNDER THE AUSPICIOUS VEDIC MANDAP &amp; ROYAL COURTYARD</div>
+  <section class="mandap-jharokha-card">
+    <div style="font-family:var(--serif);font-size:20px;color:var(--gold-l);margin-bottom:8px;">॥ श्री गणेशाय नमः ॥</div>
+    <div style="font-size:12px;letter-spacing:.25em;text-transform:uppercase;color:#E2E8F0;margin-bottom:10px;">SACRED MANDAP MATRIMONY · VEDIC MANTRAS & BLOOMING ROSES</div>
+    <div class="luxury-rose-banner">
+  <svg viewBox="0 0 460 110" class="rose-garland-svg" preserveAspectRatio="xMidYMid meet">
+    <defs>
+      <radialGradient id="roseRedGrad" cx="45%" cy="38%" r="60%">
+        <stop offset="0%" stop-color="#FF4D6D"/>
+        <stop offset="40%" stop-color="#E11D48"/>
+        <stop offset="80%" stop-color="#9F1239"/>
+        <stop offset="100%" stop-color="#4C0519"/>
+      </radialGradient>
+      <radialGradient id="rosePinkGrad" cx="45%" cy="38%" r="60%">
+        <stop offset="0%" stop-color="#FDA4AF"/>
+        <stop offset="45%" stop-color="#FB7185"/>
+        <stop offset="85%" stop-color="#E11D48"/>
+        <stop offset="100%" stop-color="#881337"/>
+      </radialGradient>
+      <linearGradient id="goldStemGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#FEF08A"/>
+        <stop offset="45%" stop-color="#D4AF37"/>
+        <stop offset="100%" stop-color="#854D0E"/>
+      </linearGradient>
+      <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#86EFAC"/>
+        <stop offset="50%" stop-color="#16A34A"/>
+        <stop offset="100%" stop-color="#064E3B"/>
+      </linearGradient>
+    </defs>
+    <path d="M 30 55 Q 100 20 180 50" fill="none" stroke="url(#goldStemGrad)" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M 80 40 Q 95 15 115 32" fill="url(#leafGrad)" opacity="0.85"/>
+    <path d="M 130 52 Q 148 28 165 46" fill="url(#leafGrad)" opacity="0.85"/>
+    <circle cx="75" cy="38" r="13" fill="url(#rosePinkGrad)"/>
+    <circle cx="125" cy="48" r="16" fill="url(#roseRedGrad)"/>
+    <path d="M 430 55 Q 360 20 280 50" fill="none" stroke="url(#goldStemGrad)" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M 380 40 Q 365 15 345 32" fill="url(#leafGrad)" opacity="0.85"/>
+    <path d="M 330 52 Q 312 28 295 46" fill="url(#leafGrad)" opacity="0.85"/>
+    <circle cx="385" cy="38" r="13" fill="url(#rosePinkGrad)"/>
+    <circle cx="335" cy="48" r="16" fill="url(#roseRedGrad)"/>
+    <circle cx="230" cy="52" r="28" fill="url(#roseRedGrad)" filter="drop-shadow(0 4px 12px rgba(0,0,0,0.5))"/>
+    <circle cx="226" cy="48" r="18" fill="url(#rosePinkGrad)" opacity="0.9"/>
+    <circle cx="228" cy="50" r="10" fill="#FFF1F2" opacity="0.95"/>
+    <circle cx="229" cy="51" r="4" fill="#FFE4E6"/>
+  </svg>
+</div><div style="font-size:24px;margin:4px 0;">🌹 🌿 🌹</div>
     <h1 class="hero-names">
       <span id="groomNameDisplay">Ranveer Mittal</span>
-      <span style="font-family:var(--script);font-size:0.75em;color:var(--gold);display:block;margin:4px 0;">&amp;</span>
+      <span style="font-family:var(--script);font-size:0.7em;color:var(--gold);display:block;margin:4px 0;">&amp;</span>
       <span id="brideNameDisplay">Shanaya Jindal</span>
     </h1>
-    <div class="hero-date-venue">
+    <div style="font-size:15px;color:#E2E8F0;letter-spacing:.08em;line-height:1.6;">
       <div id="weddingDateDisplay" style="font-weight:600;color:var(--gold-l);">Thursday, 25th Nov 2027 · 7:00 PM</div>
-      <div id="weddingVenueDisplay" style="margin-top:4px;">THE RAMBAGH PALACE ROYAL MANDAP, JAIPUR</div>
+      <div id="weddingVenueDisplay" style="margin-top:4px;">THE TAJ MAHAL PALACE BALLROOM, MUMBAI</div>
     </div>
   </section>
 
+  
+<!-- Interactive Scratch-To-Reveal Save The Date & Calendar -->
+<div class="interactive-scratch-card">
+  <div class="scratch-card-frame">
+    <div class="scratch-badge-pill">✨ SCRATCH &amp; SAVE THE DATE ✨</div>
+    <h3 class="scratch-heading">Rub Gold Foil to Reveal the Date</h3>
+    <p class="scratch-instruction">Drag your finger or cursor across the shimmering gold foil below</p>
+
+    <div class="scratch-surface-wrap">
+      <div class="scratch-unveiled-card" id="scratchUnveiled">
+        <div style="font-size:24px;margin-bottom:2px;">🌹 💖 🌹</div>
+        <div class="save-the-date-tag">AUSPICIOUS WEDDING CELEBRATION</div>
+        <div class="unveiled-date-title" id="scratchDateTitle">Thursday, 25th Nov 2027</div>
+        <div class="unveiled-time-venue">7:00 PM · The Taj Mahal Palace Ballroom, Mumbai</div>
+        
+        <div class="calendar-btn-group">
+          <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Royal+Wedding+of+Ranveer+%26+Shanaya&dates=20271125T133000Z/20271125T183000Z&details=Grand+Ballroom+Starlight+Wedding+Celebration&location=The+Taj+Mahal+Palace+Mumbai" target="_blank" rel="noopener" class="cal-btn gcal">
+            📅 Add to Google Calendar
+          </a>
+          <button type="button" class="cal-btn ical" onclick="downloadICalReminder()">
+            🍏 Save to Apple Calendar (.ics)
+          </button>
+        </div>
+      </div>
+
+      <canvas id="scratchCanvas" class="scratch-foil-canvas"></canvas>
+    </div>
+    <div class="scratch-status-hint" id="scratchStatusHint">
+      👆 <i>Rub gold foil with finger or cursor to unlock calendar</i>
+    </div>
+  </div>
+</div>
+
+
   <!-- Welcome & Parents Blessings -->
-  <section class="rajputana-card">
+  <section class="mughal-section-card">
     <h2 class="card-title">Auspicious Blessings &amp; Matrimony</h2>
     <p class="card-text" id="inviteMessageDisplay">
-      With the divine blessings of Lord Ganesha, Ranveer &amp; Shanaya joyously request your presence and heartfelt blessings on their sacred wedding union.
+      Together with their families, Ranveer &amp; Shanaya request the honour of your presence at the grand celebration of their holy wedding union.
     </p>
     <div style="margin-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-      <div style="background:rgba(255,255,255,0.04);padding:14px;border-radius:12px;">
+      <div style="background:rgba(255,255,255,0.05);padding:14px;border-radius:12px;">
         <div style="font-weight:700;color:var(--gold);font-size:13.5px;">Groom's Parents</div>
         <div style="font-size:13px;color:#CBD5E1;margin-top:4px;" id="groomParentsDisplay">Son of Mr. Sunil Mittal &amp; Mrs. Rekha Mittal</div>
       </div>
-      <div style="background:rgba(255,255,255,0.04);padding:14px;border-radius:12px;">
+      <div style="background:rgba(255,255,255,0.05);padding:14px;border-radius:12px;">
         <div style="font-weight:700;color:var(--gold);font-size:13.5px;">Bride's Parents</div>
         <div style="font-size:13px;color:#CBD5E1;margin-top:4px;" id="brideParentsDisplay">Daughter of Mr. Navin Jindal &amp; Mrs. Savitri Jindal</div>
       </div>
     </div>
-    <div style="font-family:var(--hindi);font-size:16.5px;color:var(--gold-l);margin-top:24px;line-height:1.6;" id="coupleQuoteDisplay">
-      "माङ्गल्यं तन्तुनानेन लोकधारणहेतुना। कण्ठे बध्नामि शुभगे सञ्जीव शरदः शतम्॥"
+    <div style="font-family:var(--serif);font-size:15px;color:var(--gold-l);margin-top:22px;" id="coupleQuoteDisplay">
+      "Two souls united around the sacred fire, bound by seven eternal vows under the stars."
     </div>
   </section>
 
   <!-- Ceremonies Timeline -->
-  <section class="rajputana-card">
-    <h2 class="card-title">Sacred Itinerary &amp; Ceremonies</h2>
+  <section class="mughal-section-card">
+    <h2 class="card-title">Wedding Itinerary &amp; Ceremonies</h2>
     <div class="timeline-grid">
-      <!-- Evt 1 -->
       <div class="timeline-item">
-        <div class="timeline-time" id="evt1Time">Wednesday, 24th Nov · 6:30 PM</div>
-        <div class="timeline-name" id="evt1Title">Royal Sangeet &amp; Mehendi</div>
-        <div class="timeline-venue" id="evt1Venue">📍 The Mughal Gardens, Rambagh Palace</div>
-        <div class="timeline-dress" id="evt1Dress">👗 Dress: Royal Emerald &amp; Zari</div>
-        <div class="timeline-note" id="evt1Desc">An evening of folk dancers, traditional dholak, mehendi artisans, and celebratory feast.</div>
+        <div class="timeline-time" id="evt1Time">Wednesday, 24th Nov · 7:00 PM</div>
+        <div class="timeline-name" id="evt1Title">The Sangeet Spectacular</div>
+        <div class="timeline-venue" id="evt1Venue">📍 The Crystal Ballroom, Taj Mahal Palace</div>
+        <div class="timeline-dress" id="evt1Dress">👗 Dress: Diamond Sparkle &amp; Royal Velvet</div>
+        <div class="timeline-note" id="evt1Desc">An evening of celebrity artist performances, Broadway choreography and gala banquet.</div>
       </div>
-
-      <!-- Evt 2 -->
       <div class="timeline-item">
-        <div class="timeline-time" id="evt2Time">Thursday, 25th Nov · 5:00 PM</div>
-        <div class="timeline-name" id="evt2Title">Royal Shahi Baraat Swagat</div>
-        <div class="timeline-venue" id="evt2Venue">📍 Palace Courtyard &amp; Toran Dwar</div>
-        <div class="timeline-dress" id="evt2Dress">👗 Dress: Heritage Sherwanis &amp; Turbans</div>
-        <div class="timeline-note" id="evt2Desc">Grand elephant &amp; cavalry welcome procession with shehnai musicians.</div>
+        <div class="timeline-time" id="evt2Time">Thursday, 25th Nov · 5:30 PM</div>
+        <div class="timeline-name" id="evt2Title">Baraat &amp; Varmala Ceremony</div>
+        <div class="timeline-venue" id="evt2Venue">📍 Gateway of India Promenade</div>
+        <div class="timeline-dress" id="evt2Dress">👗 Dress: Royal Indian Aristocratic</div>
+        <div class="timeline-note" id="evt2Desc">Royal vintage car baraat procession and garland exchange overlooking the harbor.</div>
       </div>
-
-      <!-- Evt 3 -->
       <div class="timeline-item">
         <div class="timeline-time" id="evt3Time">Thursday, 25th Nov · 7:30 PM</div>
-        <div class="timeline-name" id="evt3Title">Sacred Vedic Mandap Pheras</div>
-        <div class="timeline-venue" id="evt3Venue">📍 Sacred Agni Mandap Pavilion</div>
-        <div class="timeline-dress" id="evt3Dress">👗 Dress: Pure Gold &amp; Crimson Silk</div>
-        <div class="timeline-note" id="evt3Desc">Sacred Saptapadi vows and Sindoor Daan around the consecrated Vedic fire.</div>
+        <div class="timeline-name" id="evt3Title">Sacred Pheras &amp; Matrimony</div>
+        <div class="timeline-venue" id="evt3Venue">📍 Grand Mandap Hall, Taj Mahal Palace</div>
+        <div class="timeline-dress" id="evt3Dress">👗 Dress: Gold Zardozi &amp; Pure Silk</div>
+        <div class="timeline-note" id="evt3Desc">Sacred seven circumambulations around the sacred fire.</div>
       </div>
-
-      <!-- Evt 4 -->
       <div class="timeline-item">
         <div class="timeline-time" id="evt4Time">Friday, 26th Nov · 8:00 PM</div>
-        <div class="timeline-name" id="evt4Title">Shahi Dastoor Banquet &amp; Reception</div>
-        <div class="timeline-venue" id="evt4Venue">📍 The Grand Maharani Hall</div>
-        <div class="timeline-dress" id="evt4Dress">👗 Dress: Royal Rajputana Regalia</div>
-        <div class="timeline-note" id="evt4Desc">Gala royal banquet with classical sitar ensemble and family felicitations.</div>
+        <div class="timeline-name" id="evt4Title">Royal Governors Reception</div>
+        <div class="timeline-venue" id="evt4Venue">📍 The Ballroom, Taj Mahal Palace</div>
+        <div class="timeline-dress" id="evt4Dress">👗 Dress: Ultra Formal Black Tie</div>
+        <div class="timeline-note" id="evt4Desc">Grand banquet, champagne fountains, live 40-piece orchestra, and dancing.</div>
       </div>
     </div>
   </section>
 
   <!-- Venue & RSVP Section -->
-  <section class="rajputana-card">
+  <section class="mughal-section-card">
     <h2 class="card-title">Venue &amp; Gracious Presence</h2>
     <p class="card-text" id="venueAddressDisplay">
-      The Rambagh Palace Royal Mandap, Jaipur, Bhawani Singh Road, Jaipur, Rajasthan 302005
+      The Taj Mahal Palace Ballroom, Mumbai, Apollo Bunder, Colaba, Mumbai, Maharashtra 400001
     </p>
     <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:10px;">
-      <a href="https://www.google.com/maps/search/?api=1&query=Rambagh+Palace+Jaipur" target="_blank" rel="noopener" class="btn-gold-action" id="btnMapsLink">
+      <a href="https://www.google.com/maps/search/?api=1&query=The+Taj+Mahal+Palace+Mumbai" target="_blank" rel="noopener" class="btn-gold-action" id="btnMapsLink">
         📍 Get Directions on Google Maps
       </a>
       <button type="button" class="btn-gold-action" onclick="sendRSVPWhatsApp()">
@@ -1246,13 +1092,13 @@ body {
     <div style="margin-top:16px;font-size:13px;color:#94A3B8;">
       With Best Compliments: <b id="familySignoffDisplay" style="color:#FFF;">The Mittal &amp; Jindal Families</b>
     </div>
-    <div style="font-size:14px;color:var(--gold-l);letter-spacing:.1em;" id="hashtagDisplay">
+    <div style="font-size:14px;color:var(--gold-l);letter-spacing:.1em;margin-top:6px;" id="hashtagDisplay">
       #RanveerShanayaForever
     </div>
   </section>
 </main>
 
-<!-- ================= 4. PERSONALIZED DISPATCH MODAL ================= -->
+<!-- Personalizer Modal -->
 <div class="send-modal" id="sendModal">
   <div class="send-modal-card">
     <div class="send-modal-header">
@@ -1260,28 +1106,19 @@ body {
       <button type="button" class="btn-close-modal" onclick="closeSendModal()">&times;</button>
     </div>
     <p style="font-size:13.5px;color:#4B5563;margin-top:0;">
-      Create a personalized 3D Rajputana Mandap invitation link for your desired guest.
+      Send a personalized 3D Mughal Gardens invitation link directly to your desired guest.
     </p>
     <div class="form-field-grp">
       <label>Guest Full Name</label>
-      <input type="text" id="modalGuestName" placeholder="e.g. Mr. &amp; Mrs. Sharma" oninput="updateGuestDispatchLink()">
+      <input type="text" id="modalGuestName" value="Dr. Ayan &amp; Family" oninput="updateGuestDispatchLink()">
     </div>
     <div class="form-field-grp">
       <label>Guest WhatsApp Number</label>
-      <div style="display:flex;gap:8px;">
-        <select id="modalCountryCode" style="width:110px;" onchange="updateGuestDispatchLink()">
-          <option value="91">+91 (IN)</option>
-          <option value="1">+1 (US)</option>
-          <option value="44">+44 (UK)</option>
-          <option value="971">+971 (UAE)</option>
-          <option value="65">+65 (SG)</option>
-        </select>
-        <input type="tel" id="targetGuestPhone" placeholder="10-digit number" style="flex:1;" oninput="updateGuestDispatchLink()">
-      </div>
+      <input type="tel" id="targetGuestPhone" value="+971501234567" oninput="updateGuestDispatchLink()">
     </div>
     <div class="form-field-grp">
       <label>Generated Link</label>
-      <input type="text" id="targetGuestLink" readonly style="background:#F3F4F6;">
+      <input type="text" id="targetGuestLink" readonly style="background:#F9FAFB;">
     </div>
     <div style="display:flex;gap:10px;margin-top:18px;">
       <button type="button" class="btn-generate-invite" style="flex:1;margin:0;background:#22C55E;" onclick="dispatchWhatsAppDirect()">
@@ -1295,7 +1132,6 @@ body {
 </div>
 
 <script>
-// ================= GLOBAL CONFIGURATION =================
 var weddingConfig = {
   groom: "Ranveer",
   groomFull: "Ranveer Mittal",
@@ -1303,68 +1139,88 @@ var weddingConfig = {
   bride: "Shanaya",
   brideFull: "Shanaya Jindal",
   brideParents: "Daughter of Mr. Navin Jindal & Mrs. Savitri Jindal",
-  grandTitle: "Grand Rajputana Mandap Royal Wedding",
-  eyebrow: "Under the auspicious Vedic Mandap & Royal Courtyard",
-  date: "Thursday, 25th Nov 2027",
-  time: "7:00 PM",
-  venue: "The Rambagh Palace Royal Mandap, Jaipur",
-  venueAddress: "Bhawani Singh Road, Jaipur, Rajasthan 302005",
-  mapsUrl: "https://www.google.com/maps/search/?api=1&query=Rambagh+Palace+Jaipur",
-  inviteMessage: "With the divine blessings of Lord Ganesha, Ranveer & Shanaya joyously request your presence and heartfelt blessings on their sacred wedding union.",
-  coupleQuote: "माङ्गल्यं तन्तुनानेन लोकधारणहेतुना। कण्ठे बध्नामि शुभगे सञ्जीव शरदः शतम्॥",
+  grandTitle: "Grand Ballroom Starlight Wedding",
+  date: "25-11-2027",
+  time: "19:00",
+  venue: "The Taj Mahal Palace Ballroom, Mumbai",
+  venueAddress: "Apollo Bunder, Colaba, Mumbai, Maharashtra 400001",
+  mapsUrl: "https://www.google.com/maps/search/?api=1&query=The+Taj+Mahal+Palace+Mumbai",
+  inviteMessage: "Together with their families, Ranveer & Shanaya request the honour of your presence at the grand celebration of their holy wedding union.",
+  coupleQuote: "Two souls united around the sacred fire, bound by seven eternal vows under the stars.",
   familySignoff: "The Mittal & Jindal Families",
   hashtag: "#RanveerShanayaForever",
-  rsvpPhone: "919876543210",
-  events: [
-    {
-      name: "Royal Sangeet & Mehendi",
-      date: "Wednesday, 24th Nov · 6:30 PM",
-      venue: "The Mughal Gardens, Rambagh Palace",
-      dress: "Royal Emerald & Zari",
-      note: "An evening of folk dancers, traditional dholak, mehendi artisans, and celebratory feast."
-    },
-    {
-      name: "Royal Shahi Baraat Swagat",
-      date: "Thursday, 25th Nov · 5:00 PM",
-      venue: "Palace Courtyard & Toran Dwar",
-      dress: "Heritage Sherwanis & Turbans",
-      note: "Grand elephant & cavalry welcome procession with shehnai musicians."
-    },
-    {
-      name: "Sacred Vedic Mandap Pheras",
-      date: "Thursday, 25th Nov · 7:30 PM",
-      venue: "Sacred Agni Mandap Pavilion",
-      dress: "Pure Gold & Crimson Silk",
-      note: "Sacred Saptapadi vows and Sindoor Daan around the consecrated Vedic fire."
-    },
-    {
-      name: "Shahi Dastoor Banquet & Reception",
-      date: "Friday, 26th Nov · 8:00 PM",
-      venue: "The Grand Maharani Hall",
-      dress: "Royal Rajputana Regalia",
-      note: "Gala royal banquet with classical sitar ensemble and family felicitations."
-    }
-  ]
+  guestName: "Dr. Ayan & Family",
+  guestPhone: "+971501234567",
+  guestEmail: "guest@example.com"
 };
 
-function selectPalette(palKey, cardEl) {
-  document.querySelectorAll('.palette-card').forEach(function(c) { c.classList.remove('active'); });
-  if (cardEl) cardEl.classList.add('active');
+
+function openMandapDoors() {
+  var dl = document.getElementById('mandapDoorLeft');
+  var dr = document.getElementById('mandapDoorRight');
+  var stage = document.getElementById('stageScreen');
+  if (dl && dr) {
+    dl.style.transform = 'rotateY(-130deg)';
+    dr.style.transform = 'rotateY(130deg)';
+  }
+  setTimeout(function() {
+    if (stage) stage.classList.add('stage-hidden');
+    var main = document.getElementById('mainInvite');
+    if (main) main.scrollIntoView({ behavior: 'smooth' });
+  }, 1400);
 }
-function selectOccasion(occKey, cardEl) {
-  document.querySelectorAll('.occasion-card').forEach(function(c) { c.classList.remove('active'); });
-  if (cardEl) cardEl.classList.add('active');
+function replayStageReveal() {
+  var stage = document.getElementById('stageScreen');
+  var dl = document.getElementById('mandapDoorLeft');
+  var dr = document.getElementById('mandapDoorRight');
+  if (dl && dr) {
+    dl.style.transform = 'rotateY(0deg)';
+    dr.style.transform = 'rotateY(0deg)';
+  }
+  if (stage) stage.classList.remove('stage-hidden');
 }
 
-// Apply Config
+
+function showCreatorForm() {
+  var creator = document.getElementById('creatorScreen');
+  if (creator) creator.classList.remove('creator-hidden');
+}
+
+function handleCreatorSubmit(e) {
+  e.preventDefault();
+  weddingConfig.groom = document.getElementById('fGroomName').value.trim() || "Ranveer";
+  weddingConfig.groomFull = document.getElementById('fGroomFullName').value.trim() || weddingConfig.groom;
+  weddingConfig.groomParents = document.getElementById('fGroomParents').value.trim();
+  weddingConfig.bride = document.getElementById('fBrideName').value.trim() || "Shanaya";
+  weddingConfig.brideFull = document.getElementById('fBrideFullName').value.trim() || weddingConfig.bride;
+  weddingConfig.brideParents = document.getElementById('fBrideParents').value.trim();
+  weddingConfig.grandTitle = document.getElementById('fGrandTitle').value.trim();
+  weddingConfig.date = document.getElementById('fWeddingDate').value.trim();
+  weddingConfig.time = document.getElementById('fWeddingTime').value.trim();
+  weddingConfig.venue = document.getElementById('fVenueName').value.trim();
+  weddingConfig.venueAddress = document.getElementById('fVenueAddress').value.trim();
+  weddingConfig.mapsUrl = document.getElementById('fMapsUrl').value.trim();
+  weddingConfig.guestName = document.getElementById('fGuestName').value.trim();
+  weddingConfig.guestPhone = document.getElementById('fGuestPhone').value.trim();
+  weddingConfig.guestEmail = document.getElementById('fGuestEmail').value.trim();
+
+  applyConfigToDom();
+  triggerJasmineBurst();
+
+  var creator = document.getElementById('creatorScreen');
+  var stage = document.getElementById('stageScreen');
+  if (creator) creator.classList.add('creator-hidden');
+  if (stage) {
+    stage.classList.remove('stage-hidden');
+    var lid = document.getElementById('locketLid');
+    var card = document.getElementById('locketCard');
+    if (lid) lid.classList.remove('is-open');
+    if (card) card.classList.remove('elevated');
+  }
+}
+
 function applyConfigToDom() {
   var couple = weddingConfig.groom + " & " + weddingConfig.bride;
-  
-  var mc = document.getElementById('mandapCoupleNames');
-  if (mc) mc.textContent = couple;
-  var md = document.getElementById('mandapDateSub');
-  if (md) md.textContent = (weddingConfig.date || '').toUpperCase();
-
   var bg = document.getElementById('groomNameDisplay');
   var bb = document.getElementById('brideNameDisplay');
   if (bg) bg.textContent = weddingConfig.groomFull || weddingConfig.groom;
@@ -1375,201 +1231,60 @@ function applyConfigToDom() {
   if (bp) bp.textContent = weddingConfig.brideParents || '';
   if (gp) gp.textContent = weddingConfig.groomParents || '';
 
-  var eyeb = document.getElementById('grandEyebrowDisplay');
-  if (eyeb) eyeb.textContent = (weddingConfig.eyebrow || weddingConfig.grandTitle).toUpperCase();
-
   var wdate = document.getElementById('weddingDateDisplay');
   if (wdate) wdate.textContent = weddingConfig.date + (weddingConfig.time ? (' · ' + weddingConfig.time) : '');
 
   var wven = document.getElementById('weddingVenueDisplay');
   if (wven) wven.textContent = (weddingConfig.venue || '').toUpperCase();
 
-  var vadd = document.getElementById('venueAddressDisplay');
-  if (vadd) vadd.textContent = weddingConfig.venue + (weddingConfig.venueAddress ? (', ' + weddingConfig.venueAddress) : '');
+  var lc = document.getElementById('locketCoupleNames');
+  if (lc) lc.textContent = couple;
 
-  var mapsBtn = document.getElementById('btnMapsLink');
-  if (mapsBtn) mapsBtn.href = weddingConfig.mapsUrl || ("https://maps.google.com/?q=" + encodeURIComponent(weddingConfig.venue + " " + weddingConfig.venueAddress));
-
-  var invMsg = document.getElementById('inviteMessageDisplay');
-  if (invMsg) invMsg.textContent = weddingConfig.inviteMessage || '';
-
-  var cQuote = document.getElementById('coupleQuoteDisplay');
-  if (cQuote) cQuote.textContent = '"' + (weddingConfig.coupleQuote || '') + '"';
-
-  var famSign = document.getElementById('familySignoffDisplay');
-  if (famSign) famSign.textContent = weddingConfig.familySignoff || '';
-
-  var htag = document.getElementById('hashtagDisplay');
-  if (htag) htag.textContent = weddingConfig.hashtag || '';
-
-  // Update Events
-  if (weddingConfig.events && weddingConfig.events.length >= 4) {
-    for (var i = 1; i <= 4; i++) {
-      var ev = weddingConfig.events[i - 1];
-      if (!ev) continue;
-      var elT = document.getElementById('evt' + i + 'Title');
-      var elTm = document.getElementById('evt' + i + 'Time');
-      var elVn = document.getElementById('evt' + i + 'Venue');
-      var elDr = document.getElementById('evt' + i + 'Dress');
-      var elDc = document.getElementById('evt' + i + 'Desc');
-      if (elT) elT.textContent = ev.name;
-      if (elTm) elTm.textContent = ev.date;
-      if (elVn) elVn.textContent = '📍 ' + ev.venue;
-      if (elDr) elDr.textContent = '👗 Dress: ' + ev.dress;
-      if (elDc) elDc.textContent = ev.note;
-    }
-  }
-
-  document.title = couple + " — Royal Rajputana Mandap Wedding Invitation";
+  document.title = couple + " — Shahi Mughal Gardens 3D Wedding Invitation";
 }
 
-// Form Submit
-function handleCreatorSubmit(e) {
-  e.preventDefault();
-  weddingConfig.groom = document.getElementById('fGroomName').value.trim() || "Ranveer";
-  weddingConfig.groomFull = document.getElementById('fGroomFullName').value.trim() || weddingConfig.groom;
-  weddingConfig.groomParents = document.getElementById('fGroomParents').value.trim();
-  weddingConfig.bride = document.getElementById('fBrideName').value.trim() || "Shanaya";
-  weddingConfig.brideFull = document.getElementById('fBrideFullName').value.trim() || weddingConfig.bride;
-  weddingConfig.brideParents = document.getElementById('fBrideParents').value.trim();
-  weddingConfig.grandTitle = document.getElementById('fGrandTitle').value.trim();
-  weddingConfig.eyebrow = document.getElementById('fEyebrow').value.trim();
-  weddingConfig.date = document.getElementById('fWeddingDate').value.trim();
-  weddingConfig.time = document.getElementById('fWeddingTime').value.trim();
-  weddingConfig.venue = document.getElementById('fVenueName').value.trim();
-  weddingConfig.venueAddress = document.getElementById('fVenueAddress').value.trim();
-  weddingConfig.mapsUrl = document.getElementById('fMapsUrl').value.trim();
-  weddingConfig.inviteMessage = document.getElementById('fInviteMessage').value.trim();
-  weddingConfig.coupleQuote = document.getElementById('fCoupleQuote').value.trim();
-  weddingConfig.familySignoff = document.getElementById('fFamilySignoff').value.trim();
-  weddingConfig.hashtag = document.getElementById('fHashtag').value.trim();
-  weddingConfig.rsvpPhone = document.getElementById('fRsvpNumber').value.trim();
-
-  applyConfigToDom();
-  triggerPetalsBurst();
-
-  // Hide creator form and display 3D Mandap Gate stage!
-  creatorScreen.classList.add('creator-hidden');
-  mandapStage.classList.remove('stage-hidden');
-  resetMandapState();
-}
-
-// 3D Mandap Unsealing & Doors Reveal
-var creatorScreen = document.getElementById('creatorScreen');
-var mandapStage = document.getElementById('mandapStage');
-var doorL = document.getElementById('doorL');
-var doorR = document.getElementById('doorR');
-var mandapSeal = document.getElementById('mandapSeal');
-var mandapPlaque = document.getElementById('mandapPlaque');
-var isGateOpen = false;
-
-function showCreatorForm() {
-  creatorScreen.classList.remove('creator-hidden');
-}
-
-function resetMandapState() {
-  isGateOpen = false;
-  doorL.classList.remove('is-open');
-  doorR.classList.remove('is-open');
-  mandapSeal.classList.remove('seal-broken');
-  mandapPlaque.classList.remove('elevated');
-}
-
-function unsealMandapGate() {
-  if (isGateOpen) return;
-  isGateOpen = true;
-
-  playTempleChime();
-  triggerPetalsBurst();
-
-  // Fracture wax seal
-  mandapSeal.classList.add('seal-broken');
-
-  // Doors swing open in 3D
-  setTimeout(function() {
-    doorL.classList.add('is-open');
-    doorR.classList.add('is-open');
-  }, 350);
-
-  // Plaque elevates forward
-  setTimeout(function() {
-    mandapPlaque.classList.add('elevated');
-  }, 750);
-
-  // Transition to main palace courtyard
-  setTimeout(function() {
-    mandapStage.classList.add('stage-hidden');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, 2400);
-}
-
-function replayMandapReveal() {
-  creatorScreen.classList.add('creator-hidden');
-  mandapStage.classList.remove('stage-hidden');
-  resetMandapState();
-  setTimeout(unsealMandapGate, 350);
-}
-
-// 3D Parallax Tilt
-var mandapScene = document.getElementById('mandapScene');
-var gateBody = document.getElementById('gateBody');
-if (mandapScene && gateBody) {
-  mandapScene.addEventListener('mousemove', function(e) {
-    var rect = mandapScene.getBoundingClientRect();
-    var x = (e.clientX - rect.left) / rect.width - 0.5;
-    var y = (e.clientY - rect.top) / rect.height - 0.5;
-    gateBody.style.transform = 'rotateY(' + (x * 24) + 'deg) rotateX(' + (-y * 24) + 'deg)';
-  });
-  mandapScene.addEventListener('mouseleave', function() {
-    gateBody.style.transform = 'rotateY(0deg) rotateX(0deg)';
-  });
-}
-
-// Audio Synthesizer
 var audioCtx = null;
 function getAudioCtx() {
   if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
   if (audioCtx.state === 'suspended') audioCtx.resume();
   return audioCtx;
 }
-
-function playTempleChime() {
+function playThemeChime() {
   try {
     var ctx = getAudioCtx();
-    var notes = [587.33, 739.99, 880.00, 1174.66];
+    var notes = [440.00, 554.37, 659.25, 880.00];
     notes.forEach(function(freq, i) {
       var osc = ctx.createOscillator();
       var gain = ctx.createGain();
-      osc.type = 'sine';
-      osc.frequency.setValueAtTime(freq, ctx.currentTime + (i * 0.15));
-      gain.gain.setValueAtTime(0.001, ctx.currentTime + (i * 0.15));
-      gain.gain.exponentialRampToValueAtTime(0.2, ctx.currentTime + (i * 0.15) + 0.05);
-      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + (i * 0.15) + 1.4);
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(freq, ctx.currentTime + (i * 0.12));
+      gain.gain.setValueAtTime(0.001, ctx.currentTime + (i * 0.12));
+      gain.gain.exponentialRampToValueAtTime(0.18, ctx.currentTime + (i * 0.12) + 0.04);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + (i * 0.12) + 1.2);
       osc.connect(gain);
       gain.connect(ctx.destination);
-      osc.start(ctx.currentTime + (i * 0.15));
-      osc.stop(ctx.currentTime + (i * 0.15) + 1.5);
+      osc.start(ctx.currentTime + (i * 0.12));
+      osc.stop(ctx.currentTime + (i * 0.12) + 1.3);
     });
   } catch (_) {}
 }
 
-// Marigold & Rose Petals Shower
-function triggerPetalsBurst() {
-  var canvas = document.getElementById('petalsCanvas');
+function triggerJasmineBurst() {
+  var canvas = document.getElementById('particlesCanvas');
   if (!canvas) return;
   var ctx = canvas.getContext('2d');
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 
   var particles = [];
-  var colors = ['#F59E0B', '#EF4444', '#D4AF37', '#FDE047', '#EA580C'];
+  var colors = ['#FFFFFF', '#D1FAE5', '#34D399', '#D4AF37', '#FEF08A'];
   for (var i = 0; i < 60; i++) {
     particles.push({
       x: canvas.width * 0.5,
       y: canvas.height * 0.5,
-      vx: (Math.random() - 0.5) * 16,
-      vy: (Math.random() - 0.5) * 16 - 3,
-      size: Math.random() * 8 + 4,
+      vx: (Math.random() - 0.5) * 14,
+      vy: (Math.random() - 0.5) * 14 - 3,
+      size: Math.random() * 6 + 3,
       color: colors[Math.floor(Math.random() * colors.length)],
       alpha: 1,
       decay: Math.random() * 0.015 + 0.008
@@ -1584,13 +1299,13 @@ function triggerPetalsBurst() {
         alive = true;
         p.x += p.vx;
         p.y += p.vy;
-        p.vy += 0.22;
+        p.vy += 0.18;
         p.alpha -= p.decay;
         ctx.save();
         ctx.globalAlpha = Math.max(0, p.alpha);
         ctx.fillStyle = p.color;
         ctx.beginPath();
-        ctx.ellipse(p.x, p.y, p.size, p.size * 0.6, Math.PI / 4, 0, Math.PI * 2);
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
         ctx.fill();
         ctx.restore();
       }
@@ -1601,19 +1316,17 @@ function triggerPetalsBurst() {
   render();
 }
 
-// Auto-Scroll
-var autoScrollInterval = null;
 function toggleAutoScroll() {
   var btn = document.getElementById('btnAutoScroll');
-  if (autoScrollInterval) {
-    clearInterval(autoScrollInterval);
-    autoScrollInterval = null;
+  if (window.autoScrollInterval) {
+    clearInterval(window.autoScrollInterval);
+    window.autoScrollInterval = null;
     if (btn) btn.innerHTML = '📜 <span>Auto-Scroll</span>';
   } else {
-    autoScrollInterval = setInterval(function() {
+    window.autoScrollInterval = setInterval(function() {
       if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 5) {
-        clearInterval(autoScrollInterval);
-        autoScrollInterval = null;
+        clearInterval(window.autoScrollInterval);
+        window.autoScrollInterval = null;
         if (btn) btn.innerHTML = '📜 <span>Auto-Scroll</span>';
       } else {
         window.scrollBy({ top: 2, behavior: 'smooth' });
@@ -1623,7 +1336,6 @@ function toggleAutoScroll() {
   }
 }
 
-// Send / Personalizer Modal
 function openSendModal() {
   var modal = document.getElementById('sendModal');
   if (modal) modal.style.display = 'flex';
@@ -1651,31 +1363,28 @@ function copyGuestInviteLink() {
   }
 }
 function dispatchWhatsAppDirect() {
-  var guestName = (document.getElementById('modalGuestName').value || '').trim() || "Esteemed Guest";
-  var cc = document.getElementById('modalCountryCode').value;
-  var rawPhone = document.getElementById('targetGuestPhone').value.trim().replace(/\D/g, '').replace(/^0+/, '');
-  var fullPhone = rawPhone ? (cc + rawPhone) : '';
+  var guestName = (document.getElementById('modalGuestName').value || '').trim() || weddingConfig.guestName;
+  var rawPhone = document.getElementById('targetGuestPhone').value.trim().replace(/\D/g, '');
   var linkField = document.getElementById('targetGuestLink');
   var inviteUrl = linkField ? linkField.value : window.location.href;
 
-  var text = "👑 Namaskar " + guestName + " ji,\n\n" +
-    "Together with our families, we cordially invite you to the Royal Rajputana Mandap Wedding of *" + weddingConfig.groom + " & " + weddingConfig.bride + "*!\n\n" +
+  var text = "🌿 Namaskar " + guestName + ",\n\n" +
+    "Together with our families, we cordially invite you to celebrate the Royal Wedding of *" + weddingConfig.groom + " & " + weddingConfig.bride + "*!\n\n" +
     "✨ *Date:* " + weddingConfig.date + "\n" +
     "🏰 *Venue:* " + weddingConfig.venue + "\n\n" +
-    "Tap to unseal the 3D Royal Gate & view your invitation:\n" + inviteUrl;
+    "Tap to reveal your 3D Shahi Silver Locket invitation:\n" + inviteUrl;
 
-  var waUrl = fullPhone 
-    ? ('https://api.whatsapp.com/send?phone=' + fullPhone + '&text=' + encodeURIComponent(text))
+  var waUrl = rawPhone 
+    ? ('https://api.whatsapp.com/send?phone=' + rawPhone + '&text=' + encodeURIComponent(text))
     : ('https://api.whatsapp.com/send?text=' + encodeURIComponent(text));
   window.open(waUrl, '_blank');
 }
 function sendRSVPWhatsApp() {
-  var cleanPhone = weddingConfig.rsvpPhone.replace(/\D/g, '');
-  var text = encodeURIComponent("Namaskar! I am delighted to confirm my RSVP for " + weddingConfig.groom + " & " + weddingConfig.bride + "'s Royal Rajputana Wedding.");
+  var cleanPhone = weddingConfig.guestPhone.replace(/\D/g, '');
+  var text = encodeURIComponent("Namaskar! I am delighted to confirm my RSVP for " + weddingConfig.groom + " & " + weddingConfig.bride + "'s Royal Wedding.");
   window.open("https://api.whatsapp.com/send?phone=" + cleanPhone + "&text=" + text, '_blank');
 }
 
-// Audio Toggle
 var isAudioPlaying = false;
 function toggleAudio() {
   var btn = document.getElementById('musicToggleBtn');
@@ -1684,25 +1393,210 @@ function toggleAudio() {
     if (btn) btn.innerHTML = '🔇 Music Off';
   } else {
     isAudioPlaying = true;
-    playTempleChime();
+    playThemeChime();
     if (btn) btn.innerHTML = '🎵 Music On';
   }
 }
 
-// INITIALIZATION
+function clearAllFields() {
+  document.querySelectorAll('#templateCreatorForm input[type="text"]').forEach(function(i) { i.value = ''; });
+}
+
+
+function initFallingRosePetals() {
+  var canvas = document.getElementById('particlesCanvas');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var petals = [];
+  var count = 35;
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+
+  for (var i = 0; i < count; i++) {
+    petals.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      size: 10 + Math.random() * 14,
+      speedX: -1 + Math.random() * 2,
+      speedY: 1 + Math.random() * 2.2,
+      rotation: Math.random() * 360,
+      rotSpeed: -1.5 + Math.random() * 3,
+      opacity: 0.4 + Math.random() * 0.5,
+      color: ['#E11D48', '#FB7185', '#F43F5E', '#BE123C', '#FDA4AF'][Math.floor(Math.random() * 5)]
+    });
+  }
+
+  function drawPetal(p) {
+    ctx.save();
+    ctx.translate(p.x, p.y);
+    ctx.rotate(p.rotation * Math.PI / 180);
+    ctx.globalAlpha = p.opacity;
+    ctx.fillStyle = p.color;
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.bezierCurveTo(-p.size / 2, -p.size / 2, -p.size / 2, p.size / 2, 0, p.size);
+    ctx.bezierCurveTo(p.size / 2, p.size / 2, p.size / 2, -p.size / 2, 0, 0);
+    ctx.fill();
+    ctx.restore();
+  }
+
+  function animatePetals() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (var i = 0; i < petals.length; i++) {
+      var p = petals[i];
+      p.x += p.speedX;
+      p.y += p.speedY;
+      p.rotation += p.rotSpeed;
+      if (p.y > canvas.height + 20) {
+        p.y = -20;
+        p.x = Math.random() * canvas.width;
+      }
+      if (p.x < -20) p.x = canvas.width + 20;
+      if (p.x > canvas.width + 20) p.x = -20;
+      drawPetal(p);
+    }
+    requestAnimationFrame(animatePetals);
+  }
+  animatePetals();
+}
+
+function initScratchToReveal() {
+  var canvas = document.getElementById('scratchCanvas');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var container = canvas.parentElement;
+  var isDrawing = false;
+  var completed = false;
+
+  function resizeFoil() {
+    var rect = container.getBoundingClientRect();
+    if (rect.width === 0) return;
+    canvas.width = rect.width;
+    canvas.height = rect.height;
+    renderFoilSurface();
+  }
+
+  function renderFoilSurface() {
+    var w = canvas.width;
+    var h = canvas.height;
+    var grad = ctx.createLinearGradient(0, 0, w, h);
+    grad.addColorStop(0, '#F59E0B');
+    grad.addColorStop(0.25, '#FEF08A');
+    grad.addColorStop(0.5, '#D97706');
+    grad.addColorStop(0.75, '#FDE68A');
+    grad.addColorStop(1, '#92400E');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, w, h);
+
+    ctx.fillStyle = 'rgba(255,255,255,0.35)';
+    for (var i = 0; i < 45; i++) {
+      ctx.beginPath();
+      ctx.arc((i * 47) % w, (i * 31) % h, (i % 4) + 1.5, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    ctx.fillStyle = '#451A03';
+    ctx.font = 'bold 15px "Cinzel", Georgia, serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('✨ SCRATCH GOLD FOIL ✨', w / 2, h / 2 - 14);
+    ctx.font = 'italic 12px sans-serif';
+    ctx.fillStyle = '#78350F';
+    ctx.fillText('Rub with finger or mouse to reveal Date & Calendar', w / 2, h / 2 + 12);
+  }
+
+  function handleScratch(e) {
+    if (!isDrawing || completed) return;
+    var rect = canvas.getBoundingClientRect();
+    var clientX = e.clientX || (e.touches && e.touches[0].clientX);
+    var clientY = e.clientY || (e.touches && e.touches[0].clientY);
+    var x = (clientX - rect.left) * (canvas.width / rect.width);
+    var y = (clientY - rect.top) * (canvas.height / rect.height);
+
+    ctx.globalCompositeOperation = 'destination-out';
+    ctx.beginPath();
+    ctx.arc(x, y, 26, 0, Math.PI * 2);
+    ctx.fill();
+
+    checkFoilCleared();
+  }
+
+  function checkFoilCleared() {
+    if (completed) return;
+    var w = canvas.width;
+    var h = canvas.height;
+    var cleared = 0;
+    var sampleCount = 36;
+    for (var i = 0; i < 6; i++) {
+      for (var j = 0; j < 6; j++) {
+        var pixel = ctx.getImageData((i + 0.5) * (w / 6), (j + 0.5) * (h / 6), 1, 1).data;
+        if (pixel[3] === 0) cleared++;
+      }
+    }
+    if (cleared / sampleCount > 0.38) {
+      completed = true;
+      canvas.classList.add('is-cleared');
+      playThemeChime();
+      var hint = document.getElementById('scratchStatusHint');
+      if (hint) hint.innerHTML = '🎉 <b>Date Unlocked! Add to your calendar above!</b> 🎉';
+    }
+  }
+
+  canvas.addEventListener('mousedown', function(e) { isDrawing = true; handleScratch(e); });
+  canvas.addEventListener('mousemove', handleScratch);
+  window.addEventListener('mouseup', function() { isDrawing = false; });
+
+  canvas.addEventListener('touchstart', function(e) { isDrawing = true; handleScratch(e); }, { passive: true });
+  canvas.addEventListener('touchmove', handleScratch, { passive: true });
+  window.addEventListener('touchend', function() { isDrawing = false; });
+
+  setTimeout(resizeFoil, 150);
+  window.addEventListener('resize', resizeFoil);
+}
+
+function downloadICalReminder() {
+  var ics = "BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//GoldenVows//Wedding Invitation//EN\n" +
+    "BEGIN:VEVENT\n" +
+    "SUMMARY:Wedding of " + (weddingConfig.groomFull || "Ranveer Mittal") + " & " + (weddingConfig.brideFull || "Shanaya Jindal") + "\n" +
+    "DESCRIPTION:Grand Royal Wedding Celebration at " + weddingConfig.venue + "\n" +
+    "LOCATION:" + weddingConfig.venueAddress + "\n" +
+    "DTSTART:20271125T133000Z\n" +
+    "DTEND:20271125T183000Z\n" +
+    "END:VEVENT\nEND:VCALENDAR";
+  var blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
+  var link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = "Wedding_Ranveer_Shanaya.ics";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
+
 window.addEventListener('DOMContentLoaded', function() {
+  initFallingRosePetals();
+  initScratchToReveal();
+
   var urlParams = new URLSearchParams(window.location.search);
   var hasViewFlag = urlParams.get('view') === 'created' || urlParams.get('to') || urlParams.get('guest');
+  var recipient = urlParams.get('to') || urlParams.get('guest');
 
+  if (recipient) weddingConfig.guestName = decodeURIComponent(recipient.replace(/\+/g, ' '));
   applyConfigToDom();
 
+  var creator = document.getElementById('creatorScreen');
+  var stage = document.getElementById('stageScreen');
   if (hasViewFlag) {
-    creatorScreen.classList.add('creator-hidden');
-    mandapStage.classList.remove('stage-hidden');
-    resetMandapState();
+    if (creator) creator.classList.add('creator-hidden');
+    if (stage) stage.classList.remove('stage-hidden');
   } else {
-    creatorScreen.classList.remove('creator-hidden');
-    mandapStage.classList.add('stage-hidden');
+    if (creator) creator.classList.remove('creator-hidden');
+    if (stage) stage.classList.add('stage-hidden');
   }
 });
 </script>

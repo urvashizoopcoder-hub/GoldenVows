@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<title>Ranveer &amp; Shanaya — Punjabi Anand Karaj 3D Golden Kalire Wedding Invitation</title>
+<title>Ranveer &amp; Shanaya — Punjabi Anand Karaj — 3D Kalire Chandelier Box & Phulkari Embroidered Border</title>
 <link rel="stylesheet" href="../assets/fonts/fonts.css">
 <style>
 :root {
-  --punjabi-pink: #9D174D;
-  --punjabi-dark: #500724;
-  --punjabi-deep: #250210;
-  --kalire-gold: #F59E0B;
+  --theme-primary: #831843;
+  --theme-dark: #500724;
+  --theme-deep: #280311;
+  --theme-accent: #F59E0B;
   --silver: #E2E8F0;
   --silver-glow: #F8FAFC;
   --gold: #D4AF37;
@@ -39,7 +39,7 @@ html::-webkit-scrollbar, body::-webkit-scrollbar, ::-webkit-scrollbar, *::-webki
 body {
   margin: 0;
   padding: 0;
-  background: radial-gradient(circle at 50% 20%, #9D174D 0%, #500724 65%, #250210 100%);
+  background: radial-gradient(circle at 50% 20%, #831843 0%, #500724 65%, #280311 100%);
   color: #FFF;
   font-family: var(--sans);
   overflow-x: hidden;
@@ -151,7 +151,7 @@ body {
   font-family: var(--sans);
   margin-bottom: 40px;
   box-sizing: border-box;
-  border: 2px solid #F59E0B;
+  border: 2px solid #059669;
 }
 .creator-header {
   text-align: center;
@@ -160,7 +160,7 @@ body {
 .creator-title {
   font-family: var(--serif);
   font-size: clamp(22px, 5vw, 28px);
-  color: #9D174D;
+  color: #064E3B;
   margin: 0 0 8px;
   letter-spacing: .02em;
 }
@@ -174,8 +174,8 @@ body {
   font-family: var(--serif);
   font-size: 16px;
   font-weight: 700;
-  color: #9D174D;
-  border-bottom: 2px solid #FCE7F3;
+  color: #064E3B;
+  border-bottom: 2px solid #D1FAE5;
   padding-bottom: 6px;
   margin: 22px 0 14px;
   display: flex;
@@ -214,7 +214,7 @@ body {
   transition: border-color .2s, box-shadow .2s;
 }
 .form-field-grp input:focus, .form-field-grp textarea:focus, .form-field-grp select:focus {
-  border-color: #F59E0B;
+  border-color: #059669;
   background: #FFF;
   box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.2);
 }
@@ -238,7 +238,7 @@ body {
   transition: all .2s;
 }
 .palette-card.active {
-  border-color: #9D174D;
+  border-color: #064E3B;
   background: #ECFDF5;
   box-shadow: 0 0 0 2px #064E3B;
 }
@@ -256,7 +256,7 @@ body {
   padding: 15px;
   border: none;
   border-radius: 14px;
-  background: linear-gradient(135deg, #9D174D 0%, #500724 100%);
+  background: linear-gradient(135deg, #064E3B 0%, #022C22 100%);
   color: #FFF;
   font-family: var(--serif);
   font-size: 16.5px;
@@ -276,12 +276,13 @@ body {
   box-shadow: 0 12px 30px rgba(6, 78, 59, 0.6);
 }
 
-/* ================= 2. 3D GOLDEN KALIRE CHANDELIER STAGE ================= */
+
+/* ================= 2. 3D KALIRE CHANDELIER CASKET STAGE ================= */
 .stage-screen {
   position: fixed;
   inset: 0;
   z-index: 6000;
-  background: radial-gradient(circle at 50% 35%, #DB2777 0%, #500724 65%, #250210 100%);
+  background: radial-gradient(circle at 50% 35%, #831843 0%, #500724 65%, #280311 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -291,66 +292,177 @@ body {
   transition: opacity .8s ease, visibility .8s;
   cursor: pointer;
 }
-.stage-screen.stage-hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-.kalire-scene-10 {
-  width: 300px;
-  height: 390px;
-  perspective: 1200px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.stage-screen.stage-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+
+
+/* 10: Punjabi Phulkari Geometric Border with Hanging Kalire Tassels */
+.punjabi-phulkari-card {
   position: relative;
-}
-.kalire-body-10 {
-  width: 280px;
-  height: 360px;
-  position: relative;
-  transform-style: preserve-3d;
-}
-.kalire-inner-card {
-  position: absolute;
-  inset: 20px;
-  border-radius: 24px;
-  background: radial-gradient(circle at 50% 30%, #FFFBEB 0%, #FEF3C7 70%, #FDE68A 100%);
-  border: 3px solid #D97706;
-  box-shadow: 0 20px 45px rgba(0,0,0,0.85);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  background: radial-gradient(ellipse at 50% 20%, #831843 0%, #500724 70%, #280311 100%);
+  border: 4px solid #F59E0B;
+  border-radius: 32px;
+  box-shadow: 0 25px 70px rgba(0,0,0,0.95), inset 0 0 35px rgba(245, 158, 11, 0.35);
+  padding: 50px 24px 38px;
+  margin-bottom: 28px;
   text-align: center;
-  padding: 18px;
-  box-sizing: border-box;
-  transform: translateZ(4px);
-  transition: transform 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  overflow: hidden;
 }
-.kalire-inner-card.elevated {
-  transform: translateZ(95px) scale(1.08);
-  box-shadow: 0 25px 60px rgba(0,0,0,0.95);
+.punjabi-phulkari-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 16px;
+  background: repeating-linear-gradient(45deg, #F59E0B 0, #F59E0B 8px, #BE185D 8px, #BE185D 16px);
+  opacity: 0.85;
 }
-.kalire-canopy-top {
+
+
+
+/* ================= LUXURY ROSE & SCRATCH CARD STYLES ================= */
+.luxury-rose-banner {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto 14px;
+  display: flex;
+  justify-content: center;
+}
+.rose-garland-svg {
+  width: 100%;
+  height: auto;
+  max-height: 90px;
+  filter: drop-shadow(0 6px 14px rgba(0,0,0,0.6));
+}
+.interactive-scratch-card {
+  max-width: 520px;
+  margin: 32px auto 28px;
+  position: relative;
+}
+.scratch-card-frame {
+  background: linear-gradient(145deg, rgba(255,255,255,0.08) 0%, rgba(0,0,0,0.5) 100%);
+  border: 2px solid var(--gold);
+  border-radius: 24px;
+  padding: 24px 20px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.7), inset 0 0 25px rgba(212,175,55,0.15);
+  text-align: center;
+  backdrop-filter: blur(12px);
+  position: relative;
+}
+.scratch-badge-pill {
+  display: inline-block;
+  padding: 6px 16px;
+  background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+  color: #000;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .15em;
+  border-radius: 999px;
+  margin-bottom: 8px;
+  box-shadow: 0 4px 15px rgba(245,158,11,0.5);
+}
+.scratch-heading {
+  font-family: var(--serif);
+  font-size: 22px;
+  color: var(--gold-l);
+  margin: 6px 0 4px;
+}
+.scratch-instruction {
+  font-size: 12px;
+  color: #CBD5E1;
+  margin: 0 0 16px;
+}
+.scratch-surface-wrap {
+  position: relative;
+  width: 100%;
+  height: 230px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.9), 0 10px 30px rgba(0,0,0,0.6);
+  border: 2px solid rgba(212,175,55,0.6);
+}
+.scratch-unveiled-card {
   position: absolute;
   inset: 0;
-  border-radius: 28px;
-  background: radial-gradient(circle at 50% 40%, rgba(245,158,11,0.95) 0%, rgba(180,83,9,0.95) 80%);
-  border: 3px solid #FEF08A;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.8), 0 0 30px rgba(245,158,11,0.5);
+  background: radial-gradient(circle at 50% 35%, #FFFDF7 0%, #FEF3C7 60%, #FDE68A 100%);
+  color: #78350F;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: transform 1.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 1s;
-  z-index: 20;
+  padding: 16px;
+  box-sizing: border-box;
+  text-align: center;
 }
-.kalire-canopy-top.is-lifted {
-  transform: translateY(-110px) scale(1.1) translateZ(80px);
+.save-the-date-tag {
+  font-size: 11px;
+  letter-spacing: .25em;
+  font-weight: 800;
+  color: #B45309;
+  text-transform: uppercase;
+}
+.unveiled-date-title {
+  font-family: var(--serif);
+  font-size: clamp(20px, 4vw, 26px);
+  color: #881337;
+  font-weight: 700;
+  margin: 4px 0;
+}
+.unveiled-time-venue {
+  font-size: 12.5px;
+  color: #78350F;
+  margin-bottom: 12px;
+}
+.calendar-btn-group {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.cal-btn {
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all .25s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+.cal-btn.gcal { background: #2563EB; color: #FFF; }
+.cal-btn.gcal:hover { background: #1D4ED8; transform: translateY(-2px); }
+.cal-btn.ical { background: #881337; color: #FFF; }
+.cal-btn.ical:hover { background: #9F1239; transform: translateY(-2px); }
+
+.scratch-foil-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+  touch-action: none;
+  z-index: 5;
+  transition: opacity .8s ease;
+}
+.scratch-foil-canvas.is-cleared {
   opacity: 0;
   pointer-events: none;
 }
+.scratch-status-hint {
+  font-size: 12px;
+  color: var(--gold-l);
+  margin-top: 10px;
+}
+
+/* Floating Roses & Falling Petals Canvas */
+#particlesCanvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9990;
+}
+
 
 /* ================= 3. MUGHAL MIHRAB ARCH INVITATION CARD ================= */
 .main-invitation-container {
@@ -494,7 +606,7 @@ body {
   font-family: var(--serif);
   font-size: 20px;
   font-weight: 700;
-  color: #9D174D;
+  color: #064E3B;
   margin: 0;
 }
 .btn-close-modal {
@@ -520,9 +632,7 @@ body {
     <button type="button" class="btn-nav-action primary" onclick="showCreatorForm()">
       ✎ Edit Form
     </button>
-    <button type="button" class="btn-nav-action" onclick="replayStageReveal()">
-      🔔 3D Golden Kalire
-    </button>
+    <button type="button" class="btn-nav-action" onclick="replayStageReveal()">✨ 3D Kalire Chandelier Casket</button>
   </div>
   <div class="nav-actions">
     <button type="button" class="btn-nav-action primary" onclick="openSendModal()">
@@ -783,41 +893,79 @@ body {
   </div>
 </div>
 
-<!-- ================= 2. 3D GOLDEN KALIRE CHANDELIER STAGE ================= -->
-<div class="stage-screen stage-hidden" id="stageScreen" onclick="liftGoldenKalire()">
-  <div style="font-size:32px;margin-bottom:12px;filter:drop-shadow(0 4px 12px rgba(245,158,11,0.7));">🥁 ✨ 🔔</div>
-  <div class="kalire-scene-10" id="locketScene">
-    <div class="kalire-body-10" id="locketBody">
-      <div class="kalire-inner-card" id="kalireInnerCard">
-        <div style="font-size:28px;margin-bottom:4px;">✨</div>
-        <p style="font-size:10.5px;letter-spacing:.25em;text-transform:uppercase;color:#9D174D;margin:0;font-weight:700;">ANAND KARAJ</p>
-        <h2 style="font-family:var(--serif);font-size:21px;color:#831843;margin:6px 0;" id="locketCoupleNames">Ranveer &amp; Shanaya</h2>
-        <p style="font-size:11.5px;color:#9D174D;margin:0;font-weight:600;" id="locketDateSub">25TH NOV 2027</p>
-        <div style="font-size:12px;color:#B45309;margin-top:8px;">ੴ ਲਖ ਖੁਸੀਆ ਪਾਤਿਸਾਹੀਆ ੴ</div>
-        <p style="font-size:10px;color:#D97706;margin-top:10px;font-weight:700;letter-spacing:.1em;">ENTER CELEBRATION</p>
-      </div>
 
-      <div class="kalire-canopy-top" id="kalireCanopy">
-        <div style="font-size:46px;filter:drop-shadow(0 4px 10px rgba(0,0,0,0.5));animation:bellSwing 3s infinite ease-in-out;">🔔</div>
-        <div style="font-family:var(--serif);font-size:18px;color:#FFF;letter-spacing:.15em;font-weight:700;margin-top:8px;text-shadow:0 2px 6px #000;">
-          GOLDEN KALIRE
+<!-- 10: 3D ANAND KARAJ KALIRE CASKET -->
+<div class="stage-screen stage-hidden" id="stageScreen" onclick="openKalireCasket()">
+  <div style="perspective:1200px; width:300px; height:370px; display:flex; align-items:center; justify-content:center; position:relative;">
+    <div id="kalireBody" style="width:270px; height:320px; position:relative; transform-style:preserve-3d;">
+      <div style="position:absolute; inset:0; border-radius:28px; background:linear-gradient(135deg, #831843 0%, #500724 70%, #280311 100%); border:3.5px solid #F59E0B; box-shadow:0 25px 65px rgba(0,0,0,0.95); display:flex; align-items:center; justify-content:center; padding:16px;">
+        <div id="kalireCard" style="width:90%; height:90%; border-radius:20px; background:radial-gradient(circle at 50% 40%, #9D174D 0%, #500724 85%); border:2px solid #FDE047; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:16px; transition:transform 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);">
+          <div style="font-size:26px;">✨</div>
+          <p style="font-size:10px; letter-spacing:.25em; text-transform:uppercase; color:#FDE047; margin:0;">ANAND KARAJ</p>
+          <h2 style="font-family:var(--serif); font-size:20px; color:#FFF; margin:6px 0;">Ranveer &amp; Shanaya</h2>
+          <p style="font-size:11px; color:#FCE7F3; margin:0;">25TH NOV 2027</p>
+          <p style="font-size:10px; color:#FDE047; margin-top:8px; font-weight:600;">ENTER CELEBRATION</p>
         </div>
-        <div style="font-size:12px;color:#FEF3C7;letter-spacing:.2em;margin-top:4px;">ਸੁਹੰਧੜੇ ਛਣਕਾਰ</div>
+      </div>
+      <!-- Lid with Gold Kalire Umbrellas -->
+      <div id="kalireLid" style="position:absolute; inset:0; border-radius:28px; background:radial-gradient(circle at 40% 35%, #BE185D 0%, #831843 65%, #500724 100%); border:3.5px solid #F59E0B; transform-origin:top center; transition:transform 1.6s cubic-bezier(0.2, 0.8, 0.2, 1); box-shadow:inset 0 0 30px rgba(0,0,0,0.7), 0 15px 35px rgba(0,0,0,0.8); display:flex; flex-direction:column; align-items:center; justify-content:center; z-index:20;">
+        <div style="font-size:32px;">🔔</div>
+        <div style="font-family:var(--serif); font-size:16px; color:#FFF; margin-top:10px; letter-spacing:.12em; font-weight:700;">KALIRE CASKET</div>
       </div>
     </div>
   </div>
-  <p style="font-size:13px;letter-spacing:.15em;color:#FEF08A;text-transform:uppercase;margin:0;text-shadow:0 2px 8px #000;">
-    ✨ Tap to lift the Golden Kalire Canopy ✨
+  <p style="font-size:13px; letter-spacing:.15em; color:#FDE047; text-transform:uppercase; margin-top:16px; text-shadow:0 2px 8px #000;">
+    ✨ Tap to Open the Golden Kalire Box ✨
   </p>
 </div>
 
 <!-- ================= 3. MUGHAL MIHRAB MAIN INVITATION ================= -->
 <main class="main-invitation-container" id="mainInvite">
-  <section class="mughal-hero-card">
+  <section class="punjabi-phulkari-card">
     <div style="font-family:var(--serif);font-size:20px;color:var(--gold-l);margin-bottom:8px;">॥ ੴ ਸਤਿਗੁਰ ਪ੍ਰਸਾਦਿ ॥</div>
-    <div style="font-size:12px;letter-spacing:.25em;text-transform:uppercase;color:#E2E8F0;margin-bottom:10px;">
-      JOYOUS DHOL BEATS, GILDED KALIRE &amp; ROYAL PHULKARI WEAVES
-    </div>
+    <div style="font-size:12px;letter-spacing:.25em;text-transform:uppercase;color:#E2E8F0;margin-bottom:10px;">ANAND KARAJ CEREMONY · KALIRE GLOW & CRIMSON ROSES</div>
+    <div class="luxury-rose-banner">
+  <svg viewBox="0 0 460 110" class="rose-garland-svg" preserveAspectRatio="xMidYMid meet">
+    <defs>
+      <radialGradient id="roseRedGrad" cx="45%" cy="38%" r="60%">
+        <stop offset="0%" stop-color="#FF4D6D"/>
+        <stop offset="40%" stop-color="#E11D48"/>
+        <stop offset="80%" stop-color="#9F1239"/>
+        <stop offset="100%" stop-color="#4C0519"/>
+      </radialGradient>
+      <radialGradient id="rosePinkGrad" cx="45%" cy="38%" r="60%">
+        <stop offset="0%" stop-color="#FDA4AF"/>
+        <stop offset="45%" stop-color="#FB7185"/>
+        <stop offset="85%" stop-color="#E11D48"/>
+        <stop offset="100%" stop-color="#881337"/>
+      </radialGradient>
+      <linearGradient id="goldStemGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#FEF08A"/>
+        <stop offset="45%" stop-color="#D4AF37"/>
+        <stop offset="100%" stop-color="#854D0E"/>
+      </linearGradient>
+      <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#86EFAC"/>
+        <stop offset="50%" stop-color="#16A34A"/>
+        <stop offset="100%" stop-color="#064E3B"/>
+      </linearGradient>
+    </defs>
+    <path d="M 30 55 Q 100 20 180 50" fill="none" stroke="url(#goldStemGrad)" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M 80 40 Q 95 15 115 32" fill="url(#leafGrad)" opacity="0.85"/>
+    <path d="M 130 52 Q 148 28 165 46" fill="url(#leafGrad)" opacity="0.85"/>
+    <circle cx="75" cy="38" r="13" fill="url(#rosePinkGrad)"/>
+    <circle cx="125" cy="48" r="16" fill="url(#roseRedGrad)"/>
+    <path d="M 430 55 Q 360 20 280 50" fill="none" stroke="url(#goldStemGrad)" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M 380 40 Q 365 15 345 32" fill="url(#leafGrad)" opacity="0.85"/>
+    <path d="M 330 52 Q 312 28 295 46" fill="url(#leafGrad)" opacity="0.85"/>
+    <circle cx="385" cy="38" r="13" fill="url(#rosePinkGrad)"/>
+    <circle cx="335" cy="48" r="16" fill="url(#roseRedGrad)"/>
+    <circle cx="230" cy="52" r="28" fill="url(#roseRedGrad)" filter="drop-shadow(0 4px 12px rgba(0,0,0,0.5))"/>
+    <circle cx="226" cy="48" r="18" fill="url(#rosePinkGrad)" opacity="0.9"/>
+    <circle cx="228" cy="50" r="10" fill="#FFF1F2" opacity="0.95"/>
+    <circle cx="229" cy="51" r="4" fill="#FFE4E6"/>
+  </svg>
+</div><div style="font-size:24px;margin:4px 0;">🌹 🌿 🌹</div>
     <h1 class="hero-names">
       <span id="groomNameDisplay">Ranveer Mittal</span>
       <span style="font-family:var(--script);font-size:0.7em;color:var(--gold);display:block;margin:4px 0;">&amp;</span>
@@ -828,6 +976,40 @@ body {
       <div id="weddingVenueDisplay" style="margin-top:4px;">THE TAJ MAHAL PALACE BALLROOM, MUMBAI</div>
     </div>
   </section>
+
+  
+<!-- Interactive Scratch-To-Reveal Save The Date & Calendar -->
+<div class="interactive-scratch-card">
+  <div class="scratch-card-frame">
+    <div class="scratch-badge-pill">✨ SCRATCH &amp; SAVE THE DATE ✨</div>
+    <h3 class="scratch-heading">Rub Gold Foil to Reveal the Date</h3>
+    <p class="scratch-instruction">Drag your finger or cursor across the shimmering gold foil below</p>
+
+    <div class="scratch-surface-wrap">
+      <div class="scratch-unveiled-card" id="scratchUnveiled">
+        <div style="font-size:24px;margin-bottom:2px;">🌹 💖 🌹</div>
+        <div class="save-the-date-tag">AUSPICIOUS WEDDING CELEBRATION</div>
+        <div class="unveiled-date-title" id="scratchDateTitle">Thursday, 25th Nov 2027</div>
+        <div class="unveiled-time-venue">7:00 PM · The Taj Mahal Palace Ballroom, Mumbai</div>
+        
+        <div class="calendar-btn-group">
+          <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Royal+Wedding+of+Ranveer+%26+Shanaya&dates=20271125T133000Z/20271125T183000Z&details=Grand+Ballroom+Starlight+Wedding+Celebration&location=The+Taj+Mahal+Palace+Mumbai" target="_blank" rel="noopener" class="cal-btn gcal">
+            📅 Add to Google Calendar
+          </a>
+          <button type="button" class="cal-btn ical" onclick="downloadICalReminder()">
+            🍏 Save to Apple Calendar (.ics)
+          </button>
+        </div>
+      </div>
+
+      <canvas id="scratchCanvas" class="scratch-foil-canvas"></canvas>
+    </div>
+    <div class="scratch-status-hint" id="scratchStatusHint">
+      👆 <i>Rub gold foil with finger or cursor to unlock calendar</i>
+    </div>
+  </div>
+</div>
+
 
   <!-- Welcome & Parents Blessings -->
   <section class="mughal-section-card">
@@ -846,7 +1028,7 @@ body {
       </div>
     </div>
     <div style="font-family:var(--serif);font-size:15px;color:var(--gold-l);margin-top:22px;" id="coupleQuoteDisplay">
-      "ਧੰਨੁ ਸੁਵੇਲਾ ਜਿਤੁ ਦਰਸਨੁ ਪਾਇਆ — Two souls joined in sacred bliss and eternal commitment."
+      "Two bodies, one soul, walking the four sacred Laavan in eternal unison."
     </div>
   </section>
 
@@ -956,7 +1138,7 @@ var weddingConfig = {
   venueAddress: "Apollo Bunder, Colaba, Mumbai, Maharashtra 400001",
   mapsUrl: "https://www.google.com/maps/search/?api=1&query=The+Taj+Mahal+Palace+Mumbai",
   inviteMessage: "Together with their families, Ranveer & Shanaya request the honour of your presence at the grand celebration of their holy wedding union.",
-  coupleQuote: "ਧੰਨੁ ਸੁਵੇਲਾ ਜਿਤੁ ਦਰਸਨੁ ਪਾਇਆ — Two souls joined in sacred bliss and eternal commitment.",
+  coupleQuote: "Two bodies, one soul, walking the four sacred Laavan in eternal unison.",
   familySignoff: "The Mittal & Jindal Families",
   hashtag: "#RanveerShanayaForever",
   guestName: "Dr. Ayan & Family",
@@ -964,37 +1146,34 @@ var weddingConfig = {
   guestEmail: "guest@example.com"
 };
 
-function liftGoldenKalire() {
-  var canopy = document.getElementById('kalireCanopy');
-  var inner = document.getElementById('kalireInnerCard');
-  if (!canopy || canopy.classList.contains('is-lifted')) return;
-  canopy.classList.add('is-lifted');
-  playThemeChime();
-  triggerJasmineBurst();
 
-  setTimeout(function() {
-    if (inner) inner.classList.add('elevated');
-  }, 450);
-
-  setTimeout(function() {
-    var stage = document.getElementById('stageScreen');
-    if (stage) stage.classList.add('stage-hidden');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, 2400);
-}
-
-function replayStageReveal() {
-  var creator = document.getElementById('creatorScreen');
+function openKalireCasket() {
+  var lid = document.getElementById('kalireLid');
+  var card = document.getElementById('kalireCard');
   var stage = document.getElementById('stageScreen');
-  var canopy = document.getElementById('kalireCanopy');
-  var inner = document.getElementById('kalireInnerCard');
-  if (creator) creator.classList.add('creator-hidden');
-  if (stage) {
-    stage.classList.remove('stage-hidden');
-    if (canopy) canopy.classList.remove('is-lifted');
-    if (inner) inner.classList.remove('elevated');
+  if (lid) lid.style.transform = 'rotateX(130deg)';
+  if (card) {
+    card.style.transform = 'translateZ(95px) scale(1.08)';
+    card.style.boxShadow = '0 25px 60px rgba(0,0,0,0.95)';
   }
+  setTimeout(function() {
+    if (stage) stage.classList.add('stage-hidden');
+    var main = document.getElementById('mainInvite');
+    if (main) main.scrollIntoView({ behavior: 'smooth' });
+  }, 1400);
 }
+function replayStageReveal() {
+  var stage = document.getElementById('stageScreen');
+  var lid = document.getElementById('kalireLid');
+  var card = document.getElementById('kalireCard');
+  if (lid) lid.style.transform = 'rotateX(0deg)';
+  if (card) {
+    card.style.transform = 'none';
+    card.style.boxShadow = 'none';
+  }
+  if (stage) stage.classList.remove('stage-hidden');
+}
+
 
 function showCreatorForm() {
   var creator = document.getElementById('creatorScreen');
@@ -1217,7 +1396,186 @@ function clearAllFields() {
   document.querySelectorAll('#templateCreatorForm input[type="text"]').forEach(function(i) { i.value = ''; });
 }
 
+
+function initFallingRosePetals() {
+  var canvas = document.getElementById('particlesCanvas');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var petals = [];
+  var count = 35;
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+
+  for (var i = 0; i < count; i++) {
+    petals.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      size: 10 + Math.random() * 14,
+      speedX: -1 + Math.random() * 2,
+      speedY: 1 + Math.random() * 2.2,
+      rotation: Math.random() * 360,
+      rotSpeed: -1.5 + Math.random() * 3,
+      opacity: 0.4 + Math.random() * 0.5,
+      color: ['#E11D48', '#FB7185', '#F43F5E', '#BE123C', '#FDA4AF'][Math.floor(Math.random() * 5)]
+    });
+  }
+
+  function drawPetal(p) {
+    ctx.save();
+    ctx.translate(p.x, p.y);
+    ctx.rotate(p.rotation * Math.PI / 180);
+    ctx.globalAlpha = p.opacity;
+    ctx.fillStyle = p.color;
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.bezierCurveTo(-p.size / 2, -p.size / 2, -p.size / 2, p.size / 2, 0, p.size);
+    ctx.bezierCurveTo(p.size / 2, p.size / 2, p.size / 2, -p.size / 2, 0, 0);
+    ctx.fill();
+    ctx.restore();
+  }
+
+  function animatePetals() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (var i = 0; i < petals.length; i++) {
+      var p = petals[i];
+      p.x += p.speedX;
+      p.y += p.speedY;
+      p.rotation += p.rotSpeed;
+      if (p.y > canvas.height + 20) {
+        p.y = -20;
+        p.x = Math.random() * canvas.width;
+      }
+      if (p.x < -20) p.x = canvas.width + 20;
+      if (p.x > canvas.width + 20) p.x = -20;
+      drawPetal(p);
+    }
+    requestAnimationFrame(animatePetals);
+  }
+  animatePetals();
+}
+
+function initScratchToReveal() {
+  var canvas = document.getElementById('scratchCanvas');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var container = canvas.parentElement;
+  var isDrawing = false;
+  var completed = false;
+
+  function resizeFoil() {
+    var rect = container.getBoundingClientRect();
+    if (rect.width === 0) return;
+    canvas.width = rect.width;
+    canvas.height = rect.height;
+    renderFoilSurface();
+  }
+
+  function renderFoilSurface() {
+    var w = canvas.width;
+    var h = canvas.height;
+    var grad = ctx.createLinearGradient(0, 0, w, h);
+    grad.addColorStop(0, '#F59E0B');
+    grad.addColorStop(0.25, '#FEF08A');
+    grad.addColorStop(0.5, '#D97706');
+    grad.addColorStop(0.75, '#FDE68A');
+    grad.addColorStop(1, '#92400E');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, w, h);
+
+    ctx.fillStyle = 'rgba(255,255,255,0.35)';
+    for (var i = 0; i < 45; i++) {
+      ctx.beginPath();
+      ctx.arc((i * 47) % w, (i * 31) % h, (i % 4) + 1.5, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    ctx.fillStyle = '#451A03';
+    ctx.font = 'bold 15px "Cinzel", Georgia, serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('✨ SCRATCH GOLD FOIL ✨', w / 2, h / 2 - 14);
+    ctx.font = 'italic 12px sans-serif';
+    ctx.fillStyle = '#78350F';
+    ctx.fillText('Rub with finger or mouse to reveal Date & Calendar', w / 2, h / 2 + 12);
+  }
+
+  function handleScratch(e) {
+    if (!isDrawing || completed) return;
+    var rect = canvas.getBoundingClientRect();
+    var clientX = e.clientX || (e.touches && e.touches[0].clientX);
+    var clientY = e.clientY || (e.touches && e.touches[0].clientY);
+    var x = (clientX - rect.left) * (canvas.width / rect.width);
+    var y = (clientY - rect.top) * (canvas.height / rect.height);
+
+    ctx.globalCompositeOperation = 'destination-out';
+    ctx.beginPath();
+    ctx.arc(x, y, 26, 0, Math.PI * 2);
+    ctx.fill();
+
+    checkFoilCleared();
+  }
+
+  function checkFoilCleared() {
+    if (completed) return;
+    var w = canvas.width;
+    var h = canvas.height;
+    var cleared = 0;
+    var sampleCount = 36;
+    for (var i = 0; i < 6; i++) {
+      for (var j = 0; j < 6; j++) {
+        var pixel = ctx.getImageData((i + 0.5) * (w / 6), (j + 0.5) * (h / 6), 1, 1).data;
+        if (pixel[3] === 0) cleared++;
+      }
+    }
+    if (cleared / sampleCount > 0.38) {
+      completed = true;
+      canvas.classList.add('is-cleared');
+      playThemeChime();
+      var hint = document.getElementById('scratchStatusHint');
+      if (hint) hint.innerHTML = '🎉 <b>Date Unlocked! Add to your calendar above!</b> 🎉';
+    }
+  }
+
+  canvas.addEventListener('mousedown', function(e) { isDrawing = true; handleScratch(e); });
+  canvas.addEventListener('mousemove', handleScratch);
+  window.addEventListener('mouseup', function() { isDrawing = false; });
+
+  canvas.addEventListener('touchstart', function(e) { isDrawing = true; handleScratch(e); }, { passive: true });
+  canvas.addEventListener('touchmove', handleScratch, { passive: true });
+  window.addEventListener('touchend', function() { isDrawing = false; });
+
+  setTimeout(resizeFoil, 150);
+  window.addEventListener('resize', resizeFoil);
+}
+
+function downloadICalReminder() {
+  var ics = "BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//GoldenVows//Wedding Invitation//EN\n" +
+    "BEGIN:VEVENT\n" +
+    "SUMMARY:Wedding of " + (weddingConfig.groomFull || "Ranveer Mittal") + " & " + (weddingConfig.brideFull || "Shanaya Jindal") + "\n" +
+    "DESCRIPTION:Grand Royal Wedding Celebration at " + weddingConfig.venue + "\n" +
+    "LOCATION:" + weddingConfig.venueAddress + "\n" +
+    "DTSTART:20271125T133000Z\n" +
+    "DTEND:20271125T183000Z\n" +
+    "END:VEVENT\nEND:VCALENDAR";
+  var blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
+  var link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = "Wedding_Ranveer_Shanaya.ics";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
+
 window.addEventListener('DOMContentLoaded', function() {
+  initFallingRosePetals();
+  initScratchToReveal();
+
   var urlParams = new URLSearchParams(window.location.search);
   var hasViewFlag = urlParams.get('view') === 'created' || urlParams.get('to') || urlParams.get('guest');
   var recipient = urlParams.get('to') || urlParams.get('guest');

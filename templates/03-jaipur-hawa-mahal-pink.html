@@ -1,23 +1,24 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Madeleine & Vittorio — Cartier Red Velvet Ribbon Wedding Invitation</title>
-<meta name="description" content="Cartier Red Velvet Box, Untying Ribbon & Rose Petals 3D Reveal Wedding Invitation">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>Ranveer &amp; Shanaya — Jaipur Hawa Mahal — 3D Cartier-Style Red Velvet Octagon Casket & Scalloped Mihrab</title>
 <link rel="stylesheet" href="../assets/fonts/fonts.css">
-<link rel="stylesheet" href="../styles.css">
 <style>
 :root {
-  --cartier-red: #8B0018;
-  --cartier-dark: #4A000D;
-  --cartier-deep: #250006;
-  --cartier-light: #B3132B;
+  --theme-primary: #881337;
+  --theme-dark: #4C0519;
+  --theme-deep: #2A020C;
+  --theme-accent: #FB7185;
+  --silver: #E2E8F0;
+  --silver-glow: #F8FAFC;
   --gold: #D4AF37;
   --gold-l: #F7D070;
-  --gold-pale: #FFF6DD;
-  --cream-card: #FAF6F0;
-  --ink: #1F0206;
+  --marble-cream: #FCFBF7;
+  --serif: "Cinzel", "Playfair Display", "Georgia", serif;
+  --script: "Great Vibes", "Alex Brush", cursive;
+  --sans: "Montserrat", "Segoe UI", sans-serif;
 }
 
 *, *::before, *::after, html, body {
@@ -38,14 +39,14 @@ html::-webkit-scrollbar, body::-webkit-scrollbar, ::-webkit-scrollbar, *::-webki
 body {
   margin: 0;
   padding: 0;
-  background: #180004;
+  background: radial-gradient(circle at 50% 20%, #881337 0%, #4C0519 65%, #2A020C 100%);
   color: #FFF;
   font-family: var(--sans);
   overflow-x: hidden;
   min-height: 100vh;
 }
 
-/* Persistent Luxury Navigation Top Bar */
+/* Persistent Top Bar */
 .top-nav-bar {
   position: fixed;
   top: 14px;
@@ -57,70 +58,79 @@ body {
   align-items: center;
   pointer-events: none;
 }
-.nav-actions-group {
+.nav-actions {
   display: flex;
   gap: 8px;
   pointer-events: auto;
+  align-items: center;
 }
-.nav-pill-btn {
-  background: rgba(45, 0, 10, 0.78);
-  border: 1px solid rgba(212, 175, 55, 0.55);
-  backdrop-filter: blur(10px);
-  color: var(--gold-l);
-  font-family: var(--serif);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: .05em;
+.btn-nav-action {
+  background: rgba(2, 44, 34, 0.88);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  color: #FFF;
   padding: 8px 14px;
   border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
   cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+  transition: all 0.25s ease;
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-  transition: all .25s ease;
   text-decoration: none;
+  font-family: var(--sans);
 }
-.nav-pill-btn:hover {
+.btn-nav-action:hover {
+  background: var(--gold);
+  color: var(--mughal-deep);
+  border-color: #FFF;
   transform: translateY(-2px);
-  border-color: var(--gold-l);
-  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
-  color: #FFF;
+}
+.btn-nav-action.primary {
+  background: linear-gradient(135deg, #D4AF37 0%, #AA7C11 100%);
+  color: #022C22;
+  border-color: #FFF0A0;
 }
 
-/* Sound Controller Top-Right */
-.audio-ctrl-btn {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: rgba(45, 0, 10, 0.78);
-  border: 1px solid rgba(212, 175, 55, 0.55);
-  backdrop-filter: blur(10px);
+/* Floating Auto-Scroll Button */
+.btn-auto-scroll {
+  position: fixed;
+  bottom: 24px;
+  right: 20px;
+  z-index: 8000;
+  background: rgba(2, 44, 34, 0.9);
+  border: 1.5px solid var(--gold);
   color: var(--gold-l);
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.6);
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  cursor: pointer;
-  pointer-events: auto;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-  transition: all .25s ease;
+  gap: 8px;
+  transition: all 0.3s;
 }
-.audio-ctrl-btn:hover {
-  transform: scale(1.08);
-  border-color: var(--gold-l);
+.btn-auto-scroll:hover {
+  background: var(--gold);
+  color: #022C22;
+  transform: scale(1.05);
 }
 
-/* ================= 1. INVITATION CREATOR FORM SCREEN ================= */
+/* ================= 1. CONTRASTING FORM SCREEN (MUGHAL EMERALD & MARBLE) ================= */
 .creator-screen {
   position: fixed;
   inset: 0;
-  z-index: 8000;
-  background: radial-gradient(circle at 50% 25%, #6a0410 0%, #3d000a 60%, #1a0004 100%);
+  z-index: 8500;
+  background: radial-gradient(circle at 50% 25%, #065F46 0%, #064E3B 60%, #011C15 100%);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  padding: 60px 16px 30px;
+  padding: 70px 16px 40px;
   box-sizing: border-box;
   overflow-y: auto;
   transition: opacity .6s cubic-bezier(0.4, 0, 0.2, 1), visibility .6s;
@@ -130,1651 +140,1460 @@ body {
   visibility: hidden;
   pointer-events: none;
 }
-
 .creator-card {
   width: 100%;
-  max-width: 540px;
-  background: rgba(35, 0, 8, 0.92);
-  border: 2px solid var(--gold);
-  border-radius: 24px;
-  box-shadow: 0 25px 60px rgba(0,0,0,0.85), 0 0 30px rgba(212, 175, 55, 0.35);
+  max-width: 680px;
+  background: #FCFDFB;
+  border-radius: 28px;
   padding: 30px 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.85);
+  color: #1F2937;
+  font-family: var(--sans);
+  margin-bottom: 40px;
   box-sizing: border-box;
-  color: #FFF;
-  margin: auto;
-  position: relative;
+  border: 2px solid #059669;
 }
 .creator-header {
   text-align: center;
-  margin-bottom: 22px;
+  margin-bottom: 24px;
 }
 .creator-title {
   font-family: var(--serif);
-  font-size: 26px;
-  color: var(--gold-l);
-  margin: 0 0 6px;
-  letter-spacing: 1px;
+  font-size: clamp(22px, 5vw, 28px);
+  color: #064E3B;
+  margin: 0 0 8px;
+  letter-spacing: .02em;
 }
 .creator-subtitle {
-  font-size: 13px;
-  color: #FFCCD4;
+  font-size: 13.5px;
+  color: #4B5563;
+  line-height: 1.5;
   margin: 0;
-  line-height: 1.45;
 }
-
-.form-field-grp {
-  margin-bottom: 15px;
-  text-align: left;
-}
-.form-field-grp label {
-  display: block;
-  font-size: 12px;
+.form-sec-heading {
+  font-family: var(--serif);
+  font-size: 16px;
   font-weight: 700;
-  letter-spacing: .5px;
-  color: var(--gold-l);
-  margin-bottom: 5px;
-  text-transform: uppercase;
-}
-.form-field-grp input, .form-field-grp textarea, .form-field-grp select {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 10px 14px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(212, 175, 55, 0.45);
-  border-radius: 10px;
-  color: #FFF;
-  font-size: 14px;
-  outline: none;
-  transition: border-color .2s;
-}
-.form-field-grp input:focus, .form-field-grp textarea:focus {
-  border-color: var(--gold-l);
-  background: rgba(255, 255, 255, 0.12);
+  color: #064E3B;
+  border-bottom: 2px solid #D1FAE5;
+  padding-bottom: 6px;
+  margin: 22px 0 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 .form-row-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
 }
-
-.btn-generate-luxe {
+@media (max-width: 580px) {
+  .form-row-2 { grid-template-columns: 1fr; }
+}
+.form-field-grp {
+  margin-bottom: 12px;
+}
+.form-field-grp label {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 4px;
+}
+.form-field-grp input, .form-field-grp textarea, .form-field-grp select {
   width: 100%;
-  background: linear-gradient(135deg, #FFF0A0, #D4AF37 55%, #8C6212);
-  color: #240206;
-  font-family: var(--serif);
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  border: none;
-  border-radius: 999px;
-  padding: 14px 24px;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  border: 1.5px solid #D1D5DB;
+  border-radius: 12px;
+  font-size: 13.5px;
+  color: #111827;
+  background: #F9FAFB;
+  font-family: var(--sans);
+  outline: none;
+  transition: border-color .2s, box-shadow .2s;
+}
+.form-field-grp input:focus, .form-field-grp textarea:focus, .form-field-grp select:focus {
+  border-color: #059669;
+  background: #FFF;
+  box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.2);
+}
+
+.palette-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 8px;
+  margin-top: 10px;
+  margin-bottom: 16px;
+}
+.palette-card {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  background: #FCFBF7;
+  border: 1.5px solid #E5E7EB;
   cursor: pointer;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.6), 0 0 20px rgba(212,175,55,0.5);
-  transition: all .25s ease;
-  margin-top: 14px;
+  transition: all .2s;
+}
+.palette-card.active {
+  border-color: #064E3B;
+  background: #ECFDF5;
+  box-shadow: 0 0 0 2px #064E3B;
+}
+.palette-swatches { display: flex; gap: 3px; }
+.palette-swatches span {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+.palette-card span.pal-name { font-size: 11.5px; font-weight: 600; color: #374151; }
+
+.btn-generate-invite {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #064E3B 0%, #022C22 100%);
+  color: #FFF;
+  font-family: var(--serif);
+  font-size: 16.5px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(6, 78, 59, 0.45);
+  transition: all .3s;
+  margin-top: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 10px;
 }
-.btn-generate-luxe:hover {
+.btn-generate-invite:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(212,175,55,0.7);
-}
-.btn-direct-view {
-  background: none;
-  border: none;
-  color: #FFCCD4;
-  font-size: 12.5px;
-  text-decoration: underline;
-  cursor: pointer;
-  margin-top: 12px;
-  display: block;
-  width: 100%;
-  text-align: center;
+  box-shadow: 0 12px 30px rgba(6, 78, 59, 0.6);
 }
 
-/* Floating Auto-Play / Auto-Scroll Button */
-.autoscroll-btn {
-  position: fixed;
-  bottom: 24px;
-  right: 20px;
-  z-index: 9999;
-  background: linear-gradient(135deg, #2A000A, #550012);
-  border: 1.5px solid var(--gold);
-  color: var(--gold-l);
-  font-family: var(--serif);
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: .05em;
-  padding: 10px 18px;
-  border-radius: 999px;
-  cursor: pointer;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.7), 0 0 15px rgba(212,175,55,0.3);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  transition: all .25s;
-}
-.autoscroll-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(212,175,55,0.5);
-}
 
-/* ================= 3D RIBBON & FRENCH DOORS BOX STAGE ================= */
-.marble-stage {
+/* ================= 2. 3D CARTIER RED BOX STAGE ================= */
+.stage-screen {
   position: fixed;
   inset: 0;
-  z-index: 5000;
-  background: 
-    radial-gradient(circle at 50% 30%, #F5F1EB 0%, #E3D9CC 60%, #CFC2B2 100%);
+  z-index: 6000;
+  background: radial-gradient(circle at 50% 35%, #881337 0%, #4C0519 65%, #2A020C 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 20px;
   box-sizing: border-box;
-  transition: opacity .9s cubic-bezier(0.4, 0, 0.2, 1), visibility .9s;
-}
-.marble-stage.stage-hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-/* Marble surface texture & soft window sunlight overlay */
-.marble-texture {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: 
-    radial-gradient(ellipse at 85% 15%, rgba(255,255,255,0.8) 0%, transparent 55%),
-    linear-gradient(125deg, transparent 40%, rgba(0,0,0,0.06) 50%, transparent 60%),
-    repeating-linear-gradient(45deg, rgba(200,185,170,0.08) 0px, transparent 40px, rgba(200,185,170,0.08) 80px);
-}
-
-/* Box 3D Scene Wrapper */
-.ribbon-box-scene {
-  perspective: 1400px;
-  width: 280px;
-  height: 380px;
-  position: relative;
-  margin-bottom: 24px;
+  transition: opacity .8s ease, visibility .8s;
   cursor: pointer;
-  user-select: none;
 }
+.stage-screen.stage-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
 
-/* The Box Main Outer Frame */
-.ribbon-box-body {
-  width: 100%;
-  height: 100%;
+
+/* 03: Cartier Red Velvet Octagonal Jewelry Card Silhouette */
+.cartier-octagon-card {
   position: relative;
-  transform-style: preserve-3d;
-  filter: drop-shadow(0 25px 40px rgba(0,0,0,0.45)) drop-shadow(0 8px 16px rgba(0,0,0,0.3));
-}
-
-/* Box Interior Base Tray */
-.box-interior-base {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 50% 50%, #4D000D 0%, #200005 100%);
-  border-radius: 12px;
-  border: 2px solid rgba(212, 175, 55, 0.4);
-  box-shadow: inset 0 0 40px rgba(0,0,0,0.9);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: radial-gradient(circle at 45% 25%, #9F1239 0%, #4C0519 65%, #2A020C 100%);
+  border: 4px solid #D4AF37;
+  clip-path: polygon(15% 0%, 85% 0%, 100% 15%, 100% 85%, 85% 100%, 15% 100%, 0% 85%, 0% 15%);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.95), inset 0 0 50px rgba(225, 29, 72, 0.4);
+  padding: 56px 28px 44px;
+  margin-bottom: 28px;
+  text-align: center;
   overflow: hidden;
 }
-
-/* Petals Bed inside Box Tray */
-.petals-bed {
+.cartier-octagon-card::before {
+  content: "";
   position: absolute;
-  inset: 0;
+  inset: 6px;
+  border: 1.5px solid rgba(254, 240, 138, 0.7);
+  clip-path: polygon(14% 0%, 86% 0%, 100% 14%, 100% 86%, 86% 100%, 14% 100%, 0% 86%, 0% 14%);
   pointer-events: none;
-  background: 
-    radial-gradient(circle at 10% 15%, #940C1F 0%, transparent 35%),
-    radial-gradient(circle at 90% 15%, #940C1F 0%, transparent 35%),
-    radial-gradient(circle at 10% 85%, #940C1F 0%, transparent 35%),
-    radial-gradient(circle at 90% 85%, #940C1F 0%, transparent 35%),
-    radial-gradient(circle at 50% 95%, #7A0818 0%, transparent 40%),
-    radial-gradient(circle at 50% 5%, #7A0818 0%, transparent 40%);
-  opacity: 0.85;
 }
 
-/* Acrylic Floating Card */
-.acrylic-card {
-  width: 220px;
-  height: 300px;
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(8px);
-  border: 1.5px solid rgba(255, 255, 255, 0.45);
-  border-radius: 8px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.5), inset 0 0 15px rgba(255,255,255,0.2);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 24px 16px;
-  box-sizing: border-box;
-  text-align: center;
-  color: #FFF;
-  position: relative;
-  z-index: 2;
-  transition: transform .7s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow .7s;
-}
-.acrylic-card-eyebrow {
-  font-family: var(--serif);
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 3.5px;
-  text-transform: uppercase;
-  color: #FFE5E8;
-  margin: 0 0 12px;
-  line-height: 1.3;
-}
-.acrylic-divider {
-  width: 40px;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.6);
-  margin: 10px 0;
-}
-.acrylic-subtext {
-  font-size: 10px;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  color: #FFCCD3;
-  margin: 0;
-  font-weight: 600;
-}
-.acrylic-bottom-hint {
-  font-size: 9.5px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--gold-l);
-  margin-top: 24px;
-  font-weight: 700;
-}
 
-/* Card Elevated Class */
-.acrylic-card.is-elevated {
-  transform: translateZ(90px) scale(1.12);
-  box-shadow: 0 25px 50px rgba(0,0,0,0.8), 0 0 30px rgba(255,255,255,0.5);
-}
 
-/* Double French Doors */
-.door {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 50%;
-  background: radial-gradient(circle at 50% 40%, #8A071A 0%, #5E0310 70%, #3B0008 100%);
-  transform-style: preserve-3d;
-  transition: transform 1.35s cubic-bezier(0.25, 1, 0.35, 1);
-  z-index: 10;
-  box-shadow: inset 0 0 15px rgba(0,0,0,0.6);
-}
-
-/* Left Door */
-.door-left {
-  left: 0;
-  border-top-left-radius: 12px;
-  border-bottom-left-radius: 12px;
-  border-right: 1px solid rgba(0,0,0,0.5);
-  transform-origin: left center;
-}
-.door-left.is-open {
-  transform: rotateY(-118deg);
-}
-
-/* Right Door */
-.door-right {
-  right: 0;
-  border-top-right-radius: 12px;
-  border-bottom-right-radius: 12px;
-  border-left: 1px solid rgba(255,255,255,0.15);
-  transform-origin: right center;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding-bottom: 24px;
-  box-sizing: border-box;
-}
-.door-right.is-open {
-  transform: rotateY(118deg);
-}
-
-/* Golden Monogram on Right Door */
-.door-monogram {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: var(--gold-l);
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.7));
-}
-.monogram-rings {
-  position: relative;
-  width: 36px;
-  height: 22px;
-}
-.mono-ring {
-  position: absolute;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  border: 2px solid var(--gold-l);
-}
-.mono-ring.m-left { left: 4px; }
-.mono-ring.m-right { right: 4px; }
-.monogram-branches {
-  font-size: 14px;
-  letter-spacing: 2px;
-  margin-top: 2px;
-}
-
-/* ================= THE LUXURY RED SILK VELVET RIBBON ================= */
-.ribbon-wrap {
-  position: absolute;
-  top: 50%;
-  left: -10px;
-  right: -10px;
-  transform: translateY(-50%);
-  z-index: 25;
-  pointer-events: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity .8s ease, transform .8s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.ribbon-wrap.is-untying {
-  opacity: 0;
-  transform: translateY(40px) scale(0.9);
-}
-
-/* Horizontal Ribbon Band */
-.ribbon-band {
-  position: absolute;
-  height: 38px;
-  left: 0;
-  right: 0;
-  background: linear-gradient(180deg, #A80D22 0%, #6E0513 50%, #4D000A 100%);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.7), inset 0 2px 4px rgba(255,255,255,0.25);
-  border-top: 1px solid rgba(255,255,255,0.15);
-  border-bottom: 1px solid rgba(0,0,0,0.4);
-}
-
-/* Central Velvet Bow */
-.ribbon-bow-knot {
-  position: relative;
-  width: 34px;
-  height: 34px;
-  background: radial-gradient(circle at 40% 40%, #B8142C 0%, #6E0513 70%, #3B0007 100%);
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.8), inset 0 2px 4px rgba(255,255,255,0.3);
-  z-index: 3;
-}
-.ribbon-loop-left, .ribbon-loop-right {
-  position: absolute;
-  top: -8px;
-  width: 48px;
-  height: 48px;
-  border-radius: 50% 50% 20% 50%;
-  background: linear-gradient(135deg, #B8142C 0%, #6E0513 65%, #3B0007 100%);
-  box-shadow: 0 6px 14px rgba(0,0,0,0.65);
-}
-.ribbon-loop-left {
-  left: -40px;
-  transform: rotate(-25deg);
-}
-.ribbon-loop-right {
-  right: -40px;
-  transform: scaleX(-1) rotate(-25deg);
-}
-
-.ribbon-tail-left, .ribbon-tail-right {
-  position: absolute;
-  top: 24px;
-  width: 24px;
-  height: 60px;
-  background: linear-gradient(180deg, #8A071A, #4D000A);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-}
-.ribbon-tail-left {
-  left: -12px;
-  transform: rotate(18deg);
-  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 85%, 0% 100%);
-}
-.ribbon-tail-right {
-  right: -12px;
-  transform: rotate(-18deg);
-  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 85%, 0% 100%);
-}
-
-/* Stage Captions */
-.stage-captions {
-  text-align: center;
-  color: #2D0207;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-}
-.stage-names {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 28px;
-  font-weight: 600;
-  margin: 0;
-  color: #380208;
-}
-.stage-cta {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  color: #7A0A18;
-  margin: 0;
-  animation: pulseCta 2s infinite ease-in-out;
-}
-.skip-stage-btn {
-  background: rgba(110, 5, 19, 0.85);
-  color: #FFF;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  padding: 6px 22px;
-  border-radius: 999px;
-  border: 1px solid rgba(212,175,55,0.4);
-  cursor: pointer;
-  margin-top: 4px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.25);
-  transition: all .2s;
-}
-.skip-stage-btn:hover {
-  background: #900B1C;
-  transform: scale(1.05);
-}
-
-/* ================= FULL HIGH-FASHION INVITATION STORY SLIDES ================= */
-.story-container {
+/* ================= LUXURY ROSE & SCRATCH CARD STYLES ================= */
+.luxury-rose-banner {
   width: 100%;
   max-width: 480px;
-  margin: 0 auto;
-  min-height: 100vh;
-  position: relative;
-  box-sizing: border-box;
-  background: #1F0006;
-  box-shadow: 0 0 50px rgba(0,0,0,0.9);
-}
-
-/* Top Progress Bars (Instagram / Luxury Story Style) */
-.story-progress-bar {
-  position: fixed;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: min(94%, 460px);
-  z-index: 100;
+  margin: 0 auto 14px;
   display: flex;
-  gap: 4px;
-}
-.progress-segment {
-  flex: 1;
-  height: 3px;
-  background: rgba(255, 255, 255, 0.25);
-  border-radius: 2px;
-  overflow: hidden;
-}
-.progress-fill {
-  width: 0%;
-  height: 100%;
-  background: #FFF;
-  transition: width .3s linear;
-}
-.progress-segment.active .progress-fill {
-  width: 100%;
-}
-.progress-segment.past .progress-fill {
-  width: 100%;
-}
-
-/* Individual Story Slide */
-.story-slide {
-  min-height: 100vh;
-  padding: 60px 24px 80px;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
+}
+.rose-garland-svg {
+  width: 100%;
+  height: auto;
+  max-height: 90px;
+  filter: drop-shadow(0 6px 14px rgba(0,0,0,0.6));
+}
+.interactive-scratch-card {
+  max-width: 520px;
+  margin: 32px auto 28px;
+  position: relative;
+}
+.scratch-card-frame {
+  background: linear-gradient(145deg, rgba(255,255,255,0.08) 0%, rgba(0,0,0,0.5) 100%);
+  border: 2px solid var(--gold);
+  border-radius: 24px;
+  padding: 24px 20px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.7), inset 0 0 25px rgba(212,175,55,0.15);
   text-align: center;
+  backdrop-filter: blur(12px);
   position: relative;
-  overflow: hidden;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
 }
-
-/* Slide 1: Cover Slide with Grand Candlelight Ballroom */
-.slide-cover {
-  background: 
-    linear-gradient(180deg, rgba(20,0,4,0.4) 0%, rgba(35,0,8,0.85) 100%),
-    radial-gradient(circle at 50% 40%, #730615 0%, #290006 80%);
-}
-.cover-cursive-eyebrow {
-  font-family: 'Playfair Display', Georgia, cursive, serif;
-  font-style: italic;
-  font-size: 26px;
-  color: #FFD4DC;
-  margin-bottom: 8px;
-}
-.cover-luxury-names {
-  font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
-  font-size: 42px;
-  font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: 2px;
-  color: #FFF;
-  margin: 12px 0 16px;
-  text-shadow: 0 2px 15px rgba(0,0,0,0.8);
-}
-.cover-luxury-names span {
-  display: block;
-}
-.cover-amp {
-  font-family: Georgia, serif;
-  font-style: italic;
-  font-size: 26px;
-  color: var(--gold-l);
-  margin: 2px 0;
-}
-.cover-date-text {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 20px;
-  color: #FFD6DE;
-  letter-spacing: 1px;
-  margin-top: 14px;
-}
-
-/* Slide 2: "A Letter" */
-.slide-letter {
-  background: radial-gradient(circle at 50% 50%, #50000D 0%, #1A0004 90%);
-}
-.letter-script-header {
-  font-family: 'Playfair Display', Georgia, cursive, serif;
-  font-style: italic;
-  font-size: 32px;
-  color: #FFAAB8;
-  margin-bottom: 20px;
-}
-.letter-subhead {
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: #FFCCD4;
-  margin-bottom: 24px;
-  font-weight: 600;
-}
-.letter-quote-body {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 28px;
-  line-height: 1.45;
-  font-weight: 600;
-  color: #FFF;
-  max-width: 380px;
-  margin: 0 auto 30px;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.6);
-}
-.letter-signature {
-  font-family: 'Playfair Display', Georgia, cursive, serif;
-  font-style: italic;
-  font-size: 30px;
-  color: var(--gold-l);
-}
-
-/* Slide 3: "Seal The Date" with Interactive 3D Wax Seal */
-.slide-seal {
-  background: #FAF6F0;
-  color: #2E0208;
-}
-.seal-header-text {
-  font-family: 'Playfair Display', Georgia, cursive, serif;
-  font-style: italic;
-  font-size: 34px;
-  color: #6E0513;
-  margin-bottom: 20px;
-}
-.wax-seal-btn {
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, #C2132C 0%, #850617 65%, #4A000B 100%);
-  border: none;
-  cursor: pointer;
-  box-shadow: 
-    0 12px 25px rgba(110, 5, 19, 0.45),
-    inset 0 4px 8px rgba(255,255,255,0.4),
-    inset 0 -6px 12px rgba(0,0,0,0.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  transition: transform .25s ease, box-shadow .25s;
-  margin: 20px auto;
-}
-.wax-seal-btn:hover {
-  transform: scale(1.06);
-  box-shadow: 0 16px 30px rgba(110, 5, 19, 0.6);
-}
-.wax-seal-inner-monogram {
-  width: 88px;
-  height: 88px;
-  border-radius: 50%;
-  border: 2px dashed rgba(255,255,255,0.4);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: #FFE5E9;
-  font-family: 'Cinzel', serif;
-  font-size: 24px;
-  font-weight: 700;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.8);
-}
-.seal-press-hint {
-  font-family: 'Playfair Display', Georgia, cursive, serif;
-  font-style: italic;
-  font-size: 18px;
-  color: #7D0A19;
-  margin: 10px 0 6px;
-}
-.seal-date-big {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 32px;
-  font-weight: 700;
-  color: #4D000A;
-  margin-top: 10px;
-}
-
-/* Slide 4: "The Evening" (Story Timeline) */
-.slide-evening {
-  background: radial-gradient(circle at 50% 40%, #5E000F 0%, #200005 90%);
-}
-.evening-script-title {
-  font-family: 'Playfair Display', Georgia, cursive, serif;
-  font-style: italic;
-  font-size: 32px;
-  color: #FFB3C0;
-  margin-bottom: 30px;
-}
-.evening-timeline-item {
-  margin-bottom: 28px;
-  max-width: 360px;
-}
-.evening-time {
-  font-family: 'Playfair Display', Georgia, cursive, serif;
-  font-style: italic;
-  font-size: 24px;
-  color: #FFD4DC;
-  margin-bottom: 4px;
-}
-.evening-event-name {
-  font-family: 'Cinzel', 'Playfair Display', serif;
-  font-size: 34px;
-  font-weight: 700;
-  color: #FFF;
-  margin: 0 0 6px;
-  letter-spacing: 1px;
-}
-.evening-event-desc {
-  font-size: 13.5px;
-  color: #E6B8C0;
-  margin: 0;
-  line-height: 1.4;
-}
-
-/* Action Buttons (Reply to invitation, WhatsApp, etc.) */
-.btn-story-reply {
-  background: rgba(140, 10, 28, 0.75);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  color: #FFF;
-  font-family: var(--serif);
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  padding: 12px 28px;
+.scratch-badge-pill {
+  display: inline-block;
+  padding: 6px 16px;
+  background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+  color: #000;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .15em;
   border-radius: 999px;
-  cursor: pointer;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-  transition: all .25s;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  text-decoration: none;
-  margin-top: 24px;
+  margin-bottom: 8px;
+  box-shadow: 0 4px 15px rgba(245,158,11,0.5);
 }
-.btn-story-reply:hover {
-  background: #A60C22;
-  border-color: #FFF;
-  transform: translateY(-2px);
-}
-
-/* Slide 5: RSVP & Dispatch */
-.slide-rsvp {
-  background: radial-gradient(circle at 50% 30%, #4D000D 0%, #150003 100%);
-  padding-bottom: 120px;
-}
-.rsvp-card-box {
-  width: 100%;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.25);
-  border-radius: 20px;
-  padding: 24px 18px;
-  box-sizing: border-box;
-  text-align: left;
-}
-.rsvp-card-box h3 {
+.scratch-heading {
   font-family: var(--serif);
   font-size: 22px;
   color: var(--gold-l);
-  margin: 0 0 8px;
+  margin: 6px 0 4px;
+}
+.scratch-instruction {
+  font-size: 12px;
+  color: #CBD5E1;
+  margin: 0 0 16px;
+}
+.scratch-surface-wrap {
+  position: relative;
+  width: 100%;
+  height: 230px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.9), 0 10px 30px rgba(0,0,0,0.6);
+  border: 2px solid rgba(212,175,55,0.6);
+}
+.scratch-unveiled-card {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 35%, #FFFDF7 0%, #FEF3C7 60%, #FDE68A 100%);
+  color: #78350F;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  box-sizing: border-box;
   text-align: center;
 }
+.save-the-date-tag {
+  font-size: 11px;
+  letter-spacing: .25em;
+  font-weight: 800;
+  color: #B45309;
+  text-transform: uppercase;
+}
+.unveiled-date-title {
+  font-family: var(--serif);
+  font-size: clamp(20px, 4vw, 26px);
+  color: #881337;
+  font-weight: 700;
+  margin: 4px 0;
+}
+.unveiled-time-venue {
+  font-size: 12.5px;
+  color: #78350F;
+  margin-bottom: 12px;
+}
+.calendar-btn-group {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.cal-btn {
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all .25s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+.cal-btn.gcal { background: #2563EB; color: #FFF; }
+.cal-btn.gcal:hover { background: #1D4ED8; transform: translateY(-2px); }
+.cal-btn.ical { background: #881337; color: #FFF; }
+.cal-btn.ical:hover { background: #9F1239; transform: translateY(-2px); }
 
-/* Send to Desired Person Modal */
-.modal-backdrop {
+.scratch-foil-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+  touch-action: none;
+  z-index: 5;
+  transition: opacity .8s ease;
+}
+.scratch-foil-canvas.is-cleared {
+  opacity: 0;
+  pointer-events: none;
+}
+.scratch-status-hint {
+  font-size: 12px;
+  color: var(--gold-l);
+  margin-top: 10px;
+}
+
+/* Floating Roses & Falling Petals Canvas */
+#particlesCanvas {
   position: fixed;
   inset: 0;
-  z-index: 10000;
+  pointer-events: none;
+  z-index: 9990;
+}
+
+
+/* ================= 3. MUGHAL MIHRAB ARCH INVITATION CARD ================= */
+.main-invitation-container {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 80px 18px 60px;
+  box-sizing: border-box;
+}
+.mughal-hero-card {
+  text-align: center;
+  padding: 45px 24px;
+  background: linear-gradient(180deg, rgba(6, 78, 59, 0.9) 0%, rgba(2, 44, 34, 0.75) 100%);
+  border-radius: 200px 200px 24px 24px;
+  border: 3px solid var(--gold);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.75);
+  margin-bottom: 30px;
+  position: relative;
+}
+.hero-names {
+  font-family: var(--serif);
+  font-size: clamp(38px, 8vw, 64px);
+  color: var(--gold-l);
+  line-height: 1.1;
+  margin: 10px 0 16px;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+}
+.mughal-section-card {
+  background: rgba(2, 44, 34, 0.85);
+  border: 1.5px solid rgba(212, 175, 55, 0.35);
+  border-radius: 22px;
+  padding: 30px 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+  text-align: center;
+  backdrop-filter: blur(10px);
+}
+.card-title {
+  font-family: var(--serif);
+  font-size: 22px;
+  color: var(--gold-l);
+  margin-bottom: 14px;
+  letter-spacing: .04em;
+}
+.card-text {
+  font-size: 14.5px;
+  line-height: 1.8;
+  color: #F1F5F9;
+  margin: 0 auto;
+  max-width: 620px;
+}
+
+/* Timeline */
+.timeline-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-top: 18px;
+  text-align: left;
+}
+.timeline-item {
+  background: rgba(1, 28, 21, 0.7);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 18px;
+  padding: 20px;
+  transition: all .3s;
+}
+.timeline-item:hover {
+  border-color: var(--gold);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.2);
+}
+.timeline-time {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--gold-l);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.timeline-name {
+  font-family: var(--serif);
+  font-size: 19px;
+  color: #FFF;
+  margin-bottom: 8px;
+}
+.timeline-venue { font-size: 13px; color: #94A3B8; margin-bottom: 4px; }
+.timeline-dress { font-size: 12px; color: var(--gold-l); font-style: italic; margin-bottom: 6px; }
+.timeline-note { font-size: 12.5px; color: #CBD5E1; line-height: 1.5; }
+
+.btn-gold-action {
+  background: linear-gradient(135deg, var(--gold) 0%, #AA7C11 100%);
+  color: #022C22;
+  border: 1px solid #FFF0A0;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+  transition: all .3s;
+  cursor: pointer;
+}
+.btn-gold-action:hover {
+  transform: scale(1.04);
+  box-shadow: 0 10px 28px rgba(212, 175, 55, 0.6);
+}
+
+/* Dispatch Modal */
+.send-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9500;
   background: rgba(0,0,0,0.85);
-  backdrop-filter: blur(8px);
   display: none;
   align-items: center;
   justify-content: center;
   padding: 16px;
+  backdrop-filter: blur(8px);
 }
-.modal-body {
-  background: radial-gradient(circle at 50% 30%, #5C0010 0%, #200005 100%);
-  border: 2px solid var(--gold);
-  border-radius: 20px;
-  max-width: 440px;
+.send-modal-card {
   width: 100%;
-  padding: 26px 20px;
-  box-sizing: border-box;
-  color: #FFF;
+  max-width: 520px;
+  background: #FFF;
+  color: #1F2937;
+  border-radius: 20px;
+  padding: 24px;
   box-shadow: 0 20px 50px rgba(0,0,0,0.9);
-  position: relative;
 }
-.modal-close-btn {
-  position: absolute;
-  top: 14px;
-  right: 14px;
+.send-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1.5px solid #E5E7EB;
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+}
+.send-modal-title {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 700;
+  color: #064E3B;
+  margin: 0;
+}
+.btn-close-modal {
   background: none;
   border: none;
-  color: var(--gold-l);
-  font-size: 22px;
+  font-size: 24px;
   cursor: pointer;
-}
-.modal-input-group {
-  margin-bottom: 14px;
-  text-align: left;
-}
-.modal-input-group label {
-  display: block;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: .5px;
-  color: var(--gold-l);
-  margin-bottom: 5px;
-}
-.modal-input-group input, .modal-input-group select {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 10px 12px;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(212,175,55,0.5);
-  border-radius: 10px;
-  color: #FFF;
-  font-size: 14px;
-  outline: none;
-}
-.modal-input-group select option {
-  background: #250006;
-  color: #FFF;
+  color: #6B7280;
 }
 
-/* Canvas for falling rose petals */
-#petalsCanvas {
+#particlesCanvas {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  z-index: 4999;
+  z-index: 9990;
 }
 </style>
 </head>
 <body>
 
-<!-- Persistent Top Navigation Toolbar -->
-<nav class="top-nav-bar">
-  <div class="nav-actions-group">
-    <button type="button" class="nav-pill-btn" id="btnOpenForm" onclick="showCreatorForm()">
-      ✎ Edit Invitation Form
+<header class="top-nav-bar">
+  <div class="nav-actions">
+    <button type="button" class="btn-nav-action primary" onclick="showCreatorForm()">
+      ✎ Edit Form
     </button>
-    <button type="button" class="nav-pill-btn" onclick="replayRibbonExperience()">
-      🔄 Replay Ribbon Box
+    <button type="button" class="btn-nav-action" onclick="replayStageReveal()">✨ 3D Cartier Red Box</button>
+  </div>
+  <div class="nav-actions">
+    <button type="button" class="btn-nav-action primary" onclick="openSendModal()">
+      💌 Send to Desired Person
+    </button>
+    <button type="button" class="btn-nav-action" id="musicToggleBtn" onclick="toggleAudio()">
+      🎵 Music On
     </button>
   </div>
-  <div class="nav-actions-group">
-    <button type="button" class="nav-pill-btn" onclick="openSendModal()">
-      📤 Send via WhatsApp
-    </button>
-    <button type="button" class="audio-ctrl-btn" id="audioToggle" title="Play / Mute Music" aria-label="Toggle Romantic Music">🎵</button>
-  </div>
-</nav>
+</header>
 
-<!-- ================= 1. INVITATION CREATOR FORM SCREEN ================= -->
+<button type="button" class="btn-auto-scroll" id="btnAutoScroll" onclick="toggleAutoScroll()" aria-label="Toggle Auto-Scroll">
+  📜 <span>Auto-Scroll</span>
+</button>
+
+<canvas id="particlesCanvas"></canvas>
+
+<!-- ================= 1. FORM SCREEN ================= -->
 <div class="creator-screen" id="creatorScreen">
   <div class="creator-card">
     <div class="creator-header">
-      <div style="font-size:32px;margin-bottom:4px;">🎀</div>
-      <h2 class="creator-title">Customize Cartier Ribbon Box</h2>
-      <p class="creator-subtitle">Fill in your wedding details below. Tap <b>"Create &amp; Open My 3D Invitation"</b> to generate your bespoke untying ribbon and French doors reveal.</p>
+      <div style="font-size:32px;margin-bottom:4px;">👑</div>
+      <h2 class="creator-title">Customize Your Bespoke Royal Wedding Invitation</h2>
+      <p class="creator-subtitle">Choose your wedding theme aesthetic, enter bride &amp; groom details, select your sacred ceremonies, and watch your invitation update in real time. Once finalized, you can view the full animation and dispatch sealed invitations directly via WhatsApp &amp; Email!</p>
     </div>
 
     <form id="templateCreatorForm" onsubmit="handleCreatorSubmit(event)">
+      <div class="form-sec-heading">🎨 Select Wedding Theme / Style &amp; Color Palette</div>
+      <div class="form-field-grp">
+        <label>Color Palette Theme:</label>
+        <div class="palette-grid">
+          <div class="palette-card active" data-pal="emerald-gold">
+            <div class="palette-swatches">
+              <span style="background:#064E3B;"></span>
+              <span style="background:#D4AF37;"></span>
+              <span style="background:#FCFBF7;"></span>
+            </div>
+            <span class="pal-name">Emerald &amp; Gold</span>
+          </div>
+          <div class="palette-card" data-pal="wine-rose">
+            <div class="palette-swatches">
+              <span style="background:#74203B;"></span>
+              <span style="background:#C9975A;"></span>
+              <span style="background:#FFF6F2;"></span>
+            </div>
+            <span class="pal-name">Wine &amp; Rose Gold</span>
+          </div>
+          <div class="palette-card" data-pal="midnight-star">
+            <div class="palette-swatches">
+              <span style="background:#0F172A;"></span>
+              <span style="background:#38BDF8;"></span>
+              <span style="background:#F59E0B;"></span>
+            </div>
+            <span class="pal-name">Midnight &amp; Starlight</span>
+          </div>
+          <div class="palette-card" data-pal="pastel-cloud">
+            <div class="palette-swatches">
+              <span style="background:#DB2777;"></span>
+              <span style="background:#0284C7;"></span>
+              <span style="background:#FEF08A;"></span>
+            </div>
+            <span class="pal-name">Pastel Clouds</span>
+          </div>
+          <div class="palette-card" data-pal="terracotta-marigold">
+            <div class="palette-swatches">
+              <span style="background:#9A3412;"></span>
+              <span style="background:#EAB308;"></span>
+              <span style="background:#FFFBEB;"></span>
+            </div>
+            <span class="pal-name">Terracotta &amp; Marigold</span>
+          </div>
+        </div>
+      </div>
+
       <div class="form-row-2">
         <div class="form-field-grp">
-          <label>Bride's Name *</label>
-          <input type="text" id="fBrideName" value="Madeleine" required placeholder="e.g. Madeleine">
+          <label>Opening Experience</label>
+          <select id="fOpeningExp">
+            <option value="locket" selected>🥈 3D Mughal Silver Filigree Locket</option>
+            <option value="envelope">💌 3D Romantic Wax-Seal Envelope</option>
+            <option value="call">📞 Incoming Royal Wedding Call</option>
+          </select>
         </div>
         <div class="form-field-grp">
-          <label>Groom's Name *</label>
-          <input type="text" id="fGroomName" value="Vittorio" required placeholder="e.g. Vittorio">
+          <label>Viewing Experience</label>
+          <select id="fViewingExp">
+            <option value="scroll" selected>📜 Royal Palace Scroll Mode</option>
+            <option value="flipbook">📖 3D Page-Turning Flipbook</option>
+          </select>
         </div>
       </div>
 
       <div class="form-field-grp">
-        <label>Grand Wedding Title</label>
-        <input type="text" id="fGrandTitle" value="CELEBRATION OF OUR ETERNAL LOVE" placeholder="e.g. CELEBRATION OF OUR ETERNAL LOVE">
+        <label>Ambient Magic Particles</label>
+        <select id="fAmbientParticles">
+          <option value="floral_burst" selected>🎉 Celebratory Floral Burst</option>
+          <option value="petals">🌸 Falling Jasmine Petals</option>
+          <option value="stars">✨ Twinkling Fairy Dust &amp; Starlight</option>
+        </select>
       </div>
 
+      <div class="form-sec-heading">💑 Grand Title &amp; The Couple</div>
+      <div class="form-field-grp">
+        <label>Grand Wedding Title *</label>
+        <input type="text" id="fGrandTitle" value="Grand Ballroom Starlight Wedding" required>
+      </div>
       <div class="form-row-2">
         <div class="form-field-grp">
-          <label>Wedding Date *</label>
-          <input type="text" id="fWeddingDate" value="Saturday, 19th June 2027" required placeholder="e.g. Saturday, 19th June 2027">
+          <label>Groom's first name *</label>
+          <input type="text" id="fGroomName" value="Ranveer" required>
         </div>
         <div class="form-field-grp">
-          <label>Wedding Time</label>
-          <input type="text" id="fWeddingTime" value="4:00 PM" placeholder="e.g. 4:00 PM">
+          <label>Bride's first name *</label>
+          <input type="text" id="fBrideName" value="Shanaya" required>
+        </div>
+      </div>
+      <div class="form-row-2">
+        <div class="form-field-grp">
+          <label>Groom's full name *</label>
+          <input type="text" id="fGroomFullName" value="Ranveer Mittal" required>
+        </div>
+        <div class="form-field-grp">
+          <label>Bride's full name *</label>
+          <input type="text" id="fBrideFullName" value="Shanaya Jindal" required>
+        </div>
+      </div>
+      <div class="form-field-grp">
+        <label>Groom's parents (optional blessing line)</label>
+        <input type="text" id="fGroomParents" value="Son of Mr. Sunil Mittal &amp; Mrs. Rekha Mittal">
+      </div>
+      <div class="form-field-grp">
+        <label>Bride's parents (optional blessing line)</label>
+        <input type="text" id="fBrideParents" value="Daughter of Mr. Navin Jindal &amp; Mrs. Savitri Jindal">
+      </div>
+
+      <div class="form-sec-heading">📅 Event Date &amp; Sanctuary Venue</div>
+      <div class="form-row-2">
+        <div class="form-field-grp">
+          <label>Event Date *</label>
+          <input type="text" id="fWeddingDate" value="25-11-2027" required>
+        </div>
+        <div class="form-field-grp">
+          <label>Time (optional)</label>
+          <input type="text" id="fWeddingTime" value="19:00">
+        </div>
+      </div>
+      <div class="form-field-grp">
+        <label>Sanctuary / Venue Name *</label>
+        <input type="text" id="fVenueName" value="The Taj Mahal Palace Ballroom, Mumbai" required>
+      </div>
+      <div class="form-field-grp">
+        <label>Venue Address (optional)</label>
+        <input type="text" id="fVenueAddress" value="Apollo Bunder, Colaba, Mumbai, Maharashtra 400001">
+      </div>
+      <div class="form-field-grp">
+        <label>Google Maps Link (optional — auto-generated if empty)</label>
+        <input type="url" id="fMapsUrl" value="https://www.google.com/maps/search/?api=1&query=The+Taj+Mahal+Palace+Mumbai">
+      </div>
+
+      <div class="form-sec-heading">🪔 Sacred Ceremonies &amp; Functions</div>
+      <!-- Evt 1 -->
+      <div style="background:#F9FAFB;padding:12px;border-radius:12px;margin-bottom:10px;border:1px solid #E5E7EB;">
+        <div style="font-weight:700;font-size:12.5px;color:#064E3B;margin-bottom:6px;">Ceremony 1</div>
+        <div class="form-row-2">
+          <div class="form-field-grp"><label>Ceremony Name *</label><input type="text" id="fEvt1Name" value="The Sangeet Spectacular"></div>
+          <div class="form-row-2">
+            <div class="form-field-grp"><label>Date *</label><input type="text" id="fEvt1Date" value="24-11-2027"></div>
+            <div class="form-field-grp"><label>Time</label><input type="text" id="fEvt1Time" value="19:00"></div>
+          </div>
+        </div>
+        <div class="form-field-grp"><label>Venue Location</label><input type="text" id="fEvt1Venue" value="The Crystal Ballroom, Taj Mahal Palace"></div>
+        <div class="form-row-2">
+          <div class="form-field-grp"><label>Dress Code</label><input type="text" id="fEvt1Dress" value="Diamond Sparkle &amp; Royal Velvet"></div>
+          <div class="form-field-grp"><label>Ceremony Note</label><input type="text" id="fEvt1Note" value="An evening of celebrity artist performances, Broadway choreography and gala banquet."></div>
         </div>
       </div>
 
-      <div class="form-field-grp">
-        <label>Venue Name &amp; City *</label>
-        <input type="text" id="fVenueName" value="The Grand Chandelier Ballroom, Lake Como" required placeholder="e.g. The Grand Chandelier Ballroom, Lake Como">
+      <!-- Evt 2 -->
+      <div style="background:#F9FAFB;padding:12px;border-radius:12px;margin-bottom:10px;border:1px solid #E5E7EB;">
+        <div style="font-weight:700;font-size:12.5px;color:#064E3B;margin-bottom:6px;">Ceremony 2</div>
+        <div class="form-row-2">
+          <div class="form-field-grp"><label>Ceremony Name *</label><input type="text" id="fEvt2Name" value="Baraat &amp; Varmala Ceremony"></div>
+          <div class="form-row-2">
+            <div class="form-field-grp"><label>Date *</label><input type="text" id="fEvt2Date" value="25-11-2027"></div>
+            <div class="form-field-grp"><label>Time</label><input type="text" id="fEvt2Time" value="17:30"></div>
+          </div>
+        </div>
+        <div class="form-field-grp"><label>Venue Location</label><input type="text" id="fEvt2Venue" value="Gateway of India Promenade"></div>
+        <div class="form-row-2">
+          <div class="form-field-grp"><label>Dress Code</label><input type="text" id="fEvt2Dress" value="Royal Indian Aristocratic"></div>
+          <div class="form-field-grp"><label>Ceremony Note</label><input type="text" id="fEvt2Note" value="Royal vintage car baraat procession and garland exchange overlooking the harbor."></div>
+        </div>
       </div>
 
-      <div class="form-field-grp">
-        <label>Venue Address</label>
-        <input type="text" id="fVenueAddress" value="Via Regina 40, 22012 Cernobbio, Lake Como, Italy" placeholder="Detailed address for navigation">
+      <!-- Evt 3 -->
+      <div style="background:#F9FAFB;padding:12px;border-radius:12px;margin-bottom:10px;border:1px solid #E5E7EB;">
+        <div style="font-weight:700;font-size:12.5px;color:#064E3B;margin-bottom:6px;">Ceremony 3</div>
+        <div class="form-row-2">
+          <div class="form-field-grp"><label>Ceremony Name *</label><input type="text" id="fEvt3Name" value="Sacred Pheras &amp; Matrimony"></div>
+          <div class="form-row-2">
+            <div class="form-field-grp"><label>Date *</label><input type="text" id="fEvt3Date" value="25-11-2027"></div>
+            <div class="form-field-grp"><label>Time</label><input type="text" id="fEvt3Time" value="19:30"></div>
+          </div>
+        </div>
+        <div class="form-field-grp"><label>Venue Location</label><input type="text" id="fEvt3Venue" value="Grand Mandap Hall, Taj Mahal Palace"></div>
+        <div class="form-row-2">
+          <div class="form-field-grp"><label>Dress Code</label><input type="text" id="fEvt3Dress" value="Gold Zardozi &amp; Pure Silk"></div>
+          <div class="form-field-grp"><label>Ceremony Note</label><input type="text" id="fEvt3Note" value="Sacred seven circumambulations around the sacred fire."></div>
+        </div>
       </div>
 
-      <div class="form-field-grp">
-        <label>Personal Love Letter / Note</label>
-        <textarea id="fLoveLetter" rows="3" placeholder="Write your heartfelt note to family and friends...">we are getting married, and we want the people we love most in the front row.</textarea>
+      <!-- Evt 4 -->
+      <div style="background:#F9FAFB;padding:12px;border-radius:12px;margin-bottom:10px;border:1px solid #E5E7EB;">
+        <div style="font-weight:700;font-size:12.5px;color:#064E3B;margin-bottom:6px;">Ceremony 4</div>
+        <div class="form-row-2">
+          <div class="form-field-grp"><label>Ceremony Name *</label><input type="text" id="fEvt4Name" value="Royal Governors Reception"></div>
+          <div class="form-row-2">
+            <div class="form-field-grp"><label>Date *</label><input type="text" id="fEvt4Date" value="26-11-2027"></div>
+            <div class="form-field-grp"><label>Time</label><input type="text" id="fEvt4Time" value="20:00"></div>
+          </div>
+        </div>
+        <div class="form-field-grp"><label>Venue Location</label><input type="text" id="fEvt4Venue" value="The Ballroom, Taj Mahal Palace"></div>
+        <div class="form-row-2">
+          <div class="form-field-grp"><label>Dress Code</label><input type="text" id="fEvt4Dress" value="Ultra Formal Black Tie"></div>
+          <div class="form-field-grp"><label>Ceremony Note</label><input type="text" id="fEvt4Note" value="Grand banquet, champagne fountains, live 40-piece orchestra, and dancing."></div>
+        </div>
       </div>
 
+      <div class="form-sec-heading">✅ Guest &amp; WhatsApp / Email Dispatch</div>
+      <div class="form-row-2">
+        <div class="form-field-grp">
+          <label>Invitee / Guest Name *</label>
+          <input type="text" id="fGuestName" value="Dr. Ayan &amp; Family" required>
+        </div>
+        <div class="form-field-grp">
+          <label>Guest WhatsApp Number * (with country code)</label>
+          <input type="text" id="fGuestPhone" value="+971501234567" required>
+        </div>
+      </div>
       <div class="form-field-grp">
-        <label>RSVP WhatsApp Number</label>
-        <input type="tel" id="fRsvpNumber" value="9876543210" placeholder="10-digit number for WhatsApp RSVPs">
+        <label>Guest Email Address (optional)</label>
+        <input type="email" id="fGuestEmail" value="guest@example.com">
       </div>
 
-      <button type="submit" class="btn-generate-luxe">
-        ✨ Create &amp; Open My 3D Invitation 💌
-      </button>
+      <div style="display:flex;gap:10px;margin-top:10px;">
+        <button type="button" class="btn-nav-action" style="flex:1;justify-content:center;color:#374151;background:#E5E7EB;border:none;" onclick="location.reload()">
+          Reset to Preset
+        </button>
+        <button type="button" class="btn-nav-action" style="flex:1;justify-content:center;color:#DC2626;background:#FEE2E2;border:none;" onclick="clearAllFields()">
+          Clear All
+        </button>
+      </div>
 
-      <button type="button" class="btn-direct-view" onclick="closeCreatorAndReveal()">
-        👁️ View Current 3D Invitation Directly
+      <button type="submit" class="btn-generate-invite">
+        ✨ Create &amp; Finalize My Invitation ✨
       </button>
     </form>
   </div>
 </div>
 
-<!-- Floating Auto-Scroll Button -->
-<button type="button" class="autoscroll-btn" id="autoScrollBtn" title="Toggle Auto-Scroll">
-  📜 <span>Auto-Play</span>
-</button>
 
-<!-- Falling Petals Canvas -->
-<canvas id="petalsCanvas"></canvas>
-
-<!-- ================= 3D RIBBON & FRENCH DOORS BOX STAGE ================= -->
-<div class="marble-stage" id="marbleStage">
-  <div class="marble-texture"></div>
-
-  <!-- The 3D Box Scene -->
-  <div class="ribbon-box-scene" id="ribbonBoxScene" title="Tap to untie ribbon & open box">
-    <div class="ribbon-box-body">
-
-      <!-- Interior Base with Rose Petals Bed -->
-      <div class="box-interior-base">
-        <div class="petals-bed"></div>
-
-        <!-- Floating Frosted Glass Acrylic Card -->
-        <div class="acrylic-card" id="acrylicCard">
-          <div class="acrylic-card-eyebrow">WEDDING<br>INVITATION</div>
-          <div class="acrylic-divider"></div>
-          <p class="acrylic-subtext">A CELEBRATION<br>OF LOVE</p>
-          <div class="acrylic-divider"></div>
-          <p class="acrylic-bottom-hint">YOU ARE INVITED</p>
+<!-- 03: 3D CARTIER-STYLE RED VELVET OCTAGONAL BOX -->
+<div class="stage-screen stage-hidden" id="stageScreen" onclick="openCartierBox()">
+  <div style="perspective:1200px; width:300px; height:370px; display:flex; align-items:center; justify-content:center; position:relative;">
+    <div id="cartierBoxBody" style="width:270px; height:330px; position:relative; transform-style:preserve-3d;">
+      <div style="position:absolute; inset:0; border-radius:28px; background:linear-gradient(135deg, #9F1239 0%, #4C0519 70%, #2A020C 100%); border:3.5px solid #D4AF37; box-shadow:0 25px 70px rgba(0,0,0,0.95); display:flex; align-items:center; justify-content:center; padding:16px;">
+        <div id="cartierInnerCard" style="width:90%; height:90%; border-radius:20px; background:radial-gradient(circle at 50% 40%, #BE185D 0%, #4C0519 85%); border:2px solid #FDE047; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:14px; transition:transform 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);">
+          <div style="font-size:26px;">💎</div>
+          <p style="font-size:10px; letter-spacing:.25em; text-transform:uppercase; color:#FDE047; margin:4px 0 0;">CARTIER HIGH LUXURY</p>
+          <h2 style="font-family:var(--serif); font-size:21px; color:#FFF; margin:6px 0;">Ranveer &amp; Shanaya</h2>
+          <p style="font-size:11px; color:#FECDD3; margin:0;">25TH NOVEMBER 2027</p>
+          <div style="margin-top:10px; font-size:10px; color:#FDE047; font-weight:700;">THE TAJ MAHAL PALACE</div>
         </div>
       </div>
-
-      <!-- Left French Door -->
-      <div class="door door-left" id="doorLeft"></div>
-
-      <!-- Right French Door -->
-      <div class="door door-right" id="doorRight">
-        <div class="door-monogram">
-          <div class="monogram-rings">
-            <div class="mono-ring m-left"></div>
-            <div class="mono-ring m-right"></div>
-          </div>
-          <div class="monogram-branches" id="doorInitials">❦ ❧</div>
-        </div>
+      <!-- Lid with Red Silk Ribbon & Gold Clasp -->
+      <div id="cartierBoxLid" style="position:absolute; inset:0; border-radius:28px; background:radial-gradient(circle at 40% 35%, #E11D48 0%, #9F1239 60%, #4C0519 100%); border:3.5px solid #D4AF37; transform-origin:top center; transition:transform 1.6s cubic-bezier(0.2, 0.8, 0.2, 1); box-shadow:inset 0 0 35px rgba(0,0,0,0.8), 0 20px 45px rgba(0,0,0,0.9); display:flex; flex-direction:column; align-items:center; justify-content:center; z-index:20;">
+        <div style="width:100%; height:16px; background:#D4AF37; margin-bottom:12px; box-shadow:0 2px 8px rgba(0,0,0,0.5);"></div>
+        <div style="width:68px; height:68px; border-radius:50%; background:radial-gradient(circle at 35% 35%, #FDE047 0%, #D4AF37 60%, #78350F 100%); border:2.5px solid #FFF; box-shadow:0 0 25px rgba(245,158,11,0.9); display:flex; align-items:center; justify-content:center; font-size:26px;">🎀</div>
+        <div style="font-family:var(--serif); font-size:15px; color:#FFF; margin-top:10px; letter-spacing:.15em; font-weight:700;">CARTIER RED CASKET</div>
+        <div style="font-size:11px; color:#FECDD3; margin-top:4px; letter-spacing:.1em;">A RED VELVET BOX &amp; ROSE PETALS</div>
       </div>
-
-      <!-- Tied Velvet Ribbon Bow Across the Doors -->
-      <div class="ribbon-wrap" id="ribbonWrap">
-        <div class="ribbon-band"></div>
-        <div class="ribbon-loop-left"></div>
-        <div class="ribbon-loop-right"></div>
-        <div class="ribbon-bow-knot"></div>
-        <div class="ribbon-tail-left"></div>
-        <div class="ribbon-tail-right"></div>
-      </div>
-
     </div>
   </div>
+  <p style="font-size:13px; letter-spacing:.18em; color:#FECDD3; text-transform:uppercase; margin-top:20px; text-shadow:0 2px 8px #000;">
+    ✨ Tap to Release Gold Clasp &amp; Reveal Invitation ✨
+  </p>
+</div>
 
-  <!-- Captions below Box -->
-  <div class="stage-captions">
-    <h2 class="stage-names" id="coverCoupleNames">Madeleine &amp; Vittorio</h2>
-    <p class="stage-cta" id="coverActionText">TAP TO UNTIE RIBBON &amp; OPEN</p>
-    <button type="button" class="skip-stage-btn" id="skipStageBtn">SKIP</button>
+<!-- ================= 3. MUGHAL MIHRAB MAIN INVITATION ================= -->
+<main class="main-invitation-container" id="mainInvite">
+  <section class="cartier-octagon-card">
+    <div style="font-family:var(--serif);font-size:20px;color:var(--gold-l);margin-bottom:8px;">॥ ॐ नमो भगवते वासुदेवाय ॥</div>
+    <div style="font-size:12px;letter-spacing:.25em;text-transform:uppercase;color:#E2E8F0;margin-bottom:10px;">HAWA MAHAL JHAROKHAS · CARTIER VELVET & RUBY ROSES</div>
+    <div class="luxury-rose-banner">
+  <svg viewBox="0 0 460 110" class="rose-garland-svg" preserveAspectRatio="xMidYMid meet">
+    <defs>
+      <radialGradient id="roseRedGrad" cx="45%" cy="38%" r="60%">
+        <stop offset="0%" stop-color="#FF4D6D"/>
+        <stop offset="40%" stop-color="#E11D48"/>
+        <stop offset="80%" stop-color="#9F1239"/>
+        <stop offset="100%" stop-color="#4C0519"/>
+      </radialGradient>
+      <radialGradient id="rosePinkGrad" cx="45%" cy="38%" r="60%">
+        <stop offset="0%" stop-color="#FDA4AF"/>
+        <stop offset="45%" stop-color="#FB7185"/>
+        <stop offset="85%" stop-color="#E11D48"/>
+        <stop offset="100%" stop-color="#881337"/>
+      </radialGradient>
+      <linearGradient id="goldStemGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#FEF08A"/>
+        <stop offset="45%" stop-color="#D4AF37"/>
+        <stop offset="100%" stop-color="#854D0E"/>
+      </linearGradient>
+      <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#86EFAC"/>
+        <stop offset="50%" stop-color="#16A34A"/>
+        <stop offset="100%" stop-color="#064E3B"/>
+      </linearGradient>
+    </defs>
+    <path d="M 30 55 Q 100 20 180 50" fill="none" stroke="url(#goldStemGrad)" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M 80 40 Q 95 15 115 32" fill="url(#leafGrad)" opacity="0.85"/>
+    <path d="M 130 52 Q 148 28 165 46" fill="url(#leafGrad)" opacity="0.85"/>
+    <circle cx="75" cy="38" r="13" fill="url(#rosePinkGrad)"/>
+    <circle cx="125" cy="48" r="16" fill="url(#roseRedGrad)"/>
+    <path d="M 430 55 Q 360 20 280 50" fill="none" stroke="url(#goldStemGrad)" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M 380 40 Q 365 15 345 32" fill="url(#leafGrad)" opacity="0.85"/>
+    <path d="M 330 52 Q 312 28 295 46" fill="url(#leafGrad)" opacity="0.85"/>
+    <circle cx="385" cy="38" r="13" fill="url(#rosePinkGrad)"/>
+    <circle cx="335" cy="48" r="16" fill="url(#roseRedGrad)"/>
+    <circle cx="230" cy="52" r="28" fill="url(#roseRedGrad)" filter="drop-shadow(0 4px 12px rgba(0,0,0,0.5))"/>
+    <circle cx="226" cy="48" r="18" fill="url(#rosePinkGrad)" opacity="0.9"/>
+    <circle cx="228" cy="50" r="10" fill="#FFF1F2" opacity="0.95"/>
+    <circle cx="229" cy="51" r="4" fill="#FFE4E6"/>
+  </svg>
+</div><div style="font-size:24px;margin:4px 0;">🌹 🌿 🌹</div>
+    <h1 class="hero-names">
+      <span id="groomNameDisplay">Ranveer Mittal</span>
+      <span style="font-family:var(--script);font-size:0.7em;color:var(--gold);display:block;margin:4px 0;">&amp;</span>
+      <span id="brideNameDisplay">Shanaya Jindal</span>
+    </h1>
+    <div style="font-size:15px;color:#E2E8F0;letter-spacing:.08em;line-height:1.6;">
+      <div id="weddingDateDisplay" style="font-weight:600;color:var(--gold-l);">Thursday, 25th Nov 2027 · 7:00 PM</div>
+      <div id="weddingVenueDisplay" style="margin-top:4px;">THE TAJ MAHAL PALACE BALLROOM, MUMBAI</div>
+    </div>
+  </section>
+
+  
+<!-- Interactive Scratch-To-Reveal Save The Date & Calendar -->
+<div class="interactive-scratch-card">
+  <div class="scratch-card-frame">
+    <div class="scratch-badge-pill">✨ SCRATCH &amp; SAVE THE DATE ✨</div>
+    <h3 class="scratch-heading">Rub Gold Foil to Reveal the Date</h3>
+    <p class="scratch-instruction">Drag your finger or cursor across the shimmering gold foil below</p>
+
+    <div class="scratch-surface-wrap">
+      <div class="scratch-unveiled-card" id="scratchUnveiled">
+        <div style="font-size:24px;margin-bottom:2px;">🌹 💖 🌹</div>
+        <div class="save-the-date-tag">AUSPICIOUS WEDDING CELEBRATION</div>
+        <div class="unveiled-date-title" id="scratchDateTitle">Thursday, 25th Nov 2027</div>
+        <div class="unveiled-time-venue">7:00 PM · The Taj Mahal Palace Ballroom, Mumbai</div>
+        
+        <div class="calendar-btn-group">
+          <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Royal+Wedding+of+Ranveer+%26+Shanaya&dates=20271125T133000Z/20271125T183000Z&details=Grand+Ballroom+Starlight+Wedding+Celebration&location=The+Taj+Mahal+Palace+Mumbai" target="_blank" rel="noopener" class="cal-btn gcal">
+            📅 Add to Google Calendar
+          </a>
+          <button type="button" class="cal-btn ical" onclick="downloadICalReminder()">
+            🍏 Save to Apple Calendar (.ics)
+          </button>
+        </div>
+      </div>
+
+      <canvas id="scratchCanvas" class="scratch-foil-canvas"></canvas>
+    </div>
+    <div class="scratch-status-hint" id="scratchStatusHint">
+      👆 <i>Rub gold foil with finger or cursor to unlock calendar</i>
+    </div>
   </div>
 </div>
 
-<!-- ================= FULL STORY SLIDES INVITATION ================= -->
-<main class="story-container" id="storyMain">
 
-  <!-- Top Progress Bar -->
-  <div class="story-progress-bar">
-    <div class="progress-segment active" id="prog0"><div class="progress-fill"></div></div>
-    <div class="progress-segment" id="prog1"><div class="progress-fill"></div></div>
-    <div class="progress-segment" id="prog2"><div class="progress-fill"></div></div>
-    <div class="progress-segment" id="prog3"><div class="progress-fill"></div></div>
-    <div class="progress-segment" id="prog4"><div class="progress-fill"></div></div>
-  </div>
-
-  <!-- SLIDE 1: COVER SLIDE -->
-  <section class="story-slide slide-cover" id="slide0">
-    <div class="cover-cursive-eyebrow">We are getting married</div>
-    <h1 class="cover-luxury-names">
-      <span id="brideNameDisplay">Madeleine</span>
-      <span class="cover-amp">&amp;</span>
-      <span id="groomNameDisplay">Vittorio</span>
-    </h1>
-    <div class="cover-date-text" id="weddingDateDisplay">
-      Saturday, the nineteenth of June
-    </div>
-    <div style="font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#FFCCD4;margin-top:6px;" id="weddingVenueDisplay">
-      The Grand Chandelier Ballroom, Lake Como
-    </div>
-
-    <a href="#slide4" class="btn-story-reply">
-      Reply to the invitation
-    </a>
-  </section>
-
-  <!-- SLIDE 2: A LETTER -->
-  <section class="story-slide slide-letter" id="slide1">
-    <div class="letter-script-header">A letter</div>
-    <div class="letter-subhead">Dear family &amp; friends,</div>
-    <div class="letter-quote-body" id="letterQuoteBody">
-      we are getting married, and we want the people we love most in the front row.
-    </div>
-    <div class="letter-signature" id="letterSignature">
-      Madeleine &amp; Vittorio
-    </div>
-
-    <a href="#slide4" class="btn-story-reply" style="margin-top:32px;">
-      Reply to the invitation
-    </a>
-  </section>
-
-  <!-- SLIDE 3: SEAL THE DATE -->
-  <section class="story-slide slide-seal" id="slide2">
-    <div class="seal-header-text">Seal the date</div>
-    <p class="seal-press-hint">Press the seal to confirm your calendar</p>
-
-    <!-- Interactive Wax Seal -->
-    <button type="button" class="wax-seal-btn" id="waxSealBtn" title="Press to Seal">
-      <div class="wax-seal-inner-monogram">
-        <span>❦</span>
-      </div>
-    </button>
-
-    <div class="seal-date-big" id="sealDateBig">
-      Saturday, 19th June 2027
-    </div>
-    <p style="font-size:13px;color:#780A18;margin:6px 0 0;font-weight:600;" id="sealFeedbackText">
-      Tap the red seal to trigger the celebration!
+  <!-- Welcome & Parents Blessings -->
+  <section class="mughal-section-card">
+    <h2 class="card-title">Auspicious Blessings &amp; Matrimony</h2>
+    <p class="card-text" id="inviteMessageDisplay">
+      Together with their families, Ranveer &amp; Shanaya request the honour of your presence at the grand celebration of their holy wedding union.
     </p>
-
-    <a href="#slide4" class="btn-story-reply" style="background:#6E0513;margin-top:28px;">
-      Reply to the invitation
-    </a>
-  </section>
-
-  <!-- SLIDE 4: THE EVENING (TIMELINE) -->
-  <section class="story-slide slide-evening" id="slide3">
-    <div class="evening-script-title">The evening</div>
-
-    <div class="evening-timeline-item">
-      <div class="evening-time" id="ceremonyTimeDisplay">4:00 pm</div>
-      <h3 class="evening-event-name">The vows</h3>
-      <p class="evening-event-desc">Beneath the grand crystal chandelier, in front of everyone we love.</p>
-    </div>
-
-    <div class="evening-timeline-item">
-      <div class="evening-time">6:30 pm</div>
-      <h3 class="evening-event-name">Dinner</h3>
-      <p class="evening-event-desc">A candlelit banquet table lined with deep red roses and vintage wine.</p>
-    </div>
-
-    <div class="evening-timeline-item">
-      <div class="evening-time">9:00 pm</div>
-      <h3 class="evening-event-name">Party</h3>
-      <p class="evening-event-desc">Live jazz, champagne towers, and dancing under the stars until late.</p>
-    </div>
-
-    <a href="#slide4" class="btn-story-reply">
-      Reply to the invitation
-    </a>
-  </section>
-
-  <!-- SLIDE 5: RSVP & DIRECT DISPATCH -->
-  <section class="story-slide slide-rsvp" id="slide4">
-    <div class="rsvp-card-box">
-      <h3>RSVP &amp; Details</h3>
-      <p style="font-size:13px;color:#FFCCD4;margin:0 0 16px;text-align:center;">
-        Please confirm your attendance for our celebration.
-      </p>
-
-      <form id="storyRsvpForm" onsubmit="handleStoryRsvp(event)" style="display:flex;flex-direction:column;gap:12px;">
-        <div>
-          <label style="font-size:11.5px;color:var(--gold-l);font-weight:600;display:block;margin-bottom:4px;">Guest Name</label>
-          <input type="text" id="rsvpGuestName" required placeholder="e.g. Rajesh &amp; Sunita" style="width:100%;box-sizing:border-box;padding:10px 12px;background:rgba(255,255,255,0.08);border:1px solid rgba(212,175,55,0.5);border-radius:10px;color:#FFF;font-size:14px;outline:none;">
-        </div>
-
-        <div style="display:flex;gap:10px;">
-          <div style="flex:1;">
-            <label style="font-size:11.5px;color:var(--gold-l);font-weight:600;display:block;margin-bottom:4px;">Will you attend?</label>
-            <select id="rsvpAttending" style="width:100%;box-sizing:border-box;padding:10px 12px;background:rgba(255,255,255,0.08);border:1px solid rgba(212,175,55,0.5);border-radius:10px;color:#FFF;font-size:14px;outline:none;">
-              <option value="Joyfully Accept" style="background:#200005;">Joyfully Accept</option>
-              <option value="Regretfully Decline" style="background:#200005;">Regretfully Decline</option>
-            </select>
-          </div>
-          <div style="width:90px;">
-            <label style="font-size:11.5px;color:var(--gold-l);font-weight:600;display:block;margin-bottom:4px;">Guests</label>
-            <input type="number" id="rsvpGuestsCount" value="2" min="1" max="10" style="width:100%;box-sizing:border-box;padding:10px 12px;background:rgba(255,255,255,0.08);border:1px solid rgba(212,175,55,0.5);border-radius:10px;color:#FFF;font-size:14px;outline:none;">
-          </div>
-        </div>
-
-        <button type="submit" class="btn-story-reply" style="width:100%;justify-content:center;margin-top:6px;background:linear-gradient(135deg, #B8142C, #730615);">
-          💌 Submit RSVP
-        </button>
-      </form>
-
-      <div id="rsvpSuccessMsg" style="display:none;background:rgba(4,120,87,0.3);border:1px solid #10B981;border-radius:12px;padding:12px;margin-top:14px;color:#A7F3D0;font-size:12.5px;text-align:center;">
-        ✓ Your RSVP has been confirmed! We can't wait to see you!
+    <div style="margin-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+      <div style="background:rgba(255,255,255,0.05);padding:14px;border-radius:12px;">
+        <div style="font-weight:700;color:var(--gold);font-size:13.5px;">Groom's Parents</div>
+        <div style="font-size:13px;color:#CBD5E1;margin-top:4px;" id="groomParentsDisplay">Son of Mr. Sunil Mittal &amp; Mrs. Rekha Mittal</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.05);padding:14px;border-radius:12px;">
+        <div style="font-weight:700;color:var(--gold);font-size:13.5px;">Bride's Parents</div>
+        <div style="font-size:13px;color:#CBD5E1;margin-top:4px;" id="brideParentsDisplay">Daughter of Mr. Navin Jindal &amp; Mrs. Savitri Jindal</div>
       </div>
     </div>
-
-    <!-- Dispatch to Guests Button -->
-    <button type="button" class="btn-story-reply" style="margin-top:24px;background:linear-gradient(135deg, #FFF0A0, #D4AF37 55%, #8C6212);color:#240206;border:none;" onclick="openSendModal()">
-      📤 Send This Invitation to Desired Person
-    </button>
+    <div style="font-family:var(--serif);font-size:15px;color:var(--gold-l);margin-top:22px;" id="coupleQuoteDisplay">
+      "In every heartbeat, the timeless echo of Jaipur's royal royalty and infinite devotion."
+    </div>
   </section>
 
+  <!-- Ceremonies Timeline -->
+  <section class="mughal-section-card">
+    <h2 class="card-title">Wedding Itinerary &amp; Ceremonies</h2>
+    <div class="timeline-grid">
+      <div class="timeline-item">
+        <div class="timeline-time" id="evt1Time">Wednesday, 24th Nov · 7:00 PM</div>
+        <div class="timeline-name" id="evt1Title">The Sangeet Spectacular</div>
+        <div class="timeline-venue" id="evt1Venue">📍 The Crystal Ballroom, Taj Mahal Palace</div>
+        <div class="timeline-dress" id="evt1Dress">👗 Dress: Diamond Sparkle &amp; Royal Velvet</div>
+        <div class="timeline-note" id="evt1Desc">An evening of celebrity artist performances, Broadway choreography and gala banquet.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time" id="evt2Time">Thursday, 25th Nov · 5:30 PM</div>
+        <div class="timeline-name" id="evt2Title">Baraat &amp; Varmala Ceremony</div>
+        <div class="timeline-venue" id="evt2Venue">📍 Gateway of India Promenade</div>
+        <div class="timeline-dress" id="evt2Dress">👗 Dress: Royal Indian Aristocratic</div>
+        <div class="timeline-note" id="evt2Desc">Royal vintage car baraat procession and garland exchange overlooking the harbor.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time" id="evt3Time">Thursday, 25th Nov · 7:30 PM</div>
+        <div class="timeline-name" id="evt3Title">Sacred Pheras &amp; Matrimony</div>
+        <div class="timeline-venue" id="evt3Venue">📍 Grand Mandap Hall, Taj Mahal Palace</div>
+        <div class="timeline-dress" id="evt3Dress">👗 Dress: Gold Zardozi &amp; Pure Silk</div>
+        <div class="timeline-note" id="evt3Desc">Sacred seven circumambulations around the sacred fire.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time" id="evt4Time">Friday, 26th Nov · 8:00 PM</div>
+        <div class="timeline-name" id="evt4Title">Royal Governors Reception</div>
+        <div class="timeline-venue" id="evt4Venue">📍 The Ballroom, Taj Mahal Palace</div>
+        <div class="timeline-dress" id="evt4Dress">👗 Dress: Ultra Formal Black Tie</div>
+        <div class="timeline-note" id="evt4Desc">Grand banquet, champagne fountains, live 40-piece orchestra, and dancing.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Venue & RSVP Section -->
+  <section class="mughal-section-card">
+    <h2 class="card-title">Venue &amp; Gracious Presence</h2>
+    <p class="card-text" id="venueAddressDisplay">
+      The Taj Mahal Palace Ballroom, Mumbai, Apollo Bunder, Colaba, Mumbai, Maharashtra 400001
+    </p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:10px;">
+      <a href="https://www.google.com/maps/search/?api=1&query=The+Taj+Mahal+Palace+Mumbai" target="_blank" rel="noopener" class="btn-gold-action" id="btnMapsLink">
+        📍 Get Directions on Google Maps
+      </a>
+      <button type="button" class="btn-gold-action" onclick="sendRSVPWhatsApp()">
+        💬 Confirm RSVP via WhatsApp
+      </button>
+    </div>
+    <div style="margin-top:16px;font-size:13px;color:#94A3B8;">
+      With Best Compliments: <b id="familySignoffDisplay" style="color:#FFF;">The Mittal &amp; Jindal Families</b>
+    </div>
+    <div style="font-size:14px;color:var(--gold-l);letter-spacing:.1em;margin-top:6px;" id="hashtagDisplay">
+      #RanveerShanayaForever
+    </div>
+  </section>
 </main>
 
-<!-- ================= SEND PERSONALIZED INVITATION MODAL ================= -->
-<div class="modal-backdrop" id="sendModal">
-  <div class="modal-body">
-    <button type="button" class="modal-close-btn" onclick="closeSendModal()">&times;</button>
-    
-    <h3 style="font-family:var(--serif);color:var(--gold-l);margin:0 0 10px;letter-spacing:1px;font-size:20px;">
-      Send Personalized Invitation
-    </h3>
-    <p style="font-size:12.5px;color:#D8C4B0;margin:0 0 18px;">
-      Send this bespoke Cartier red velvet ribbon invitation directly to your guest's WhatsApp or Email.
+<!-- Personalizer Modal -->
+<div class="send-modal" id="sendModal">
+  <div class="send-modal-card">
+    <div class="send-modal-header">
+      <h3 class="send-modal-title">💌 Send Invitation to Guest</h3>
+      <button type="button" class="btn-close-modal" onclick="closeSendModal()">&times;</button>
+    </div>
+    <p style="font-size:13.5px;color:#4B5563;margin-top:0;">
+      Send a personalized 3D Mughal Gardens invitation link directly to your desired guest.
     </p>
-
-    <div class="modal-input-group">
+    <div class="form-field-grp">
       <label>Guest Full Name</label>
-      <input type="text" id="targetGuestName" placeholder="e.g. Rajesh &amp; Sunita Sharma">
+      <input type="text" id="modalGuestName" value="Dr. Ayan &amp; Family" oninput="updateGuestDispatchLink()">
     </div>
-
-    <div class="modal-input-group">
+    <div class="form-field-grp">
       <label>Guest WhatsApp Number</label>
-      <div style="display:flex;gap:6px;">
-        <select id="countryCodeSelect" style="width:90px;flex-shrink:0;">
-          <option value="91">+91 (IN)</option>
-          <option value="1">+1 (US)</option>
-          <option value="44">+44 (UK)</option>
-          <option value="971">+971 (UAE)</option>
-          <option value="65">+65 (SG)</option>
-          <option value="61">+61 (AU)</option>
-        </select>
-        <input type="tel" id="targetGuestPhone" placeholder="10-digit number (e.g. 9876543210)" style="flex:1;">
-      </div>
+      <input type="tel" id="targetGuestPhone" value="+971501234567" oninput="updateGuestDispatchLink()">
     </div>
-
-    <div class="modal-input-group">
-      <label>Guest Email Address (Optional)</label>
-      <input type="email" id="targetGuestEmail" placeholder="e.g. guest@example.com">
+    <div class="form-field-grp">
+      <label>Generated Link</label>
+      <input type="text" id="targetGuestLink" readonly style="background:#F9FAFB;">
     </div>
-
-    <div style="display:flex;flex-direction:column;gap:10px;margin-top:20px;">
-      <button type="button" class="btn-story-reply" style="width:100%;justify-content:center;background:linear-gradient(135deg, #25D366, #128C7E);color:#FFF;border:none;" onclick="sendViaWhatsApp()">
-        💬 Send via WhatsApp
+    <div style="display:flex;gap:10px;margin-top:18px;">
+      <button type="button" class="btn-generate-invite" style="flex:1;margin:0;background:#22C55E;" onclick="dispatchWhatsAppDirect()">
+        💬 Send on WhatsApp
       </button>
-      <button type="button" class="btn-story-reply" style="width:100%;justify-content:center;" onclick="sendViaEmail()">
-        ✉️ Send via Email
-      </button>
-      <button type="button" class="btn-story-reply" id="btnCopyPersonal" style="width:100%;justify-content:center;background:rgba(255,255,255,0.15);" onclick="copyPersonalizedLink()">
-        🔗 Copy Personalized Link
+      <button type="button" class="btn-generate-invite" style="flex:1;margin:0;background:#064E3B;" onclick="copyGuestInviteLink()">
+        📋 Copy Link
       </button>
     </div>
-
   </div>
 </div>
 
 <script>
-// Wedding config from storage or query
 var weddingConfig = {
-  bride: "Madeleine",
-  groom: "Vittorio",
-  grandTitle: "CELEBRATION OF OUR ETERNAL LOVE",
-  date: "Saturday, 19th June 2027",
-  time: "4:00 PM",
-  venue: "The Grand Chandelier Ballroom, Lake Como",
-  venueAddress: "Via Regina 40, 22012 Cernobbio, Lake Como, Italy",
-  letterBody: "we are getting married, and we want the people we love most in the front row.",
-  rsvpPhone: "9876543210"
+  groom: "Ranveer",
+  groomFull: "Ranveer Mittal",
+  groomParents: "Son of Mr. Sunil Mittal & Mrs. Rekha Mittal",
+  bride: "Shanaya",
+  brideFull: "Shanaya Jindal",
+  brideParents: "Daughter of Mr. Navin Jindal & Mrs. Savitri Jindal",
+  grandTitle: "Grand Ballroom Starlight Wedding",
+  date: "25-11-2027",
+  time: "19:00",
+  venue: "The Taj Mahal Palace Ballroom, Mumbai",
+  venueAddress: "Apollo Bunder, Colaba, Mumbai, Maharashtra 400001",
+  mapsUrl: "https://www.google.com/maps/search/?api=1&query=The+Taj+Mahal+Palace+Mumbai",
+  inviteMessage: "Together with their families, Ranveer & Shanaya request the honour of your presence at the grand celebration of their holy wedding union.",
+  coupleQuote: "In every heartbeat, the timeless echo of Jaipur's royal royalty and infinite devotion.",
+  familySignoff: "The Mittal & Jindal Families",
+  hashtag: "#RanveerShanayaForever",
+  guestName: "Dr. Ayan & Family",
+  guestPhone: "+971501234567",
+  guestEmail: "guest@example.com"
 };
 
-function applyConfigToDom() {
-  var couple = weddingConfig.bride + " & " + weddingConfig.groom;
-  var elCoverNames = document.getElementById('coverCoupleNames');
-  if (elCoverNames) elCoverNames.textContent = couple;
-  
-  var elBride = document.getElementById('brideNameDisplay');
-  if (elBride) elBride.textContent = weddingConfig.bride;
 
-  var elGroom = document.getElementById('groomNameDisplay');
-  if (elGroom) elGroom.textContent = weddingConfig.groom;
-
-  var elSig = document.getElementById('letterSignature');
-  if (elSig) elSig.textContent = couple;
-
-  var elLetter = document.getElementById('letterQuoteBody');
-  if (elLetter) elLetter.textContent = weddingConfig.letterBody;
-
-  var elDate = document.getElementById('weddingDateDisplay');
-  if (elDate) elDate.textContent = weddingConfig.date;
-
-  var elSealDate = document.getElementById('sealDateBig');
-  if (elSealDate) elSealDate.textContent = weddingConfig.date;
-
-  var elVenue = document.getElementById('weddingVenueDisplay');
-  if (elVenue) elVenue.textContent = weddingConfig.venue.toUpperCase();
-
-  var elTime = document.getElementById('ceremonyTimeDisplay');
-  if (elTime) elTime.textContent = weddingConfig.time;
-
-  var elInitials = document.getElementById('doorInitials');
-  if (elInitials) {
-    elInitials.textContent = (weddingConfig.bride.charAt(0) || "M") + " ❦ " + (weddingConfig.groom.charAt(0) || "V");
+function openCartierBox() {
+  var lid = document.getElementById('cartierBoxLid');
+  var card = document.getElementById('cartierInnerCard');
+  var stage = document.getElementById('stageScreen');
+  if (lid) lid.style.transform = 'rotateX(135deg)';
+  if (card) {
+    card.style.transform = 'translateZ(90px) scale(1.08)';
+    card.style.boxShadow = '0 25px 60px rgba(0,0,0,0.95)';
   }
-
-  document.title = couple + " — Cartier Red Velvet Ribbon Wedding Invitation";
-
-  // Pre-fill form values
-  if (document.getElementById('fBrideName')) document.getElementById('fBrideName').value = weddingConfig.bride;
-  if (document.getElementById('fGroomName')) document.getElementById('fGroomName').value = weddingConfig.groom;
-  if (document.getElementById('fGrandTitle')) document.getElementById('fGrandTitle').value = weddingConfig.grandTitle;
-  if (document.getElementById('fWeddingDate')) document.getElementById('fWeddingDate').value = weddingConfig.date;
-  if (document.getElementById('fWeddingTime')) document.getElementById('fWeddingTime').value = weddingConfig.time;
-  if (document.getElementById('fVenueName')) document.getElementById('fVenueName').value = weddingConfig.venue;
-  if (document.getElementById('fVenueAddress')) document.getElementById('fVenueAddress').value = weddingConfig.venueAddress;
-  if (document.getElementById('fLoveLetter')) document.getElementById('fLoveLetter').value = weddingConfig.letterBody;
-  if (document.getElementById('fRsvpNumber')) document.getElementById('fRsvpNumber').value = weddingConfig.rsvpPhone;
+  setTimeout(function() {
+    if (stage) stage.classList.add('stage-hidden');
+    var main = document.getElementById('mainInvite');
+    if (main) main.scrollIntoView({ behavior: 'smooth' });
+  }, 1400);
+}
+function replayStageReveal() {
+  var stage = document.getElementById('stageScreen');
+  var lid = document.getElementById('cartierBoxLid');
+  var card = document.getElementById('cartierInnerCard');
+  if (lid) lid.style.transform = 'rotateX(0deg)';
+  if (card) {
+    card.style.transform = 'none';
+    card.style.boxShadow = 'none';
+  }
+  if (stage) stage.classList.remove('stage-hidden');
 }
 
-try {
-  var saved = localStorage.getItem('gv_active_invite');
-  if (saved) {
-    var p = JSON.parse(saved);
-    if (p.bride_name || p.bride) weddingConfig.bride = p.bride_name || p.bride;
-    if (p.groom_name || p.groom) weddingConfig.groom = p.groom_name || p.groom;
-    if (p.occasion_title) weddingConfig.grandTitle = p.occasion_title;
-    if (p.event_date || p.date) weddingConfig.date = p.event_date || p.date;
-    if (p.venue) weddingConfig.venue = p.venue;
-    if (p.venue_address) weddingConfig.venueAddress = p.venue_address;
-    if (p.rsvp_whatsapp) weddingConfig.rsvpPhone = p.rsvp_whatsapp;
-  }
-} catch (e) {}
-
-var urlParams = new URLSearchParams(window.location.search);
-if (urlParams.get('bride')) weddingConfig.bride = urlParams.get('bride');
-if (urlParams.get('groom')) weddingConfig.groom = urlParams.get('groom');
-if (urlParams.get('date')) weddingConfig.date = urlParams.get('date');
-if (urlParams.get('venue')) weddingConfig.venue = urlParams.get('venue');
-
-applyConfigToDom();
-
-// ================= FORM CONTROLLER =================
-var creatorScreen = document.getElementById('creatorScreen');
-var marbleStage = document.getElementById('marbleStage');
-var hasViewFlag = urlParams.has('view') || urlParams.has('to') || urlParams.has('guest');
-
-if (hasViewFlag) {
-  creatorScreen.classList.add('creator-hidden');
-}
 
 function showCreatorForm() {
-  creatorScreen.classList.remove('creator-hidden');
-  marbleStage.classList.remove('stage-hidden');
-  resetRibbonBoxState();
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-function closeCreatorAndReveal() {
-  creatorScreen.classList.add('creator-hidden');
+  var creator = document.getElementById('creatorScreen');
+  if (creator) creator.classList.remove('creator-hidden');
 }
 
 function handleCreatorSubmit(e) {
   e.preventDefault();
-  weddingConfig.bride = document.getElementById('fBrideName').value.trim() || "Madeleine";
-  weddingConfig.groom = document.getElementById('fGroomName').value.trim() || "Vittorio";
-  weddingConfig.grandTitle = document.getElementById('fGrandTitle').value.trim() || "CELEBRATION OF OUR ETERNAL LOVE";
-  weddingConfig.date = document.getElementById('fWeddingDate').value.trim() || "Saturday, 19th June 2027";
-  weddingConfig.time = document.getElementById('fWeddingTime').value.trim() || "4:00 PM";
-  weddingConfig.venue = document.getElementById('fVenueName').value.trim() || "The Grand Chandelier Ballroom, Lake Como";
+  weddingConfig.groom = document.getElementById('fGroomName').value.trim() || "Ranveer";
+  weddingConfig.groomFull = document.getElementById('fGroomFullName').value.trim() || weddingConfig.groom;
+  weddingConfig.groomParents = document.getElementById('fGroomParents').value.trim();
+  weddingConfig.bride = document.getElementById('fBrideName').value.trim() || "Shanaya";
+  weddingConfig.brideFull = document.getElementById('fBrideFullName').value.trim() || weddingConfig.bride;
+  weddingConfig.brideParents = document.getElementById('fBrideParents').value.trim();
+  weddingConfig.grandTitle = document.getElementById('fGrandTitle').value.trim();
+  weddingConfig.date = document.getElementById('fWeddingDate').value.trim();
+  weddingConfig.time = document.getElementById('fWeddingTime').value.trim();
+  weddingConfig.venue = document.getElementById('fVenueName').value.trim();
   weddingConfig.venueAddress = document.getElementById('fVenueAddress').value.trim();
-  weddingConfig.letterBody = document.getElementById('fLoveLetter').value.trim() || "we are getting married, and we want the people we love most in the front row.";
-  weddingConfig.rsvpPhone = document.getElementById('fRsvpNumber').value.trim();
-
-  try {
-    localStorage.setItem('gv_active_invite', JSON.stringify({
-      bride_name: weddingConfig.bride,
-      groom_name: weddingConfig.groom,
-      occasion_title: weddingConfig.grandTitle,
-      event_date: weddingConfig.date,
-      venue: weddingConfig.venue,
-      venue_address: weddingConfig.venueAddress,
-      rsvp_whatsapp: weddingConfig.rsvpPhone
-    }));
-  } catch (_) {}
+  weddingConfig.mapsUrl = document.getElementById('fMapsUrl').value.trim();
+  weddingConfig.guestName = document.getElementById('fGuestName').value.trim();
+  weddingConfig.guestPhone = document.getElementById('fGuestPhone').value.trim();
+  weddingConfig.guestEmail = document.getElementById('fGuestEmail').value.trim();
 
   applyConfigToDom();
-  burstPetals();
-  playRomanticChime();
+  triggerJasmineBurst();
 
-  // Hide creator form with smooth fade
-  creatorScreen.classList.add('creator-hidden');
-
-  // Reset ribbon box state and automatically trigger untying & opening
-  resetRibbonBoxState();
-  setTimeout(openRibbonBox, 500);
-}
-
-// ================= AUDIO ENGINE =================
-var audioCtx = null;
-var isPlaying = false;
-var audioInterval = null;
-
-function playRomanticChime() {
-  try {
-    var AudioCtx = window.AudioContext || window.webkitAudioContext;
-    if (!AudioCtx) return;
-    if (!audioCtx) audioCtx = new AudioCtx();
-    if (audioCtx.state === 'suspended') audioCtx.resume();
-
-    var chords = [440, 554.37, 659.25, 830.61, 880];
-    chords.forEach(function(freq, idx) {
-      setTimeout(function() {
-        var osc = audioCtx.createOscillator();
-        var gain = audioCtx.createGain();
-        osc.type = 'triangle';
-        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-        gain.gain.setValueAtTime(0.001, audioCtx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.18, audioCtx.currentTime + 0.04);
-        gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 1.4);
-        osc.connect(gain);
-        gain.connect(audioCtx.destination);
-        osc.start();
-        osc.stop(audioCtx.currentTime + 1.45);
-      }, idx * 170);
-    });
-  } catch(e) {}
-}
-
-function startAmbientMusic() {
-  if (isPlaying) return;
-  isPlaying = true;
-  document.getElementById('audioToggle').textContent = '🔊';
-  playRomanticChime();
-  audioInterval = setInterval(playRomanticChime, 5400);
-}
-
-function toggleAudio() {
-  if (isPlaying) {
-    isPlaying = false;
-    if (audioInterval) clearInterval(audioInterval);
-    document.getElementById('audioToggle').textContent = '🎵';
-  } else {
-    startAmbientMusic();
+  var creator = document.getElementById('creatorScreen');
+  var stage = document.getElementById('stageScreen');
+  if (creator) creator.classList.add('creator-hidden');
+  if (stage) {
+    stage.classList.remove('stage-hidden');
+    var lid = document.getElementById('locketLid');
+    var card = document.getElementById('locketCard');
+    if (lid) lid.classList.remove('is-open');
+    if (card) card.classList.remove('elevated');
   }
 }
-document.getElementById('audioToggle').addEventListener('click', toggleAudio);
 
-// ================= 3D RIBBON & FRENCH DOORS INTERACTION =================
-var stageOpened = false;
-var ribbonWrap = document.getElementById('ribbonWrap');
-var doorLeft = document.getElementById('doorLeft');
-var doorRight = document.getElementById('doorRight');
-var acrylicCard = document.getElementById('acrylicCard');
-var marbleStage = document.getElementById('marbleStage');
-var boxScene = document.getElementById('ribbonBoxScene');
-var skipBtn = document.getElementById('skipStageBtn');
+function applyConfigToDom() {
+  var couple = weddingConfig.groom + " & " + weddingConfig.bride;
+  var bg = document.getElementById('groomNameDisplay');
+  var bb = document.getElementById('brideNameDisplay');
+  if (bg) bg.textContent = weddingConfig.groomFull || weddingConfig.groom;
+  if (bb) bb.textContent = weddingConfig.brideFull || weddingConfig.bride;
 
-function resetRibbonBoxState() {
-  stageOpened = false;
-  ribbonWrap.classList.remove('is-untying');
-  doorLeft.classList.remove('is-open');
-  doorRight.classList.remove('is-open');
-  acrylicCard.classList.remove('is-elevated');
-  marbleStage.classList.remove('stage-hidden');
-  document.getElementById('coverActionText').textContent = "TAP TO UNTIE RIBBON & OPEN";
+  var bp = document.getElementById('brideParentsDisplay');
+  var gp = document.getElementById('groomParentsDisplay');
+  if (bp) bp.textContent = weddingConfig.brideParents || '';
+  if (gp) gp.textContent = weddingConfig.groomParents || '';
+
+  var wdate = document.getElementById('weddingDateDisplay');
+  if (wdate) wdate.textContent = weddingConfig.date + (weddingConfig.time ? (' · ' + weddingConfig.time) : '');
+
+  var wven = document.getElementById('weddingVenueDisplay');
+  if (wven) wven.textContent = (weddingConfig.venue || '').toUpperCase();
+
+  var lc = document.getElementById('locketCoupleNames');
+  if (lc) lc.textContent = couple;
+
+  document.title = couple + " — Shahi Mughal Gardens 3D Wedding Invitation";
 }
 
-function replayRibbonExperience() {
-  creatorScreen.classList.add('creator-hidden');
-  resetRibbonBoxState();
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+var audioCtx = null;
+function getAudioCtx() {
+  if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  if (audioCtx.state === 'suspended') audioCtx.resume();
+  return audioCtx;
+}
+function playThemeChime() {
+  try {
+    var ctx = getAudioCtx();
+    var notes = [440.00, 554.37, 659.25, 880.00];
+    notes.forEach(function(freq, i) {
+      var osc = ctx.createOscillator();
+      var gain = ctx.createGain();
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(freq, ctx.currentTime + (i * 0.12));
+      gain.gain.setValueAtTime(0.001, ctx.currentTime + (i * 0.12));
+      gain.gain.exponentialRampToValueAtTime(0.18, ctx.currentTime + (i * 0.12) + 0.04);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + (i * 0.12) + 1.2);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(ctx.currentTime + (i * 0.12));
+      osc.stop(ctx.currentTime + (i * 0.12) + 1.3);
+    });
+  } catch (_) {}
 }
 
-function openRibbonBox() {
-  if (stageOpened) return;
-  stageOpened = true;
-
-  startAmbientMusic();
-  playRomanticChime();
-  burstPetals();
-
-  // Step 1: Ribbon unties
-  ribbonWrap.classList.add('is-untying');
-  document.getElementById('coverActionText').textContent = "OPENING THE LUXURY DOORS...";
-
-  // Step 2: French doors swing open horizontally
-  setTimeout(function() {
-    doorLeft.classList.add('is-open');
-    doorRight.classList.add('is-open');
-    burstPetals();
-  }, 600);
-
-  // Step 3: Card elevates
-  setTimeout(function() {
-    acrylicCard.classList.add('is-elevated');
-  }, 1300);
-
-  // Step 4: Fade to Story slides
-  setTimeout(function() {
-    revealStory();
-  }, 2700);
-}
-
-function revealStory() {
-  marbleStage.classList.add('stage-hidden');
-  burstPetals();
-}
-
-boxScene.addEventListener('click', function() {
-  if (!stageOpened) openRibbonBox();
-  else revealStory();
-});
-
-skipBtn.addEventListener('click', function(e) {
-  e.stopPropagation();
-  openRibbonBox();
-  setTimeout(revealStory, 400);
-});
-
-// ================= INTERACTIVE WAX SEAL BUTTON =================
-var waxSealBtn = document.getElementById('waxSealBtn');
-waxSealBtn.addEventListener('click', function() {
-  playRomanticChime();
-  burstPetals();
-  this.style.transform = 'scale(0.92)';
-  setTimeout(function() {
-    waxSealBtn.style.transform = 'scale(1.08)';
-  }, 180);
-  document.getElementById('sealFeedbackText').innerHTML = "❤️ Sealed with eternal love! Date saved: <b>" + weddingConfig.date + "</b>";
-});
-
-// ================= FALLING ROSE PETALS CANVAS =================
-var canvas = document.getElementById('petalsCanvas');
-var ctx = canvas.getContext('2d');
-var petals = [];
-
-function resizeCanvas() {
+function triggerJasmineBurst() {
+  var canvas = document.getElementById('particlesCanvas');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
-}
-window.addEventListener('resize', resizeCanvas);
-resizeCanvas();
 
-function burstPetals() {
-  var cx = canvas.width / 2;
-  var cy = canvas.height / 3;
-  for (var i = 0; i < 35; i++) {
-    petals.push({
-      x: cx + (Math.random() - 0.5) * 200,
-      y: cy + (Math.random() - 0.5) * 100,
-      vx: (Math.random() - 0.5) * 4,
-      vy: 1.5 + Math.random() * 3,
-      size: 8 + Math.random() * 8,
-      rot: Math.random() * 360,
-      vrot: (Math.random() - 0.5) * 5,
+  var particles = [];
+  var colors = ['#FFFFFF', '#D1FAE5', '#34D399', '#D4AF37', '#FEF08A'];
+  for (var i = 0; i < 60; i++) {
+    particles.push({
+      x: canvas.width * 0.5,
+      y: canvas.height * 0.5,
+      vx: (Math.random() - 0.5) * 14,
+      vy: (Math.random() - 0.5) * 14 - 3,
+      size: Math.random() * 6 + 3,
+      color: colors[Math.floor(Math.random() * colors.length)],
       alpha: 1,
-      color: ['#B8142C', '#8A071A', '#C2132C', '#6E0513', '#E63956'][Math.floor(Math.random() * 5)]
+      decay: Math.random() * 0.015 + 0.008
     });
+  }
+
+  function render() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    var alive = false;
+    particles.forEach(function(p) {
+      if (p.alpha > 0) {
+        alive = true;
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vy += 0.18;
+        p.alpha -= p.decay;
+        ctx.save();
+        ctx.globalAlpha = Math.max(0, p.alpha);
+        ctx.fillStyle = p.color;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
+    });
+    if (alive) requestAnimationFrame(render);
+    else ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
+  render();
+}
+
+function toggleAutoScroll() {
+  var btn = document.getElementById('btnAutoScroll');
+  if (window.autoScrollInterval) {
+    clearInterval(window.autoScrollInterval);
+    window.autoScrollInterval = null;
+    if (btn) btn.innerHTML = '📜 <span>Auto-Scroll</span>';
+  } else {
+    window.autoScrollInterval = setInterval(function() {
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 5) {
+        clearInterval(window.autoScrollInterval);
+        window.autoScrollInterval = null;
+        if (btn) btn.innerHTML = '📜 <span>Auto-Scroll</span>';
+      } else {
+        window.scrollBy({ top: 2, behavior: 'smooth' });
+      }
+    }, 25);
+    if (btn) btn.innerHTML = '⏸️ <span>Pause</span>';
   }
 }
 
-function updatePetals() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  for (var i = petals.length - 1; i >= 0; i--) {
-    var p = petals[i];
-    p.x += p.vx;
-    p.y += p.vy;
-    p.rot += p.vrot;
-    p.alpha -= 0.008;
-    if (p.alpha <= 0 || p.y > canvas.height + 20) {
-      petals.splice(i, 1);
-      continue;
-    }
+function openSendModal() {
+  var modal = document.getElementById('sendModal');
+  if (modal) modal.style.display = 'flex';
+  updateGuestDispatchLink();
+}
+function closeSendModal() {
+  var modal = document.getElementById('sendModal');
+  if (modal) modal.style.display = 'none';
+}
+function updateGuestDispatchLink() {
+  var guestName = (document.getElementById('modalGuestName').value || '').trim();
+  var baseUrl = window.location.origin + window.location.pathname;
+  var link = baseUrl + '?view=created';
+  if (guestName) link += '&to=' + encodeURIComponent(guestName);
+  var linkField = document.getElementById('targetGuestLink');
+  if (linkField) linkField.value = link;
+}
+function copyGuestInviteLink() {
+  var linkField = document.getElementById('targetGuestLink');
+  if (linkField) {
+    linkField.select();
+    navigator.clipboard.writeText(linkField.value).then(function() {
+      alert("✨ Invitation link copied to clipboard!");
+    });
+  }
+}
+function dispatchWhatsAppDirect() {
+  var guestName = (document.getElementById('modalGuestName').value || '').trim() || weddingConfig.guestName;
+  var rawPhone = document.getElementById('targetGuestPhone').value.trim().replace(/\D/g, '');
+  var linkField = document.getElementById('targetGuestLink');
+  var inviteUrl = linkField ? linkField.value : window.location.href;
+
+  var text = "🌿 Namaskar " + guestName + ",\n\n" +
+    "Together with our families, we cordially invite you to celebrate the Royal Wedding of *" + weddingConfig.groom + " & " + weddingConfig.bride + "*!\n\n" +
+    "✨ *Date:* " + weddingConfig.date + "\n" +
+    "🏰 *Venue:* " + weddingConfig.venue + "\n\n" +
+    "Tap to reveal your 3D Shahi Silver Locket invitation:\n" + inviteUrl;
+
+  var waUrl = rawPhone 
+    ? ('https://api.whatsapp.com/send?phone=' + rawPhone + '&text=' + encodeURIComponent(text))
+    : ('https://api.whatsapp.com/send?text=' + encodeURIComponent(text));
+  window.open(waUrl, '_blank');
+}
+function sendRSVPWhatsApp() {
+  var cleanPhone = weddingConfig.guestPhone.replace(/\D/g, '');
+  var text = encodeURIComponent("Namaskar! I am delighted to confirm my RSVP for " + weddingConfig.groom + " & " + weddingConfig.bride + "'s Royal Wedding.");
+  window.open("https://api.whatsapp.com/send?phone=" + cleanPhone + "&text=" + text, '_blank');
+}
+
+var isAudioPlaying = false;
+function toggleAudio() {
+  var btn = document.getElementById('musicToggleBtn');
+  if (isAudioPlaying) {
+    isAudioPlaying = false;
+    if (btn) btn.innerHTML = '🔇 Music Off';
+  } else {
+    isAudioPlaying = true;
+    playThemeChime();
+    if (btn) btn.innerHTML = '🎵 Music On';
+  }
+}
+
+function clearAllFields() {
+  document.querySelectorAll('#templateCreatorForm input[type="text"]').forEach(function(i) { i.value = ''; });
+}
+
+
+function initFallingRosePetals() {
+  var canvas = document.getElementById('particlesCanvas');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var petals = [];
+  var count = 35;
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+
+  for (var i = 0; i < count; i++) {
+    petals.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      size: 10 + Math.random() * 14,
+      speedX: -1 + Math.random() * 2,
+      speedY: 1 + Math.random() * 2.2,
+      rotation: Math.random() * 360,
+      rotSpeed: -1.5 + Math.random() * 3,
+      opacity: 0.4 + Math.random() * 0.5,
+      color: ['#E11D48', '#FB7185', '#F43F5E', '#BE123C', '#FDA4AF'][Math.floor(Math.random() * 5)]
+    });
+  }
+
+  function drawPetal(p) {
     ctx.save();
     ctx.translate(p.x, p.y);
-    ctx.rotate((p.rot * Math.PI) / 180);
-    ctx.globalAlpha = p.alpha;
+    ctx.rotate(p.rotation * Math.PI / 180);
+    ctx.globalAlpha = p.opacity;
     ctx.fillStyle = p.color;
     ctx.beginPath();
-    ctx.ellipse(0, 0, p.size, p.size * 0.6, 0, 0, Math.PI * 2);
+    ctx.moveTo(0, 0);
+    ctx.bezierCurveTo(-p.size / 2, -p.size / 2, -p.size / 2, p.size / 2, 0, p.size);
+    ctx.bezierCurveTo(p.size / 2, p.size / 2, p.size / 2, -p.size / 2, 0, 0);
     ctx.fill();
     ctx.restore();
   }
-  requestAnimationFrame(updatePetals);
-}
-requestAnimationFrame(updatePetals);
 
-// ================= STORY PROGRESS TRACKER =================
-var slides = document.querySelectorAll('.story-slide');
-var progressBars = [
-  document.getElementById('prog0'),
-  document.getElementById('prog1'),
-  document.getElementById('prog2'),
-  document.getElementById('prog3'),
-  document.getElementById('prog4')
-];
-
-window.addEventListener('scroll', function() {
-  var top = window.scrollY + window.innerHeight * 0.4;
-  slides.forEach(function(slide, idx) {
-    if (slide.offsetTop <= top && (slide.offsetTop + slide.offsetHeight) > top) {
-      progressBars.forEach(function(bar, bIdx) {
-        if (bIdx < idx) {
-          bar.className = 'progress-segment past';
-        } else if (bIdx === idx) {
-          bar.className = 'progress-segment active';
-        } else {
-          bar.className = 'progress-segment';
-        }
-      });
-    }
-  });
-});
-
-// ================= AUTO-PLAY / AUTO-SCROLL =================
-var autoPlayActive = false;
-var autoTimer = null;
-var autoBtn = document.getElementById('autoScrollBtn');
-
-function toggleAutoPlay() {
-  if (autoPlayActive) {
-    autoPlayActive = false;
-    clearInterval(autoTimer);
-    autoBtn.innerHTML = '📜 <span>Auto-Play</span>';
-  } else {
-    autoPlayActive = true;
-    autoBtn.innerHTML = '⏸ <span>Pause</span>';
-    autoTimer = setInterval(function() {
-      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 10) {
-        autoPlayActive = false;
-        clearInterval(autoTimer);
-        autoBtn.innerHTML = '📜 <span>Auto-Play</span>';
-        return;
+  function animatePetals() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (var i = 0; i < petals.length; i++) {
+      var p = petals[i];
+      p.x += p.speedX;
+      p.y += p.speedY;
+      p.rotation += p.rotSpeed;
+      if (p.y > canvas.height + 20) {
+        p.y = -20;
+        p.x = Math.random() * canvas.width;
       }
-      window.scrollBy({ top: 2, behavior: 'smooth' });
-    }, 30);
+      if (p.x < -20) p.x = canvas.width + 20;
+      if (p.x > canvas.width + 20) p.x = -20;
+      drawPetal(p);
+    }
+    requestAnimationFrame(animatePetals);
   }
-}
-autoBtn.addEventListener('click', toggleAutoPlay);
-
-// ================= STORY RSVP =================
-function handleStoryRsvp(e) {
-  e.preventDefault();
-  var name = document.getElementById('rsvpGuestName').value.trim();
-  var status = document.getElementById('rsvpAttending').value;
-  var guests = document.getElementById('rsvpGuestsCount').value;
-
-  var successEl = document.getElementById('rsvpSuccessMsg');
-  successEl.style.display = 'block';
-  successEl.textContent = "✓ Gracious thanks, " + name + "! Your response (" + status + " · " + guests + " guests) is confirmed.";
-  document.getElementById('storyRsvpForm').reset();
-  burstPetals();
+  animatePetals();
 }
 
-// ================= SEND TO DESIRED PERSON =================
-function openSendModal() {
-  document.getElementById('sendModal').style.display = 'flex';
+function initScratchToReveal() {
+  var canvas = document.getElementById('scratchCanvas');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var container = canvas.parentElement;
+  var isDrawing = false;
+  var completed = false;
+
+  function resizeFoil() {
+    var rect = container.getBoundingClientRect();
+    if (rect.width === 0) return;
+    canvas.width = rect.width;
+    canvas.height = rect.height;
+    renderFoilSurface();
+  }
+
+  function renderFoilSurface() {
+    var w = canvas.width;
+    var h = canvas.height;
+    var grad = ctx.createLinearGradient(0, 0, w, h);
+    grad.addColorStop(0, '#F59E0B');
+    grad.addColorStop(0.25, '#FEF08A');
+    grad.addColorStop(0.5, '#D97706');
+    grad.addColorStop(0.75, '#FDE68A');
+    grad.addColorStop(1, '#92400E');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, w, h);
+
+    ctx.fillStyle = 'rgba(255,255,255,0.35)';
+    for (var i = 0; i < 45; i++) {
+      ctx.beginPath();
+      ctx.arc((i * 47) % w, (i * 31) % h, (i % 4) + 1.5, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    ctx.fillStyle = '#451A03';
+    ctx.font = 'bold 15px "Cinzel", Georgia, serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('✨ SCRATCH GOLD FOIL ✨', w / 2, h / 2 - 14);
+    ctx.font = 'italic 12px sans-serif';
+    ctx.fillStyle = '#78350F';
+    ctx.fillText('Rub with finger or mouse to reveal Date & Calendar', w / 2, h / 2 + 12);
+  }
+
+  function handleScratch(e) {
+    if (!isDrawing || completed) return;
+    var rect = canvas.getBoundingClientRect();
+    var clientX = e.clientX || (e.touches && e.touches[0].clientX);
+    var clientY = e.clientY || (e.touches && e.touches[0].clientY);
+    var x = (clientX - rect.left) * (canvas.width / rect.width);
+    var y = (clientY - rect.top) * (canvas.height / rect.height);
+
+    ctx.globalCompositeOperation = 'destination-out';
+    ctx.beginPath();
+    ctx.arc(x, y, 26, 0, Math.PI * 2);
+    ctx.fill();
+
+    checkFoilCleared();
+  }
+
+  function checkFoilCleared() {
+    if (completed) return;
+    var w = canvas.width;
+    var h = canvas.height;
+    var cleared = 0;
+    var sampleCount = 36;
+    for (var i = 0; i < 6; i++) {
+      for (var j = 0; j < 6; j++) {
+        var pixel = ctx.getImageData((i + 0.5) * (w / 6), (j + 0.5) * (h / 6), 1, 1).data;
+        if (pixel[3] === 0) cleared++;
+      }
+    }
+    if (cleared / sampleCount > 0.38) {
+      completed = true;
+      canvas.classList.add('is-cleared');
+      playThemeChime();
+      var hint = document.getElementById('scratchStatusHint');
+      if (hint) hint.innerHTML = '🎉 <b>Date Unlocked! Add to your calendar above!</b> 🎉';
+    }
+  }
+
+  canvas.addEventListener('mousedown', function(e) { isDrawing = true; handleScratch(e); });
+  canvas.addEventListener('mousemove', handleScratch);
+  window.addEventListener('mouseup', function() { isDrawing = false; });
+
+  canvas.addEventListener('touchstart', function(e) { isDrawing = true; handleScratch(e); }, { passive: true });
+  canvas.addEventListener('touchmove', handleScratch, { passive: true });
+  window.addEventListener('touchend', function() { isDrawing = false; });
+
+  setTimeout(resizeFoil, 150);
+  window.addEventListener('resize', resizeFoil);
 }
-function closeSendModal() {
-  document.getElementById('sendModal').style.display = 'none';
+
+function downloadICalReminder() {
+  var ics = "BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//GoldenVows//Wedding Invitation//EN\n" +
+    "BEGIN:VEVENT\n" +
+    "SUMMARY:Wedding of " + (weddingConfig.groomFull || "Ranveer Mittal") + " & " + (weddingConfig.brideFull || "Shanaya Jindal") + "\n" +
+    "DESCRIPTION:Grand Royal Wedding Celebration at " + weddingConfig.venue + "\n" +
+    "LOCATION:" + weddingConfig.venueAddress + "\n" +
+    "DTSTART:20271125T133000Z\n" +
+    "DTEND:20271125T183000Z\n" +
+    "END:VEVENT\nEND:VCALENDAR";
+  var blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
+  var link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = "Wedding_Ranveer_Shanaya.ics";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
 }
 
-function getCleanUrl() {
-  var href = window.location.href.split('#')[0].split('?')[0];
-  var guest = document.getElementById('targetGuestName').value.trim();
-  return href + '?view=created' + (guest ? '&to=' + encodeURIComponent(guest) : '');
-}
 
-function sendViaWhatsApp() {
-  var guest = document.getElementById('targetGuestName').value.trim() || 'Honored Guest';
-  var cc = (document.getElementById('countryCodeSelect').value || '91').replace(/\D/g, '');
-  var rawPhone = document.getElementById('targetGuestPhone').value.trim().replace(/\D/g, '').replace(/^0+/, '');
-  var fullPhone = rawPhone ? (cc + rawPhone) : '';
-  var link = getCleanUrl();
-
-  var text = encodeURIComponent(
-    "Dearest " + guest + ",\n\n" +
-    "You are warmly invited to celebrate the Wedding of " + weddingConfig.bride + " & " + weddingConfig.groom + "! ❦\n\n" +
-    "📅 Date: " + weddingConfig.date + "\n" +
-    "📍 Venue: " + weddingConfig.venue + "\n\n" +
-    "✨ Tap below to untie the red velvet ribbon and open your personal invitation:\n" +
-    link + "\n\n" +
-    "With love & warm regards,\n" +
-    weddingConfig.bride + " & " + weddingConfig.groom
-  );
-
-  var waUrl = fullPhone 
-    ? ('https://api.whatsapp.com/send?phone=' + fullPhone + '&text=' + text)
-    : ('https://api.whatsapp.com/send?text=' + text);
-
-  window.open(waUrl, '_blank');
-  closeSendModal();
-}
-
-function sendViaEmail() {
-  var guest = document.getElementById('targetGuestName').value.trim() || 'Honored Guest';
-  var email = document.getElementById('targetGuestEmail').value.trim();
-  var link = getCleanUrl();
-
-  var subject = encodeURIComponent("Wedding Invitation: " + weddingConfig.bride + " & " + weddingConfig.groom);
-  var body = encodeURIComponent(
-    "Dearest " + guest + ",\n\n" +
-    "We are overjoyed to invite you to celebrate our wedding!\n\n" +
-    "Date: " + weddingConfig.date + "\n" +
-    "Venue: " + weddingConfig.venue + "\n\n" +
-    "Open your personal red velvet ribbon invitation here:\n" +
-    link + "\n\n" +
-    "With love,\n" +
-    weddingConfig.bride + " & " + weddingConfig.groom
-  );
-
-  window.location.href = 'mailto:' + (email || '') + '?subject=' + subject + '&body=' + body;
-  closeSendModal();
-}
-
-function copyPersonalizedLink() {
-  var link = getCleanUrl();
-  navigator.clipboard.writeText(link);
-  var btn = document.getElementById('btnCopyPersonal');
-  btn.textContent = '✓ Copied Link to Clipboard!';
-  setTimeout(function() { btn.textContent = '🔗 Copy Personalized Link'; }, 2200);
-}
-
-// Guest personalizer detection
 window.addEventListener('DOMContentLoaded', function() {
-  var m = /[?&]to=([^&#]+)/.exec(window.location.search);
-  if (m) {
-    var g = decodeURIComponent(m[1].replace(/\+/g, ' '));
-    var caption = document.getElementById('coverActionText');
-    if (caption) caption.textContent = "SPECIALLY CRAFTED FOR " + g.toUpperCase();
+  initFallingRosePetals();
+  initScratchToReveal();
+
+  var urlParams = new URLSearchParams(window.location.search);
+  var hasViewFlag = urlParams.get('view') === 'created' || urlParams.get('to') || urlParams.get('guest');
+  var recipient = urlParams.get('to') || urlParams.get('guest');
+
+  if (recipient) weddingConfig.guestName = decodeURIComponent(recipient.replace(/\+/g, ' '));
+  applyConfigToDom();
+
+  var creator = document.getElementById('creatorScreen');
+  var stage = document.getElementById('stageScreen');
+  if (hasViewFlag) {
+    if (creator) creator.classList.add('creator-hidden');
+    if (stage) stage.classList.remove('stage-hidden');
+  } else {
+    if (creator) creator.classList.remove('creator-hidden');
+    if (stage) stage.classList.add('stage-hidden');
   }
 });
 </script>

@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<title>Ranveer &amp; Shanaya — South Temple Kanjeevaram Sacred 3D Wedding Invitation</title>
+<title>Ranveer &amp; Shanaya — South Temple Kanjeevaram — 3D Sanctum Gopuram Doors & Zari Temple Spires</title>
 <link rel="stylesheet" href="../assets/fonts/fonts.css">
 <style>
 :root {
-  --temple-gold: #B45309;
-  --temple-dark: #451A03;
-  --temple-deep: #1C0A00;
-  --temple-brass: #F59E0B;
+  --theme-primary: #78350F;
+  --theme-dark: #451A03;
+  --theme-deep: #260E02;
+  --theme-accent: #F59E0B;
   --silver: #E2E8F0;
   --silver-glow: #F8FAFC;
   --gold: #D4AF37;
@@ -39,7 +39,7 @@ html::-webkit-scrollbar, body::-webkit-scrollbar, ::-webkit-scrollbar, *::-webki
 body {
   margin: 0;
   padding: 0;
-  background: radial-gradient(circle at 50% 20%, #78350F 0%, #451A03 65%, #1C0A00 100%);
+  background: radial-gradient(circle at 50% 20%, #78350F 0%, #451A03 65%, #260E02 100%);
   color: #FFF;
   font-family: var(--sans);
   overflow-x: hidden;
@@ -151,7 +151,7 @@ body {
   font-family: var(--sans);
   margin-bottom: 40px;
   box-sizing: border-box;
-  border: 2px solid #F59E0B;
+  border: 2px solid #059669;
 }
 .creator-header {
   text-align: center;
@@ -160,7 +160,7 @@ body {
 .creator-title {
   font-family: var(--serif);
   font-size: clamp(22px, 5vw, 28px);
-  color: #78350F;
+  color: #064E3B;
   margin: 0 0 8px;
   letter-spacing: .02em;
 }
@@ -174,8 +174,8 @@ body {
   font-family: var(--serif);
   font-size: 16px;
   font-weight: 700;
-  color: #78350F;
-  border-bottom: 2px solid #FEF3C7;
+  color: #064E3B;
+  border-bottom: 2px solid #D1FAE5;
   padding-bottom: 6px;
   margin: 22px 0 14px;
   display: flex;
@@ -214,7 +214,7 @@ body {
   transition: border-color .2s, box-shadow .2s;
 }
 .form-field-grp input:focus, .form-field-grp textarea:focus, .form-field-grp select:focus {
-  border-color: #F59E0B;
+  border-color: #059669;
   background: #FFF;
   box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.2);
 }
@@ -238,7 +238,7 @@ body {
   transition: all .2s;
 }
 .palette-card.active {
-  border-color: #78350F;
+  border-color: #064E3B;
   background: #ECFDF5;
   box-shadow: 0 0 0 2px #064E3B;
 }
@@ -256,7 +256,7 @@ body {
   padding: 15px;
   border: none;
   border-radius: 14px;
-  background: linear-gradient(135deg, #78350F 0%, #451A03 100%);
+  background: linear-gradient(135deg, #064E3B 0%, #022C22 100%);
   color: #FFF;
   font-family: var(--serif);
   font-size: 16.5px;
@@ -276,12 +276,13 @@ body {
   box-shadow: 0 12px 30px rgba(6, 78, 59, 0.6);
 }
 
-/* ================= 2. 3D TEMPLE BRASS SHRINE GATE STAGE ================= */
+
+/* ================= 2. 3D TEMPLE SANCTUM GATES STAGE ================= */
 .stage-screen {
   position: fixed;
   inset: 0;
   z-index: 6000;
-  background: radial-gradient(circle at 50% 35%, #9A3412 0%, #451A03 65%, #1C0A00 100%);
+  background: radial-gradient(circle at 50% 35%, #78350F 0%, #451A03 65%, #260E02 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -291,95 +292,177 @@ body {
   transition: opacity .8s ease, visibility .8s;
   cursor: pointer;
 }
-.stage-screen.stage-hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
+.stage-screen.stage-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+
+
+/* 06: South Indian Kanjeevaram Sawtooth Temple Spire (Korvai) Border */
+.kanjeevaram-temple-spire-card {
+  position: relative;
+  background: radial-gradient(ellipse at 50% 20%, #78350F 0%, #451A03 70%, #260E02 100%);
+  border: 4px solid #D4AF37;
+  border-radius: 28px;
+  box-shadow: 0 25px 65px rgba(0,0,0,0.9), inset 0 0 35px rgba(245, 158, 11, 0.3);
+  padding: 50px 24px 38px;
+  margin-bottom: 28px;
+  text-align: center;
+  overflow: hidden;
 }
-.shrine-scene-06 {
-  width: 310px;
-  height: 380px;
-  perspective: 1200px;
+.kanjeevaram-temple-spire-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 18px;
+  background: repeating-linear-gradient(45deg, #F59E0B 0, #F59E0B 10px, transparent 10px, transparent 20px);
+  opacity: 0.75;
+}
+
+
+
+/* ================= LUXURY ROSE & SCRATCH CARD STYLES ================= */
+.luxury-rose-banner {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto 14px;
   display: flex;
-  align-items: center;
   justify-content: center;
+}
+.rose-garland-svg {
+  width: 100%;
+  height: auto;
+  max-height: 90px;
+  filter: drop-shadow(0 6px 14px rgba(0,0,0,0.6));
+}
+.interactive-scratch-card {
+  max-width: 520px;
+  margin: 32px auto 28px;
   position: relative;
 }
-.shrine-gate-body {
-  width: 290px;
-  height: 340px;
+.scratch-card-frame {
+  background: linear-gradient(145deg, rgba(255,255,255,0.08) 0%, rgba(0,0,0,0.5) 100%);
+  border: 2px solid var(--gold);
+  border-radius: 24px;
+  padding: 24px 20px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.7), inset 0 0 25px rgba(212,175,55,0.15);
+  text-align: center;
+  backdrop-filter: blur(12px);
   position: relative;
-  transform-style: preserve-3d;
-  transition: transform .3s ease;
 }
-.shrine-sanctum-base {
+.scratch-badge-pill {
+  display: inline-block;
+  padding: 6px 16px;
+  background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+  color: #000;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .15em;
+  border-radius: 999px;
+  margin-bottom: 8px;
+  box-shadow: 0 4px 15px rgba(245,158,11,0.5);
+}
+.scratch-heading {
+  font-family: var(--serif);
+  font-size: 22px;
+  color: var(--gold-l);
+  margin: 6px 0 4px;
+}
+.scratch-instruction {
+  font-size: 12px;
+  color: #CBD5E1;
+  margin: 0 0 16px;
+}
+.scratch-surface-wrap {
+  position: relative;
+  width: 100%;
+  height: 230px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.9), 0 10px 30px rgba(0,0,0,0.6);
+  border: 2px solid rgba(212,175,55,0.6);
+}
+.scratch-unveiled-card {
   position: absolute;
   inset: 0;
-  border-radius: 160px 160px 18px 18px;
-  background: radial-gradient(circle at 50% 50%, #78350F 0%, #451A03 80%, #1C0A00 100%);
-  border: 4px solid #F59E0B;
-  box-shadow: 0 25px 65px rgba(0,0,0,0.95), inset 0 0 35px rgba(0,0,0,0.9);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 18px;
-  box-sizing: border-box;
-}
-.shrine-inner-plaque {
-  width: 90%;
-  height: 90%;
-  border-radius: 140px 140px 14px 14px;
-  background: radial-gradient(circle at 50% 40%, #FFFBEB 0%, #FEF3C7 75%, #FDE68A 100%);
-  border: 2px solid #D97706;
-  box-shadow: inset 0 0 20px rgba(0,0,0,0.25), 0 8px 24px rgba(0,0,0,0.6);
+  background: radial-gradient(circle at 50% 35%, #FFFDF7 0%, #FEF3C7 60%, #FDE68A 100%);
+  color: #78350F;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
   padding: 16px;
   box-sizing: border-box;
-  transform: translateZ(4px);
-  transition: transform 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  text-align: center;
 }
-.shrine-inner-plaque.elevated {
-  transform: translateZ(95px) scale(1.08);
-  box-shadow: 0 25px 60px rgba(0,0,0,0.9);
+.save-the-date-tag {
+  font-size: 11px;
+  letter-spacing: .25em;
+  font-weight: 800;
+  color: #B45309;
+  text-transform: uppercase;
 }
-.shrine-brass-door {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 50%;
-  background: linear-gradient(135deg, #F59E0B 0%, #D97706 60%, #78350F 100%);
-  border: 3.5px solid #FEF08A;
-  transform-style: preserve-3d;
-  transition: transform 1.6s cubic-bezier(0.2, 0.8, 0.2, 1);
-  box-shadow: inset 0 0 25px rgba(0,0,0,0.7), 0 15px 35px rgba(0,0,0,0.8);
+.unveiled-date-title {
+  font-family: var(--serif);
+  font-size: clamp(20px, 4vw, 26px);
+  color: #881337;
+  font-weight: 700;
+  margin: 4px 0;
+}
+.unveiled-time-venue {
+  font-size: 12.5px;
+  color: #78350F;
+  margin-bottom: 12px;
+}
+.calendar-btn-group {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
   justify-content: center;
-  z-index: 20;
 }
-.shrine-door-left {
-  left: 0;
-  border-radius: 160px 0 0 18px;
-  transform-origin: left center;
+.cal-btn {
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all .25s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
 }
-.shrine-door-right {
-  right: 0;
-  border-radius: 0 160px 18px 0;
-  transform-origin: right center;
+.cal-btn.gcal { background: #2563EB; color: #FFF; }
+.cal-btn.gcal:hover { background: #1D4ED8; transform: translateY(-2px); }
+.cal-btn.ical { background: #881337; color: #FFF; }
+.cal-btn.ical:hover { background: #9F1239; transform: translateY(-2px); }
+
+.scratch-foil-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+  touch-action: none;
+  z-index: 5;
+  transition: opacity .8s ease;
 }
-.shrine-door-left.is-open {
-  transform: rotateY(-130deg);
+.scratch-foil-canvas.is-cleared {
+  opacity: 0;
   pointer-events: none;
 }
-.shrine-door-right.is-open {
-  transform: rotateY(130deg);
-  pointer-events: none;
+.scratch-status-hint {
+  font-size: 12px;
+  color: var(--gold-l);
+  margin-top: 10px;
 }
+
+/* Floating Roses & Falling Petals Canvas */
+#particlesCanvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9990;
+}
+
 
 /* ================= 3. MUGHAL MIHRAB ARCH INVITATION CARD ================= */
 .main-invitation-container {
@@ -523,7 +606,7 @@ body {
   font-family: var(--serif);
   font-size: 20px;
   font-weight: 700;
-  color: #78350F;
+  color: #064E3B;
   margin: 0;
 }
 .btn-close-modal {
@@ -549,9 +632,7 @@ body {
     <button type="button" class="btn-nav-action primary" onclick="showCreatorForm()">
       ✎ Edit Form
     </button>
-    <button type="button" class="btn-nav-action" onclick="replayStageReveal()">
-      🔔 3D Temple Shrine Gate
-    </button>
+    <button type="button" class="btn-nav-action" onclick="replayStageReveal()">✨ 3D Temple Sanctum Gates</button>
   </div>
   <div class="nav-actions">
     <button type="button" class="btn-nav-action primary" onclick="openSendModal()">
@@ -812,46 +893,80 @@ body {
   </div>
 </div>
 
-<!-- ================= 2. 3D TEMPLE BRASS SHRINE GATE STAGE ================= -->
-<div class="stage-screen stage-hidden" id="stageScreen" onclick="openTempleShrine()">
-  <div style="font-size:32px;margin-bottom:12px;filter:drop-shadow(0 4px 12px rgba(245,158,11,0.7));animation:bellSwing 3s infinite ease-in-out;">🔔 🪔 🔔</div>
-  <div class="shrine-scene-06" id="locketScene">
-    <div class="shrine-gate-body" id="locketBody">
-      <div class="shrine-sanctum-base">
-        <div class="shrine-inner-plaque" id="shrineCard">
-          <div style="font-size:26px;margin-bottom:2px;">🛕</div>
-          <p style="font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:#B45309;margin:0;font-weight:700;">VEDIC TEMPLE SANCTUM</p>
-          <h2 style="font-family:var(--serif);font-size:20px;color:#78350F;margin:6px 0;" id="locketCoupleNames">Ranveer &amp; Shanaya</h2>
-          <p style="font-size:11px;color:#9A3412;margin:0;font-weight:600;" id="locketDateSub">25TH NOV 2027</p>
-          <div style="font-size:11px;color:#78350F;margin-top:6px;font-style:italic;">॥ शुभ विवाह मङ्गलम् ॥</div>
-          <p style="font-size:10px;color:#B45309;margin-top:8px;font-weight:700;letter-spacing:.1em;">ENTER SANCTUM</p>
-        </div>
-      </div>
 
-      <!-- Left Brass Door -->
-      <div class="shrine-brass-door shrine-door-left" id="shrineDoorL">
-        <div style="font-size:30px;">🐘</div>
-        <div style="font-family:var(--hindi);font-size:16px;color:#FFF;margin-top:6px;font-weight:700;text-shadow:0 1px 4px #000;">शुभ</div>
-      </div>
-      <!-- Right Brass Door -->
-      <div class="shrine-brass-door shrine-door-right" id="shrineDoorR">
-        <div style="font-size:30px;">🪔</div>
-        <div style="font-family:var(--hindi);font-size:16px;color:#FFF;margin-top:6px;font-weight:700;text-shadow:0 1px 4px #000;">लाभ</div>
-      </div>
+<!-- 06: 3D SANCTUM GOPURAM DOORS -->
+<div class="stage-screen stage-hidden" id="stageScreen" onclick="openTempleGates()">
+  <div style="perspective:1200px; width:300px; height:380px; display:flex; align-items:center; justify-content:center; position:relative;">
+    <div style="position:absolute; width:260px; height:340px; border-radius:24px; background:radial-gradient(circle at 50% 40%, #78350F 0%, #260E02 100%); border:3px solid #D4AF37; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:16px;">
+      <div style="font-size:32px;">🪔</div>
+      <p style="font-size:10px; letter-spacing:.25em; text-transform:uppercase; color:#FDE047; margin:0;">TEMPLE SANCTUM</p>
+      <h2 style="font-family:var(--serif); font-size:20px; color:#FFF; margin:6px 0;">Ranveer &amp; Shanaya</h2>
+      <p style="font-size:11px; color:#FEF3C7; margin:0;">25TH NOVEMBER 2027</p>
+      <p style="font-size:10px; color:#FDE047; margin-top:8px; font-weight:600;">ENTER AUSPICIOUS KOVIL</p>
+    </div>
+    <!-- Brass Carved Left Shutter -->
+    <div id="templeShutterL" style="position:absolute; left:20px; top:20px; width:130px; height:340px; background:linear-gradient(135deg, #B45309 0%, #78350F 100%); border:3px solid #D4AF37; border-radius:20px 0 0 20px; transform-origin:left center; transition:transform 1.6s cubic-bezier(0.2, 0.8, 0.2, 1); display:flex; flex-direction:column; align-items:center; justify-content:center; z-index:20;">
+      <div style="font-size:26px;">🪔</div>
+      <div style="font-size:10px; color:#FEF3C7; margin-top:8px;">SHREE</div>
+    </div>
+    <!-- Brass Carved Right Shutter -->
+    <div id="templeShutterR" style="position:absolute; right:20px; top:20px; width:130px; height:340px; background:linear-gradient(225deg, #B45309 0%, #78350F 100%); border:3px solid #D4AF37; border-radius:0 20px 20px 0; transform-origin:right center; transition:transform 1.6s cubic-bezier(0.2, 0.8, 0.2, 1); display:flex; flex-direction:column; align-items:center; justify-content:center; z-index:20;">
+      <div style="font-size:26px;">🪔</div>
+      <div style="font-size:10px; color:#FEF3C7; margin-top:8px;">VENKATESH</div>
     </div>
   </div>
-  <p style="font-size:13px;letter-spacing:.15em;color:#FEF08A;text-transform:uppercase;margin:0;text-shadow:0 2px 8px #000;">
-    ✨ Tap to swing open the Sacred Temple Shrine Gate ✨
+  <p style="font-size:13px; letter-spacing:.15em; color:#FEF3C7; text-transform:uppercase; margin-top:16px; text-shadow:0 2px 8px #000;">
+    ✨ Tap to Open Sacred Temple Gopuram Doors ✨
   </p>
 </div>
 
 <!-- ================= 3. MUGHAL MIHRAB MAIN INVITATION ================= -->
 <main class="main-invitation-container" id="mainInvite">
-  <section class="mughal-hero-card">
+  <section class="kanjeevaram-temple-spire-card">
     <div style="font-family:var(--serif);font-size:20px;color:var(--gold-l);margin-bottom:8px;">॥ ॐ नमो नारायणाय ॥</div>
-    <div style="font-size:12px;letter-spacing:.25em;text-transform:uppercase;color:#E2E8F0;margin-bottom:10px;">
-      CONSECRATED VEDIC SHRINE &amp; AUSPICIOUS KANJEEVARAM SILK
-    </div>
+    <div style="font-size:12px;letter-spacing:.25em;text-transform:uppercase;color:#E2E8F0;margin-bottom:10px;">SACRED TEMPLE MANDAPAM · KANJEEVARAM ZARI & JASMINE BLOSSOMS</div>
+    <div class="luxury-rose-banner">
+  <svg viewBox="0 0 460 110" class="rose-garland-svg" preserveAspectRatio="xMidYMid meet">
+    <defs>
+      <radialGradient id="roseRedGrad" cx="45%" cy="38%" r="60%">
+        <stop offset="0%" stop-color="#FF4D6D"/>
+        <stop offset="40%" stop-color="#E11D48"/>
+        <stop offset="80%" stop-color="#9F1239"/>
+        <stop offset="100%" stop-color="#4C0519"/>
+      </radialGradient>
+      <radialGradient id="rosePinkGrad" cx="45%" cy="38%" r="60%">
+        <stop offset="0%" stop-color="#FDA4AF"/>
+        <stop offset="45%" stop-color="#FB7185"/>
+        <stop offset="85%" stop-color="#E11D48"/>
+        <stop offset="100%" stop-color="#881337"/>
+      </radialGradient>
+      <linearGradient id="goldStemGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#FEF08A"/>
+        <stop offset="45%" stop-color="#D4AF37"/>
+        <stop offset="100%" stop-color="#854D0E"/>
+      </linearGradient>
+      <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#86EFAC"/>
+        <stop offset="50%" stop-color="#16A34A"/>
+        <stop offset="100%" stop-color="#064E3B"/>
+      </linearGradient>
+    </defs>
+    <path d="M 30 55 Q 100 20 180 50" fill="none" stroke="url(#goldStemGrad)" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M 80 40 Q 95 15 115 32" fill="url(#leafGrad)" opacity="0.85"/>
+    <path d="M 130 52 Q 148 28 165 46" fill="url(#leafGrad)" opacity="0.85"/>
+    <circle cx="75" cy="38" r="13" fill="url(#rosePinkGrad)"/>
+    <circle cx="125" cy="48" r="16" fill="url(#roseRedGrad)"/>
+    <path d="M 430 55 Q 360 20 280 50" fill="none" stroke="url(#goldStemGrad)" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M 380 40 Q 365 15 345 32" fill="url(#leafGrad)" opacity="0.85"/>
+    <path d="M 330 52 Q 312 28 295 46" fill="url(#leafGrad)" opacity="0.85"/>
+    <circle cx="385" cy="38" r="13" fill="url(#rosePinkGrad)"/>
+    <circle cx="335" cy="48" r="16" fill="url(#roseRedGrad)"/>
+    <circle cx="230" cy="52" r="28" fill="url(#roseRedGrad)" filter="drop-shadow(0 4px 12px rgba(0,0,0,0.5))"/>
+    <circle cx="226" cy="48" r="18" fill="url(#rosePinkGrad)" opacity="0.9"/>
+    <circle cx="228" cy="50" r="10" fill="#FFF1F2" opacity="0.95"/>
+    <circle cx="229" cy="51" r="4" fill="#FFE4E6"/>
+  </svg>
+</div><div style="font-size:24px;margin:4px 0;">🌹 🌿 🌹</div>
     <h1 class="hero-names">
       <span id="groomNameDisplay">Ranveer Mittal</span>
       <span style="font-family:var(--script);font-size:0.7em;color:var(--gold);display:block;margin:4px 0;">&amp;</span>
@@ -862,6 +977,40 @@ body {
       <div id="weddingVenueDisplay" style="margin-top:4px;">THE TAJ MAHAL PALACE BALLROOM, MUMBAI</div>
     </div>
   </section>
+
+  
+<!-- Interactive Scratch-To-Reveal Save The Date & Calendar -->
+<div class="interactive-scratch-card">
+  <div class="scratch-card-frame">
+    <div class="scratch-badge-pill">✨ SCRATCH &amp; SAVE THE DATE ✨</div>
+    <h3 class="scratch-heading">Rub Gold Foil to Reveal the Date</h3>
+    <p class="scratch-instruction">Drag your finger or cursor across the shimmering gold foil below</p>
+
+    <div class="scratch-surface-wrap">
+      <div class="scratch-unveiled-card" id="scratchUnveiled">
+        <div style="font-size:24px;margin-bottom:2px;">🌹 💖 🌹</div>
+        <div class="save-the-date-tag">AUSPICIOUS WEDDING CELEBRATION</div>
+        <div class="unveiled-date-title" id="scratchDateTitle">Thursday, 25th Nov 2027</div>
+        <div class="unveiled-time-venue">7:00 PM · The Taj Mahal Palace Ballroom, Mumbai</div>
+        
+        <div class="calendar-btn-group">
+          <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Royal+Wedding+of+Ranveer+%26+Shanaya&dates=20271125T133000Z/20271125T183000Z&details=Grand+Ballroom+Starlight+Wedding+Celebration&location=The+Taj+Mahal+Palace+Mumbai" target="_blank" rel="noopener" class="cal-btn gcal">
+            📅 Add to Google Calendar
+          </a>
+          <button type="button" class="cal-btn ical" onclick="downloadICalReminder()">
+            🍏 Save to Apple Calendar (.ics)
+          </button>
+        </div>
+      </div>
+
+      <canvas id="scratchCanvas" class="scratch-foil-canvas"></canvas>
+    </div>
+    <div class="scratch-status-hint" id="scratchStatusHint">
+      👆 <i>Rub gold foil with finger or cursor to unlock calendar</i>
+    </div>
+  </div>
+</div>
+
 
   <!-- Welcome & Parents Blessings -->
   <section class="mughal-section-card">
@@ -880,7 +1029,7 @@ body {
       </div>
     </div>
     <div style="font-family:var(--serif);font-size:15px;color:var(--gold-l);margin-top:22px;" id="coupleQuoteDisplay">
-      "माङ्गल्यं तन्तुनानेन लोकधारणहेतुना। कण्ठे बध्नामि शुभगे सञ्जीव शरदः शतम्॥"
+      "Blessed by divine mantras and fragrant sandalwood, two hearts unite in holy matrimony."
     </div>
   </section>
 
@@ -990,7 +1139,7 @@ var weddingConfig = {
   venueAddress: "Apollo Bunder, Colaba, Mumbai, Maharashtra 400001",
   mapsUrl: "https://www.google.com/maps/search/?api=1&query=The+Taj+Mahal+Palace+Mumbai",
   inviteMessage: "Together with their families, Ranveer & Shanaya request the honour of your presence at the grand celebration of their holy wedding union.",
-  coupleQuote: "माङ्गल्यं तन्तुनानेन लोकधारणहेतुना। कण्ठे बध्नामि शुभगे सञ्जीव शरदः शतम्॥",
+  coupleQuote: "Blessed by divine mantras and fragrant sandalwood, two hearts unite in holy matrimony.",
   familySignoff: "The Mittal & Jindal Families",
   hashtag: "#RanveerShanayaForever",
   guestName: "Dr. Ayan & Family",
@@ -998,41 +1147,32 @@ var weddingConfig = {
   guestEmail: "guest@example.com"
 };
 
-function openTempleShrine() {
-  var dL = document.getElementById('shrineDoorL');
-  var dR = document.getElementById('shrineDoorR');
-  var card = document.getElementById('shrineCard');
-  if (!dL || dL.classList.contains('is-open')) return;
-  dL.classList.add('is-open');
-  dR.classList.add('is-open');
-  playThemeChime();
-  triggerJasmineBurst();
 
-  setTimeout(function() {
-    if (card) card.classList.add('elevated');
-  }, 450);
-
-  setTimeout(function() {
-    var stage = document.getElementById('stageScreen');
-    if (stage) stage.classList.add('stage-hidden');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, 2400);
-}
-
-function replayStageReveal() {
-  var creator = document.getElementById('creatorScreen');
+function openTempleGates() {
+  var sl = document.getElementById('templeShutterL');
+  var sr = document.getElementById('templeShutterR');
   var stage = document.getElementById('stageScreen');
-  var dL = document.getElementById('shrineDoorL');
-  var dR = document.getElementById('shrineDoorR');
-  var card = document.getElementById('shrineCard');
-  if (creator) creator.classList.add('creator-hidden');
-  if (stage) {
-    stage.classList.remove('stage-hidden');
-    if (dL) dL.classList.remove('is-open');
-    if (dR) dR.classList.remove('is-open');
-    if (card) card.classList.remove('elevated');
+  if (sl && sr) {
+    sl.style.transform = 'rotateY(-130deg)';
+    sr.style.transform = 'rotateY(130deg)';
   }
+  setTimeout(function() {
+    if (stage) stage.classList.add('stage-hidden');
+    var main = document.getElementById('mainInvite');
+    if (main) main.scrollIntoView({ behavior: 'smooth' });
+  }, 1400);
 }
+function replayStageReveal() {
+  var stage = document.getElementById('stageScreen');
+  var sl = document.getElementById('templeShutterL');
+  var sr = document.getElementById('templeShutterR');
+  if (sl && sr) {
+    sl.style.transform = 'rotateY(0deg)';
+    sr.style.transform = 'rotateY(0deg)';
+  }
+  if (stage) stage.classList.remove('stage-hidden');
+}
+
 
 function showCreatorForm() {
   var creator = document.getElementById('creatorScreen');
@@ -1255,7 +1395,186 @@ function clearAllFields() {
   document.querySelectorAll('#templateCreatorForm input[type="text"]').forEach(function(i) { i.value = ''; });
 }
 
+
+function initFallingRosePetals() {
+  var canvas = document.getElementById('particlesCanvas');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var petals = [];
+  var count = 35;
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+
+  for (var i = 0; i < count; i++) {
+    petals.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      size: 10 + Math.random() * 14,
+      speedX: -1 + Math.random() * 2,
+      speedY: 1 + Math.random() * 2.2,
+      rotation: Math.random() * 360,
+      rotSpeed: -1.5 + Math.random() * 3,
+      opacity: 0.4 + Math.random() * 0.5,
+      color: ['#E11D48', '#FB7185', '#F43F5E', '#BE123C', '#FDA4AF'][Math.floor(Math.random() * 5)]
+    });
+  }
+
+  function drawPetal(p) {
+    ctx.save();
+    ctx.translate(p.x, p.y);
+    ctx.rotate(p.rotation * Math.PI / 180);
+    ctx.globalAlpha = p.opacity;
+    ctx.fillStyle = p.color;
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.bezierCurveTo(-p.size / 2, -p.size / 2, -p.size / 2, p.size / 2, 0, p.size);
+    ctx.bezierCurveTo(p.size / 2, p.size / 2, p.size / 2, -p.size / 2, 0, 0);
+    ctx.fill();
+    ctx.restore();
+  }
+
+  function animatePetals() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (var i = 0; i < petals.length; i++) {
+      var p = petals[i];
+      p.x += p.speedX;
+      p.y += p.speedY;
+      p.rotation += p.rotSpeed;
+      if (p.y > canvas.height + 20) {
+        p.y = -20;
+        p.x = Math.random() * canvas.width;
+      }
+      if (p.x < -20) p.x = canvas.width + 20;
+      if (p.x > canvas.width + 20) p.x = -20;
+      drawPetal(p);
+    }
+    requestAnimationFrame(animatePetals);
+  }
+  animatePetals();
+}
+
+function initScratchToReveal() {
+  var canvas = document.getElementById('scratchCanvas');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var container = canvas.parentElement;
+  var isDrawing = false;
+  var completed = false;
+
+  function resizeFoil() {
+    var rect = container.getBoundingClientRect();
+    if (rect.width === 0) return;
+    canvas.width = rect.width;
+    canvas.height = rect.height;
+    renderFoilSurface();
+  }
+
+  function renderFoilSurface() {
+    var w = canvas.width;
+    var h = canvas.height;
+    var grad = ctx.createLinearGradient(0, 0, w, h);
+    grad.addColorStop(0, '#F59E0B');
+    grad.addColorStop(0.25, '#FEF08A');
+    grad.addColorStop(0.5, '#D97706');
+    grad.addColorStop(0.75, '#FDE68A');
+    grad.addColorStop(1, '#92400E');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, w, h);
+
+    ctx.fillStyle = 'rgba(255,255,255,0.35)';
+    for (var i = 0; i < 45; i++) {
+      ctx.beginPath();
+      ctx.arc((i * 47) % w, (i * 31) % h, (i % 4) + 1.5, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    ctx.fillStyle = '#451A03';
+    ctx.font = 'bold 15px "Cinzel", Georgia, serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('✨ SCRATCH GOLD FOIL ✨', w / 2, h / 2 - 14);
+    ctx.font = 'italic 12px sans-serif';
+    ctx.fillStyle = '#78350F';
+    ctx.fillText('Rub with finger or mouse to reveal Date & Calendar', w / 2, h / 2 + 12);
+  }
+
+  function handleScratch(e) {
+    if (!isDrawing || completed) return;
+    var rect = canvas.getBoundingClientRect();
+    var clientX = e.clientX || (e.touches && e.touches[0].clientX);
+    var clientY = e.clientY || (e.touches && e.touches[0].clientY);
+    var x = (clientX - rect.left) * (canvas.width / rect.width);
+    var y = (clientY - rect.top) * (canvas.height / rect.height);
+
+    ctx.globalCompositeOperation = 'destination-out';
+    ctx.beginPath();
+    ctx.arc(x, y, 26, 0, Math.PI * 2);
+    ctx.fill();
+
+    checkFoilCleared();
+  }
+
+  function checkFoilCleared() {
+    if (completed) return;
+    var w = canvas.width;
+    var h = canvas.height;
+    var cleared = 0;
+    var sampleCount = 36;
+    for (var i = 0; i < 6; i++) {
+      for (var j = 0; j < 6; j++) {
+        var pixel = ctx.getImageData((i + 0.5) * (w / 6), (j + 0.5) * (h / 6), 1, 1).data;
+        if (pixel[3] === 0) cleared++;
+      }
+    }
+    if (cleared / sampleCount > 0.38) {
+      completed = true;
+      canvas.classList.add('is-cleared');
+      playThemeChime();
+      var hint = document.getElementById('scratchStatusHint');
+      if (hint) hint.innerHTML = '🎉 <b>Date Unlocked! Add to your calendar above!</b> 🎉';
+    }
+  }
+
+  canvas.addEventListener('mousedown', function(e) { isDrawing = true; handleScratch(e); });
+  canvas.addEventListener('mousemove', handleScratch);
+  window.addEventListener('mouseup', function() { isDrawing = false; });
+
+  canvas.addEventListener('touchstart', function(e) { isDrawing = true; handleScratch(e); }, { passive: true });
+  canvas.addEventListener('touchmove', handleScratch, { passive: true });
+  window.addEventListener('touchend', function() { isDrawing = false; });
+
+  setTimeout(resizeFoil, 150);
+  window.addEventListener('resize', resizeFoil);
+}
+
+function downloadICalReminder() {
+  var ics = "BEGIN:VCALENDAR\nVERSION:2.0\nPRODID:-//GoldenVows//Wedding Invitation//EN\n" +
+    "BEGIN:VEVENT\n" +
+    "SUMMARY:Wedding of " + (weddingConfig.groomFull || "Ranveer Mittal") + " & " + (weddingConfig.brideFull || "Shanaya Jindal") + "\n" +
+    "DESCRIPTION:Grand Royal Wedding Celebration at " + weddingConfig.venue + "\n" +
+    "LOCATION:" + weddingConfig.venueAddress + "\n" +
+    "DTSTART:20271125T133000Z\n" +
+    "DTEND:20271125T183000Z\n" +
+    "END:VEVENT\nEND:VCALENDAR";
+  var blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
+  var link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+  link.download = "Wedding_Ranveer_Shanaya.ics";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
+
 window.addEventListener('DOMContentLoaded', function() {
+  initFallingRosePetals();
+  initScratchToReveal();
+
   var urlParams = new URLSearchParams(window.location.search);
   var hasViewFlag = urlParams.get('view') === 'created' || urlParams.get('to') || urlParams.get('guest');
   var recipient = urlParams.get('to') || urlParams.get('guest');
