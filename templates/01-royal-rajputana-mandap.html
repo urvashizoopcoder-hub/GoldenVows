@@ -1067,10 +1067,11 @@ body {
 body.mode-invite {
   background: #064e3b !important;
 }
-body.mode-invite .editor-layout {
+body.mode-invite .wrap {
   display: block !important;
   max-width: 100% !important;
   padding: 0 !important;
+  margin: 0 !important;
 }
 body.mode-invite #ed {
   display: none !important;
@@ -1083,6 +1084,7 @@ body.mode-invite #previewStage {
   width: 100% !important;
   max-width: 100% !important;
   margin: 0 auto !important;
+  padding: 0 !important;
 }
 body.mode-invite .floating-action-bar {
   display: flex !important;
@@ -1098,10 +1100,10 @@ body.mode-invite .floating-action-bar {
   align-items: center;
   gap: 12px;
   z-index: 99999;
-  background: rgba(15, 23, 42, 0.88);
+  background: rgba(15, 23, 42, 0.9);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  padding: 8px 16px;
+  padding: 8px 18px;
   border-radius: 40px;
   border: 1px solid rgba(212, 175, 55, 0.45);
   box-shadow: 0 10px 30px rgba(0,0,0,0.6);
@@ -1120,12 +1122,12 @@ body.mode-invite .floating-action-bar {
   transition: all 0.25s ease;
 }
 .btn-edit-back {
-  background: rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.15);
   color: #ffffff;
   border: 1px solid rgba(255,255,255,0.25);
 }
 .btn-edit-back:hover {
-  background: rgba(255,255,255,0.22);
+  background: rgba(255,255,255,0.25);
 }
 .btn-share-invite {
   background: linear-gradient(135deg, #fef08a, #d4af37);
@@ -1670,26 +1672,25 @@ function openMandapDoors() {
     left.style.transform = 'rotateY(-115deg)';
     right.style.transform = 'rotateY(115deg)';
   }
+  var audio = document.getElementById('bgMusic');
+  if (audio) {
+    audio.volume = 0.35;
+    audio.play().catch(function(){});
+  }
   setTimeout(function() {
     if (screen) {
       screen.classList.add('stage-hidden');
-    }
-    // Play soft music
-    var audio = document.getElementById('bgMusic');
-    if (audio) {
-      audio.volume = 0.35;
-      audio.play().catch(function(){});
     }
     // Start continuous auto-scroll after a short welcome pause
     setTimeout(function() {
       if (typeof window.startAutoScroll === 'function') {
         window.startAutoScroll();
       }
-    }, 2000);
+    }, 1800);
   }, 1200);
 }
 
-// Standalone Invitation Mode Check on Initial Load
+// Check Standalone Mode on Load
 (function checkStandaloneMode() {
   var urlParams = new URLSearchParams(window.location.search);
   var isInvite = urlParams.get('mode') === 'invite' || urlParams.get('view') === 'invite';
@@ -1699,8 +1700,6 @@ function openMandapDoors() {
     if (ed) ed.style.display = 'none';
     var topHeader = document.getElementById('topHeader');
     if (topHeader) topHeader.style.display = 'none';
-    var editPill = document.getElementById('floatingEditBtn');
-    if (editPill) editPill.style.display = 'none';
     var pv = document.getElementById('previewStage');
     if (pv) {
       pv.style.display = 'block';
@@ -1708,14 +1707,16 @@ function openMandapDoors() {
     }
     // Auto open doors & start sitar music & auto-scroll
     setTimeout(function() {
+      var screen = document.getElementById('stageScreen');
+      if (screen) screen.classList.remove('stage-hidden');
       openMandapDoors();
-    }, 500);
+    }, 400);
   }
 })();
 
-// Create & Finalize My Invitation Action -> Opens Standalone Invitation in a Different Page!
+// Create & Finalize My Invitation Action -> Direct full-screen invitation launch!
 window.createAndFinalizeInvitation = function() {
-  // 1. Gather & persist form data
+  // 1. Save data to localStorage
   try {
     if (typeof window.gatherFormData === 'function') {
       var d = window.gatherFormData();
@@ -1723,26 +1724,94 @@ window.createAndFinalizeInvitation = function() {
     }
   } catch(e) {}
 
-  // 2. Build dedicated standalone invitation URL
-  var hash = window.location.hash || '';
-  var inviteUrl = window.location.pathname + '?mode=invite' + hash;
+  // 2. Hide the editor form completely
+  var ed = document.getElementById('ed');
+  if (ed) ed.style.display = 'none';
 
-  // 3. Open invitation card in a DIFFERENT PAGE (new tab/window)
-  var win = window.open(inviteUrl, '_blank');
+  // 3. Hide top editor header
+  var topHeader = document.getElementById('topHeader');
+  if (topHeader) topHeader.style.display = 'none';
 
-  // 4. Update and show celebration modal on the editor page
-  var fullUrl = window.location.origin + inviteUrl;
+  // 4. Mark body as standalone invitation
+  document.body.classList.add('mode-invite');
+
+  // 5. Show preview stage at 100% full width
+  var pv = document.getElementById('previewStage');
+  if (pv) {
+    pv.style.display = 'block';
+    pv.style.width = '100%';
+  }
+
+  // 6. Scroll smoothly to top
+  window.scrollTo({ top: 0, behavior: 'instant' });
+
+  // 7. Start audio directly from user gesture
+  var audio = document.getElementById('bgMusic');
+  if (audio) {
+    audio.volume = 0.35;
+    audio.play().catch(function(){});
+  }
+
+  // 8. Show 3D doors and swing open
+  var screen = document.getElementById('stageScreen');
+  var left = document.getElementById('mandapDoorLeft');
+  var right = document.getElementById('mandapDoorRight');
+  if (screen) {
+    screen.classList.remove('stage-hidden');
+    if (left && right) {
+      left.style.transform = 'rotateY(0deg)';
+      right.style.transform = 'rotateY(0deg)';
+    }
+    setTimeout(function() {
+      openMandapDoors();
+    }, 350);
+  } else {
+    setTimeout(function() {
+      if (typeof window.startAutoScroll === 'function') {
+        window.startAutoScroll();
+      }
+    }, 1800);
+  }
+
+  // 9. Update URL to ?mode=invite
+  try {
+    history.pushState(null, '', window.location.pathname + '?mode=invite');
+  } catch(e) {}
+};
+
+// Switch View back to form or to preview
+window.switchView = function(view) {
+  var ed = document.getElementById('ed');
+  var pv = document.getElementById('previewStage');
+  var topHeader = document.getElementById('topHeader');
+  var editPill = document.getElementById('floatingEditBtn');
+
+  if (view === 'form') {
+    document.body.classList.remove('mode-invite');
+    if (ed) ed.style.display = 'block';
+    if (pv && window.innerWidth <= 840) pv.style.display = 'none';
+    if (topHeader) topHeader.style.display = 'flex';
+    if (editPill) editPill.style.display = 'none';
+    document.querySelectorAll('.top .tab').forEach(function(t) {
+      t.classList.toggle('on', t.getAttribute('data-view') === 'form');
+    });
+    if (typeof window.stopAutoScroll === 'function') window.stopAutoScroll();
+    try {
+      history.pushState(null, '', window.location.pathname);
+    } catch(e) {}
+  } else {
+    createAndFinalizeInvitation();
+  }
+};
+
+window.openShareModal = function() {
+  var fullUrl = window.location.origin + window.location.pathname + '?mode=invite';
   var linkInput = document.getElementById('finalInviteLinkInput');
   if (linkInput) linkInput.value = fullUrl;
   var directBtn = document.getElementById('modalOpenDirectBtn');
-  if (directBtn) directBtn.href = inviteUrl;
+  if (directBtn) directBtn.href = window.location.pathname + '?mode=invite';
   var modal = document.getElementById('finalizeSuccessModal');
   if (modal) modal.style.display = 'flex';
-
-  // 5. Fallback if popups blocked
-  if (!win) {
-    // User can click the direct button in modal or navigate directly if needed
-  }
 };
 
 window.closeFinalizeModal = function() {
@@ -1767,52 +1836,9 @@ window.copyFinalLink = function() {
 };
 
 window.shareOnWhatsApp = function() {
-  var linkInput = document.getElementById('finalInviteLinkInput');
-  var url = linkInput ? linkInput.value : window.location.href;
-  var text = encodeURIComponent('Dearest Family & Friends,
-
-You are cordially invited to celebrate the Royal Wedding of Ranveer & Shanaya! ❦
-
-Open your personal animated royal invitation here:
-' + url + '
-
-With love,
-Mittal & Jindal Family');
+  var fullUrl = window.location.origin + window.location.pathname + '?mode=invite';
+  var text = encodeURIComponent('Dearest Family & Friends,\n\nYou are cordially invited to celebrate the Royal Rajputana Wedding of Ranveer & Shanaya! ❦\n\nOpen your personal animated royal invitation here:\n' + fullUrl + '\n\nWith love,\nThe Mittal & Jindal Families');
   window.open('https://api.whatsapp.com/send?text=' + text, '_blank');
-};
-
-window.openShareModal = function() {
-  var hash = window.location.hash || '';
-  var inviteUrl = window.location.pathname + '?mode=invite' + hash;
-  var fullUrl = window.location.origin + inviteUrl;
-  var linkInput = document.getElementById('finalInviteLinkInput');
-  if (linkInput) linkInput.value = fullUrl;
-  var directBtn = document.getElementById('modalOpenDirectBtn');
-  if (directBtn) directBtn.href = inviteUrl;
-  var modal = document.getElementById('finalizeSuccessModal');
-  if (modal) modal.style.display = 'flex';
-};
-
-// Switch View back to form or to preview
-window.switchView = function(view) {
-  var ed = document.getElementById('ed');
-  var pv = document.getElementById('previewStage');
-  var topHeader = document.getElementById('topHeader');
-  var editPill = document.getElementById('floatingEditBtn');
-
-  if (view === 'form') {
-    if (ed) ed.style.display = 'block';
-    if (pv && window.innerWidth <= 840) pv.style.display = 'none';
-    if (topHeader) topHeader.style.display = 'flex';
-    if (editPill) editPill.style.display = 'none';
-    document.querySelectorAll('.top .tab').forEach(function(t) {
-      t.classList.toggle('on', t.getAttribute('data-view') === 'form');
-    });
-    if (typeof window.stopAutoScroll === 'function') window.stopAutoScroll();
-  } else {
-    // View Invitation opens the invitation card in the dedicated page!
-    createAndFinalizeInvitation();
-  }
 };
 
 function scrollToSection(id) {
@@ -1865,10 +1891,10 @@ function scrollToSection(id) {
 
     ctx.globalCompositeOperation = 'destination-out';
     ctx.beginPath();
-    ctx.arc(x, y, 22, 0, Math.PI * 2);
+    ctx.arc(x, y, 28, 0, Math.PI * 2);
     ctx.fill();
 
-    scratchedPixels += 250;
+    scratchedPixels += 650;
     var pct = Math.min(100, Math.round((scratchedPixels / totalPixels) * 100));
     var hint = document.getElementById('scratchHint');
     if (hint) hint.textContent = pct + '% revealed · Keep scratching!';
@@ -1973,7 +1999,7 @@ function scrollToSection(id) {
 
   <!-- Floating Action Bar for Standalone Invitation Mode -->
   <div class="floating-action-bar" id="floatingActionBar">
-    <button type="button" class="floating-pill-btn btn-edit-back" onclick="window.location.href=window.location.pathname">
+    <button type="button" class="floating-pill-btn btn-edit-back" onclick="switchView('form')">
       ✎ Edit Invitation
     </button>
     <button type="button" class="floating-pill-btn btn-share-invite" onclick="openShareModal()">
