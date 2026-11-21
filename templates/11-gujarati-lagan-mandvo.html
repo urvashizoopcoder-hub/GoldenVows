@@ -1242,178 +1242,9 @@ body {
       <div class="divider-line"></div>
     </div>
 
-    <!-- ============ SECTION 3: SAVE THE DATE & 4 HEARTS (Image 1) ============ -->
+    <!-- ============ SECTION 3: SCRATCH TO REVEAL & 4 HEART COUNTDOWN ============ -->
     <section class="save-the-date-section" id="saveDateSec">
-      <div class="std-banner-ribbon">
-        <div class="std-tape-tab left"></div>
-        <div class="std-dots-banner"></div>
-        <div class="std-tape-tab right"></div>
-      </div>
-
-      <div class="std-header">
-        <p class="std-surprise-script">A little surprise</p>
-        <h2 class="std-main-title">Save The Date</h2>
-        <p class="std-tap-prompt" id="envelopePrompt">Tap the envelope to open it.</p>
-      </div>
-
-      <!-- Interactive 3D Envelope -->
-      <div class="std-envelope-wrapper" id="stdEnvelopeWrapper" onclick="toggleSaveDateEnvelope()">
-        <div class="std-envelope-body" id="stdEnvelopeBody">
-          <!-- Royal Letter -->
-          <div class="std-envelope-letter" id="stdEnvelopeLetter">
-            <div class="letter-shloka">॥ શ્રી ગણેશાય નમઃ ॥</div>
-            <div class="letter-couplename" id="letterCoupleNames">Ranveer &amp; Shanaya</div>
-            <div class="letter-date" id="letterEventDate">Thursday, 25th November 2027</div>
-            <div class="letter-venue" id="letterVenue">The Taj Mahal Palace Ballroom, Mumbai</div>
-            <div class="letter-tag">THE BIG DAY</div>
-          </div>
-
-          <div class="envelope-pocket">
-            <svg viewBox="0 0 300 125" class="envelope-pocket-svg" preserveAspectRatio="none">
-              <defs>
-                <linearGradient id="pocketGrad_11-gujarati-lagan-mandvo" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="rgba(255,255,255,0.2)"/>
-                  <stop offset="100%" stop-color="#fef08a"/>
-                </linearGradient>
-              </defs>
-              <path d="M 0 35 L 150 85 L 300 35 L 300 125 L 0 125 Z" fill="url(#pocketGrad_11-gujarati-lagan-mandvo)"/>
-            </svg>
-          </div>
-          <div class="envelope-flap" id="envelopeFlap">
-            <svg viewBox="0 0 300 100" class="envelope-flap-svg" preserveAspectRatio="none">
-              <defs>
-                <linearGradient id="flapGrad_11-gujarati-lagan-mandvo" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stop-color="#eab308"/>
-                  <stop offset="100%" stop-color="#fef08a"/>
-                </linearGradient>
-              </defs>
-              <path d="M 0 0 L 300 0 L 150 100 Z" fill="url(#flapGrad_11-gujarati-lagan-mandvo)"/>
-            </svg>
-          </div>
-
-          <!-- Bow & Wax Seal -->
-          <div class="envelope-ribbon-bow" id="envelopeBow">
-            <svg viewBox="0 0 160 80" class="bow-svg">
-              <defs>
-                <linearGradient id="bowGrad_11-gujarati-lagan-mandvo" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#eab308"/>
-                  <stop offset="50%" stop-color="#ca8a04"/>
-                  <stop offset="100%" stop-color="#854d0e"/>
-                </linearGradient>
-              </defs>
-              <path d="M 80 40 C 50 10 10 20 20 45 C 30 65 65 50 80 40 Z" fill="url(#bowGrad_11-gujarati-lagan-mandvo)" filter="drop-shadow(0 4px 6px rgba(0,0,0,0.3))"/>
-              <path d="M 80 40 C 110 10 150 20 140 45 C 130 65 95 50 80 40 Z" fill="url(#bowGrad_11-gujarati-lagan-mandvo)" filter="drop-shadow(0 4px 6px rgba(0,0,0,0.3))"/>
-              <path d="M 75 42 Q 55 65 45 78 Q 60 70 73 50 Z" fill="url(#bowGrad_11-gujarati-lagan-mandvo)"/>
-              <path d="M 85 42 Q 105 65 115 78 Q 100 70 87 50 Z" fill="url(#bowGrad_11-gujarati-lagan-mandvo)"/>
-            </svg>
-
-            <div class="wax-seal-medallion" id="envelopeWaxSeal">
-              <span class="wax-seal-initials" id="waxSealInitials">R &amp; S</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <p class="std-big-day-script">The Big Day</p>
-      <p class="std-journey-lead">‘The start of a beautiful journey...’</p>
-
-      <!-- 4 HEART-SHAPED COUNTDOWN BOXES (Image 1) -->
-      <div class="heart-countdown-grid" id="heartCountdownGrid">
-        <!-- DAYS -->
-        <div class="heart-box">
-          <svg viewBox="0 0 100 90" class="heart-box-svg">
-            <defs>
-              <radialGradient id="hGradDays_11-gujarati-lagan-mandvo" cx="35%" cy="30%" r="70%">
-                <stop offset="0%" stop-color="#fef08a"/>
-                <stop offset="35%" stop-color="#facc15"/>
-                <stop offset="85%" stop-color="#eab308"/>
-                <stop offset="100%" stop-color="#a16207"/>
-              </radialGradient>
-              <linearGradient id="hGold_11-gujarati-lagan-mandvo" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#fef08a"/>
-                <stop offset="50%" stop-color="#eab308"/>
-                <stop offset="100%" stop-color="#854d0e"/>
-              </linearGradient>
-            </defs>
-            <path d="M 50 84 C 18 57 3 38 3 22 C 3 9 13 3 26 3 C 37 3 46 11 50 19 C 54 11 63 3 74 3 C 87 3 97 9 97 22 C 97 38 82 57 50 84 Z"
-                  fill="url(#hGradDays_11-gujarati-lagan-mandvo)" stroke="url(#hGold_11-gujarati-lagan-mandvo)" stroke-width="2.2" filter="drop-shadow(0 6px 12px rgba(0,0,0,0.3))"/>
-            <path d="M 50 78 C 21 53 8 35 8 22 C 8 12 16 6 26 6 C 35 6 44 13 50 21 C 56 13 65 6 74 6 C 84 6 92 12 92 22 C 92 35 79 53 50 78 Z"
-                  fill="none" stroke="rgba(255,255,255,0.45)" stroke-width="1.2"/>
-          </svg>
-          <div class="heart-inner-content">
-            <span class="heart-count-val" id="cdDays">85</span>
-            <span class="heart-count-tag">DAYS</span>
-          </div>
-        </div>
-
-        <!-- HOURS -->
-        <div class="heart-box">
-          <svg viewBox="0 0 100 90" class="heart-box-svg">
-            <defs>
-              <radialGradient id="hGradHours_11-gujarati-lagan-mandvo" cx="35%" cy="30%" r="70%">
-                <stop offset="0%" stop-color="#fef08a"/>
-                <stop offset="35%" stop-color="#facc15"/>
-                <stop offset="85%" stop-color="#eab308"/>
-                <stop offset="100%" stop-color="#a16207"/>
-              </radialGradient>
-            </defs>
-            <path d="M 50 84 C 18 57 3 38 3 22 C 3 9 13 3 26 3 C 37 3 46 11 50 19 C 54 11 63 3 74 3 C 87 3 97 9 97 22 C 97 38 82 57 50 84 Z"
-                  fill="url(#hGradHours_11-gujarati-lagan-mandvo)" stroke="url(#hGold_11-gujarati-lagan-mandvo)" stroke-width="2.2" filter="drop-shadow(0 6px 12px rgba(0,0,0,0.3))"/>
-            <path d="M 50 78 C 21 53 8 35 8 22 C 8 12 16 6 26 6 C 35 6 44 13 50 21 C 56 13 65 6 74 6 C 84 6 92 12 92 22 C 92 35 79 53 50 78 Z"
-                  fill="none" stroke="rgba(255,255,255,0.45)" stroke-width="1.2"/>
-          </svg>
-          <div class="heart-inner-content">
-            <span class="heart-count-val" id="cdHours">09</span>
-            <span class="heart-count-tag">HOURS</span>
-          </div>
-        </div>
-
-        <!-- MINUTES -->
-        <div class="heart-box">
-          <svg viewBox="0 0 100 90" class="heart-box-svg">
-            <defs>
-              <radialGradient id="hGradMins_11-gujarati-lagan-mandvo" cx="35%" cy="30%" r="70%">
-                <stop offset="0%" stop-color="#fef08a"/>
-                <stop offset="35%" stop-color="#facc15"/>
-                <stop offset="85%" stop-color="#eab308"/>
-                <stop offset="100%" stop-color="#a16207"/>
-              </radialGradient>
-            </defs>
-            <path d="M 50 84 C 18 57 3 38 3 22 C 3 9 13 3 26 3 C 37 3 46 11 50 19 C 54 11 63 3 74 3 C 87 3 97 9 97 22 C 97 38 82 57 50 84 Z"
-                  fill="url(#hGradMins_11-gujarati-lagan-mandvo)" stroke="url(#hGold_11-gujarati-lagan-mandvo)" stroke-width="2.2" filter="drop-shadow(0 6px 12px rgba(0,0,0,0.3))"/>
-            <path d="M 50 78 C 21 53 8 35 8 22 C 8 12 16 6 26 6 C 35 6 44 13 50 21 C 56 13 65 6 74 6 C 84 6 92 12 92 22 C 92 35 79 53 50 78 Z"
-                  fill="none" stroke="rgba(255,255,255,0.45)" stroke-width="1.2"/>
-          </svg>
-          <div class="heart-inner-content">
-            <span class="heart-count-val" id="cdMinutes">58</span>
-            <span class="heart-count-tag">MINUTES</span>
-          </div>
-        </div>
-
-        <!-- SECONDS -->
-        <div class="heart-box">
-          <svg viewBox="0 0 100 90" class="heart-box-svg">
-            <defs>
-              <radialGradient id="hGradSecs_11-gujarati-lagan-mandvo" cx="35%" cy="30%" r="70%">
-                <stop offset="0%" stop-color="#fef08a"/>
-                <stop offset="35%" stop-color="#facc15"/>
-                <stop offset="85%" stop-color="#eab308"/>
-                <stop offset="100%" stop-color="#a16207"/>
-              </radialGradient>
-            </defs>
-            <path d="M 50 84 C 18 57 3 38 3 22 C 3 9 13 3 26 3 C 37 3 46 11 50 19 C 54 11 63 3 74 3 C 87 3 97 9 97 22 C 97 38 82 57 50 84 Z"
-                  fill="url(#hGradSecs_11-gujarati-lagan-mandvo)" stroke="url(#hGold_11-gujarati-lagan-mandvo)" stroke-width="2.2" filter="drop-shadow(0 6px 12px rgba(0,0,0,0.3))"/>
-            <path d="M 50 78 C 21 53 8 35 8 22 C 8 12 16 6 26 6 C 35 6 44 13 50 21 C 56 13 65 6 74 6 C 84 6 92 12 92 22 C 92 35 79 53 50 78 Z"
-                  fill="none" stroke="rgba(255,255,255,0.45)" stroke-width="1.2"/>
-          </svg>
-          <div class="heart-inner-content">
-            <span class="heart-count-val" id="cdSeconds">45</span>
-            <span class="heart-count-tag">SECONDS</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Scratch Card -->
+      <!-- 1. Interactive Gold Scratch-To-Reveal Calendar Card (Comes First) -->
       <div class="interactive-scratch-card">
         <div class="scratch-card-frame">
           <div class="scratch-badge-pill">✨ SCRATCH &amp; SAVE THE DATE ✨</div>
@@ -1437,6 +1268,107 @@ body {
           </div>
 
           <div class="scratch-status-hint" id="scratchHint">0% revealed · Scratch with your finger or cursor!</div>
+        </div>
+      </div>
+
+      <!-- 2. 4 HEART-SHAPED COUNTDOWN BOXES (Positioned Below the Scratch Card) -->
+      <div style="margin-top:28px;">
+        <div style="font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#fef08a;margin-bottom:14px;text-align:center;">
+          COUNTDOWN TO THE AUSPICIOUS CEREMONY
+        </div>
+        <div class="heart-countdown-grid" id="heartCountdownGrid">
+          <!-- DAYS -->
+          <div class="heart-box">
+            <svg viewBox="0 0 100 90" class="heart-box-svg">
+              <defs>
+                <radialGradient id="hGradDays_11-gujarati-lagan-mandvo" cx="35%" cy="30%" r="70%">
+                  <stop offset="0%" stop-color="#fef08a"/>
+                  <stop offset="35%" stop-color="#facc15"/>
+                  <stop offset="85%" stop-color="#eab308"/>
+                  <stop offset="100%" stop-color="#a16207"/>
+                </radialGradient>
+                <linearGradient id="hGold_11-gujarati-lagan-mandvo" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#fef08a"/>
+                  <stop offset="50%" stop-color="#eab308"/>
+                  <stop offset="100%" stop-color="#854d0e"/>
+                </linearGradient>
+              </defs>
+              <path d="M 50 84 C 18 57 3 38 3 22 C 3 9 13 3 26 3 C 37 3 46 11 50 19 C 54 11 63 3 74 3 C 87 3 97 9 97 22 C 97 38 82 57 50 84 Z"
+                    fill="url(#hGradDays_11-gujarati-lagan-mandvo)" stroke="url(#hGold_11-gujarati-lagan-mandvo)" stroke-width="2.2" filter="drop-shadow(0 6px 12px rgba(0,0,0,0.3))"/>
+              <path d="M 50 78 C 21 53 8 35 8 22 C 8 12 16 6 26 6 C 35 6 44 13 50 21 C 56 13 65 6 74 6 C 84 6 92 12 92 22 C 92 35 79 53 50 78 Z"
+                    fill="none" stroke="rgba(255,255,255,0.45)" stroke-width="1.2"/>
+            </svg>
+            <div class="heart-inner-content">
+              <span class="heart-count-val" id="cdDays">85</span>
+              <span class="heart-count-tag">DAYS</span>
+            </div>
+          </div>
+
+          <!-- HOURS -->
+          <div class="heart-box">
+            <svg viewBox="0 0 100 90" class="heart-box-svg">
+              <defs>
+                <radialGradient id="hGradHours_11-gujarati-lagan-mandvo" cx="35%" cy="30%" r="70%">
+                  <stop offset="0%" stop-color="#fef08a"/>
+                  <stop offset="35%" stop-color="#facc15"/>
+                  <stop offset="85%" stop-color="#eab308"/>
+                  <stop offset="100%" stop-color="#a16207"/>
+                </radialGradient>
+              </defs>
+              <path d="M 50 84 C 18 57 3 38 3 22 C 3 9 13 3 26 3 C 37 3 46 11 50 19 C 54 11 63 3 74 3 C 87 3 97 9 97 22 C 97 38 82 57 50 84 Z"
+                    fill="url(#hGradHours_11-gujarati-lagan-mandvo)" stroke="url(#hGold_11-gujarati-lagan-mandvo)" stroke-width="2.2" filter="drop-shadow(0 6px 12px rgba(0,0,0,0.3))"/>
+              <path d="M 50 78 C 21 53 8 35 8 22 C 8 12 16 6 26 6 C 35 6 44 13 50 21 C 56 13 65 6 74 6 C 84 6 92 12 92 22 C 92 35 79 53 50 78 Z"
+                    fill="none" stroke="rgba(255,255,255,0.45)" stroke-width="1.2"/>
+            </svg>
+            <div class="heart-inner-content">
+              <span class="heart-count-val" id="cdHours">09</span>
+              <span class="heart-count-tag">HOURS</span>
+            </div>
+          </div>
+
+          <!-- MINUTES -->
+          <div class="heart-box">
+            <svg viewBox="0 0 100 90" class="heart-box-svg">
+              <defs>
+                <radialGradient id="hGradMins_11-gujarati-lagan-mandvo" cx="35%" cy="30%" r="70%">
+                  <stop offset="0%" stop-color="#fef08a"/>
+                  <stop offset="35%" stop-color="#facc15"/>
+                  <stop offset="85%" stop-color="#eab308"/>
+                  <stop offset="100%" stop-color="#a16207"/>
+                </radialGradient>
+              </defs>
+              <path d="M 50 84 C 18 57 3 38 3 22 C 3 9 13 3 26 3 C 37 3 46 11 50 19 C 54 11 63 3 74 3 C 87 3 97 9 97 22 C 97 38 82 57 50 84 Z"
+                    fill="url(#hGradMins_11-gujarati-lagan-mandvo)" stroke="url(#hGold_11-gujarati-lagan-mandvo)" stroke-width="2.2" filter="drop-shadow(0 6px 12px rgba(0,0,0,0.3))"/>
+              <path d="M 50 78 C 21 53 8 35 8 22 C 8 12 16 6 26 6 C 35 6 44 13 50 21 C 56 13 65 6 74 6 C 84 6 92 12 92 22 C 92 35 79 53 50 78 Z"
+                    fill="none" stroke="rgba(255,255,255,0.45)" stroke-width="1.2"/>
+            </svg>
+            <div class="heart-inner-content">
+              <span class="heart-count-val" id="cdMinutes">58</span>
+              <span class="heart-count-tag">MINUTES</span>
+            </div>
+          </div>
+
+          <!-- SECONDS -->
+          <div class="heart-box">
+            <svg viewBox="0 0 100 90" class="heart-box-svg">
+              <defs>
+                <radialGradient id="hGradSecs_11-gujarati-lagan-mandvo" cx="35%" cy="30%" r="70%">
+                  <stop offset="0%" stop-color="#fef08a"/>
+                  <stop offset="35%" stop-color="#facc15"/>
+                  <stop offset="85%" stop-color="#eab308"/>
+                  <stop offset="100%" stop-color="#a16207"/>
+                </radialGradient>
+              </defs>
+              <path d="M 50 84 C 18 57 3 38 3 22 C 3 9 13 3 26 3 C 37 3 46 11 50 19 C 54 11 63 3 74 3 C 87 3 97 9 97 22 C 97 38 82 57 50 84 Z"
+                    fill="url(#hGradSecs_11-gujarati-lagan-mandvo)" stroke="url(#hGold_11-gujarati-lagan-mandvo)" stroke-width="2.2" filter="drop-shadow(0 6px 12px rgba(0,0,0,0.3))"/>
+              <path d="M 50 78 C 21 53 8 35 8 22 C 8 12 16 6 26 6 C 35 6 44 13 50 21 C 56 13 65 6 74 6 C 84 6 92 12 92 22 C 92 35 79 53 50 78 Z"
+                    fill="none" stroke="rgba(255,255,255,0.45)" stroke-width="1.2"/>
+            </svg>
+            <div class="heart-inner-content">
+              <span class="heart-count-val" id="cdSeconds">45</span>
+              <span class="heart-count-tag">SECONDS</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
