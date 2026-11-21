@@ -45,30 +45,193 @@ body {
   min-height: 100vh;
 }
 
+/* Persistent Luxury Navigation Top Bar */
+.top-nav-bar {
+  position: fixed;
+  top: 14px;
+  left: 14px;
+  right: 14px;
+  z-index: 9999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+}
+.nav-actions-group {
+  display: flex;
+  gap: 8px;
+  pointer-events: auto;
+}
+.nav-pill-btn {
+  background: rgba(45, 0, 10, 0.78);
+  border: 1px solid rgba(212, 175, 55, 0.55);
+  backdrop-filter: blur(10px);
+  color: var(--gold-l);
+  font-family: var(--serif);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  padding: 8px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  transition: all .25s ease;
+  text-decoration: none;
+}
+.nav-pill-btn:hover {
+  transform: translateY(-2px);
+  border-color: var(--gold-l);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+  color: #FFF;
+}
+
 /* Sound Controller Top-Right */
 .audio-ctrl-btn {
-  position: fixed;
-  top: 18px;
-  right: 18px;
-  z-index: 9999;
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  background: rgba(30, 0, 8, 0.75);
-  border: 1px solid rgba(212, 175, 55, 0.5);
+  background: rgba(45, 0, 10, 0.78);
+  border: 1px solid rgba(212, 175, 55, 0.55);
   backdrop-filter: blur(10px);
   color: var(--gold-l);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
+  font-size: 16px;
   cursor: pointer;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+  pointer-events: auto;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
   transition: all .25s ease;
 }
 .audio-ctrl-btn:hover {
   transform: scale(1.08);
   border-color: var(--gold-l);
+}
+
+/* ================= 1. INVITATION CREATOR FORM SCREEN ================= */
+.creator-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 8000;
+  background: radial-gradient(circle at 50% 25%, #6a0410 0%, #3d000a 60%, #1a0004 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 16px 30px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  transition: opacity .6s cubic-bezier(0.4, 0, 0.2, 1), visibility .6s;
+}
+.creator-screen.creator-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.creator-card {
+  width: 100%;
+  max-width: 540px;
+  background: rgba(35, 0, 8, 0.92);
+  border: 2px solid var(--gold);
+  border-radius: 24px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.85), 0 0 30px rgba(212, 175, 55, 0.35);
+  padding: 30px 24px;
+  box-sizing: border-box;
+  color: #FFF;
+  margin: auto;
+  position: relative;
+}
+.creator-header {
+  text-align: center;
+  margin-bottom: 22px;
+}
+.creator-title {
+  font-family: var(--serif);
+  font-size: 26px;
+  color: var(--gold-l);
+  margin: 0 0 6px;
+  letter-spacing: 1px;
+}
+.creator-subtitle {
+  font-size: 13px;
+  color: #FFCCD4;
+  margin: 0;
+  line-height: 1.45;
+}
+
+.form-field-grp {
+  margin-bottom: 15px;
+  text-align: left;
+}
+.form-field-grp label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  color: var(--gold-l);
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+.form-field-grp input, .form-field-grp textarea, .form-field-grp select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  border-radius: 10px;
+  color: #FFF;
+  font-size: 14px;
+  outline: none;
+  transition: border-color .2s;
+}
+.form-field-grp input:focus, .form-field-grp textarea:focus {
+  border-color: var(--gold-l);
+  background: rgba(255, 255, 255, 0.12);
+}
+.form-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.btn-generate-luxe {
+  width: 100%;
+  background: linear-gradient(135deg, #FFF0A0, #D4AF37 55%, #8C6212);
+  color: #240206;
+  font-family: var(--serif);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border: none;
+  border-radius: 999px;
+  padding: 14px 24px;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.6), 0 0 20px rgba(212,175,55,0.5);
+  transition: all .25s ease;
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.btn-generate-luxe:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(212,175,55,0.7);
+}
+.btn-direct-view {
+  background: none;
+  border: none;
+  color: #FFCCD4;
+  font-size: 12.5px;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-top: 12px;
+  display: block;
+  width: 100%;
+  text-align: center;
 }
 
 /* Floating Auto-Play / Auto-Scroll Button */
@@ -791,10 +954,91 @@ body {
 </head>
 <body>
 
-<!-- Audio Controller -->
-<button type="button" class="audio-ctrl-btn" id="audioToggle" title="Play / Mute Music" aria-label="Toggle Romantic Music">
-  🎵
-</button>
+<!-- Persistent Top Navigation Toolbar -->
+<nav class="top-nav-bar">
+  <div class="nav-actions-group">
+    <button type="button" class="nav-pill-btn" id="btnOpenForm" onclick="showCreatorForm()">
+      ✎ Edit Invitation Form
+    </button>
+    <button type="button" class="nav-pill-btn" onclick="replayRibbonExperience()">
+      🔄 Replay Ribbon Box
+    </button>
+  </div>
+  <div class="nav-actions-group">
+    <button type="button" class="nav-pill-btn" onclick="openSendModal()">
+      📤 Send via WhatsApp
+    </button>
+    <button type="button" class="audio-ctrl-btn" id="audioToggle" title="Play / Mute Music" aria-label="Toggle Romantic Music">🎵</button>
+  </div>
+</nav>
+
+<!-- ================= 1. INVITATION CREATOR FORM SCREEN ================= -->
+<div class="creator-screen" id="creatorScreen">
+  <div class="creator-card">
+    <div class="creator-header">
+      <div style="font-size:32px;margin-bottom:4px;">🎀</div>
+      <h2 class="creator-title">Customize Cartier Ribbon Box</h2>
+      <p class="creator-subtitle">Fill in your wedding details below. Tap <b>"Create &amp; Open My 3D Invitation"</b> to generate your bespoke untying ribbon and French doors reveal.</p>
+    </div>
+
+    <form id="templateCreatorForm" onsubmit="handleCreatorSubmit(event)">
+      <div class="form-row-2">
+        <div class="form-field-grp">
+          <label>Bride's Name *</label>
+          <input type="text" id="fBrideName" value="Madeleine" required placeholder="e.g. Madeleine">
+        </div>
+        <div class="form-field-grp">
+          <label>Groom's Name *</label>
+          <input type="text" id="fGroomName" value="Vittorio" required placeholder="e.g. Vittorio">
+        </div>
+      </div>
+
+      <div class="form-field-grp">
+        <label>Grand Wedding Title</label>
+        <input type="text" id="fGrandTitle" value="CELEBRATION OF OUR ETERNAL LOVE" placeholder="e.g. CELEBRATION OF OUR ETERNAL LOVE">
+      </div>
+
+      <div class="form-row-2">
+        <div class="form-field-grp">
+          <label>Wedding Date *</label>
+          <input type="text" id="fWeddingDate" value="Saturday, 19th June 2027" required placeholder="e.g. Saturday, 19th June 2027">
+        </div>
+        <div class="form-field-grp">
+          <label>Wedding Time</label>
+          <input type="text" id="fWeddingTime" value="4:00 PM" placeholder="e.g. 4:00 PM">
+        </div>
+      </div>
+
+      <div class="form-field-grp">
+        <label>Venue Name &amp; City *</label>
+        <input type="text" id="fVenueName" value="The Grand Chandelier Ballroom, Lake Como" required placeholder="e.g. The Grand Chandelier Ballroom, Lake Como">
+      </div>
+
+      <div class="form-field-grp">
+        <label>Venue Address</label>
+        <input type="text" id="fVenueAddress" value="Via Regina 40, 22012 Cernobbio, Lake Como, Italy" placeholder="Detailed address for navigation">
+      </div>
+
+      <div class="form-field-grp">
+        <label>Personal Love Letter / Note</label>
+        <textarea id="fLoveLetter" rows="3" placeholder="Write your heartfelt note to family and friends...">we are getting married, and we want the people we love most in the front row.</textarea>
+      </div>
+
+      <div class="form-field-grp">
+        <label>RSVP WhatsApp Number</label>
+        <input type="tel" id="fRsvpNumber" value="9876543210" placeholder="10-digit number for WhatsApp RSVPs">
+      </div>
+
+      <button type="submit" class="btn-generate-luxe">
+        ✨ Create &amp; Open My 3D Invitation 💌
+      </button>
+
+      <button type="button" class="btn-direct-view" onclick="closeCreatorAndReveal()">
+        👁️ View Current 3D Invitation Directly
+      </button>
+    </form>
+  </div>
+</div>
 
 <!-- Floating Auto-Scroll Button -->
 <button type="button" class="autoscroll-btn" id="autoScrollBtn" title="Toggle Auto-Scroll">
@@ -836,7 +1080,7 @@ body {
             <div class="mono-ring m-left"></div>
             <div class="mono-ring m-right"></div>
           </div>
-          <div class="monogram-branches">❦ ❧</div>
+          <div class="monogram-branches" id="doorInitials">❦ ❧</div>
         </div>
       </div>
 
@@ -897,7 +1141,7 @@ body {
   <section class="story-slide slide-letter" id="slide1">
     <div class="letter-script-header">A letter</div>
     <div class="letter-subhead">Dear family &amp; friends,</div>
-    <div class="letter-quote-body">
+    <div class="letter-quote-body" id="letterQuoteBody">
       we are getting married, and we want the people we love most in the front row.
     </div>
     <div class="letter-signature" id="letterSignature">
@@ -938,7 +1182,7 @@ body {
     <div class="evening-script-title">The evening</div>
 
     <div class="evening-timeline-item">
-      <div class="evening-time">4:00 pm</div>
+      <div class="evening-time" id="ceremonyTimeDisplay">4:00 pm</div>
       <h3 class="evening-event-name">The vows</h3>
       <p class="evening-event-desc">Beneath the grand crystal chandelier, in front of everyone we love.</p>
     </div>
@@ -1063,35 +1307,140 @@ body {
 var weddingConfig = {
   bride: "Madeleine",
   groom: "Vittorio",
+  grandTitle: "CELEBRATION OF OUR ETERNAL LOVE",
   date: "Saturday, 19th June 2027",
-  venue: "The Grand Chandelier Ballroom, Lake Como"
+  time: "4:00 PM",
+  venue: "The Grand Chandelier Ballroom, Lake Como",
+  venueAddress: "Via Regina 40, 22012 Cernobbio, Lake Como, Italy",
+  letterBody: "we are getting married, and we want the people we love most in the front row.",
+  rsvpPhone: "9876543210"
 };
+
+function applyConfigToDom() {
+  var couple = weddingConfig.bride + " & " + weddingConfig.groom;
+  var elCoverNames = document.getElementById('coverCoupleNames');
+  if (elCoverNames) elCoverNames.textContent = couple;
+  
+  var elBride = document.getElementById('brideNameDisplay');
+  if (elBride) elBride.textContent = weddingConfig.bride;
+
+  var elGroom = document.getElementById('groomNameDisplay');
+  if (elGroom) elGroom.textContent = weddingConfig.groom;
+
+  var elSig = document.getElementById('letterSignature');
+  if (elSig) elSig.textContent = couple;
+
+  var elLetter = document.getElementById('letterQuoteBody');
+  if (elLetter) elLetter.textContent = weddingConfig.letterBody;
+
+  var elDate = document.getElementById('weddingDateDisplay');
+  if (elDate) elDate.textContent = weddingConfig.date;
+
+  var elSealDate = document.getElementById('sealDateBig');
+  if (elSealDate) elSealDate.textContent = weddingConfig.date;
+
+  var elVenue = document.getElementById('weddingVenueDisplay');
+  if (elVenue) elVenue.textContent = weddingConfig.venue.toUpperCase();
+
+  var elTime = document.getElementById('ceremonyTimeDisplay');
+  if (elTime) elTime.textContent = weddingConfig.time;
+
+  var elInitials = document.getElementById('doorInitials');
+  if (elInitials) {
+    elInitials.textContent = (weddingConfig.bride.charAt(0) || "M") + " ❦ " + (weddingConfig.groom.charAt(0) || "V");
+  }
+
+  document.title = couple + " — Cartier Red Velvet Ribbon Wedding Invitation";
+
+  // Pre-fill form values
+  if (document.getElementById('fBrideName')) document.getElementById('fBrideName').value = weddingConfig.bride;
+  if (document.getElementById('fGroomName')) document.getElementById('fGroomName').value = weddingConfig.groom;
+  if (document.getElementById('fGrandTitle')) document.getElementById('fGrandTitle').value = weddingConfig.grandTitle;
+  if (document.getElementById('fWeddingDate')) document.getElementById('fWeddingDate').value = weddingConfig.date;
+  if (document.getElementById('fWeddingTime')) document.getElementById('fWeddingTime').value = weddingConfig.time;
+  if (document.getElementById('fVenueName')) document.getElementById('fVenueName').value = weddingConfig.venue;
+  if (document.getElementById('fVenueAddress')) document.getElementById('fVenueAddress').value = weddingConfig.venueAddress;
+  if (document.getElementById('fLoveLetter')) document.getElementById('fLoveLetter').value = weddingConfig.letterBody;
+  if (document.getElementById('fRsvpNumber')) document.getElementById('fRsvpNumber').value = weddingConfig.rsvpPhone;
+}
 
 try {
   var saved = localStorage.getItem('gv_active_invite');
   if (saved) {
     var p = JSON.parse(saved);
-    if (p.bride) weddingConfig.bride = p.bride;
-    if (p.groom) weddingConfig.groom = p.groom;
-    if (p.date) weddingConfig.date = p.date;
+    if (p.bride_name || p.bride) weddingConfig.bride = p.bride_name || p.bride;
+    if (p.groom_name || p.groom) weddingConfig.groom = p.groom_name || p.groom;
+    if (p.occasion_title) weddingConfig.grandTitle = p.occasion_title;
+    if (p.event_date || p.date) weddingConfig.date = p.event_date || p.date;
     if (p.venue) weddingConfig.venue = p.venue;
+    if (p.venue_address) weddingConfig.venueAddress = p.venue_address;
+    if (p.rsvp_whatsapp) weddingConfig.rsvpPhone = p.rsvp_whatsapp;
   }
 } catch (e) {}
 
-var params = new URLSearchParams(window.location.search);
-if (params.get('bride')) weddingConfig.bride = params.get('bride');
-if (params.get('groom')) weddingConfig.groom = params.get('groom');
-if (params.get('date')) weddingConfig.date = params.get('date');
-if (params.get('venue')) weddingConfig.venue = params.get('venue');
+var urlParams = new URLSearchParams(window.location.search);
+if (urlParams.get('bride')) weddingConfig.bride = urlParams.get('bride');
+if (urlParams.get('groom')) weddingConfig.groom = urlParams.get('groom');
+if (urlParams.get('date')) weddingConfig.date = urlParams.get('date');
+if (urlParams.get('venue')) weddingConfig.venue = urlParams.get('venue');
 
-document.getElementById('coverCoupleNames').textContent = weddingConfig.bride + " & " + weddingConfig.groom;
-document.getElementById('brideNameDisplay').textContent = weddingConfig.bride;
-document.getElementById('groomNameDisplay').textContent = weddingConfig.groom;
-document.getElementById('letterSignature').textContent = weddingConfig.bride + " & " + weddingConfig.groom;
-document.getElementById('weddingDateDisplay').textContent = weddingConfig.date;
-document.getElementById('sealDateBig').textContent = weddingConfig.date;
-document.getElementById('weddingVenueDisplay').textContent = weddingConfig.venue.toUpperCase();
-document.title = weddingConfig.bride + " & " + weddingConfig.groom + " — Cartier Velvet Ribbon Wedding Invitation";
+applyConfigToDom();
+
+// ================= FORM CONTROLLER =================
+var creatorScreen = document.getElementById('creatorScreen');
+var marbleStage = document.getElementById('marbleStage');
+var hasViewFlag = urlParams.has('view') || urlParams.has('to') || urlParams.has('guest');
+
+if (hasViewFlag) {
+  creatorScreen.classList.add('creator-hidden');
+}
+
+function showCreatorForm() {
+  creatorScreen.classList.remove('creator-hidden');
+  marbleStage.classList.remove('stage-hidden');
+  resetRibbonBoxState();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function closeCreatorAndReveal() {
+  creatorScreen.classList.add('creator-hidden');
+}
+
+function handleCreatorSubmit(e) {
+  e.preventDefault();
+  weddingConfig.bride = document.getElementById('fBrideName').value.trim() || "Madeleine";
+  weddingConfig.groom = document.getElementById('fGroomName').value.trim() || "Vittorio";
+  weddingConfig.grandTitle = document.getElementById('fGrandTitle').value.trim() || "CELEBRATION OF OUR ETERNAL LOVE";
+  weddingConfig.date = document.getElementById('fWeddingDate').value.trim() || "Saturday, 19th June 2027";
+  weddingConfig.time = document.getElementById('fWeddingTime').value.trim() || "4:00 PM";
+  weddingConfig.venue = document.getElementById('fVenueName').value.trim() || "The Grand Chandelier Ballroom, Lake Como";
+  weddingConfig.venueAddress = document.getElementById('fVenueAddress').value.trim();
+  weddingConfig.letterBody = document.getElementById('fLoveLetter').value.trim() || "we are getting married, and we want the people we love most in the front row.";
+  weddingConfig.rsvpPhone = document.getElementById('fRsvpNumber').value.trim();
+
+  try {
+    localStorage.setItem('gv_active_invite', JSON.stringify({
+      bride_name: weddingConfig.bride,
+      groom_name: weddingConfig.groom,
+      occasion_title: weddingConfig.grandTitle,
+      event_date: weddingConfig.date,
+      venue: weddingConfig.venue,
+      venue_address: weddingConfig.venueAddress,
+      rsvp_whatsapp: weddingConfig.rsvpPhone
+    }));
+  } catch (_) {}
+
+  applyConfigToDom();
+  burstPetals();
+  playRomanticChime();
+
+  // Hide creator form with smooth fade
+  creatorScreen.classList.add('creator-hidden');
+
+  // Reset ribbon box state and automatically trigger untying & opening
+  resetRibbonBoxState();
+  setTimeout(openRibbonBox, 500);
+}
 
 // ================= AUDIO ENGINE =================
 var audioCtx = null;
@@ -1152,6 +1501,22 @@ var acrylicCard = document.getElementById('acrylicCard');
 var marbleStage = document.getElementById('marbleStage');
 var boxScene = document.getElementById('ribbonBoxScene');
 var skipBtn = document.getElementById('skipStageBtn');
+
+function resetRibbonBoxState() {
+  stageOpened = false;
+  ribbonWrap.classList.remove('is-untying');
+  doorLeft.classList.remove('is-open');
+  doorRight.classList.remove('is-open');
+  acrylicCard.classList.remove('is-elevated');
+  marbleStage.classList.remove('stage-hidden');
+  document.getElementById('coverActionText').textContent = "TAP TO UNTIE RIBBON & OPEN";
+}
+
+function replayRibbonExperience() {
+  creatorScreen.classList.add('creator-hidden');
+  resetRibbonBoxState();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 
 function openRibbonBox() {
   if (stageOpened) return;
@@ -1345,7 +1710,7 @@ function closeSendModal() {
 function getCleanUrl() {
   var href = window.location.href.split('#')[0].split('?')[0];
   var guest = document.getElementById('targetGuestName').value.trim();
-  return href + (guest ? '?to=' + encodeURIComponent(guest) : '');
+  return href + '?view=created' + (guest ? '&to=' + encodeURIComponent(guest) : '');
 }
 
 function sendViaWhatsApp() {

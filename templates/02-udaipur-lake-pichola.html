@@ -47,31 +47,70 @@ body {
   min-height: 100vh;
 }
 
+/* Persistent Luxury Navigation Top Bar */
+.top-nav-bar {
+  position: fixed;
+  top: 14px;
+  left: 14px;
+  right: 14px;
+  z-index: 9999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+}
+.nav-actions-group {
+  display: flex;
+  gap: 8px;
+  pointer-events: auto;
+}
+.nav-pill-btn {
+  background: rgba(30, 2, 6, 0.75);
+  border: 1px solid rgba(212, 175, 55, 0.55);
+  backdrop-filter: blur(10px);
+  color: var(--gold-l);
+  font-family: var(--serif);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  padding: 8px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  transition: all .25s ease;
+  text-decoration: none;
+}
+.nav-pill-btn:hover {
+  transform: translateY(-2px);
+  border-color: var(--gold-l);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+  color: #FFF;
+}
+
 /* Sound Controller Top-Right */
 .audio-ctrl-btn {
-  position: fixed;
-  top: 18px;
-  right: 18px;
-  z-index: 9999;
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  background: rgba(40, 2, 6, 0.65);
-  border: 1px solid rgba(212, 175, 55, 0.5);
+  background: rgba(30, 2, 6, 0.75);
+  border: 1px solid rgba(212, 175, 55, 0.55);
   backdrop-filter: blur(10px);
   color: var(--gold-l);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
+  font-size: 16px;
   cursor: pointer;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+  pointer-events: auto;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
   transition: all .25s ease;
 }
 .audio-ctrl-btn:hover {
   transform: scale(1.08);
   border-color: var(--gold-l);
-  box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
 }
 
 /* Auto-Scroll Floating Pill */
@@ -101,7 +140,130 @@ body {
   box-shadow: 0 8px 25px rgba(212,175,55,0.5);
 }
 
-/* ================= 3D VELVET BOX OVERLAY STAGE ================= */
+/* ================= 1. INVITATION CREATOR FORM SCREEN ================= */
+.creator-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 8000;
+  background: radial-gradient(circle at 50% 25%, #5e0711 0%, #360207 60%, #170003 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 16px 30px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  transition: opacity .6s cubic-bezier(0.4, 0, 0.2, 1), visibility .6s;
+}
+.creator-screen.creator-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.creator-card {
+  width: 100%;
+  max-width: 540px;
+  background: rgba(35, 3, 7, 0.88);
+  border: 2px solid var(--gold);
+  border-radius: 24px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.85), 0 0 30px rgba(212, 175, 55, 0.35);
+  padding: 30px 24px;
+  box-sizing: border-box;
+  color: #FFF;
+  margin: auto;
+  position: relative;
+}
+.creator-header {
+  text-align: center;
+  margin-bottom: 22px;
+}
+.creator-title {
+  font-family: var(--serif);
+  font-size: 26px;
+  color: var(--gold-l);
+  margin: 0 0 6px;
+  letter-spacing: 1px;
+}
+.creator-subtitle {
+  font-size: 13px;
+  color: #E6D0BE;
+  margin: 0;
+  line-height: 1.45;
+}
+
+.form-field-grp {
+  margin-bottom: 15px;
+  text-align: left;
+}
+.form-field-grp label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  color: var(--gold-l);
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+.form-field-grp input, .form-field-grp textarea, .form-field-grp select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  border-radius: 10px;
+  color: #FFF;
+  font-size: 14px;
+  outline: none;
+  transition: border-color .2s;
+}
+.form-field-grp input:focus, .form-field-grp textarea:focus {
+  border-color: var(--gold-l);
+  background: rgba(255, 255, 255, 0.12);
+}
+.form-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.btn-generate-luxe {
+  width: 100%;
+  background: linear-gradient(135deg, #FFF0A0, #D4AF37 55%, #8C6212);
+  color: #240206;
+  font-family: var(--serif);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border: none;
+  border-radius: 999px;
+  padding: 14px 24px;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.6), 0 0 20px rgba(212,175,55,0.5);
+  transition: all .25s ease;
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.btn-generate-luxe:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(212,175,55,0.7);
+}
+.btn-direct-view {
+  background: none;
+  border: none;
+  color: #E8D0B8;
+  font-size: 12.5px;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-top: 12px;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+/* ================= 2. 3D VELVET BOX OVERLAY STAGE ================= */
 .velvet-stage {
   position: fixed;
   inset: 0;
@@ -431,12 +593,12 @@ body {
   box-shadow: 0 25px 40px rgba(0,0,0,0.75), 0 0 30px rgba(247, 208, 112, 0.6);
 }
 
-/* ================= INVITATION MAIN STAGE ================= */
+/* ================= 3. INVITATION MAIN STAGE ================= */
 .inv-main-wrap {
   width: 100%;
   max-width: 760px;
   margin: 0 auto;
-  padding: 30px 16px 100px;
+  padding: 70px 16px 100px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -592,7 +754,7 @@ body {
   text-transform: uppercase;
 }
 
-/* ================= SECTION CONTAINERS ================= */
+/* Section Containers */
 .sec-card {
   width: min(92%, 580px);
   margin: 20px auto;
@@ -790,10 +952,24 @@ body {
 </head>
 <body>
 
-<!-- Romantic Audio Player -->
-<button type="button" class="audio-ctrl-btn" id="audioToggle" title="Play / Mute Music" aria-label="Toggle Romantic Music">
-  🎵
-</button>
+<!-- Persistent Top Navigation Toolbar -->
+<nav class="top-nav-bar">
+  <div class="nav-actions-group">
+    <button type="button" class="nav-pill-btn" id="btnOpenForm" onclick="showCreatorForm()">
+      ✎ Edit Invitation Form
+    </button>
+    <button type="button" class="nav-pill-btn" onclick="replayBoxExperience()">
+      🔄 Replay 3D Box
+    </button>
+    <button type="button" class="nav-pill-btn" onclick="openSendModal()">
+      📤 Send via WhatsApp
+    </button>
+  </div>
+  
+  <button type="button" class="audio-ctrl-btn" id="audioToggle" title="Play / Mute Music" aria-label="Toggle Romantic Music">
+    🎵
+  </button>
+</nav>
 
 <!-- Auto-Scroll Floating Pill -->
 <button type="button" class="autoscroll-btn" id="autoScrollBtn" title="Toggle Auto-Scroll">
@@ -803,7 +979,70 @@ body {
 <!-- Canvas for Golden Sparkles Burst -->
 <canvas id="sparklesCanvas"></canvas>
 
-<!-- ================= 3D VELVET BOX OVERLAY ================= -->
+<!-- ================= 1. INVITATION CREATOR FORM SCREEN ================= -->
+<div class="creator-screen" id="creatorScreen">
+  <div class="creator-card">
+    <div class="creator-header">
+      <div style="font-size:32px;margin-bottom:4px;">💌</div>
+      <h2 class="creator-title">Customize Monogramme Velvet Box</h2>
+      <p class="creator-subtitle">Fill in your wedding details below. Tap <b>"Create &amp; Open My 3D Invitation"</b> to generate your bespoke velvet box reveal.</p>
+    </div>
+
+    <form id="templateCreatorForm" onsubmit="handleCreatorSubmit(event)">
+      <div class="form-row-2">
+        <div class="form-field-grp">
+          <label>Bride's Name *</label>
+          <input type="text" id="fBrideName" value="Margaux" required placeholder="e.g. Margaux">
+        </div>
+        <div class="form-field-grp">
+          <label>Groom's Name *</label>
+          <input type="text" id="fGroomName" value="Vincent" required placeholder="e.g. Vincent">
+        </div>
+      </div>
+
+      <div class="form-field-grp">
+        <label>Grand Wedding Title</label>
+        <input type="text" id="fGrandTitle" value="WE ARE GETTING MARRIED" placeholder="e.g. WE ARE GETTING MARRIED">
+      </div>
+
+      <div class="form-row-2">
+        <div class="form-field-grp">
+          <label>Wedding Date *</label>
+          <input type="text" id="fWeddingDate" value="20 August 2027" required placeholder="e.g. 20 August 2027">
+        </div>
+        <div class="form-field-grp">
+          <label>Wedding Time</label>
+          <input type="text" id="fWeddingTime" value="6:00 PM" placeholder="e.g. 6:00 PM">
+        </div>
+      </div>
+
+      <div class="form-field-grp">
+        <label>Venue Name &amp; City *</label>
+        <input type="text" id="fVenueName" value="The Grand Belle Palace, Udaipur" required placeholder="e.g. The Grand Belle Palace, Udaipur">
+      </div>
+
+      <div class="form-field-grp">
+        <label>Venue Address</label>
+        <input type="text" id="fVenueAddress" value="Lake Palace Road, Udaipur, Rajasthan 313001" placeholder="Detailed address for navigation">
+      </div>
+
+      <div class="form-field-grp">
+        <label>RSVP WhatsApp Number</label>
+        <input type="tel" id="fRsvpNumber" value="9876543210" placeholder="10-digit number for WhatsApp RSVPs">
+      </div>
+
+      <button type="submit" class="btn-generate-luxe">
+        ✨ Create &amp; Open My 3D Invitation 💌
+      </button>
+
+      <button type="button" class="btn-direct-view" onclick="closeCreatorAndReveal()">
+        👁️ View Current 3D Invitation Directly
+      </button>
+    </form>
+  </div>
+</div>
+
+<!-- ================= 2. 3D VELVET BOX OVERLAY ================= -->
 <div class="velvet-stage" id="velvetStage">
   <div class="velvet-drapes"></div>
 
@@ -851,13 +1090,13 @@ body {
 
   <!-- Box Bottom Captions -->
   <div class="box-caption-wrap">
-    <h2 class="couple-script-names" id="coverCoupleNames">Margaux & Vincent</h2>
+    <h2 class="couple-script-names" id="coverCoupleNames">Margaux &amp; Vincent</h2>
     <p class="box-tap-cta" id="coverActionText">TAP TO OPEN YOUR INVITATION</p>
     <button type="button" class="skip-pill-btn" id="skipBoxBtn">SKIP</button>
   </div>
 </div>
 
-<!-- ================= MAIN WEDDING INVITATION ================= -->
+<!-- ================= 3. MAIN WEDDING INVITATION ================= -->
 <main class="inv-main-wrap" id="mainInvite">
 
   <div class="arch-card-container">
@@ -871,11 +1110,11 @@ body {
           <div class="arch-ring r-right"></div>
         </div>
 
-        <div class="arch-eyebrow">WE ARE GETTING MARRIED</div>
+        <div class="arch-eyebrow" id="grandTitleDisplay">WE ARE GETTING MARRIED</div>
         
         <h1 class="arch-couple-title">
           <span id="brideNameDisplay">Margaux</span>
-          <span class="arch-couple-amp">&</span>
+          <span class="arch-couple-amp">&amp;</span>
           <span id="groomNameDisplay">Vincent</span>
         </h1>
 
@@ -978,7 +1217,7 @@ body {
       <p style="font-size:13px;color:#E8D8CB;margin:0 0 12px;" id="venueAddressDisplay">
         The Grand Belle Palace, Lake Palace Road, Udaipur, Rajasthan 313001
       </p>
-      <a href="https://maps.google.com/?q=Jag+Mandir+Island+Palace+Udaipur" target="_blank" rel="noopener" class="btn-gold-action">
+      <a id="btnMapsLink" href="https://maps.google.com/?q=Jag+Mandir+Island+Palace+Udaipur" target="_blank" rel="noopener" class="btn-gold-action">
         📍 Open Google Maps Directions
       </a>
     </div>
@@ -993,7 +1232,7 @@ body {
       <form id="rsvpForm" onsubmit="handleRsvpSubmit(event)" style="display:flex;flex-direction:column;gap:12px;text-align:left;">
         <div>
           <label style="font-size:12px;color:var(--gold-l);font-weight:600;display:block;margin-bottom:4px;">Your Full Name</label>
-          <input type="text" id="rsvpGuestName" required placeholder="e.g. Vikram & Priya Sharma" style="width:100%;box-sizing:border-box;padding:10px 12px;background:rgba(255,255,255,0.08);border:1px solid rgba(212,175,55,0.5);border-radius:10px;color:#FFF;font-size:14px;outline:none;">
+          <input type="text" id="rsvpGuestName" required placeholder="e.g. Vikram &amp; Priya Sharma" style="width:100%;box-sizing:border-box;padding:10px 12px;background:rgba(255,255,255,0.08);border:1px solid rgba(212,175,55,0.5);border-radius:10px;color:#FFF;font-size:14px;outline:none;">
         </div>
 
         <div style="display:flex;gap:10px;">
@@ -1089,44 +1328,120 @@ body {
 </div>
 
 <script>
-// Load active configuration from localStorage or query params
+// Wedding config object
 var weddingConfig = {
   bride: "Margaux",
   groom: "Vincent",
+  grandTitle: "WE ARE GETTING MARRIED",
   date: "20 August 2027",
+  time: "6:00 PM",
   venue: "The Grand Belle Palace, Udaipur",
-  city: "Udaipur",
+  venueAddress: "Lake Palace Road, Udaipur, Rajasthan 313001",
+  rsvpPhone: "9876543210",
   targetDate: new Date("2027-08-20T18:00:00")
 };
 
+// Check if visited via created view or guest link
+var urlParams = new URLSearchParams(window.location.search);
+var hasViewFlag = urlParams.get('view') === 'created' || urlParams.get('to') || urlParams.get('bride');
+
+function applyConfigToDom() {
+  document.getElementById('coverCoupleNames').textContent = weddingConfig.bride + " & " + weddingConfig.groom;
+  document.getElementById('brideNameDisplay').textContent = weddingConfig.bride;
+  document.getElementById('groomNameDisplay').textContent = weddingConfig.groom;
+  document.getElementById('grandTitleDisplay').textContent = weddingConfig.grandTitle;
+  document.getElementById('weddingDateDisplay').textContent = weddingConfig.date;
+  document.getElementById('weddingVenueDisplay').textContent = weddingConfig.venue.toUpperCase();
+  document.getElementById('venueAddressDisplay').textContent = weddingConfig.venue + (weddingConfig.venueAddress ? (", " + weddingConfig.venueAddress) : "");
+  document.getElementById('btnMapsLink').href = "https://maps.google.com/?q=" + encodeURIComponent(weddingConfig.venue + " " + weddingConfig.venueAddress);
+  document.title = weddingConfig.bride + " & " + weddingConfig.groom + " — Monogramme Wedding Invitation";
+
+  // Pre-fill creator form with current values
+  document.getElementById('fBrideName').value = weddingConfig.bride;
+  document.getElementById('fGroomName').value = weddingConfig.groom;
+  document.getElementById('fGrandTitle').value = weddingConfig.grandTitle;
+  document.getElementById('fWeddingDate').value = weddingConfig.date;
+  document.getElementById('fWeddingTime').value = weddingConfig.time;
+  document.getElementById('fVenueName').value = weddingConfig.venue;
+  document.getElementById('fVenueAddress').value = weddingConfig.venueAddress;
+}
+
+// Read storage or query parameters
 try {
   var saved = localStorage.getItem('gv_active_invite');
   if (saved) {
     var p = JSON.parse(saved);
-    if (p.bride) weddingConfig.bride = p.bride;
-    if (p.groom) weddingConfig.groom = p.groom;
-    if (p.date) {
-      weddingConfig.date = p.date;
-      var d = new Date(p.date);
+    if (p.bride_name || p.bride) weddingConfig.bride = p.bride_name || p.bride;
+    if (p.groom_name || p.groom) weddingConfig.groom = p.groom_name || p.groom;
+    if (p.occasion_title) weddingConfig.grandTitle = p.occasion_title;
+    if (p.event_date || p.date) {
+      weddingConfig.date = (p.event_date || p.date).replace('T', ' · ');
+      var d = new Date(p.event_date || p.date);
       if (!isNaN(d.getTime())) weddingConfig.targetDate = d;
     }
     if (p.venue) weddingConfig.venue = p.venue;
+    if (p.venue_address) weddingConfig.venueAddress = p.venue_address;
   }
 } catch (e) {}
 
-// Apply to DOM
-var params = new URLSearchParams(window.location.search);
-if (params.get('bride')) weddingConfig.bride = params.get('bride');
-if (params.get('groom')) weddingConfig.groom = params.get('groom');
-if (params.get('date')) weddingConfig.date = params.get('date');
-if (params.get('venue')) weddingConfig.venue = params.get('venue');
+if (urlParams.get('bride')) weddingConfig.bride = urlParams.get('bride');
+if (urlParams.get('groom')) weddingConfig.groom = urlParams.get('groom');
+if (urlParams.get('date')) weddingConfig.date = urlParams.get('date');
+if (urlParams.get('venue')) weddingConfig.venue = urlParams.get('venue');
 
-document.getElementById('coverCoupleNames').textContent = weddingConfig.bride + " & " + weddingConfig.groom;
-document.getElementById('brideNameDisplay').textContent = weddingConfig.bride;
-document.getElementById('groomNameDisplay').textContent = weddingConfig.groom;
-document.getElementById('weddingDateDisplay').textContent = weddingConfig.date;
-document.getElementById('weddingVenueDisplay').textContent = weddingConfig.venue.toUpperCase();
-document.title = weddingConfig.bride + " & " + weddingConfig.groom + " — Monogramme Wedding Invitation";
+applyConfigToDom();
+
+// ================= FORM CONTROLLER =================
+var creatorScreen = document.getElementById('creatorScreen');
+var velvetStage = document.getElementById('velvetStage');
+
+if (hasViewFlag) {
+  creatorScreen.classList.add('creator-hidden');
+}
+
+function showCreatorForm() {
+  creatorScreen.classList.remove('creator-hidden');
+  velvetStage.classList.remove('stage-hidden');
+  resetBoxState();
+}
+
+function closeCreatorAndReveal() {
+  creatorScreen.classList.add('creator-hidden');
+}
+
+function handleCreatorSubmit(e) {
+  e.preventDefault();
+  weddingConfig.bride = document.getElementById('fBrideName').value.trim() || "Bride";
+  weddingConfig.groom = document.getElementById('fGroomName').value.trim() || "Groom";
+  weddingConfig.grandTitle = document.getElementById('fGrandTitle').value.trim() || "WE ARE GETTING MARRIED";
+  weddingConfig.date = document.getElementById('fWeddingDate').value.trim() || "20 August 2027";
+  weddingConfig.time = document.getElementById('fWeddingTime').value.trim() || "6:00 PM";
+  weddingConfig.venue = document.getElementById('fVenueName').value.trim() || "The Grand Palace";
+  weddingConfig.venueAddress = document.getElementById('fVenueAddress').value.trim();
+  weddingConfig.rsvpPhone = document.getElementById('fRsvpNumber').value.trim();
+
+  try {
+    localStorage.setItem('gv_active_invite', JSON.stringify({
+      bride_name: weddingConfig.bride,
+      groom_name: weddingConfig.groom,
+      occasion_title: weddingConfig.grandTitle,
+      event_date: weddingConfig.date,
+      venue: weddingConfig.venue,
+      venue_address: weddingConfig.venueAddress,
+      rsvp_whatsapp: weddingConfig.rsvpPhone
+    }));
+  } catch (_) {}
+
+  applyConfigToDom();
+  triggerSparklesBurst();
+
+  // Hide creator form with smooth fade
+  creatorScreen.classList.add('creator-hidden');
+
+  // Reset and prepare the 3D velvet box for reveal
+  resetBoxState();
+  setTimeout(openBox, 500);
+}
 
 // ================= AUDIO ENGINE =================
 var audioCtx = null;
@@ -1140,7 +1455,6 @@ function playRomanticChime() {
     if (!audioCtx) audioCtx = new AudioCtx();
     if (audioCtx.state === 'suspended') audioCtx.resume();
 
-    // Harp / chime note sequence: C5, E5, G5, B5, C6
     var notes = [523.25, 659.25, 783.99, 987.77, 1046.50];
     notes.forEach(function(freq, idx) {
       setTimeout(function() {
@@ -1165,7 +1479,6 @@ function startAmbientMusic() {
   isPlaying = true;
   document.getElementById('audioToggle').textContent = '🔊';
   playRomanticChime();
-  // Loop gentle background ambient arpeggio every 5 seconds
   audioInterval = setInterval(playRomanticChime, 5200);
 }
 
@@ -1184,9 +1497,21 @@ document.getElementById('audioToggle').addEventListener('click', toggleAudio);
 var boxOpened = false;
 var boxLid = document.getElementById('boxLid');
 var boxCard = document.getElementById('boxCard');
-var velvetStage = document.getElementById('velvetStage');
 var boxScene = document.getElementById('boxScene');
 var skipBtn = document.getElementById('skipBoxBtn');
+
+function resetBoxState() {
+  boxOpened = false;
+  boxLid.classList.remove('is-open');
+  boxCard.classList.remove('card-elevated');
+  velvetStage.classList.remove('stage-hidden');
+  document.getElementById('coverActionText').textContent = "TAP TO OPEN YOUR INVITATION";
+}
+
+function replayBoxExperience() {
+  creatorScreen.classList.add('creator-hidden');
+  resetBoxState();
+}
 
 function openBox() {
   if (boxOpened) return;
@@ -1219,11 +1544,8 @@ function revealInvitation() {
 }
 
 boxScene.addEventListener('click', function() {
-  if (!boxOpened) {
-    openBox();
-  } else {
-    revealInvitation();
-  }
+  if (!boxOpened) openBox();
+  else revealInvitation();
 });
 
 skipBtn.addEventListener('click', function(e) {
@@ -1363,7 +1685,7 @@ function closeSendModal() {
 function getCleanUrl() {
   var href = window.location.href.split('#')[0].split('?')[0];
   var guest = document.getElementById('targetGuestName').value.trim();
-  return href + (guest ? '?to=' + encodeURIComponent(guest) : '');
+  return href + '?view=created' + (guest ? '&to=' + encodeURIComponent(guest) : '');
 }
 
 function sendViaWhatsApp() {
