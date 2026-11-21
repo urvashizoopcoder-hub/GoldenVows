@@ -330,10 +330,14 @@
     var scratchD = $('#scratchDateTitle'); if (scratchD) scratchD.textContent = dateFormal;
     var scratchV = $('#scratchVenueSubtitle') || $('.unveiled-time-venue');
     if (scratchV) scratchV.textContent = (d.event_time ? d.event_time + ' · ' : '7:00 PM · ') + ven;
+    var sGName = $('#scratchGroomName'); if (sGName) sGName.textContent = gName;
+    var sBName = $('#scratchBrideName'); if (sBName) sBName.textContent = bName;
 
     // Photos
     if (photos.groom_photo && $('#displayGroomPhoto')) $('#displayGroomPhoto').src = photos.groom_photo;
     if (photos.bride_photo && $('#displayBridePhoto')) $('#displayBridePhoto').src = photos.bride_photo;
+    if (photos.groom_photo && $('#scratchGroomImg')) $('#scratchGroomImg').src = photos.groom_photo;
+    if (photos.bride_photo && $('#scratchBrideImg')) $('#scratchBrideImg').src = photos.bride_photo;
 
     // 6. Timeline Sacred Functions
     var timelineGrid = $('.timeline-grid') || $('#timelineGrid');
