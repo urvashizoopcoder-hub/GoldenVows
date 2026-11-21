@@ -81,7 +81,7 @@
     $$('.palette-card').forEach(function (card) {
       card.classList.toggle('active', card.getAttribute('data-pal') === palName);
     });
-    schedulePreview();
+    runPreview();
   }
 
   /* ---------- Load Data Into Form ---------- */
@@ -213,27 +213,34 @@
   }
 
   /* ---------- Live Preview Scheduler ---------- */
-  function schedulePreview() {
+  function schedulePreview(skipOpener) {
     clearTimeout(pvTimer);
-    pvTimer = setTimeout(runPreview, 450);
+    pvTimer = setTimeout(function () {
+      runPreview(skipOpener);
+    }, 400);
   }
 
-  function runPreview() {
+  function runPreview(skipOpener) {
     var d = collectData();
     try {
       localStorage.setItem(DRAFT_KEY, JSON.stringify(d));
+      localStorage.setItem('gv_active_invite', JSON.stringify(d));
     } catch (_) {}
 
     if (!window.JFYCodec) return;
 
+    var skipVal = (skipOpener === false) ? '0' : '1';
     window.JFYCodec.encode(d).then(function (s) {
       var f = $('#pv');
       if (!f) return;
       var y = 0;
       try { y = Math.round(f.contentWindow.scrollY || 0); } catch (_) {}
-      f.src = 'invite.html?skip=1&preview=1&music=0&y=' + y + '&r=' + (++pvN) + '#data=' + s;
+      f.src = 'invite.html?skip=' + skipVal + '&preview=1&music=0&y=' + (skipVal === '0' ? 0 : y) + '&r=' + (++pvN) + '#data=' + s;
+      var ext = $('#pvOpenExternal');
+      if (ext) ext.href = 'invite.html#data=' + s;
     });
   }
+  window.replayOpener = function () { runPreview(false); };
 
   /* ---------- Photo Upload Helpers ---------- */
   function syncPhotos() {
@@ -299,6 +306,23 @@
       if (pal) setPalette(pal);
     });
   });
+
+  // Customization select listeners: opening style, view mode, particles
+  if (form.opening_style) {
+    form.opening_style.addEventListener('change', function () {
+      runPreview(false); // immediately show selected opener (Call / Envelope)
+    });
+  }
+  if (form.view_mode) {
+    form.view_mode.addEventListener('change', function () {
+      runPreview();
+    });
+  }
+  if (form.ambient_particles) {
+    form.ambient_particles.addEventListener('change', function () {
+      runPreview();
+    });
+  }
 
 
 

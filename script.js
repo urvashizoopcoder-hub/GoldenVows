@@ -387,22 +387,70 @@
   window.addEventListener('pointermove', function (e) { if (e.pointerType === 'mouse') { tilt.x = (e.clientX / innerWidth - .5) * 2; tilt.y = (e.clientY / innerHeight - .5) * 2; } });
   $$('[data-magic]').forEach(function (b) { b.addEventListener('click', function (e) { e.stopPropagation(); enableTilt(); var r = b.getBoundingClientRect(); burst(r.left + r.width / 2, r.top + r.height / 2, 36); petals.boost(50); if (b.closest('.call')) { /* magic on the call screen also plays music preview */ playMusic(); } }); });
 
+  /* ---------- theme palettes & dynamic styling ---------- */
+  var PALETTES = {
+    'emerald-gold': {
+      '--wine': '#064E3B', '--wine-d': '#022C22', '--rose': '#047857', '--rose-d': '#065F46',
+      '--gold': '#D4AF37', '--gold-l': '#FDE68A', '--blush': '#F6F3EB', '--blush2': '#EFEAD8',
+      '--ivory': '#FCFBF7', '--ink': '#132A13', '--ink-l': '#374151'
+    },
+    'wine-rose': {
+      '--wine': '#831843', '--wine-d': '#500724', '--rose': '#BE185D', '--rose-d': '#9D174D',
+      '--gold': '#EAB308', '--gold-l': '#FEF08A', '--blush': '#FDF2F8', '--blush2': '#FCE7F3',
+      '--ivory': '#FFF1F2', '--ink': '#4C0519', '--ink-l': '#701A35'
+    },
+    'midnight-star': {
+      '--wine': '#1E1B4B', '--wine-d': '#0F0E2A', '--rose': '#4338CA', '--rose-d': '#3730A3',
+      '--gold': '#D97706', '--gold-l': '#FDE68A', '--blush': '#EEF2FF', '--blush2': '#E0E7FF',
+      '--ivory': '#F8FAFC', '--ink': '#1E1B4B', '--ink-l': '#312E81'
+    },
+    'pastel-cloud': {
+      '--wine': '#0284C7', '--wine-d': '#0369A1', '--rose': '#EC4899', '--rose-d': '#DB2777',
+      '--gold': '#FACC15', '--gold-l': '#FEF08A', '--blush': '#FDF2F8', '--blush2': '#F0F9FF',
+      '--ivory': '#FFFFFF', '--ink': '#0C4A6E', '--ink-l': '#1E3A8A'
+    },
+    'terracotta-marigold': {
+      '--wine': '#9A3412', '--wine-d': '#6C2209', '--rose': '#C2410C', '--rose-d': '#9A3412',
+      '--gold': '#EAB308', '--gold-l': '#FEF08A', '--blush': '#FFFBEB', '--blush2': '#FEF3C7',
+      '--ivory': '#FFFDF5', '--ink': '#451A03', '--ink-l': '#78350F'
+    }
+  };
+
+  function applyPalette(palKey) {
+    var p = PALETTES[palKey] || PALETTES['emerald-gold'];
+    var root = document.documentElement;
+    Object.keys(p).forEach(function (k) {
+      root.style.setProperty(k, p[k]);
+    });
+    if (document.body) {
+      document.body.style.backgroundColor = p['--blush2'];
+      document.body.style.color = p['--ink'];
+    }
+  }
+
   /* ---------- dynamic celebration / occasion particles (canvas) ---------- */
   var petals = (function () {
     var c = $('#petals'), x = c.getContext('2d'), P = [], W = 0, H = 0, dpr = Math.min(2, window.devicePixelRatio || 1), extra = 0;
     var occ = (D.occasion_type || 'wedding').toLowerCase();
     var pType = D.ambient_particles || (occ === 'birthday' ? 'confetti' : (occ === 'housewarming' ? 'diyas' : (occ === 'babyshower' ? 'stars' : 'petals')));
+    var palKey = D.theme_palette || 'emerald-gold';
 
-    var cols = ['#f4a7b5', '#ee8fa3', '#f9c5cf', '#e77d93', '#fbd9de']; // default rose petals
-    if (pType === 'confetti' || occ === 'birthday') {
-      // Vibrant celebratory party confetti colors
-      cols = ['#FFD700', '#00E5FF', '#FF1493', '#00E676', '#FFEB3B', '#D500F9', '#FF6D00', '#FFFFFF'];
-    } else if (pType === 'diyas' || occ === 'housewarming') {
-      // Auspicious glowing diya sparks & warm marigold orange/yellow
+    var cols = ['#f4a7b5', '#ee8fa3', '#f9c5cf', '#e77d93', '#fbd9de'];
+    if (palKey === 'terracotta-marigold') {
+      cols = ['#F59E0B', '#D97706', '#B45309', '#FEF08A', '#EA580C'];
+    } else if (palKey === 'emerald-gold') {
+      cols = ['#D4AF37', '#FDE68A', '#FFFFFF', '#047857', '#F6F3EB'];
+    } else if (palKey === 'wine-rose') {
+      cols = ['#831843', '#BE185D', '#EAB308', '#FCE7F3', '#9D174D'];
+    } else if (palKey === 'midnight-star') {
+      cols = ['#FDE68A', '#38BDF8', '#818CF8', '#FFFFFF', '#D97706'];
+    }
+    if (pType === 'lanterns') {
       cols = ['#FFA000', '#FFD54F', '#FF6D00', '#FFE082', '#FF8F00'];
-    } else if (pType === 'stars' || occ === 'babyshower' || occ === 'engagement') {
-      // Starlight & pastel bubbles
-      cols = ['#81D4FA', '#F48FB1', '#FFF59D', '#B39DDB', '#FFFFFF', '#FFE082'];
+    } else if (pType === 'stars') {
+      cols = ['#FDE68A', '#FFFFFF', '#38BDF8', '#FFD700', '#FFF59D'];
+    } else if (pType === 'confetti') {
+      cols = ['#FFD700', '#00E5FF', '#FF1493', '#00E676', '#FFEB3B', '#D500F9', '#FF6D00', '#FFFFFF'];
     }
 
     function size() { W = c.clientWidth; H = c.clientHeight; c.width = W * dpr; c.height = H * dpr; x.setTransform(dpr, 0, 0, dpr, 0, 0); }
@@ -517,6 +565,7 @@
     var occKey = (D.occasion_type || 'wedding').toLowerCase();
     document.body.setAttribute('data-occasion', occKey);
     document.documentElement.setAttribute('data-occasion', occKey);
+    applyPalette(D.theme_palette || 'emerald-gold');
     render(); track(); clock(); setInterval(clock, 15000); tick(); setInterval(tick, 1000);
     $$('.reveal').forEach(function (el) { io.observe(el); });
     parEls = $$('[data-par]'); parEls.forEach(function (el) { el.__k = parseFloat(el.getAttribute('data-par')) || 0; });
@@ -530,7 +579,7 @@
     srcs.forEach(function (s) { var im = new Image(); im.onload = im.onerror = function () { done++; pct = done / srcs.length * 100; if (done === srcs.length) setTimeout(function () { clearInterval(anim); finish(); }, 350); }; im.src = s; });
     setTimeout(function () { if (!$('#loader').classList.contains('is-done')) { clearInterval(anim); finish(); } }, 6000);
     if (Q.get('skip') === '1') { setTimeout(answer, 100); }
-    if (Q.get('preview') === '1') { $('#loader').classList.add('is-done'); var sy = +Q.get('y') || 0; if (sy) setTimeout(function () { window.scrollTo(0, sy); }, 700); }
+    if (Q.get('preview') === '1') { $('#loader').classList.add('is-done'); var sy = +Q.get('y') || 0; if (sy && Q.get('skip') === '1') setTimeout(function () { window.scrollTo(0, sy); }, 700); }
     // Check opening style: envelope vs call
     var opStyle = D.opening_style || 'call';
     if (opStyle === 'envelope' && $('#coverEnv')) {

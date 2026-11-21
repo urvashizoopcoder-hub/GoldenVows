@@ -24,7 +24,7 @@
   background: transparent !important;
 }
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scrollbar-width:none!important;-ms-overflow-style:none!important}
-body{font-family:var(--sans);color:var(--ink);background:#EFEAD8;overflow-x:hidden;min-height:100vh;-webkit-tap-highlight-color:transparent;scrollbar-width:none!important;-ms-overflow-style:none!important}
+body{font-family:var(--sans);color:var(--ink);background:var(--blush2, #EFEAD8);overflow-x:hidden;min-height:100vh;-webkit-tap-highlight-color:transparent;scrollbar-width:none!important;-ms-overflow-style:none!important}
 body.is-locked{overflow:hidden;height:100svh}
 img{display:block;max-width:100%}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}

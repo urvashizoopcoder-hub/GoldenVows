@@ -493,6 +493,14 @@ html::-webkit-scrollbar, body::-webkit-scrollbar, ::-webkit-scrollbar, *::-webki
 
   <!-- ============ LIVE PREVIEW STAGE ============ -->
   <section class="preview" id="preview">
+    <div style="display:flex;gap:8px;margin-bottom:10px;justify-content:center;flex-wrap:wrap;">
+      <button type="button" class="btn" onclick="if(window.replayOpener)window.replayOpener()" style="padding:6px 14px;font-size:12px;background:#FFF;border:1px solid #D4AF37;color:#064E3B;border-radius:999px;font-weight:600;box-shadow:0 2px 6px rgba(0,0,0,0.06);cursor:pointer;">
+        🔄 Replay Opening (Call / Envelope)
+      </button>
+      <a id="pvOpenExternal" href="invite.html" target="_blank" class="btn" style="padding:6px 14px;font-size:12px;background:#064E3B;color:#FDE68A;border-radius:999px;font-weight:600;text-decoration:none;box-shadow:0 2px 6px rgba(0,0,0,0.1);display:inline-flex;align-items:center;gap:4px;">
+        👁️ Open Full Invitation ↗
+      </a>
+    </div>
     <div class="preview-frame">
       <iframe id="pv" title="GoldenVows Invitation Live Preview" scrolling="no"></iframe>
     </div>
