@@ -1,3 +1,62 @@
+
+/* Standard JFY Data for Royal Palace & GoldenVows Invitations */
+window.JFY_DATA = {
+  groom_name: "Ranveer",
+  groom_full_name: "Ranveer Mittal",
+  groom_parents: "Son of Mr. Sunil Mittal & Mrs. Rekha Mittal",
+  bride_name: "Shanaya",
+  bride_full_name: "Shanaya Jindal",
+  bride_parents: "Daughter of Mr. Navin Jindal & Mrs. Savitri Jindal",
+  invite_line: "Together with their families, request the honour of your presence at the wedding celebrations of",
+  invite_message: "With hearts full of joy and the blessings of our elders, we invite you to share in the celebrations of our wedding. Your love and presence will make our day truly complete.",
+  couple_quote: "Two souls, one promise — bound by seven sacred vows and a lifetime of laughter.",
+  closing_quote: "In every lifetime, I would find you and choose you again.",
+  family_signoff: "With warm regards & blessings, The Mittal & Jindal Families",
+  event_date: "2027-11-25T19:00",
+  venue: "The Taj Mahal Palace Ballroom, Mumbai",
+  venue_address: "Apollo Bunder, Colaba, Mumbai, Maharashtra 400001",
+  venue_map_url: "https://www.google.com/maps/search/?api=1&query=The+Taj+Mahal+Palace+Mumbai",
+  hashtag: "#RanveerWedsShanaya",
+  rsvp_whatsapp: "919876543210",
+  rsvp_deadline: "2027-11-15",
+  music_enabled: true,
+  show_gallery: true,
+  events: [
+    {
+      name: "The Sangeet Spectacular",
+      date: "2027-11-24T19:00",
+      venue: "The Crystal Ballroom, Taj Mahal Palace",
+      map_url: "https://www.google.com/maps/search/?api=1&query=The+Taj+Mahal+Palace+Mumbai",
+      dress: "Diamond Sparkle & Royal Velvet",
+      desc: "An evening of celebrity artist performances, Broadway choreography and gala banquet."
+    },
+    {
+      name: "Baraat & Varmala Ceremony",
+      date: "2027-11-25T17:30",
+      venue: "Gateway of India Promenade",
+      map_url: "https://www.google.com/maps/search/?api=1&query=Gateway+of+India+Mumbai",
+      dress: "Royal Indian Aristocratic",
+      desc: "Royal vintage car baraat procession and garland exchange overlooking the harbor."
+    },
+    {
+      name: "Sacred Pheras & Matrimony",
+      date: "2027-11-25T19:30",
+      venue: "Grand Mandap Hall, Taj Mahal Palace",
+      map_url: "https://www.google.com/maps/search/?api=1&query=The+Taj+Mahal+Palace+Mumbai",
+      dress: "Gold Zardozi & Pure Silk",
+      desc: "Sacred seven circumambulations around the holy fire."
+    },
+    {
+      name: "Royal Governors Reception",
+      date: "2027-11-26T20:00",
+      venue: "The Ballroom, Taj Mahal Palace",
+      map_url: "https://www.google.com/maps/search/?api=1&query=The+Taj+Mahal+Palace+Mumbai",
+      dress: "Ultra Formal Black Tie",
+      desc: "Grand banquet, champagne fountains, live 40-piece orchestra, and dancing."
+    }
+  ]
+};
+
 /* GoldenVows Wedding Studio — Bespoke Wedding Preset Themes
  * Exclusively for Weddings: Royal Mandap, Destination Beach, Sacred Temple, Floral Garden, Modern Minimalist, Grand Ballroom
  */
